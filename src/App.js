@@ -9,7 +9,7 @@ import './styles/section_experience.css';
 import './styles/section_project.css';
 import './styles/section_contact.css';
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import dataSkills from './data/skills';
 import dataExperiences from './data/experiences';
@@ -28,6 +28,30 @@ function App() {
   const [skills] = useState(dataSkills);
   const [experiences] = useState(dataExperiences);
   const [projects] = useState(dataProjects);
+
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 120) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll); // Tambahkan event listener
+    return () => {
+      window.removeEventListener('scroll', handleScroll); // Hapus saat komponen dibersihkan
+    };
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
 
   return (
     <div>
@@ -52,6 +76,20 @@ function App() {
       <SectionExperience experiences={experiences} />
       <SectionProject projects={projects} />
       <SectionContact />
+
+      {/* <button id="backToTop">
+        <i className="fa-solid fa-arrow-up" />
+      </button> */}
+      <button
+        id="backToTop"
+        style={{
+          display: isVisible ? 'flex' : 'none'
+        }}
+        onClick={scrollToTop} // Fungsi scroll ke atas
+      >
+        <i className="fa-solid fa-arrow-up" />
+      </button>
+
     </div>
   );
 }
