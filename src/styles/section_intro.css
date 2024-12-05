@@ -1,0 +1,126 @@
+#intro {
+    display: block;
+
+    background-image: url('../assets/background.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: 50% 25%;
+
+    height: 100vh;
+}
+
+#intro .container #content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#intro .container #content #box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 50%;
+    padding: 40px 20px;
+
+    border: 1px;
+    border-radius: 15px;
+    box-shadow: 7px 7px 10px black;
+
+    color: #ffffff;
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.6);
+    /* Black w/opacity/see-through */
+
+    /* Membuat transisi mulus */
+    transition: transform 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+}
+
+#intro .container #content #box:hover {
+    /* zoom in */
+    transform: scale(1.1);
+}
+
+#intro-content {
+    display: inline-block;
+    text-align: center;
+}
+
+
+#intro-content #text-intro #name {
+    display: inline-block;
+    /* Membuat transisi mulus */
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+#intro-content #text-intro #name {
+    font-weight: bolder;
+    font-size: 40px;
+}
+
+#intro-content #text-intro #role {
+    font-style: italic;
+    font-size: 20px;
+}
+
+#intro-content #text-intro #name:hover {
+
+    /* Mengarahkan teks ke atas */
+    transform: translateY(-25px);
+}
+
+#intro-content #redirect {
+    font-size: 45px;
+    /* color: #333; */
+    color: #ffffff;
+    display: inline-block;
+    /* Agar transformasi bekerja dengan baik */
+    transition: transform 0.3s ease, color 0.3s ease;
+
+    margin-top: 15px;
+}
+
+#intro-content #redirect:hover {
+    transform: translateY(15px);
+    /* Mengarahkan teks ke bawah */
+}
+
+@media screen and (max-width:1100px) {
+    #intro .container #content #box:hover {
+        /* padding: 45px 10px 45px 10px; */
+        transition: none;
+    }
+
+    #intro-content #text-intro #name {
+        transition: none;
+    }
+
+    #intro-content #text-intro #name:hover {
+        /* Mengarahkan teks ke atas */
+        transform: none;
+    }
+
+    #intro .container #content #box:hover {
+        /* zoom in */
+        transform: none;
+    }
+
+    #intro .container #content #box {
+        width: 80%;
+    }
+
+    /* #intro-content #text-intro #name {
+        font-size: 3vh;
+    }
+    
+    #intro-content #text-intro #role {
+        font-size: 2vh;
+    } */
+
+    #intro-content #redirect {
+        font-size: 30px;
+    }
+}
