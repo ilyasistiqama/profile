@@ -1,0 +1,132 @@
+#project {
+  background-color: #f6f6f6;
+  display: block;
+  padding: 40px 0 70px 0;
+  height: 100%;
+}
+
+#project .container h2 {
+  text-align: center;
+}
+
+#project .container #content {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 3%;
+  column-gap: 5%;
+  max-width: 100%;
+  padding: 5% 0 10% 0;
+}
+
+#project .container #content .box {
+  border: 3px solid black;
+  border-radius: 8px;
+  box-shadow: 4px 4px 6px black;
+
+  padding: 15px 15px;
+
+  /* Agar transformasi bekerja dengan baik */
+  transition: transform 0.3s ease, color 0.3s ease;
+
+  background-color: #ffffff;
+
+  display: flex;
+  flex-direction: column;
+  column-gap: 10%;
+  justify-content: space-between;
+  /* Memastikan box ada di bawah */
+}
+
+#project .container #content .box:hover {
+  transform: scale(1.1);
+}
+
+#project .container #content .box .box-carousel {
+  border: 2px solid black;
+  border-radius: 5px;
+  box-shadow: 2px 2px 3px black;
+  background-color: black;
+  color: #f6f6f6;
+  display: flex;
+  align-items: center;
+  height: auto;
+}
+
+#project .container #content .box .box-explanation h2 {
+  text-align: left;
+}
+
+#project .container #content .box .box-explanation p {
+  text-align: left;
+}
+
+#project .container #content .box .box-explanation h2 {
+  margin-top: 15px;
+}
+
+#project .container #content .box .box-develop-by {
+  /* background-color: #F6F6F6;
+    border: 2px solid black;
+    border-radius: 5px;
+    box-shadow: 2px 2px 3px black;
+
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+    grid-gap: 5%;
+    overflow: auto;
+    padding: 15px 15px;
+
+    max-height: 23vh; */
+
+  display: block;
+  padding: 15px 0;
+}
+
+.box-explanation {
+  flex-grow: 1;
+  /* Memastikan konten mengisi ruang sisa */
+}
+
+#project .container #content .box .box-develop-by .child-box {
+  cursor: pointer;
+  background-color: #f6f6f6;
+  border: 2px solid black;
+  border-radius: 5px;
+  box-shadow: 2px 2px 3px black;
+  padding: 5px 8px;
+  text-wrap: stable;
+
+  display: inline-flex;
+  margin-top: 8px;
+}
+
+#project .container #content .box .box-develop-by .child-box:not(:last-child) {
+  margin-right: 8px;
+}
+
+.img-project {
+  cursor: pointer;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+@media screen and (max-width: 1000px) {
+  #project .container #content {
+    margin-bottom: 0;
+    display: block;
+    padding: 0 3px;
+  }
+
+  #project .container #content .box {
+    margin-top: 25px;
+    transition: none;
+  }
+
+  #project .container #content .box:hover {
+    transform: none;
+  }
+
+  #project .container #content .box .box-develop-by .child-box {
+    text-align: center;
+  }
+}

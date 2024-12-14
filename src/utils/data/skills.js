@@ -1,13 +1,13 @@
 
-import mysql from '../assets/logo/mysql.png';
-import postgresql from '../assets/logo/postgresql.png';
-import jquery from '../assets/logo/jquery.png';
-import ajax from '../assets/logo/ajax.png';
-// import expressjs from '../assets/logo/expressjs.png';
-import lumen from '../assets/logo/lumen.png';
-import restfulapi from '../assets/logo/rest-api.png';
-import dart from '../assets/logo/dart.png';
-import flutter from '../assets/logo/flutter.png';
+import mysql from '../../assets/images/logo/mysql.png';
+import postgresql from '../../assets/images/logo/postgresql.png';
+import jquery from '../../assets/images/logo/jquery.png';
+import ajax from '../../assets/images/logo/ajax.png';
+// import expressjs from '../../assets/images/logo/expressjs.png';
+import lumen from '../../assets/images/logo/lumen.png';
+import restfulapi from '../../assets/images/logo/rest-api.png';
+import dart from '../../assets/images/logo/dart.png';
+import flutter from '../../assets/images/logo/flutter.png';
 
 const skills = [
     { name: 'HTML', isImg: false, src: 'fa-brands fa-html5' },
@@ -21,6 +21,7 @@ const skills = [
     { name: 'AJAX', isImg: true, src: ajax },
     { name: 'AngularJS', isImg: false, src: 'fa-brands fa-angular' },
     { name: 'ReactJS', isImg: false, src: 'fa-brands fa-react' },
+    { name: 'VueJS', isImg: false, src: 'fa-brands fa-vuejs' },
     // { name: 'ExpressJS', isImg: true, src: expressjs },
     { name: 'Laravel', isImg: false, src: 'fa-brands fa-laravel' },
     { name: 'Lumen', isImg: true, src: lumen },

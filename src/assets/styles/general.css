@@ -1,0 +1,214 @@
+body {
+  background-color: #ffffff;
+  font-family: Arial, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+section {
+  max-height: 100%;
+  max-width: 100%;
+}
+
+@keyframes wiggle {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(5deg);
+  }
+
+  50% {
+    transform: rotate(-5deg);
+  }
+
+  75% {
+    transform: rotate(5deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+
+  40% {
+    transform: translateY(-150px);
+  }
+
+  60% {
+    transform: translateY(-75px);
+  }
+}
+
+.pre-section {
+  display: flex;
+  align-items: center;
+  background-image: url("../images/background-2.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: 0% 50%;
+}
+
+#box-pre-section {
+  margin: 7% 3%;
+  border: 1px;
+  border-radius: 15px;
+  box-shadow: 7px 7px 10px black;
+
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
+
+  color: #ffffff;
+  background-color: rgba(10, 10, 10, 0.6);
+
+  text-align: center;
+  font-style: italic;
+
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+#box-pre-section p {
+  margin: 0;
+  font-size: 1.1em;
+}
+
+#box-pre-section p::before {
+  content: "“";
+  font-size: 30px;
+}
+
+#box-pre-section p::after {
+  content: "”";
+  font-size: 30px;
+}
+
+cite {
+  display: block;
+  text-align: right;
+  font-size: 0.9em;
+  margin-right: 10px;
+}
+
+/* Tombol kembali ke atas */
+#backToTop {
+  position: fixed;
+  /* Tetap di layar meskipun halaman di-scroll */
+  bottom: 20px;
+  /* Jarak dari bawah layar */
+  right: 20px;
+  /* Jarak dari kanan layar */
+  background-color: #212529;
+  /* Warna tombol */
+  color: white;
+  /* Warna teks */
+  border: none;
+  border-radius: 30%;
+  width: 40px;
+  height: 40px;
+  display: none;
+  /* Awalnya disembunyikan */
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border: 2px solid black;
+  box-shadow: 2px 2px 5px black;
+  z-index: 2;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+#backToTop:hover {
+  background-color: #1a1e21;
+  /* Warna tombol saat dihover */
+  transform: scale(1.2);
+}
+
+/* Kustomisasi scrollbar untuk seluruh halaman */
+* {
+  scrollbar-width: thin;
+  /* Firefox: Lebar scrollbar tipis */
+  scrollbar-color: #212529 #f1f1f1;
+  /* Warna thumb dan track (Firefox) */
+}
+
+/* Untuk browser berbasis WebKit (Chrome, Edge, Safari) */
+*::-webkit-scrollbar {
+  width: 10px;
+  /* Lebar scrollbar */
+  height: 10px;
+  /* Tinggi scrollbar horizontal */
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #212529;
+  /* Warna thumb */
+  border-radius: 5px;
+  /* Membulatkan sudut thumb */
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: #1a1e21;
+  /* Warna thumb saat dihover */
+}
+
+*::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  /* Warna track scrollbar */
+  border-radius: 5px;
+  /* Membulatkan sudut track */
+}
+
+/* Overlay container (hidden by default) */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 2;
+}
+
+.overlay img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Show overlay when active */
+.overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Close button */
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+  z-index: 10;
+}

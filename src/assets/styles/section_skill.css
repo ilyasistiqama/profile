@@ -1,0 +1,89 @@
+#skill {
+  background-color: #f6f6f6;
+  display: block;
+  padding: 20px 0 60px 0;
+  height: auto;
+}
+
+#skill .container h2 {
+  margin-top: 15px;
+  margin-bottom: 45px;
+  text-align: center;
+  font-weight: lighter;
+  cursor: pointer;
+}
+
+#skill .container h2:hover {
+  font-weight: bolder;
+}
+
+#skill .container .box {
+  background-color: #ffffff;
+  padding: 15px;
+  border: 3px solid black;
+  border-radius: 15px;
+  box-shadow: 5px 5px 8px black;
+}
+
+#skill .container #content {
+  display: grid;
+  grid-template-columns: 20% 20% 20% 20%;
+  grid-gap: 5%;
+  justify-content: center;
+  overflow: auto;
+  height: 67vh;
+  padding: 25px 5px;
+
+  background-color: #ffffff;
+}
+
+#skill .container #content .list-skill {
+  cursor: pointer;
+  display: block;
+  padding-top: auto;
+  padding-bottom: auto;
+  /* padding: 5px 0; */
+  border: 3px solid black;
+  border-radius: 15px;
+  box-shadow: 4px 4px 6px black;
+  z-index: 0;
+  background-color: #f6f6f6;
+}
+
+#skill .container #content .list-skill:hover {
+  animation: wiggle 1s infinite;
+}
+
+#skill .container #content .list-skill .list-skill-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* Susun elemen secara vertikal */
+  height: 100%;
+  /* text-align: center; */
+}
+
+.icon-skill {
+  display: block;
+  font-size: 40px;
+}
+
+.icon-skill-img {
+  padding: 11px 0;
+  max-width: 20%;
+  /* max-height: 20%; */
+}
+
+@media screen and (max-width: 1100px) {
+  #skill .container #content {
+    grid-template-columns: 45% 45%;
+    grid-gap: 5%;
+  }
+
+  .icon-skill-img {
+    padding: 13px 0;
+    max-width: 12%;
+    /* max-height: 12%; */
+  }
+}

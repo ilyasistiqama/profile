@@ -1,30 +1,30 @@
-import synn1 from '../assets/project/synn-store/1.png';
-import synn2 from '../assets/project/synn-store/2.png';
-import synn3 from '../assets/project/synn-store/3.png';
-import synn4 from '../assets/project/synn-store/4.png';
+import synn1 from '../../assets/images/project/synn-store/1.png';
+import synn2 from '../../assets/images/project/synn-store/2.png';
+import synn3 from '../../assets/images/project/synn-store/3.png';
+import synn4 from '../../assets/images/project/synn-store/4.png';
 
-import rmp1 from '../assets/project/rmp/rmp-1.png';
-import rmp2 from '../assets/project/rmp/rmp-2.png';
+import rmp1 from '../../assets/images/project/rmp/rmp-1.png';
+import rmp2 from '../../assets/images/project/rmp/rmp-2.png';
 
-import sergio1 from '../assets/project/sergio/sergio-1.png';
-import sergio2 from '../assets/project/sergio/sergio-2.png';
-import sergio3 from '../assets/project/sergio/sergio-3.png';
+import sergio1 from '../../assets/images/project/sergio/sergio-1.png';
+import sergio2 from '../../assets/images/project/sergio/sergio-2.png';
+import sergio3 from '../../assets/images/project/sergio/sergio-3.png';
 
-import spk1 from '../assets/project/spk/spk-1.png';
-import spk2 from '../assets/project/spk/spk-2.png';
-import spk3 from '../assets/project/spk/spk-3.png';
-import spk4 from '../assets/project/spk/spk-4.png';
-import spk5 from '../assets/project/spk/spk-5.png';
-import spk6 from '../assets/project/spk/spk-6.png';
-import spk7 from '../assets/project/spk/spk-7.png';
+import spk1 from '../../assets/images/project/spk/spk-1.png';
+import spk2 from '../../assets/images/project/spk/spk-2.png';
+import spk3 from '../../assets/images/project/spk/spk-3.png';
+import spk4 from '../../assets/images/project/spk/spk-4.png';
+import spk5 from '../../assets/images/project/spk/spk-5.png';
+import spk6 from '../../assets/images/project/spk/spk-6.png';
+import spk7 from '../../assets/images/project/spk/spk-7.png';
 
-import sispak1 from '../assets/project/sistem-pakar/sispak-1.png';
-import sispak2 from '../assets/project/sistem-pakar/sispak-2.png';
-import sispak3 from '../assets/project/sistem-pakar/sispak-3.png';
-import sispak4 from '../assets/project/sistem-pakar/sispak-4.png';
-import sispak5 from '../assets/project/sistem-pakar/sispak-5.png';
-import sispak6 from '../assets/project/sistem-pakar/sispak-6.png';
-import sispak7 from '../assets/project/sistem-pakar/sispak-7.png';
+import sispak1 from '../../assets/images/project/sistem-pakar/sispak-1.png';
+import sispak2 from '../../assets/images/project/sistem-pakar/sispak-2.png';
+import sispak3 from '../../assets/images/project/sistem-pakar/sispak-3.png';
+import sispak4 from '../../assets/images/project/sistem-pakar/sispak-4.png';
+import sispak5 from '../../assets/images/project/sistem-pakar/sispak-5.png';
+import sispak6 from '../../assets/images/project/sistem-pakar/sispak-6.png';
+import sispak7 from '../../assets/images/project/sistem-pakar/sispak-7.png';
 
 const projects = [
     {

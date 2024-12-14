@@ -1,5 +1,5 @@
-import mamorasoft from '../assets/company/mamorasoft.png';
-import mitra_informatika from '../assets/company/mitra_informatika.png';
+import mamorasoft from '../../assets/images/company/mamorasoft.png';
+import mitra_informatika from '../../assets/images/company/mitra_informatika.png';
 
 const experiences = [
     { company: 'Freelancer', since: 'Aug, 2024 - Present', position: 'Freelance Web Developer', logo: null, jobdesks: ['Create web-based application features'] },

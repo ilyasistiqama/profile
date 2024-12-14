@@ -1,19 +1,19 @@
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-import './styles/general.css';
-import './styles/section_intro.css';
-import './styles/section_about_me.css';
-import './styles/section_skill.css';
-import './styles/section_experience.css';
-import './styles/section_project.css';
-import './styles/section_contact.css';
+import './assets/styles/general.css';
+import './assets/styles/section_intro.css';
+import './assets/styles/section_about_me.css';
+import './assets/styles/section_skill.css';
+import './assets/styles/section_experience.css';
+import './assets/styles/section_project.css';
+import './assets/styles/section_contact.css';
 
 import { useEffect, useState } from "react";
 
-import dataSkills from './data/skills';
-import dataExperiences from './data/experiences';
-import dataProjects from './data/projects';
+import dataSkills from './utils/data/skills';
+import dataExperiences from './utils/data/experiences';
+import dataProjects from './utils/data/projects';
 
 import LoadingScreen from "./components/LoadingScreen";
 import NavbarComponent from "./components/Navbar";
