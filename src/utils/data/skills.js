@@ -8,6 +8,7 @@ import lumen from '../../assets/images/logo/lumen.png';
 import restfulapi from '../../assets/images/logo/rest-api.png';
 import dart from '../../assets/images/logo/dart.png';
 import flutter from '../../assets/images/logo/flutter.png';
+import codeigniter from '../../assets/images/logo/ci.png';
 
 const skills = [
     { name: 'HTML', isImg: false, src: 'fa-brands fa-html5' },
@@ -25,6 +26,7 @@ const skills = [
     // { name: 'ExpressJS', isImg: true, src: expressjs },
     { name: 'Laravel', isImg: false, src: 'fa-brands fa-laravel' },
     { name: 'Lumen', isImg: true, src: lumen },
+    { name: 'Codeigniter 4', isImg: true, src: codeigniter },
     { name: 'Restful API', isImg: true, src: restfulapi },
     { name: 'Dart', isImg: true, src: dart },
     { name: 'Flutter', isImg: true, src: flutter },
