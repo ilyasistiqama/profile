@@ -8,11 +8,8 @@ const SectionExperience = ({ experiences }) => {
           <div id="content-left">
             <h2>MY EXPERIENCES</h2>
             <p>
-              In 2017, I started studying informatics engineering. My initial
-              experience was by joining an internship at CV. Mitra Informatika.
-              Then after graduating I started working at CV. Mamorasoft. So for
-              now I am working as a freelancer while looking for a new job. You
-              can see the details of my experience as follows :
+              In 2017, I started studying Informatics Engineering. My first experience was an internship at CV. Mitra Informatika. After graduating, I worked at CV. Mamorasoft. Currently, I am working at PT. Terik Indonesia Inside while
+              also taking on some freelance projects. You can see the details of my experience below:
             </p>
           </div>
           <div id="content-right">
@@ -20,13 +17,7 @@ const SectionExperience = ({ experiences }) => {
               <div key={index} className="box">
                 <div className="box-body">
                   <div className="box-title">
-                    {experience.logo != null && (
-                      <img
-                        src={experience.logo}
-                        alt={experience.logo}
-                        className="box-logo"
-                      />
-                    )}
+                    {experience.logo != null && <img src={experience.logo} alt={experience.logo} style={{ maxHeight: "52px", maxWidth: "52px", padding: "5px" }} className="box-logo" />}
                     <h5>{experience.company}</h5>
                   </div>
                   <p className="text-muted" style={{ fontSize: 14 }}>

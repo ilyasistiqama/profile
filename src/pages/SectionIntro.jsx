@@ -12,9 +12,7 @@ const SectionIntro = () => {
             <div id="intro-content">
               <div id="text-intro">
                 <div id="name">Hi, I'm Muh Ilyas Istiqama</div>
-                <div id="role">
-                  I'm a web developer &amp; fullstack developer
-                </div>
+                <div id="role">I'm a web developer &amp; fullstack developer</div>
               </div>
               <div>
                 <a href="#about-me" id="redirect">

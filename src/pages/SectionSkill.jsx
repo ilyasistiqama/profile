@@ -11,11 +11,7 @@ const SectionSkill = ({ skills }) => {
               <div key={index} className="list-skill">
                 <div className="list-skill-body">
                   {skill.isImg === true ? (
-                    <img
-                      src={skill.src}
-                      className="icon-skill-img"
-                      alt={skill.name}
-                    />
+                    <img src={skill.src} className="icon-skill-img" alt={skill.name} />
                   ) : (
                     <div className="icon-skill">
                       <i className={`${skill.src}`} />

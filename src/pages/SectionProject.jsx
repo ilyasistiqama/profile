@@ -26,43 +26,17 @@ const SectionProject = ({ projects }) => {
                   <div id={project.id} className="carousel carousel-dark slide">
                     <div className="carousel-inner">
                       {project.images.map((image, index1) => (
-                        <div
-                          key={index1}
-                          className={`carousel-item ${
-                            index1 === 0 && "active"
-                          }`}
-                        >
-                          <img
-                            src={image}
-                            className="d-block w-100 img-project thumbnail"
-                            alt={image + index1}
-                            onClick={(e) => handleClickThumbnail(e)}
-                          />
+                        <div key={index1} className={`carousel-item ${index1 === 0 && "active"}`}>
+                          <img src={image} className="d-block w-100 img-project thumbnail" alt={image + index1} onClick={(e) => handleClickThumbnail(e)} />
                         </div>
                       ))}
                     </div>
-                    <button
-                      className="carousel-control-prev btn-carousel"
-                      type="button"
-                      data-bs-target={`#${project.id}`}
-                      data-bs-slide="prev"
-                    >
-                      <span
-                        className="carousel-control-prev-icon"
-                        aria-hidden="true"
-                      />
+                    <button className="carousel-control-prev btn-carousel" type="button" data-bs-target={`#${project.id}`} data-bs-slide="prev">
+                      <span className="carousel-control-prev-icon" aria-hidden="true" />
                       <span className="visually-hidden">Previous</span>
                     </button>
-                    <button
-                      className="carousel-control-next"
-                      type="button"
-                      data-bs-target={`#${project.id}`}
-                      data-bs-slide="next"
-                    >
-                      <span
-                        className="carousel-control-next-icon"
-                        aria-hidden="true"
-                      />
+                    <button className="carousel-control-next" type="button" data-bs-target={`#${project.id}`} data-bs-slide="next">
+                      <span className="carousel-control-next-icon" aria-hidden="true" />
                       <span className="visually-hidden">Next</span>
                     </button>
                   </div>
@@ -86,11 +60,7 @@ const SectionProject = ({ projects }) => {
       </div>
       {/* Overlay */}
       <div className="overlay" id="overlay">
-        <span
-          className="close-btn"
-          id="close-btn"
-          onClick={(e) => closeOverlay(e)}
-        >
+        <span className="close-btn" id="close-btn" onClick={(e) => closeOverlay(e)}>
           x
         </span>
         <img src={zoomedImageSrc} alt="Zoomed Img" id="zoomed-image" />
