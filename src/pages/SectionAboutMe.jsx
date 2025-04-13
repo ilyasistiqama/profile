@@ -1,5 +1,5 @@
 import React from "react";
-import FotoIlyas from "../assets/images/ilyas.webp";
+import FotoIlyas from "../assets/images/ilyas-new.webp";
 
 const handleClickCV = (e) => {
   e.preventDefault();
@@ -40,10 +40,10 @@ const SectionAboutMe = () => {
               working at PT. Terik Indonesia Inside while also handling some freelance projects. If you have any opportunities or projects that align with my expertise, feel free to reach out to me.
             </p>
             <div style={{ display: "flex", justifyContent: "flex-start" }}>
-              <button type="button" className="btn btn-danger btn-custom" style={{ backgroundColor: "#ff3131", margin: "10px" }} id="cv-btn" onClick={(e) => handleClickCV(e)}>
+              <button type="button" className="btn btn-primary btn-custom" style={{ backgroundColor: "#212529", margin: "10px" }} id="cv-btn" onClick={(e) => handleClickCV(e)}>
                 <b>CV</b>
               </button>
-              <a href="mailto:ilyasistiqama@gmail.com" className="btn btn-danger btn-custom" style={{ backgroundColor: "#ff3131", margin: "10px" }}>
+              <a href="mailto:ilyasistiqama@gmail.com" className="btn btn-primary btn-custom" style={{ backgroundColor: "#212529", margin: "10px" }}>
                 Contact Me
               </a>
             </div>
