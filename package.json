@@ -1,5 +1,5 @@
 {
-  "homepage": "https://ilyasistiqama.github.io/profile",
+  "homepage": "https://ilyasistiqama.site",
   "name": "react-portofolio",
   "version": "0.1.0",
   "private": true,
@@ -48,6 +48,6 @@
   },
   "devDependencies": {
     "@types/jquery": "^3.5.32",
-    "gh-pages": "^6.2.0"
+    "gh-pages": "^6.3.0"
   }
 }
