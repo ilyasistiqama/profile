@@ -56,7 +56,7 @@ function App() {
   return (
     <div>
       <LoadingScreen />
-      <NavbarComponent />
+      {/* <NavbarComponent /> */}
       <SectionIntro />
       <SectionAboutMe />
       <SectionSkill skills={skills} />

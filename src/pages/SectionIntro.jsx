@@ -11,7 +11,7 @@ const SectionIntro = () => {
           <div id="box">
             <div id="intro-content">
               <div id="text-intro">
-                <div id="name">Hi, I'm Muh Ilyas Istiqama</div>
+                <div id="name">Hi, I'm Ilyas Istiqama</div>
                 <div id="role">I'm a web developer &amp; fullstack developer</div>
               </div>
               <div>
