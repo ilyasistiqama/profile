@@ -16,7 +16,7 @@ import dataExperiences from './utils/data/experiences';
 import dataProjects from './utils/data/projects';
 
 import LoadingScreen from "./components/LoadingScreen";
-import NavbarComponent from "./components/Navbar";
+// import NavbarComponent from "./components/Navbar";
 import SectionIntro from "./pages/SectionIntro";
 import SectionAboutMe from './pages/SectionAboutMe';
 import SectionSkill from './pages/SectionSkill';
