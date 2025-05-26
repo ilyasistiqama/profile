@@ -5,6 +5,7 @@ const SectionSkill = ({ skills }) => {
     <section id="skill">
       <div className="container">
         <h2>MY SKILLS</h2>
+        <p className="text-center" style={{margin:"25px 0"}}>These are the core skills that form the foundation of my web development journey.</p>
         <div className="box">
           <div id="content">
             {skills.map((skill, index) => (
