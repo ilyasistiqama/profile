@@ -16,13 +16,14 @@ import dataExperiences from './utils/data/experiences';
 import dataProjects from './utils/data/projects';
 
 import LoadingScreen from "./components/LoadingScreen";
-// import NavbarComponent from "./components/Navbar";
+import NavbarComponent from "./components/Navbar";
 import SectionIntro from "./pages/SectionIntro";
 import SectionAboutMe from './pages/SectionAboutMe';
 import SectionSkill from './pages/SectionSkill';
 import SectionExperience from './pages/SectionExperience';
 import SectionProject from './pages/SectionProject';
 import SectionContact from './pages/SectionContact';
+import InspirationalQuote from "inspirational-quotes";
 
 function App() {
   const [skills] = useState(dataSkills);
@@ -30,8 +31,14 @@ function App() {
   const [projects] = useState(dataProjects);
 
   const [isVisible, setIsVisible] = useState(false);
+  const [quote, setQuote] = useState("");
+  const [author, setAuthor] = useState("");
 
   useEffect(() => {
+    const q = InspirationalQuote.getQuote(); 
+    setQuote(q.text);
+    setAuthor(q.author);
+
     const handleScroll = () => {
       if (window.scrollY > 120) {
         setIsVisible(true);
@@ -56,7 +63,7 @@ function App() {
   return (
     <div>
       <LoadingScreen />
-      {/* <NavbarComponent /> */}
+      <NavbarComponent />
       <SectionIntro />
       <SectionAboutMe />
       <SectionSkill skills={skills} />
@@ -65,9 +72,8 @@ function App() {
         <div className="container">
           <div className="d-flex justify-content-center">
             <div id="box-pre-section">
-              <p>Learning to write programs stretches your mind, and helps you think better, creates a way of
-                thinking about things that I think is helpful in all domains.</p>
-              <cite>- Bill Gates</cite>
+              <p>{quote}</p>
+              <cite>- {author}</cite>
             </div>
           </div>
         </div>

@@ -1,4 +1,3 @@
-import React from "react";
 
 const SectionContact = () => {
   const thisYear = () => {
@@ -19,19 +18,18 @@ const SectionContact = () => {
             <a className="btn btn-outline-light btn-floating m-1" href="https://www.facebook.com/I.Istiqama.Makmur" rel="noopener noreferrer" target="_blank" role="button">
               <i className="fab fa-facebook-f" />
             </a>
-            {/* Twitter */}
-            <a className="btn btn-outline-light btn-floating m-1" href="https://x.com/ilyasistiqama" role="button" rel="noopener noreferrer" target="_blank">
-              <i className="fa-brands fa-x-twitter" />
+            {/* Instagram */}
+            <a className="btn btn-outline-light btn-floating m-1" href="https://www.instagram.com/lifeofyse" role="button" rel="noopener noreferrer" target="_blank">
+              <i className="fab fa-instagram" />
+            </a>
+            {/* Threads */}
+            <a className="btn btn-outline-light btn-floating m-1" href="https://www.threads.net/@lifeofyse" role="button" rel="noopener noreferrer" target="_blank">
+              <i className="fa-brands fa-threads" />
             </a>
             {/* Google */}
             <a className="btn btn-outline-light btn-floating m-1" href="mailto:ilyasistiqama@gmail.com" role="button" rel="noopener noreferrer" target="_blank">
               <i className="fab fa-google" />
             </a>
-            {/* Instagram */}
-            <a className="btn btn-outline-light btn-floating m-1" href="https://www.instagram.com/lifeofyse" role="button" rel="noopener noreferrer" target="_blank">
-              <i className="fab fa-instagram" />
-            </a>
-
             {/* Linkedin */}
             <a className="btn btn-outline-light btn-floating m-1" href="https://www.linkedin.com/in/muh-ilyas-istiqama" role="button" rel="noopener noreferrer" target="_blank">
               <i className="fab fa-linkedin-in" />

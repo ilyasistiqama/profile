@@ -35,6 +35,7 @@ section {
 }
 
 @keyframes bounce {
+
   0%,
   20%,
   50%,
@@ -83,8 +84,12 @@ section {
 }
 
 #box-pre-section p {
-  margin: 0;
-  font-size: 1.1em;
+  font-size: 1.5rem;
+  /* atau sekitar 24px */
+  /* color: #333; */
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  font-style: italic;
 }
 
 #box-pre-section p::before {
@@ -97,11 +102,11 @@ section {
   font-size: 30px;
 }
 
-cite {
+#box-pre-section cite {
+  font-size: 1rem;
+  /* color: #666; */
   display: block;
-  text-align: right;
-  font-size: 0.9em;
-  margin-right: 10px;
+  margin-top: 0.5rem;
 }
 
 /* Tombol kembali ke atas */

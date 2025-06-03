@@ -1,124 +1,112 @@
+/* SECTION UTAMA */
 #intro {
   display: block;
-
   background-image: url("../images/background.webp");
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
   background-position: 50% 25%;
-
   height: 100vh;
+  padding: 15px;
 }
 
+/* KONTAINER UTAMA */
 #intro .container #content {
   display: flex;
+  position: relative;
   justify-content: center;
   align-items: center;
   height: 100vh;
 }
 
-#intro .container #content #box {
+/* KOTAK UTAMA */
+#box {
   display: flex;
   justify-content: center;
   align-items: center;
-
   width: 50%;
   padding: 40px 20px;
-
-  border: 1px;
   border-radius: 15px;
   box-shadow: 7px 7px 10px black;
-
-  color: #ffffff;
-  /* Fallback color */
   background-color: rgba(0, 0, 0, 0.6);
-  /* Black w/opacity/see-through */
-
-  /* Membuat transisi mulus */
-  transition: transform 0.3s ease, color 0.3s ease;
+  color: #ffffff;
+  transition: transform 0.3s ease;
   cursor: pointer;
 }
 
-#intro .container #content #box:hover {
-  /* zoom in */
+#box:hover {
   transform: scale(1.1);
 }
 
+/* KONTEN INTRO */
 #intro-content {
   display: inline-block;
   text-align: center;
 }
 
-#intro-content #text-intro #name {
-  display: inline-block;
-  /* Membuat transisi mulus */
-  transition: transform 0.3s ease, color 0.3s ease;
-}
-
-#intro-content #text-intro #name {
+#name {
   font-weight: bolder;
   font-size: 40px;
+  display: inline-block;
+  transition: transform 0.3s ease;
 }
 
-#intro-content #text-intro #role {
-  font-style: italic;
-  font-size: 20px;
-}
-
-#intro-content #text-intro #name:hover {
-  /* Mengarahkan teks ke atas */
+#name:hover {
   transform: translateY(-25px);
 }
 
-#intro-content #redirect {
+#role {
+  font-style: italic;
+  margin-top: 5px;
+  font-size: 17px;
+}
+
+#redirect {
   font-size: 45px;
-  /* color: #333; */
   color: #ffffff;
   display: inline-block;
-  /* Agar transformasi bekerja dengan baik */
-  transition: transform 0.3s ease, color 0.3s ease;
-
+  transition: transform 0.3s ease;
   margin-top: 15px;
 }
 
-#intro-content #redirect:hover {
+#redirect:hover {
   transform: translateY(15px);
-  /* Mengarahkan teks ke bawah */
 }
 
+/* RESPONSIVE STYLING */
 @media screen and (max-width: 1100px) {
-  #intro .container #content #box:hover {
-    /* padding: 45px 10px 45px 10px; */
-    transition: none;
-  }
-
-  #intro-content #text-intro #name {
-    transition: none;
-  }
-
-  #intro-content #text-intro #name:hover {
-    /* Mengarahkan teks ke atas */
-    transform: none;
-  }
-
-  #intro .container #content #box:hover {
-    /* zoom in */
-    transform: none;
-  }
-
-  #intro .container #content #box {
+  #box {
     width: 80%;
+    transform: none !important;
   }
 
-  /* #intro-content #text-intro #name {
-        font-size: 3vh;
-    }
-    
-    #intro-content #text-intro #role {
-        font-size: 2vh;
-    } */
+  #box:hover {
+    transform: none;
+  }
 
-  #intro-content #redirect {
+  #name {
+    font-size: 32px;
+    transition: none;
+  }
+
+  #name:hover {
+    transform: none;
+  }
+
+  #role {
+    font-size: 18px;
+  }
+
+  #redirect {
     font-size: 30px;
+  }
+
+  #navbar {
+    padding: 10px 20px;
+    gap: 20px;
+  }
+
+  #navbar ul {
+    gap: 20px;
   }
 }
