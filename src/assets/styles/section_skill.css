@@ -1,13 +1,10 @@
 #skill {
   background-color: #f6f6f6;
-  display: block;
-  padding: 20px 0 60px 0;
-  height: auto;
+  padding: 20px 0 60px;
 }
 
 #skill .container h2 {
-  margin-top: 15px;
-  margin-bottom: 45px;
+  margin: 15px 0 45px;
   text-align: center;
   font-weight: lighter;
   cursor: pointer;
@@ -17,73 +14,95 @@
   font-weight: bolder;
 }
 
-#skill .container .box {
-  background-color: #ffffff;
+#skill .box {
+  background-color: #fff;
   padding: 15px;
   border: 3px solid black;
   border-radius: 15px;
   box-shadow: 5px 5px 8px black;
+  overflow: hidden;
 }
 
-#skill .container #content {
-  display: grid;
-  grid-template-columns: 20% 20% 20% 20%;
-  grid-gap: 5%;
-  justify-content: center;
-  overflow: auto;
-  height: 67vh;
-  padding: 25px 5px;
-
-  background-color: #ffffff;
+#skill #content {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding: 25px;
+  background-color: #fff;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  scroll-padding: 25px;
+  user-select: none;
+  cursor: grab;
 }
 
-#skill .container #content .list-skill {
-  cursor: pointer;
-  display: block;
-  padding-top: auto;
-  padding-bottom: auto;
-  /* padding: 5px 0; */
+#skill #content:active {
+  cursor: grabbing;
+}
+
+#skill .list-skill {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  width: 200px;
+  padding: 20px;
   border: 3px solid black;
   border-radius: 15px;
   box-shadow: 4px 4px 6px black;
-  z-index: 0;
   background-color: #f6f6f6;
+  transition: transform 0.3s ease;
 }
 
-#skill .container #content .list-skill:hover {
-  animation: wiggle 1s infinite;
-}
-
-#skill .container #content .list-skill .list-skill-body {
+#skill .list-skill-body {
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
-  /* Susun elemen secara vertikal */
-  height: 100%;
-  /* text-align: center; */
+  align-items: center;
 }
 
-.icon-skill {
-  display: block;
+.icon-skill i {
   font-size: 40px;
+  line-height: 40px;
 }
 
+.icon-skill,
 .icon-skill-img {
-  padding: 11px 0;
-  max-width: 20%;
-  /* max-height: 20%; */
+  display: block;
+  height: 40px;
+  width: 40px;
+  margin-bottom: 10px;
+  object-fit: contain;
+  text-align: center;
+}
+
+#skill .list-skill-body h4 {
+  margin: 0;
+  text-align: center;
+  font-size: 16px;
 }
 
 @media screen and (max-width: 1100px) {
-  #skill .container #content {
-    grid-template-columns: 45% 45%;
-    grid-gap: 5%;
+  #skill #content {
+    padding: 15px;
   }
 
+  .icon-skill i {
+    font-size: 35px;
+    line-height: 35px;
+  }
+
+  .icon-skill,
   .icon-skill-img {
-    padding: 13px 0;
-    max-width: 12%;
-    /* max-height: 12%; */
+    width: 35px;
+    height: 35px;
+  }
+
+  #skill .list-skill {
+    width: fit-content;
+    min-width: 120px;
+    padding: 15px 20px;
+  }
+
+  #skill .list-skill-body h4 {
+    font-size: 14px;
   }
 }

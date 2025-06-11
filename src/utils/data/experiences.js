@@ -3,33 +3,50 @@ import mitra_informatika from "../../assets/images/company/mitra_informatika.png
 import terik from "../../assets/images/company/terik.png";
 
 const experiences = [
-  { company: "Freelancer", since: "Aug, 2024 - Present", position: "Freelance Web Developer", logo: null, jobdesks: ["Create web-based application features"] },
+  {
+    company: "Freelancer",
+    since: "Aug, 2024 - Present",
+    position: "Freelance Web Developer",
+    logo: null,
+    jobdesks: [
+      "Develop customized web-based application features for various clients",
+      "Collaborate with clients to identify technical requirements and deliver solutions",
+    ],
+  },
   {
     company: "PT. Terik Indonesia Inside",
     since: "Jan, 2025 - Present",
     position: "Web Programmer",
     logo: terik,
-    jobdesks: ["Create new features on existing web-based apps", "Create database tables according to application requirements", "Fix bugs in existing applications"],
+    jobdesks: [
+      "Develop enterprise-scale web applications tailored to internal business processes",
+      "Implement new features and modules in existing systems to improve performance and usability",
+      "Design and maintain database schemas based on functional and technical requirements",
+      "Identify and resolve software bugs and system issues efficiently",
+    ],
   },
   {
     company: "CV. Mamorasoft",
     since: "Feb, 2022 - Apr, 2024",
-    position: "Staff Pemograman Aplikasi",
+    position: "Application Programming Staff",
     logo: mamorasoft,
     jobdesks: [
-      "Design, develop and be responsible for user-friendly websites using Javascript and PHP frameworks",
-      "Analyzing client requests and internal company requests for web-based system development",
-      "Analyzing database usage needs",
-      "Perform maintenance and bug fixes on web-based systems",
+      "Designed and developed responsive websites using JavaScript and PHP frameworks (e.g., Laravel, CodeIgniter)",
+      "Analyzed internal and client-side requirements for web-based systems and implemented appropriate solutions",
+      "Designed and optimized database structures to align with system requirements",
+      "Maintained and improved existing systems by performing routine debugging and troubleshooting",
     ],
   },
   {
     company: "CV. Mitra Informatika",
-    since: "Jan, 2021 - March, 2021",
+    since: "Jan, 2021 - Mar, 2021",
     position: "Internship Web Developer",
     logo: mitra_informatika,
-    jobdesks: ["Create a credit sales website using an integrated laravel framework, using a floppy pay for payment gateway and connecting Mobile Pulsa as a credit provider."],
+    jobdesks: [
+      "Built a credit sales website using Laravel and integrated third-party services such as Floppy Pay (payment gateway) and Mobile Pulsa (credit provider)",
+    ],
   },
 ];
+
 
 export default experiences;

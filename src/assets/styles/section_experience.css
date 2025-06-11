@@ -1,146 +1,102 @@
 #experience {
-  min-height: 100%;
-  display: block;
-  padding: 60px 0 60px 0;
-  height: auto;
+  padding: 60px 0;
 }
 
 #experience .container #content {
   display: grid;
   grid-template-columns: 35% 60%;
-  grid-gap: 5%;
-  z-index: 0;
+  gap: 5%;
 }
 
-#experience .container #content #content-left {
-  display: block;
-}
-
-#experience .container #content #content-left h2 {
+#experience #content-left h2 {
   font-weight: lighter;
   cursor: pointer;
   text-align: left;
 }
 
-#experience .container #content #content-left h2:hover {
+#experience #content-left h2:hover {
   font-weight: bolder;
 }
 
-#experience .container #content #content-left p {
+#experience #content-left p {
   margin-top: 20px;
   text-align: left;
 }
 
-#experience .container #content #content-right {
-  display: block;
-  cursor: pointer;
+#experience #content-right {
   overflow: auto;
-  padding: 45px 45px 5px 45px;
-  z-index: 1;
+  padding: 45px;
   height: 85vh;
   border: 3px solid black;
   border-radius: 3px;
   box-shadow: 4px 4px 6px black;
+  background-color: #fff;
 }
 
-#experience .container #content #content-right .box {
+#experience .box {
   border: 3px solid black;
   border-radius: 15px;
   box-shadow: 4px 4px 6px black;
-  cursor: pointer;
-  padding: 15px 15px;
-  margin-bottom: 35px;
   background-color: #f6f6f6;
-
-  /* Agar transformasi bekerja dengan baik */
-  transition: transform 0.3s ease, color 0.3s ease;
+  padding: 15px;
+  margin-bottom: 35px;
+  transition: transform 0.3s ease;
 }
 
-#experience .container #content #content-right .box:hover {
-  /* zoom in */
-  transform: scale(1.1);
+#experience .box:hover {
+  transform: scale(1.05);
 }
 
-#experience .container #content #content-right .box .box-body {
-  display: block;
-  text-align: left;
-}
-
-#experience .container #content #content-right .box .box-body .box-title {
+.box-title {
   display: flex;
-  justify-content: flex-start;
   align-items: center;
+  gap: 8px;
 }
 
-#experience .container #content #content-right .box .box-body .box-title h5 {
+.box-title h5 {
   font-weight: bold;
-  font-size: 25px;
-  display: inline;
+  font-size: 22px;
+  margin: 0;
 }
 
-#experience
-  .container
-  #content
-  #content-right
-  .box
-  .box-body
-  .box-title
-  .box-logo {
-  max-width: 10%;
-  max-height: 10%;
-  margin-right: 8px;
+.box-logo {
+  max-width: 52px;
+  max-height: 52px;
+  padding: 5px;
 }
 
-#experience .container #content #content-right .box .box-body .box-department {
-  display: block;
-}
-
-#experience
-  .container
-  #content
-  #content-right
-  .box
-  .box-body
-  .box-department
-  h5 {
-  font-weight: 600;
+.box-department h5 {
   font-style: italic;
+  font-weight: 600;
+  margin-top: 10px;
 }
 
-#experience
-  .container
-  #content
-  #content-right
-  .box
-  .box-body
-  .box-department
-  p {
+.box-department p {
   font-size: 12px;
 }
 
 @media screen and (max-width: 1100px) {
   #experience .container #content {
-    display: block;
-    z-index: 0;
+    display: flex;
+    flex-direction: column;
   }
 
-  #experience .container #content #content-right {
-    display: block;
-    cursor: pointer;
-    overflow: auto;
-    padding: 25px 15px 5px 15px;
-    height: 100%;
+  #experience #content-right {
+    padding: 25px 15px 5px;
+    height: auto;
   }
 
-  #experience .container #content #content-right .box {
+  #experience .box {
+    padding: 12px;
     margin-bottom: 20px;
-    /* Agar transformasi bekerja dengan baik */
     transition: none;
-    padding: 10px 10px;
   }
 
-  #experience .container #content #content-right .box:hover {
-    /* zoom in */
+  #experience .box:hover {
     transform: none;
+  }
+
+  .box-title h5 {
+    font-size: 18px;
   }
 }

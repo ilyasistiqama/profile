@@ -11,11 +11,11 @@ const SectionIntro = () => {
           <div id="box">
             <div id="intro-content">
               <div id="text-intro">
-                <div id="name">Hi, I'm Ilyas Istiqama</div>
+                <div id="name">Hi, I'm <span style={{ fontWeight: "bold" }}>Ilyas</span></div>
                 <div id="role">a web developer &amp; fullstack developer</div>
               </div>
               <div>
-                <a href="#about-me" id="redirect">
+                <a href="#about-me" id="redirect" aria-label="Scroll to about me section">
                   <FontAwesomeIcon icon={faChevronDown} />
                 </a>
               </div>

@@ -43,7 +43,7 @@ const SectionAboutMe = () => {
               <button type="button" className="btn btn-primary btn-custom" style={{ backgroundColor: "#212529", margin: "10px" }} id="cv-btn" onClick={(e) => handleClickCV(e)}>
                 <b>CV</b>
               </button>
-              <a href="mailto:ilyasistiqama@gmail.com" className="btn btn-primary btn-custom" style={{ backgroundColor: "#212529", margin: "10px" }}>
+              <a href="#contact" className="btn btn-primary btn-custom" style={{ backgroundColor: "#212529", margin: "10px" }}>
                 Contact Me
               </a>
             </div>
