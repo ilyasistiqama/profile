@@ -1,93 +1,207 @@
 #project {
-  background-color: #f6f6f6;
-  padding: 40px 0 70px 0;
+    background-color: #f6f6f6;
+    padding: 40px 0 70px 0;
 }
 
 #project .container h2 {
-  text-align: center;
+    text-align: center;
 }
 
-#project .container #content {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 3% 5%;
-  padding: 5% 0 10% 0;
+.scroll-wrapper {
+    overflow: hidden;
+}
+
+.scroll-nav-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background-color: #000;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    opacity: 0.2;
+}
+
+.scroll-nav-button:hover {
+    opacity: 0.7;
+}
+
+.scroll-prev {
+    left: 10px;
+}
+
+.scroll-next {
+    right: 10px;
+}
+
+.scroll-wrapper {
+    position: relative;
+    /* penting supaya tombol bisa absolute di dalamnya */
+}
+
+
+.scrollable-content {
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x proximity;
+    user-select: auto;
+    padding: 20px;
+    display: flex;
+    gap: 20px;
+}
+
+.scrollable-content::-webkit-scrollbar {
+    height: 8px;
+}
+
+.scrollable-content::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+.scrollable-content::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }
 
 #project .box {
-  border: 3px solid black;
-  border-radius: 8px;
-  box-shadow: 4px 4px 6px black;
-  padding: 15px;
-  transition: transform 0.3s ease;
-  background-color: #fff;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+    flex-shrink: 0;
+    scroll-snap-align: start;
+    border: 3px solid black;
+    border-radius: 8px;
+    box-shadow: 4px 4px 6px black;
+    padding: 15px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* transition: transform 0.3s ease; */
+
+    min-width: calc((100% - 20px) / 2);
+    max-width: calc((100% - 20px) / 2);
 }
 
-#project .box:hover {
-  transform: scale(1.1);
-}
+/* #project .box:hover {
+    transform: scale(1.05);
+} */
 
 #project .box-carousel {
-  border: 2px solid black;
-  border-radius: 5px;
-  box-shadow: 2px 2px 3px black;
-  background-color: black;
-  color: #f6f6f6;
-  display: flex;
-  align-items: center;
+    border: 2px solid black;
+    border-radius: 5px;
+    box-shadow: 2px 2px 3px black;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
 }
 
 #project .box-explanation {
-  flex-grow: 1;
-  margin-top: 15px;
+    flex-grow: 1;
+    margin-top: 15px;
 }
 
 #project .box-explanation h2,
 #project .box-explanation p {
-  text-align: left;
+    text-align: left;
 }
 
 #project .box-develop-by {
-  padding: 15px 0;
+    padding: 15px 0;
 }
 
 #project .child-box {
-  cursor: pointer;
-  background-color: #f6f6f6;
-  border: 2px solid black;
-  border-radius: 5px;
-  box-shadow: 2px 2px 3px black;
-  padding: 5px 8px;
-  display: inline-flex;
-  margin-top: 8px;
-  margin-right: 8px;
+    cursor: pointer;
+    background-color: #f6f6f6;
+    border: 2px solid black;
+    border-radius: 5px;
+    box-shadow: 2px 2px 3px black;
+    padding: 5px 8px;
+    display: inline-flex;
+    margin-top: 8px;
+    margin-right: 8px;
 }
 
 .img-project {
-  cursor: pointer;
-  max-width: 100%;
-  height: auto;
+    cursor: pointer;
+    max-width: 100%;
+    height: auto;
 }
 
-@media screen and (max-width: 1000px) {
-  #project .container #content {
-    display: block;
-    padding: 0 3px;
-  }
+/* Overlay Zoom */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
 
-  #project .box {
-    margin-top: 25px;
-    transition: none;
-  }
+.overlay.active {
+    display: flex;
+}
 
-  #project .box:hover {
-    transform: none;
-  }
+.close-btn {
+    position: absolute;
+    top: 30px;
+    right: 50px;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+}
 
-  #project .child-box {
-    text-align: center;
-  }
+#zoomed-image {
+    max-width: 90%;
+    max-height: 80%;
+}
+
+.btn-carousel {
+    background-color: rgba(255, 255, 255, 0.5);
+    /* transparan putih */
+    border: none;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border-radius: 4px;
+    /* kotak dengan sedikit sudut membulat */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+    margin: 0 5px;
+}
+
+.btn-carousel:hover {
+    opacity: 1;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    filter: invert(1);
+    /* buat panah jadi hitam (kontras) */
+    width: 20px;
+    height: 20px;
+}
+
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    #project .box {
+        min-width: 100%;
+        max-width: 100%;
+    }
 }

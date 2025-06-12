@@ -17,7 +17,7 @@ const SectionExperience = ({ experiences }) => (
             features, managing databases, and fixing bugs on web-based systems.<br /><br />
             Since August 2024, I have also been working on freelance projects as a{" "}
             <b>Web Developer</b>.<br /><br />
-            You can find more details about my experience below:
+            You can find more details about my experience in the following section:
           </p>
 
         </div>
