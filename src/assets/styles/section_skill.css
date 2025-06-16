@@ -23,20 +23,11 @@
   -webkit-overflow-scrolling: touch;
   scroll-behavior: smooth;
   scroll-padding: 25px;
-  user-select: none;
-  cursor: grab;
 }
 
 #skill #content.center-content {
   justify-content: center;
   overflow-x: hidden;
-  /* supaya scroll gak nongol */
-}
-
-
-#skill #content.dragging {
-  cursor: grabbing;
-  user-select: none;
 }
 
 #skill .list-skill {
@@ -61,7 +52,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* <-- ini yang bikin tengah vertikal */
   height: 100%;
 }
 
@@ -91,19 +81,19 @@
 }
 
 .scroll-btn {
-   position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 10;
-    background-color: #000;
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    font-size: 1.5rem;
-    cursor: pointer;
-    opacity: 0.2;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background-color: #000;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  opacity: 0.2;
 }
 
 .scroll-btn:hover {

@@ -6,11 +6,12 @@
   justify-content: center;
   align-items: center;
   z-index: 9999;
-  transition: opacity 5.0s ease;
+  transition: opacity 0.8s ease;
 }
 
-.fade-out {
+#preloader.fade-out {
   opacity: 0;
+  pointer-events: none;
 }
 
 .loader-text {
@@ -22,16 +23,18 @@
   letter-spacing: 0.2rem;
 }
 
+/* Sebelum animate, huruf tersembunyi */
 .letter {
   opacity: 0;
   transform: translateY(35px);
-
 }
 
+/* Saat animate class ditambahkan (dari React), animasi jalan */
 .letter.animate {
   animation: fadeIn 3.5s infinite;
 }
 
+/* Delay antar huruf */
 .letter.animate:nth-child(1) {
   animation-delay: 0.5s;
 }
@@ -53,13 +56,16 @@
 }
 
 @keyframes fadeIn {
-  to {
+  0% {
+    opacity: 0;
+    transform: translateY(35px);
+  }
+  50% {
     opacity: 1;
     transform: translateY(0);
   }
-
-  from {
+  100% {
     opacity: 0;
-    transform: translateY(35px);
+    transform: translateY(-10px);
   }
 }
