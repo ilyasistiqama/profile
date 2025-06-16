@@ -14,21 +14,11 @@
   font-weight: bolder;
 }
 
-#skill .box {
-  background-color: #fff;
-  padding: 15px;
-  border: 3px solid black;
-  border-radius: 15px;
-  box-shadow: 5px 5px 8px black;
-  overflow: hidden;
-}
-
 #skill #content {
   display: flex;
   gap: 20px;
   overflow-x: auto;
   padding: 25px;
-  background-color: #fff;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
   scroll-behavior: smooth;
@@ -37,8 +27,16 @@
   cursor: grab;
 }
 
-#skill #content:active {
+#skill #content.center-content {
+  justify-content: center;
+  overflow-x: hidden;
+  /* supaya scroll gak nongol */
+}
+
+
+#skill #content.dragging {
   cursor: grabbing;
+  user-select: none;
 }
 
 #skill .list-skill {
@@ -51,12 +49,20 @@
   box-shadow: 4px 4px 6px black;
   background-color: #f6f6f6;
   transition: transform 0.3s ease;
+  min-height: 200px;
+}
+
+#skill .list-skill:hover {
+  transform: scale(1.05);
 }
 
 #skill .list-skill-body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  /* <-- ini yang bikin tengah vertikal */
+  height: 100%;
 }
 
 .icon-skill i {
@@ -67,8 +73,8 @@
 .icon-skill,
 .icon-skill-img {
   display: block;
-  height: 40px;
   width: 40px;
+  height: 40px;
   margin-bottom: 10px;
   object-fit: contain;
   text-align: center;
@@ -78,6 +84,38 @@
   margin: 0;
   text-align: center;
   font-size: 16px;
+}
+
+.scroll-box-wrapper {
+  position: relative;
+}
+
+.scroll-btn {
+   position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background-color: #000;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    opacity: 0.2;
+}
+
+.scroll-btn:hover {
+  opacity: 0.7;
+}
+
+.scroll-btn.left {
+  left: 10px;
+}
+
+.scroll-btn.right {
+  right: 10px;
 }
 
 @media screen and (max-width: 1100px) {
@@ -98,7 +136,8 @@
 
   #skill .list-skill {
     width: fit-content;
-    min-width: 120px;
+    min-width: 200px;
+    min-height: 200px;
     padding: 15px 20px;
   }
 

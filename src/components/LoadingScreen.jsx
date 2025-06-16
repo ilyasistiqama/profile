@@ -5,19 +5,21 @@ const LoadingScreen = () => {
   const [fadeOut, setFadeOut] = useState(false);
 
   useEffect(() => {
-    // Delay sebelum huruf mulai animasi
     const animationTimer = setTimeout(() => {
       const letters = document.querySelectorAll(".letter");
       letters.forEach((el) => el.classList.add("animate"));
-    }, 500); // delay 0.5 detik baru mulai animasi huruf
+    }, 500);
 
-    // Timer untuk fade out dan hilangkan preloader
     const preloaderTimer = setTimeout(() => {
       setFadeOut(true);
+
       setTimeout(() => {
         const loader = document.getElementById("preloader");
-        if (loader) loader.style.display = "none";
-      }, 500); // animasi fade-out 0.5s
+        if (loader) {
+          loader.style.display = "none";
+          document.body.classList.add("loaded"); // penting
+        }
+      }, 800); // sesuai CSS transition 0.8s
     }, 8000);
 
     return () => {

@@ -39,6 +39,9 @@ const SectionProject = ({ projects }) => {
         <section id="project">
             <div className="container">
                 <h2>MY PROJECTS</h2>
+                <p className="text-center" style={{ margin: "25px 0" }}>
+                    These projects reflect my hands-on experience in building practical, real-world applications using various web technologies.
+                </p>
                 <div className="scroll-wrapper">
                     <button className="scroll-nav-button scroll-prev" onClick={scrollLeft}>&lt;</button>
                     <button className="scroll-nav-button scroll-next" onClick={scrollRight}>&gt;</button>
