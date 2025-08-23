@@ -3,6 +3,7 @@ import React, { useRef, useEffect, useState } from "react";
 const SectionSkill = ({ skills }) => {
   const scrollRef = useRef(null);
   const [isOverflowing, setIsOverflowing] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState("All");
 
   const scrollLeft = () => {
     scrollRef.current.scrollBy({ left: -200, behavior: "smooth" });
@@ -22,6 +23,15 @@ const SectionSkill = ({ skills }) => {
     return () => window.removeEventListener("resize", checkOverflow);
   }, [skills]);
 
+  // ambil semua kategori unik
+  const categories = ["All", ...new Set(skills.map((s) => s.category))];
+
+  // filter skill berdasarkan kategori
+  const filteredSkills =
+    selectedCategory === "All"
+      ? skills
+      : skills.filter((s) => s.category === selectedCategory);
+
   return (
     <section id="skill">
       <div className="container">
@@ -29,6 +39,20 @@ const SectionSkill = ({ skills }) => {
         <p className="text-center" style={{ margin: "25px 0" }}>
           These are the core skills that form the foundation of my web development journey.
         </p>
+
+        {/* FILTER BUTTONS */}
+        <div className="category-filter">
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              className={`filter-btn ${selectedCategory === cat ? "active" : ""}`}
+              onClick={() => setSelectedCategory(cat)}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+
         <div className="scroll-box-wrapper">
           <button className="scroll-btn left" onClick={scrollLeft}>‹</button>
           <div
@@ -36,7 +60,7 @@ const SectionSkill = ({ skills }) => {
             className={!isOverflowing ? "center-content" : ""}
             ref={scrollRef}
           >
-            {skills.map((skill, i) => (
+            {filteredSkills.map((skill, i) => (
               <div key={i} className="list-skill">
                 <div className="list-skill-body">
                   {skill.isImg ? (

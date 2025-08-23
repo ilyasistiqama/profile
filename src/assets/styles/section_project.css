@@ -1,5 +1,5 @@
 #project {
-    background-color: #f6f6f6;
+    background-color: #eaeaea;
     padding: 40px 0 70px 0;
 }
 
@@ -116,7 +116,7 @@
 
 #project .child-box {
     cursor: pointer;
-    background-color: #f6f6f6;
+    background-color: #eaeaea;
     border: 2px solid black;
     border-radius: 5px;
     box-shadow: 2px 2px 3px black;
@@ -197,6 +197,22 @@
     height: 20px;
 }
 
+.btn-visit {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 15px;
+    box-shadow: 2px 2px 5px black;
+    transition: transform 0.3s ease, color 0.3s ease;
+    border: 3px solid black;
+    border-radius: 6px; /* biar lebih halus */
+    text-decoration: none; /* biar gak underline */
+}
+
+
+.btn-visit:hover {
+    border: 3px solid black;
+    transform: scale(1.05);
+}
 
 /* Responsive */
 @media screen and (max-width: 768px) {

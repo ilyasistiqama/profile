@@ -1,19 +1,27 @@
-body {
-  background-color: #ffffff;
-  font-family: Arial, sans-serif;
-}
-
 html {
   scroll-behavior: smooth;
 }
 
-section {
-  max-height: 100%;
-  max-width: 100%;
+body {
+  background-color: #ffffff;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  /* default desktop */
+  line-height: 1.6;
+  color: #333;
 }
 
+/* General section */
+section {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/* Animations */
 @keyframes wiggle {
-  0% {
+
+  0%,
+  100% {
     transform: rotate(0deg);
   }
 
@@ -27,10 +35,6 @@ section {
 
   75% {
     transform: rotate(5deg);
-  }
-
-  100% {
-    transform: rotate(0deg);
   }
 }
 
@@ -53,145 +57,132 @@ section {
   }
 }
 
+/* =====================
+   Pre Section
+===================== */
 .pre-section {
   display: flex;
   align-items: center;
-  background-image: url("../images/background-2.webp");
-  background-repeat: no-repeat;
+  background: url("../images/background-2.webp") no-repeat center fixed;
   background-size: cover;
-  background-attachment: fixed;
-  background-position: 0% 50%;
 }
 
 #box-pre-section {
   margin: 7% 3%;
-  border: 1px;
+  padding: 15px;
   border-radius: 15px;
   box-shadow: 7px 7px 10px black;
-
-  padding-top: 15px;
-  padding-bottom: 15px;
-  padding-left: 15px;
-  padding-right: 15px;
-
-  color: #ffffff;
   background-color: rgba(10, 10, 10, 0.6);
-
+  color: #ffffff;
   text-align: center;
   font-style: italic;
-
   font-family: Georgia, "Times New Roman", Times, serif;
 }
 
 #box-pre-section p {
   font-size: 1.5rem;
-  /* atau sekitar 24px */
-  /* color: #333; */
+  /* ~24px */
   line-height: 1.6;
   margin-bottom: 1rem;
-  font-style: italic;
+}
+
+#box-pre-section p::before,
+#box-pre-section p::after {
+  font-size: 30px;
 }
 
 #box-pre-section p::before {
   content: "“";
-  font-size: 30px;
 }
 
 #box-pre-section p::after {
   content: "”";
-  font-size: 30px;
 }
 
 #box-pre-section cite {
   font-size: 1rem;
-  /* color: #666; */
   display: block;
   margin-top: 0.5rem;
 }
 
-/* Tombol kembali ke atas */
+/* =====================
+   Back to Top Button
+===================== */
 #backToTop {
   position: fixed;
-  /* Tetap di layar meskipun halaman di-scroll */
   bottom: 20px;
-  /* Jarak dari bawah layar */
   right: 20px;
-  /* Jarak dari kanan layar */
-  background-color: #212529;
-  /* Warna tombol */
-  color: white;
-  /* Warna teks */
-  border: none;
-  border-radius: 30%;
   width: 40px;
   height: 40px;
   display: none;
-  /* Awalnya disembunyikan */
   justify-content: center;
   align-items: center;
   cursor: pointer;
+
+  background-color: #212529;
+  color: #fff;
   border: 2px solid black;
+  border-radius: 30%;
   box-shadow: 2px 2px 5px black;
+
   z-index: 2;
   transition: transform 0.3s ease, color 0.3s ease;
 }
 
 #backToTop:hover {
   background-color: #1a1e21;
-  /* Warna tombol saat dihover */
   transform: scale(1.2);
 }
 
-/* Kustomisasi scrollbar untuk seluruh halaman */
+/* =====================
+   Scrollbar Custom
+===================== */
 * {
   scrollbar-width: thin;
-  /* Firefox: Lebar scrollbar tipis */
   scrollbar-color: #212529 #f1f1f1;
-  /* Warna thumb dan track (Firefox) */
 }
 
-/* Untuk browser berbasis WebKit (Chrome, Edge, Safari) */
 *::-webkit-scrollbar {
   width: 10px;
-  /* Lebar scrollbar */
   height: 10px;
-  /* Tinggi scrollbar horizontal */
 }
 
 *::-webkit-scrollbar-thumb {
   background-color: #212529;
-  /* Warna thumb */
   border-radius: 5px;
-  /* Membulatkan sudut thumb */
 }
 
 *::-webkit-scrollbar-thumb:hover {
   background-color: #1a1e21;
-  /* Warna thumb saat dihover */
 }
 
 *::-webkit-scrollbar-track {
   background: #f1f1f1;
-  /* Warna track scrollbar */
   border-radius: 5px;
-  /* Membulatkan sudut track */
 }
 
-/* Overlay container (hidden by default) */
+/* =====================
+   Overlay
+===================== */
 .overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
+  inset: 0;
+  /* ganti top, left, width, height jadi 1 baris */
   display: flex;
   justify-content: center;
   align-items: center;
+
+  background-color: rgba(0, 0, 0, 0.8);
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s ease, visibility 0.3s ease;
+
   z-index: 2;
+}
+
+.overlay.active {
+  opacity: 1;
+  visibility: visible;
 }
 
 .overlay img {
@@ -201,19 +192,74 @@ section {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
 }
 
-/* Show overlay when active */
-.overlay.active {
-  opacity: 1;
-  visibility: visible;
-}
-
-/* Close button */
 .close-btn {
   position: absolute;
   top: 20px;
   right: 20px;
   font-size: 30px;
-  color: white;
+  color: #fff;
   cursor: pointer;
   z-index: 10;
+}
+
+/* =====================
+   Typography
+===================== */
+h1 {
+  font-size: 2rem;
+  /* 32px */
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 1.5rem;
+  /* 24px */
+  line-height: 1.3;
+}
+
+h3 {
+  font-size: 1.25rem;
+  /* 20px */
+  line-height: 1.4;
+}
+
+p {
+  font-size: 1rem;
+  /* 16px */
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+small {
+  font-size: 0.875rem;
+  /* 14px */
+  line-height: 1.4;
+}
+
+/* Responsive: HP */
+@media (max-width: 768px) {
+  body {
+    font-size: 15px;
+  }
+
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  /* 28px */
+  h2 {
+    font-size: 1.375rem;
+  }
+
+  /* 22px */
+  h3 {
+    font-size: 1.125rem;
+  }
+
+  /* 18px */
+  p {
+    font-size: 0.95rem;
+  }
+
+  /* ~15px */
 }

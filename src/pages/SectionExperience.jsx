@@ -19,19 +19,30 @@ const SectionExperience = ({ experiences }) => (
             <b>Web Developer</b>.<br /><br />
             You can find more details about my experience in the following section:
           </p>
-
         </div>
+
         <div id="content-right">
           {experiences.map((exp, i) => (
             <div key={i} className="box">
               <div className="box-body">
                 <div className="box-title">
-                  {exp.logo && (
-                    <img src={exp.logo} alt={exp.company} className="box-logo" />
+                  {exp.url ? (
+                    <a href={exp.url} target="_blank" rel="noopener noreferrer" className="company-link">
+                      {exp.logo && (
+                        <img src={exp.logo} alt={exp.company} className="box-logo" />
+                      )}
+                      <h5>{exp.company}</h5>
+                    </a>
+                  ) : (
+                    <>
+                      {exp.logo && (
+                        <img src={exp.logo} alt={exp.company} className="box-logo" />
+                      )}
+                      <h5>{exp.company}</h5>
+                    </>
                   )}
-                  <h5>{exp.company}</h5>
                 </div>
-                <p className="text-muted" style={{ fontSize: 14 }}>{exp.since}</p>
+                <p className="text-muted" style={{ fontSize: 14, marginTop: 10 }}>{exp.since}</p>
                 <hr />
                 <div className="box-department">
                   <h5>{exp.position}</h5>

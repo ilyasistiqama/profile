@@ -1,6 +1,6 @@
-import mamorasoft from "../../assets/images/company/mamorasoft.png";
-import mitra_informatika from "../../assets/images/company/mitra_informatika.png";
-import terik from "../../assets/images/company/terik.png";
+import mamorasoft from "../../assets/images/company/mamorasoft.webp";
+import mitra_informatika from "../../assets/images/company/mitra_informatika.webp";
+import terik from "../../assets/images/company/terik.webp";
 
 const experiences = [
   {
@@ -18,6 +18,7 @@ const experiences = [
     since: "Jan, 2025 - Present",
     position: "Web Programmer",
     logo: terik,
+    url: "https://terik.id",
     jobdesks: [
       "Develop enterprise-scale web applications tailored to internal business processes",
       "Implement new features and modules in existing systems to improve performance and usability",
@@ -30,6 +31,7 @@ const experiences = [
     since: "Feb, 2022 - Apr, 2024",
     position: "Application Programming Staff",
     logo: mamorasoft,
+    url: "https://mamorasoft.com",
     jobdesks: [
       "Designed and developed responsive websites using JavaScript and PHP frameworks (e.g., Laravel, CodeIgniter)",
       "Analyzed internal and client-side requirements for web-based systems and implemented appropriate solutions",
@@ -47,6 +49,5 @@ const experiences = [
     ],
   },
 ];
-
 
 export default experiences;

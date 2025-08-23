@@ -19,11 +19,11 @@ const SectionContact = () => {
               <i className="fab fa-facebook-f" />
             </a>
             {/* Instagram */}
-            <a className="btn btn-outline-light btn-floating m-1" href="https://www.instagram.com/lifeofyse" role="button" rel="noopener noreferrer" target="_blank">
+            <a className="btn btn-outline-light btn-floating m-1" href="https://www.instagram.com/lifeofaysi" role="button" rel="noopener noreferrer" target="_blank">
               <i className="fab fa-instagram" />
             </a>
             {/* Threads */}
-            <a className="btn btn-outline-light btn-floating m-1" href="https://www.threads.net/@lifeofyse" role="button" rel="noopener noreferrer" target="_blank">
+            <a className="btn btn-outline-light btn-floating m-1" href="https://www.threads.net/@lifeofaysi" role="button" rel="noopener noreferrer" target="_blank">
               <i className="fa-brands fa-threads" />
             </a>
             {/* Google */}

@@ -33,11 +33,12 @@
   background-color: #fff;
 }
 
+/* Box card */
 #experience .box {
   border: 3px solid black;
   border-radius: 15px;
   box-shadow: 4px 4px 6px black;
-  background-color: #f6f6f6;
+  background-color: #eaeaea;
   padding: 15px;
   margin-bottom: 35px;
   transition: transform 0.3s ease;
@@ -47,10 +48,28 @@
   transform: scale(1.05);
 }
 
+/* Title (logo + text) */
 .box-title {
   display: flex;
   align-items: center;
   gap: 8px;
+}
+
+/* Kalau bisa diklik */
+.box-title a.company-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  /* hilang underline */
+  color: black;
+  /* default warna teks */
+  transition: color 0.3s ease;
+}
+
+.box-title a.company-link:hover {
+  color: #d12e2e;
+  /* merah elegan saat hover */
 }
 
 .box-title h5 {
@@ -59,12 +78,17 @@
   margin: 0;
 }
 
+/* Logo perusahaan */
 .box-logo {
   max-width: 52px;
   max-height: 52px;
   padding: 5px;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
 
+/* Position/job title */
 .box-department h5 {
   font-style: italic;
   font-weight: 600;
@@ -75,6 +99,7 @@
   font-size: 12px;
 }
 
+/* Mobile responsive */
 @media screen and (max-width: 1100px) {
   #experience .container #content {
     display: flex;

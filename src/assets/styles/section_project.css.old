@@ -1,5 +1,5 @@
 #project {
-  background-color: #f6f6f6;
+  background-color: #eaeaea;
   padding: 40px 0 70px 0;
 }
 
@@ -56,7 +56,7 @@
 
 #project .child-box {
   cursor: pointer;
-  background-color: #f6f6f6;
+  background-color: #eaeaea;
   border: 2px solid black;
   border-radius: 5px;
   box-shadow: 2px 2px 3px black;

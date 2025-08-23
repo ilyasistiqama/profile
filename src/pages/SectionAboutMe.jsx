@@ -1,26 +1,24 @@
+import FotoIlyas from "../assets/images/ilyas2.webp";
 import React from "react";
-import FotoIlyas from "../assets/images/ilyas-new.webp";
+import { useImageOverlay } from "../components/ImageOverlay"; // import hook
 
 const handleClickCV = (e) => {
   e.preventDefault();
-
   let path = "https://drive.google.com/drive/folders/1ToUoWToqsUVoGj7CRcbUsMxIT5RhuYUC?usp=sharing";
-
   window.open(path, "_blank");
 };
 
 const SectionAboutMe = () => {
+  const { selectedImage, openOverlay, closeOverlay } = useImageOverlay();
+
   const myAge = () => {
     const lahir = new Date("1999-06-19");
     const sekarang = new Date();
-
     let umur = sekarang.getFullYear() - lahir.getFullYear();
-    const belumUlangTahun = sekarang.getMonth() < lahir.getMonth() || (sekarang.getMonth() === lahir.getMonth() && sekarang.getDate() < lahir.getDate());
-
-    if (belumUlangTahun) {
-      umur--;
-    }
-
+    const belumUlangTahun =
+      sekarang.getMonth() < lahir.getMonth() ||
+      (sekarang.getMonth() === lahir.getMonth() && sekarang.getDate() < lahir.getDate());
+    if (belumUlangTahun) umur--;
     return umur;
   };
 
@@ -28,7 +26,12 @@ const SectionAboutMe = () => {
     <section id="about-me">
       <div className="container">
         <div id="content">
-          <img src={FotoIlyas} alt="Foto Ilyas" id="image-me" />
+          <img
+            src={FotoIlyas}
+            alt="Foto Ilyas"
+            id="image-me"
+            onClick={() => openOverlay(FotoIlyas)}
+          />
           <div id="text">
             <h2>ABOUT ME</h2>
             <p>
@@ -40,16 +43,34 @@ const SectionAboutMe = () => {
               working at PT. Terik Indonesia Inside while also handling some freelance projects. If you have any opportunities or projects that align with my expertise, feel free to reach out to me.
             </p>
             <div style={{ display: "flex", justifyContent: "flex-start" }}>
-              <button type="button" className="btn btn-primary btn-custom" style={{ backgroundColor: "#212529", margin: "10px" }} id="cv-btn" onClick={(e) => handleClickCV(e)}>
+              <button
+                type="button"
+                className="btn btn-primary btn-custom"
+                style={{ backgroundColor: "#212529", margin: "10px" }}
+                id="cv-btn"
+                onClick={handleClickCV}
+              >
                 <b>CV</b>
               </button>
-              <a href="#contact" className="btn btn-primary btn-custom" style={{ backgroundColor: "#212529", margin: "10px" }}>
+              <a
+                href="#contact"
+                className="btn btn-primary btn-custom"
+                style={{ backgroundColor: "#212529", margin: "10px" }}
+              >
                 Contact Me
               </a>
             </div>
           </div>
         </div>
       </div>
+
+      {/* Overlay */}
+      {selectedImage && (
+        <div className="overlay active" id="overlay">
+          <span className="close-btn" onClick={closeOverlay}>x</span>
+          <img src={selectedImage} alt="Zoomed" id="zoomed-image" />
+        </div>
+      )}
     </section>
   );
 };

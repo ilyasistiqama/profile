@@ -6,7 +6,7 @@
   background-size: cover;
   background-attachment: fixed;
   background-position: 50% 25%;
-  height: 100vh;
+  min-height: 100dvh;
   padding: 15px;
 }
 
@@ -16,7 +16,7 @@
   position: relative;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100dvh;
 }
 
 /* KOTAK UTAMA */
