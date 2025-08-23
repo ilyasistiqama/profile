@@ -1,11 +1,11 @@
 {
   "files": {
-    "main.css": "/static/css/main.e8b180e9.css",
-    "main.js": "/static/js/main.e8001adc.js",
+    "main.css": "/static/css/main.c5cd8e56.css",
+    "main.js": "/static/js/main.115e7307.js",
     "static/js/453.9ea3974c.chunk.js": "/static/js/453.9ea3974c.chunk.js",
+    "static/media/ilyas2.webp": "/static/media/ilyas2.c5a18068be55647eb3e4.webp",
     "static/media/1.png": "/static/media/1.56935e0c2cee8810c8fd.png",
     "static/media/rmp-1.png": "/static/media/rmp-1.fd249c40b422bc6e88d8.png",
-    "static/media/ilyas-new.webp": "/static/media/ilyas-new.c700c8dea76b929cb466.webp",
     "static/media/fa-solid-900.ttf": "/static/media/fa-solid-900.ad1782c70927ebc5bc87.ttf",
     "static/media/background.webp": "/static/media/background.0691873163d56808d74b.webp",
     "static/media/3.png": "/static/media/3.e6c13a5d2a180c44a0b5.png",
@@ -33,23 +33,23 @@
     "static/media/sergio-2.png": "/static/media/sergio-2.241eb4db4f179013630f.png",
     "static/media/sispak-4.png": "/static/media/sispak-4.79c75b74c792fe5d1222.png",
     "static/media/sispak-3.png": "/static/media/sispak-3.66f7e102bd39963601cd.png",
-    "static/media/jquery.png": "/static/media/jquery.fa839d94200d98ac6d4c.png",
     "static/media/sispak-2.png": "/static/media/sispak-2.3fb7ffb9d60a64363ada.png",
     "static/media/sispak-1.png": "/static/media/sispak-1.a399ad52bb0deb6f8cdc.png",
     "static/media/fa-regular-400.woff2": "/static/media/fa-regular-400.4f6a2dabee9c092d09b9.woff2",
     "static/media/lumen.png": "/static/media/lumen.b24512dcccd98478a09b.png",
     "static/media/spk-1.png": "/static/media/spk-1.47500aa9c28b02226024.png",
-    "static/media/mitra_informatika.png": "/static/media/mitra_informatika.54328971f340a949c251.png",
-    "static/media/mamorasoft.png": "/static/media/mamorasoft.79b032ccd65894008490.png",
     "static/media/fa-v4compatibility.ttf": "/static/media/fa-v4compatibility.fa86b3c85e77abbd2ebd.ttf",
+    "static/media/mitra_informatika.webp": "/static/media/mitra_informatika.bf34c207fc8c8c8bcd31.webp",
     "static/media/fa-v4compatibility.woff2": "/static/media/fa-v4compatibility.c3ea317a0f10f201597f.woff2",
+    "static/media/mamorasoft.webp": "/static/media/mamorasoft.e66f0069c60c5fbdef70.webp",
     "index.html": "/index.html",
-    "main.e8b180e9.css.map": "/static/css/main.e8b180e9.css.map",
-    "main.e8001adc.js.map": "/static/js/main.e8001adc.js.map",
+    "static/media/terik.webp": "/static/media/terik.93d0f679c63823a0f700.webp",
+    "main.c5cd8e56.css.map": "/static/css/main.c5cd8e56.css.map",
+    "main.115e7307.js.map": "/static/js/main.115e7307.js.map",
     "453.9ea3974c.chunk.js.map": "/static/js/453.9ea3974c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e8b180e9.css",
-    "static/js/main.e8001adc.js"
+    "static/css/main.c5cd8e56.css",
+    "static/js/main.115e7307.js"
   ]
 }
