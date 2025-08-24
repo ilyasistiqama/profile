@@ -3,16 +3,7 @@ import mitra_informatika from "../../assets/images/company/mitra_informatika.web
 import terik from "../../assets/images/company/terik.webp";
 
 const experiences = [
-  {
-    company: "Freelancer",
-    since: "Aug, 2024 - Present",
-    position: "Freelance Web Developer",
-    logo: null,
-    jobdesks: [
-      "Develop customized web-based application features for various clients",
-      "Collaborate with clients to identify technical requirements and deliver solutions",
-    ],
-  },
+
   {
     company: "PT. Terik Indonesia Inside",
     since: "Jan, 2025 - Present",
@@ -24,6 +15,16 @@ const experiences = [
       "Implement new features and modules in existing systems to improve performance and usability",
       "Design and maintain database schemas based on functional and technical requirements",
       "Identify and resolve software bugs and system issues efficiently",
+    ],
+  },
+  {
+    company: "Freelancer",
+    since: "Aug, 2024 - Jan, 2025",
+    position: "Freelance Web Developer",
+    logo: null,
+    jobdesks: [
+      "Develop customized web-based application features for various clients",
+      "Collaborate with clients to identify technical requirements and deliver solutions",
     ],
   },
   {

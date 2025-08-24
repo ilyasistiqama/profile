@@ -35,13 +35,14 @@ const SectionAboutMe = () => {
           <div id="text">
             <h2>ABOUT ME</h2>
             <p>
-              Hi everybody. Let me introduce myself, my name is Muh. Ilyas Istiqama. M, but you can call me Ilyas. I come from Luwuk and currently live in Surabaya. I am {myAge()} years old and graduated with a GPA of 3.62/4 and a
-              Bachelor's degree in Information Engineering from the University of 17 August 1945 Surabaya with a S.Kom. I enjoy learning new things, especially in the field of programming.
+              Hi everybody. Let me introduce myself, my name is <b>Muh. Ilyas Istiqama. M</b>, but you can call me <b>Ilyas</b>. I come from Luwuk and currently live in Surabaya. I am {myAge()} years old and graduated with a GPA of <b>3.62/4</b> and a
+              <b> Bachelor's degree in Information Engineering</b> from the <b>University of 17 August 1945 Surabaya</b> with a <b>S.Kom</b>. I enjoy learning new things, especially in the field of <b>programming</b>.
             </p>
             <p>
-              In addition to my programming skills, I have strong critical and creative thinking abilities, excellent communication skills, the ability to collaborate effectively in a team, and strong time management skills. I am currently
-              working at PT. Terik Indonesia Inside while also handling some freelance projects. If you have any opportunities or projects that align with my expertise, feel free to reach out to me.
+              In addition to my programming skills, I have strong <b>critical and creative thinking abilities</b>, excellent <b>communication skills</b>, the ability to <b>collaborate effectively in a team</b>, and strong <b>time management skills</b>. I am currently
+              working at <b>PT. Terik Indonesia Inside</b> while also handling some <b>freelance projects</b>. If you have any opportunities or projects that align with my expertise, <b>feel free to reach out to me</b>.
             </p>
+
             <div style={{ display: "flex", justifyContent: "flex-start" }}>
               <button
                 type="button"

@@ -15,8 +15,7 @@ const SectionExperience = ({ experiences }) => (
             maintenance.<br /><br />
             In 2025, I joined <b>PT. Terik Indonesia Inside</b> as a <b>Web Programmer</b>, developing new
             features, managing databases, and fixing bugs on web-based systems.<br /><br />
-            Since August 2024, I have also been working on freelance projects as a{" "}
-            <b>Web Developer</b>.<br /><br />
+            Since August 2024, I have also been working on freelance projects as a <b>Web Developer</b>, and it ended when I got my current job, as it was no longer possible to take on projects outside of my current work.<br /><br />
             You can find more details about my experience in the following section:
           </p>
         </div>
@@ -27,7 +26,12 @@ const SectionExperience = ({ experiences }) => (
               <div className="box-body">
                 <div className="box-title">
                   {exp.url ? (
-                    <a href={exp.url} target="_blank" rel="noopener noreferrer" className="company-link">
+                    <a
+                      href={exp.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="company-link"
+                    >
                       {exp.logo && (
                         <img src={exp.logo} alt={exp.company} className="box-logo" />
                       )}
@@ -42,7 +46,10 @@ const SectionExperience = ({ experiences }) => (
                     </>
                   )}
                 </div>
-                <p className="text-muted" style={{ fontSize: 14, marginTop: 10 }}>{exp.since}</p>
+
+                <p className="text-muted" style={{ fontSize: 14, marginTop: 10 }}>
+                  {exp.since}
+                </p>
                 <hr />
                 <div className="box-department">
                   <h5>{exp.position}</h5>
@@ -57,7 +64,11 @@ const SectionExperience = ({ experiences }) => (
               </div>
             </div>
           ))}
+
+          {/* Label "Start" di paling bawah */}
+          <div className="timeline-end">START</div>
         </div>
+
       </div>
     </div>
   </section>

@@ -8,6 +8,15 @@
   gap: 5%;
 }
 
+/* Left side */
+#experience #content-left {
+  position: sticky;
+  top: 100px;
+  /* jarak dari atas layar */
+  align-self: flex-start;
+}
+
+
 #experience #content-left h2 {
   font-weight: lighter;
   cursor: pointer;
@@ -23,29 +32,97 @@
   text-align: left;
 }
 
+/* Right side (timeline container) */
 #experience #content-right {
-  overflow: auto;
-  padding: 45px;
-  height: 85vh;
+  position: relative;
+  overflow: visible;
+  padding: 90px 45px 110px;
+  /* tambah bottom padding biar badge Start aman */
+  min-height: 85vh;
   border: 3px solid black;
   border-radius: 3px;
   box-shadow: 4px 4px 6px black;
-  background-color: #fff;
+  /* background-color: #fff; */
+  background-color: #eaeaea;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Garis timeline di tengah */
+#experience #content-right::before {
+  content: "";
+  position: absolute;
+  top: 25px;
+  /* di bawah label Present */
+  bottom: 44px;
+  /* = bottom Start (28px) + ~16px (½ tinggi badge) */
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 3px dashed #555;
+  z-index: 0;
+}
+
+/* Label "Present" */
+#experience #content-right::after {
+  content: "PRESENT";
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+  padding: 6px 12px;
+  border: 2px solid black;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 13px;
+  color: black;
+  z-index: 2;
+}
+
+/* Label "Start" */
+#experience #content-right .timeline-end {
+  position: absolute;
+  /* <-- dari sebelumnya relative */
+  bottom: 28px;
+  /* jarak dari border bawah */
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+  padding: 6px 12px;
+  border: 2px solid black;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 13px;
+  color: black;
+  z-index: 2;
 }
 
 /* Box card */
 #experience .box {
+  position: relative;
   border: 3px solid black;
   border-radius: 15px;
   box-shadow: 4px 4px 6px black;
-  background-color: #eaeaea;
-  padding: 15px;
-  margin-bottom: 35px;
+  background-color: #fff;
+  padding: 20px;
+  margin: 25px 0;
+  width: 95%;
+  /* ❌ bukan zigzag, semua center */
+  z-index: 1;
   transition: transform 0.3s ease;
+  align-self: center;
+  /* ✅ selalu center ke garis */
 }
 
 #experience .box:hover {
   transform: scale(1.05);
+}
+
+/* Hapus zigzag */
+#experience .box:nth-child(odd),
+#experience .box:nth-child(even) {
+  align-self: center !important;
 }
 
 /* Title (logo + text) */
@@ -55,21 +132,17 @@
   gap: 8px;
 }
 
-/* Kalau bisa diklik */
 .box-title a.company-link {
   display: flex;
   align-items: center;
   gap: 8px;
   text-decoration: none;
-  /* hilang underline */
   color: black;
-  /* default warna teks */
   transition: color 0.3s ease;
 }
 
 .box-title a.company-link:hover {
-  color: #d12e2e;
-  /* merah elegan saat hover */
+  color: #00adb5;
 }
 
 .box-title h5 {
@@ -99,21 +172,55 @@
   font-size: 12px;
 }
 
-/* Mobile responsive */
+/* Responsive */
 @media screen and (max-width: 1100px) {
   #experience .container #content {
     display: flex;
     flex-direction: column;
   }
 
+  #experience #content-left {
+    position: static;
+    /* balik normal */
+    top: auto;
+    /* reset biar ga ada efek sticky */
+  }
+
+  /* Lebihin ruang di atas (untuk badge Present) dan bawah (untuk Start) */
   #experience #content-right {
-    padding: 25px 15px 5px;
-    height: auto;
+    padding: 70px 15px 48px;
+    /* ⬆️ dari 55px jadi 70px */
+    min-height: auto;
+  }
+
+  /* PRESENT tetap nempel di paling atas dan center */
+  #experience #content-right::after {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+  }
+
+  /* START jadi elemen terakhir, center */
+  #experience #content-right .timeline-end {
+    position: static;
+    /* biar ngikut flow */
+    display: block;
+    margin: 0 auto;
+    /* auto = center di flex container */
+    transform: translateY(50%);
+    /* turun sedikit biar nempel garis */
+  }
+
+  /* Tambah jarak ekstra antara Present dan box pertama */
+  #experience #content-right .box:first-of-type {
+    margin-top: 8px;
   }
 
   #experience .box {
     padding: 12px;
-    margin-bottom: 20px;
+    width: 95%;
     transition: none;
   }
 
