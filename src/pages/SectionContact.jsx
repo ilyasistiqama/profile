@@ -1,52 +1,74 @@
-
 const SectionContact = () => {
-  const thisYear = () => {
-    const tahunIni = new Date();
-
-    return tahunIni.getFullYear();
-  };
+  const thisYear = new Date().getFullYear();
 
   return (
     <section id="contact">
       <footer className="bg-dark text-center text-white">
-        {/* Grid container */}
-        <div className="container p-3 pb-0 mb-3">
-          <div style={{ margin: "50px 0" }}>
-            <h4 style={{marginBottom: "25px"}}>CONTACT ME</h4>
-            {/* Section: Social media */}
-            {/* Facebook */}
-            <a className="btn btn-outline-light btn-floating m-1" href="https://www.facebook.com/I.Istiqama.Makmur" rel="noopener noreferrer" target="_blank" role="button">
+        <div className="container py-5">
+          <h4 className="mb-4 font-bold tracking-wide">CONTACT ME</h4>
+
+          <div className="d-flex justify-content-center flex-wrap gap-3">
+            <a
+              className="btn btn-outline-light btn-floating shadow-sm"
+              href="https://www.facebook.com/I.Istiqama.Makmur"
+              rel="noopener noreferrer"
+              target="_blank"
+              role="button"
+            >
               <i className="fab fa-facebook-f" />
             </a>
-            {/* Instagram */}
-            <a className="btn btn-outline-light btn-floating m-1" href="https://www.instagram.com/lifeofaysi" role="button" rel="noopener noreferrer" target="_blank">
+            <a
+              className="btn btn-outline-light btn-floating shadow-sm"
+              href="https://www.instagram.com/lifeofaays"
+              rel="noopener noreferrer"
+              target="_blank"
+              role="button"
+            >
               <i className="fab fa-instagram" />
             </a>
-            {/* Threads */}
-            <a className="btn btn-outline-light btn-floating m-1" href="https://www.threads.net/@lifeofaysi" role="button" rel="noopener noreferrer" target="_blank">
+            <a
+              className="btn btn-outline-light btn-floating shadow-sm"
+              href="https://www.threads.net/@lifeofaays"
+              rel="noopener noreferrer"
+              target="_blank"
+              role="button"
+            >
               <i className="fa-brands fa-threads" />
             </a>
-            {/* Google */}
-            <a className="btn btn-outline-light btn-floating m-1" href="mailto:ilyasistiqama@gmail.com" role="button" rel="noopener noreferrer" target="_blank">
+            <a
+              className="btn btn-outline-light btn-floating shadow-sm"
+              href="mailto:ilyasistiqama@gmail.com"
+              rel="noopener noreferrer"
+              target="_blank"
+              role="button"
+            >
               <i className="fab fa-google" />
             </a>
-            {/* Linkedin */}
-            <a className="btn btn-outline-light btn-floating m-1" href="https://www.linkedin.com/in/muh-ilyas-istiqama" role="button" rel="noopener noreferrer" target="_blank">
+            <a
+              className="btn btn-outline-light btn-floating shadow-sm"
+              href="https://www.linkedin.com/in/muh-ilyas-istiqama"
+              rel="noopener noreferrer"
+              target="_blank"
+              role="button"
+            >
               <i className="fab fa-linkedin-in" />
             </a>
-            {/* Github */}
-            <a className="btn btn-outline-light btn-floating m-1" href="https://github.com/ilyasistiqama" role="button" rel="noopener noreferrer" target="_blank">
+            <a
+              className="btn btn-outline-light btn-floating shadow-sm"
+              href="https://github.com/ilyasistiqama"
+              rel="noopener noreferrer"
+              target="_blank"
+              role="button"
+            >
               <i className="fab fa-github" />
             </a>
-            {/* Section: Social media */}
           </div>
         </div>
-        {/* Grid container */}
+
         {/* Copyright */}
-        <div className="text-center p-3" style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}>
-          <p style={{margin:"8px"}} id="year">© {thisYear()} Copyright: All rights reserved.</p>
+        <div className="text-center p-3 footer-bottom">
+          <p className="m-0">© {thisYear} Copyright: All rights reserved.</p>
         </div>
-        {/* Copyright */}
       </footer>
     </section>
   );

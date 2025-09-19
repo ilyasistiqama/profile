@@ -2,3 +2,34 @@
   display: block;
   position: static;
 }
+
+#contact {
+  display: block;
+  position: static;
+}
+
+/* biar button bulat */
+#contact .btn-floating {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  font-size: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease-in-out;
+}
+
+/* hover animasi */
+#contact .btn-floating:hover {
+  transform: translateY(-4px);
+  background-color: #0d6efd;
+  color: #fff;
+  border-color: #0d6efd;
+}
+
+/* bottom copyright */
+#contact .footer-bottom {
+  background-color: rgba(255, 255, 255, 0.05);
+  font-size: 14px;
+}
