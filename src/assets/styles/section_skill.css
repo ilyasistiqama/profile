@@ -6,8 +6,9 @@
 #skill .container h2 {
   margin: 15px 0 45px;
   text-align: center;
-  font-weight: lighter;
-  cursor: pointer;
+  font-size: var(--fs-h2);
+  line-height: var(--lh-heading);
+  letter-spacing: 0.5px;
 }
 
 #skill .container h2:hover {
@@ -37,14 +38,19 @@
   padding: 20px;
   border: 3px solid black;
   border-radius: 15px;
-  box-shadow: 4px 4px 6px black;
+  /* box-shadow: 4px 4px 6px black; */
   background-color: #ffffff;
   transition: transform 0.3s ease;
   min-height: 200px;
+  background: #fff;
+  box-shadow:
+    4px 4px 0 #000,
+    8px 8px 15px rgba(0, 0, 0, 0.15);
 }
 
 #skill .list-skill:hover {
-  transform: scale(1.05);
+  /* transform: scale(1.05); */
+  transform: translateY(-6px) scale(1.03);
 }
 
 #skill .list-skill-body {
@@ -58,6 +64,16 @@
 .icon-skill i {
   font-size: 40px;
   line-height: 40px;
+}
+
+.icon-skill i,
+.icon-skill-img {
+  transition: transform 0.3s ease;
+}
+
+#skill .list-skill:hover .icon-skill i,
+#skill .list-skill:hover .icon-skill-img {
+  transform: scale(1.15);
 }
 
 .icon-skill,
@@ -93,11 +109,11 @@
   height: 40px;
   font-size: 1.5rem;
   cursor: pointer;
-  opacity: 0.2;
+  opacity: 0.1;
 }
 
 .scroll-btn:hover {
-  opacity: 0.7;
+  opacity: 0.3;
 }
 
 .scroll-btn.left {

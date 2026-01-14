@@ -17,6 +17,7 @@
 
 .loader-text {
   display: flex;
+  align-items: center;
   font-family: 'Courier New', monospace;
   font-size: 2rem;
   color: #00d9ff;
@@ -24,49 +25,44 @@
   letter-spacing: 0.2rem;
 }
 
-/* Sebelum animate, huruf tersembunyi */
 .letter {
   opacity: 0;
   transform: translateY(35px);
 }
 
-/* Saat animate class ditambahkan (dari React), animasi jalan */
 .letter.animate {
-  animation: fadeIn 3.5s infinite;
-}
-
-/* Delay antar huruf */
-.letter.animate:nth-child(1) {
-  animation-delay: 0.5s;
-}
-
-.letter.animate:nth-child(2) {
-  animation-delay: 1.0s;
-}
-
-.letter.animate:nth-child(3) {
-  animation-delay: 1.5s;
-}
-
-.letter.animate:nth-child(4) {
-  animation-delay: 2.0s;
-}
-
-.letter.animate:nth-child(5) {
-  animation-delay: 2.5s;
+  animation: fadeIn 0.6s ease forwards;
+  animation-delay: calc(var(--i) * 0.15s);
 }
 
 @keyframes fadeIn {
-  0% {
+  from {
     opacity: 0;
     transform: translateY(35px);
   }
-  50% {
+
+  to {
     opacity: 1;
     transform: translateY(0);
   }
-  100% {
-    opacity: 0;
-    transform: translateY(-10px);
+}
+
+.welcome-text {
+  font-size: 2.2rem;
+  letter-spacing: 0.35rem;
+}
+
+.welcome-text span {
+  display: inline-block;
+  animation: smilePop 0.6s ease forwards;
+}
+
+@keyframes smilePop {
+  from {
+    transform: scale(0.8);
+  }
+
+  to {
+    transform: scale(1);
   }
 }

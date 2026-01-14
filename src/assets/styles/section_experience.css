@@ -8,19 +8,17 @@
   gap: 5%;
 }
 
-/* Left side */
+/* LEFT */
 #experience #content-left {
   position: sticky;
   top: 100px;
-  /* jarak dari atas layar */
   align-self: flex-start;
 }
 
-
 #experience #content-left h2 {
-  font-weight: lighter;
-  cursor: pointer;
   text-align: left;
+  font-size: var(--fs-h2);
+  line-height: var(--lh-heading);
 }
 
 #experience #content-left h2:hover {
@@ -32,38 +30,33 @@
   text-align: left;
 }
 
-/* Right side (timeline container) */
+/* RIGHT */
 #experience #content-right {
   position: relative;
-  overflow: visible;
   padding: 90px 45px 110px;
-  /* tambah bottom padding biar badge Start aman */
   min-height: 85vh;
   border: 3px solid black;
   border-radius: 3px;
   box-shadow: 4px 4px 6px black;
-  /* background-color: #fff; */
   background-color: #eaeaea;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-/* Garis timeline di tengah */
+/* Timeline line */
 #experience #content-right::before {
   content: "";
   position: absolute;
   top: 25px;
-  /* di bawah label Present */
   bottom: 44px;
-  /* = bottom Start (28px) + ~16px (½ tinggi badge) */
   left: 50%;
   transform: translateX(-50%);
   border-left: 3px dashed #555;
   z-index: 0;
 }
 
-/* Label "Present" */
+/* PRESENT */
 #experience #content-right::after {
   content: "PRESENT";
   position: absolute;
@@ -76,16 +69,13 @@
   border-radius: 20px;
   font-weight: bold;
   font-size: 13px;
-  color: black;
   z-index: 2;
 }
 
-/* Label "Start" */
-#experience #content-right .timeline-end {
+/* START */
+.timeline-end {
   position: absolute;
-  /* <-- dari sebelumnya relative */
   bottom: 28px;
-  /* jarak dari border bawah */
   left: 50%;
   transform: translateX(-50%);
   background: #fff;
@@ -94,64 +84,58 @@
   border-radius: 20px;
   font-weight: bold;
   font-size: 13px;
-  color: black;
   z-index: 2;
 }
 
-/* Box card */
+/* BOX */
 #experience .box {
-  position: relative;
+  width: 95%;
+  margin: 25px 0;
+  padding: 20px;
   border: 3px solid black;
   border-radius: 15px;
   box-shadow: 4px 4px 6px black;
   background-color: #fff;
-  padding: 20px;
-  margin: 25px 0;
-  width: 95%;
-  /* ❌ bukan zigzag, semua center */
   z-index: 1;
-  transition: transform 0.3s ease;
-  align-self: center;
-  /* ✅ selalu center ke garis */
+  opacity: 0.85;
+  transform: scale(0.98);
+  transition: all 0.3s ease;
+}
+
+#experience .box.is-active {
+  opacity: 1;
+  transform: scale(1.02);
 }
 
 #experience .box:hover {
   transform: scale(1.05);
 }
 
-/* Hapus zigzag */
-#experience .box:nth-child(odd),
-#experience .box:nth-child(even) {
-  align-self: center !important;
-}
-
-/* Title (logo + text) */
+/* TITLE */
 .box-title {
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
-.box-title a.company-link {
+.box-title a {
   display: flex;
   align-items: center;
   gap: 8px;
   text-decoration: none;
   color: black;
-  transition: color 0.3s ease;
 }
 
-.box-title a.company-link:hover {
+.box-title a:hover {
   color: #00adb5;
 }
 
 .box-title h5 {
-  font-weight: bold;
   font-size: 22px;
-  margin: 0;
+  font-weight: bold;
 }
 
-/* Logo perusahaan */
+/* LOGO */
 .box-logo {
   max-width: 52px;
   max-height: 52px;
@@ -161,19 +145,15 @@
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
 
-/* Position/job title */
+/* POSITION */
 .box-department h5 {
   font-style: italic;
   font-weight: 600;
   margin-top: 10px;
 }
 
-.box-department p {
-  font-size: 12px;
-}
-
-/* Responsive */
-@media screen and (max-width: 1100px) {
+/* MOBILE */
+@media (max-width: 1100px) {
   #experience .container #content {
     display: flex;
     flex-direction: column;
@@ -181,47 +161,21 @@
 
   #experience #content-left {
     position: static;
-    /* balik normal */
-    top: auto;
-    /* reset biar ga ada efek sticky */
   }
 
-  /* Lebihin ruang di atas (untuk badge Present) dan bawah (untuk Start) */
   #experience #content-right {
     padding: 70px 15px 48px;
-    /* ⬆️ dari 55px jadi 70px */
     min-height: auto;
   }
 
-  /* PRESENT tetap nempel di paling atas dan center */
-  #experience #content-right::after {
-    position: absolute;
-    top: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    margin: 0;
-  }
-
-  /* START jadi elemen terakhir, center */
-  #experience #content-right .timeline-end {
+  .timeline-end {
     position: static;
-    /* biar ngikut flow */
-    display: block;
     margin: 0 auto;
-    /* auto = center di flex container */
     transform: translateY(50%);
-    /* turun sedikit biar nempel garis */
-  }
-
-  /* Tambah jarak ekstra antara Present dan box pertama */
-  #experience #content-right .box:first-of-type {
-    margin-top: 8px;
   }
 
   #experience .box {
     padding: 12px;
-    width: 95%;
-    transition: none;
   }
 
   #experience .box:hover {

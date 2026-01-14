@@ -2,35 +2,64 @@ import React, { useRef, useEffect, useState } from "react";
 
 const SectionSkill = ({ skills }) => {
   const scrollRef = useRef(null);
+  const intervalRef = useRef(null);
+
   const [isOverflowing, setIsOverflowing] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState("All");
 
-  const scrollLeft = () => {
-    scrollRef.current.scrollBy({ left: -200, behavior: "smooth" });
-  };
-
-  const scrollRight = () => {
-    scrollRef.current.scrollBy({ left: 200, behavior: "smooth" });
-  };
-
-  useEffect(() => {
-    const el = scrollRef.current;
-    const checkOverflow = () => {
-      setIsOverflowing(el.scrollWidth > el.clientWidth);
-    };
-    checkOverflow();
-    window.addEventListener("resize", checkOverflow);
-    return () => window.removeEventListener("resize", checkOverflow);
-  }, [skills]);
-
-  // ambil semua kategori unik
+  // ================= FILTER =================
   const categories = ["All", ...new Set(skills.map((s) => s.category))];
 
-  // filter skill berdasarkan kategori
   const filteredSkills =
     selectedCategory === "All"
       ? skills
       : skills.filter((s) => s.category === selectedCategory);
+
+  // ================= CHECK OVERFLOW =================
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+
+    const checkOverflow = () => {
+      setIsOverflowing(el.scrollWidth > el.clientWidth);
+    };
+
+    checkOverflow();
+    window.addEventListener("resize", checkOverflow);
+
+    return () => window.removeEventListener("resize", checkOverflow);
+  }, [filteredSkills]);
+
+  // ================= AUTO SCROLL =================
+  useEffect(() => {
+    if (!isOverflowing) return;
+
+    const el = scrollRef.current;
+    if (!el) return;
+
+    const cardWidth = 220;
+
+    intervalRef.current = setInterval(() => {
+      const maxScrollLeft = el.scrollWidth - el.clientWidth;
+
+      if (el.scrollLeft >= maxScrollLeft - 5) {
+        el.scrollTo({ left: 0, behavior: "smooth" });
+      } else {
+        el.scrollBy({ left: cardWidth, behavior: "smooth" });
+      }
+    }, 3000);
+
+    return () => clearInterval(intervalRef.current);
+  }, [isOverflowing, selectedCategory, filteredSkills]);
+
+  // ================= MANUAL SCROLL =================
+  const scrollLeft = () => {
+    scrollRef.current.scrollBy({ left: -220, behavior: "smooth" });
+  };
+
+  const scrollRight = () => {
+    scrollRef.current.scrollBy({ left: 220, behavior: "smooth" });
+  };
 
   return (
     <section id="skill">
@@ -54,17 +83,26 @@ const SectionSkill = ({ skills }) => {
         </div>
 
         <div className="scroll-box-wrapper">
-          <button className="scroll-btn left" onClick={scrollLeft}>‹</button>
+          {isOverflowing && (
+            <button className="scroll-btn left" onClick={scrollLeft}>
+              ‹
+            </button>
+          )}
+
           <div
             id="content"
-            className={!isOverflowing ? "center-content" : ""}
             ref={scrollRef}
+            className={!isOverflowing ? "center-content" : ""}
           >
             {filteredSkills.map((skill, i) => (
               <div key={i} className="list-skill">
                 <div className="list-skill-body">
                   {skill.isImg ? (
-                    <img src={skill.src} className="icon-skill-img" alt={skill.name} />
+                    <img
+                      src={skill.src}
+                      className="icon-skill-img"
+                      alt={skill.name}
+                    />
                   ) : (
                     <div className="icon-skill">
                       <i className={skill.src}></i>
@@ -75,7 +113,12 @@ const SectionSkill = ({ skills }) => {
               </div>
             ))}
           </div>
-          <button className="scroll-btn right" onClick={scrollRight}>›</button>
+
+          {isOverflowing && (
+            <button className="scroll-btn right" onClick={scrollRight}>
+              ›
+            </button>
+          )}
         </div>
       </div>
     </section>

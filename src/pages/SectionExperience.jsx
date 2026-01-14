@@ -1,77 +1,115 @@
-import React from "react";
+import React, { useEffect } from "react";
 
-const SectionExperience = ({ experiences }) => (
-  <section id="experience">
-    <div className="container">
-      <div id="content">
-        <div id="content-left">
-          <h2>MY EXPERIENCES</h2>
-          <p>
-            I started studying <b>Informatics Engineering</b> in 2017 and had my first experience as an{" "}
-            <b>Internship Web Developer</b> at <b>CV. Mitra Informatika</b>, where I built a credit sales
-            website using Laravel and third-party APIs.<br /><br />
-            After graduating, I worked at <b>CV. Mamorasoft</b> as an{" "}
-            <b>Application Programming Staff</b>, focusing on web development, database design, and system
-            maintenance.<br /><br />
-            In 2025, I joined <b>PT. Terik Indonesia Inside</b> as a <b>Web Programmer</b>, developing new
-            features, managing databases, and fixing bugs on web-based systems.<br /><br />
-            Since August 2024, I have also been working on freelance projects as a <b>Web Developer</b>, and it ended when I got my current job, as it was no longer possible to take on projects outside of my current work.<br /><br />
-            You can find more details about my experience in the following section:
-          </p>
-        </div>
+const SectionExperience = ({ experiences }) => {
 
-        <div id="content-right">
-          {experiences.map((exp, i) => (
-            <div key={i} className="box">
-              <div className="box-body">
-                <div className="box-title">
-                  {exp.url ? (
-                    <a
-                      href={exp.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="company-link"
-                    >
-                      {exp.logo && (
-                        <img src={exp.logo} alt={exp.company} className="box-logo" />
-                      )}
-                      <h5>{exp.company}</h5>
-                    </a>
-                  ) : (
-                    <>
-                      {exp.logo && (
-                        <img src={exp.logo} alt={exp.company} className="box-logo" />
-                      )}
-                      <h5>{exp.company}</h5>
-                    </>
-                  )}
-                </div>
+  useEffect(() => {
+    const boxes = document.querySelectorAll("#experience .box");
 
-                <p className="text-muted" style={{ fontSize: 14, marginTop: 10 }}>
-                  {exp.since}
-                </p>
-                <hr />
-                <div className="box-department">
-                  <h5>{exp.position}</h5>
-                </div>
-                <div className="box-job-desc">
-                  <ul>
-                    {exp.jobdesks.map((job, idx) => (
-                      <li key={idx}>{job}</li>
-                    ))}
-                  </ul>
+    if (!boxes.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          entry.target.classList.toggle("is-active", entry.isIntersecting);
+        });
+      },
+      {
+        root: null,
+        threshold: 0.6,
+      }
+    );
+
+    boxes.forEach((box) => observer.observe(box));
+
+    return () => observer.disconnect();
+  }, [experiences]);
+
+  return (
+    <section id="experience">
+      <div className="container">
+        <div id="content">
+
+          {/* LEFT */}
+          <div id="content-left">
+            <h2>MY EXPERIENCES</h2>
+            <p>
+              I started my journey in <b>Informatics Engineering</b> in 2017 and gained my first hands-on experience as an{" "}
+              <b>Internship Web Developer</b> at <b>CV. Mitra Informatika</b>.<br /><br />
+
+              After graduating, I worked at <b>CV. Mamorasoft</b> as an <b>Application Programming Staff</b>, focusing on web
+              development, database design, and system maintenance.<br /><br />
+
+              In 2025, I joined <b>PT. Terik Indonesia Inside</b> as a <b>Web Programmer</b>, where I develop features, manage
+              databases, and maintain web-based systems.
+            </p>
+          </div>
+
+          {/* RIGHT */}
+          <div id="content-right">
+            {experiences.map((exp, i) => (
+              <div key={i} className="box">
+                <div className="box-body">
+
+                  <div className="box-title">
+                    {exp.url ? (
+                      <a
+                        href={exp.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="company-link"
+                      >
+                        {exp.logo && (
+                          <img
+                            src={exp.logo}
+                            alt={exp.company}
+                            className="box-logo"
+                          />
+                        )}
+                        <h5>{exp.company}</h5>
+                      </a>
+                    ) : (
+                      <>
+                        {exp.logo && (
+                          <img
+                            src={exp.logo}
+                            alt={exp.company}
+                            className="box-logo"
+                          />
+                        )}
+                        <h5>{exp.company}</h5>
+                      </>
+                    )}
+                  </div>
+
+                  <p className="text-muted" style={{ fontSize: 14, marginTop: 10 }}>
+                    {exp.since}
+                  </p>
+
+                  <hr />
+
+                  <div className="box-department">
+                    <h5>{exp.position}</h5>
+                  </div>
+
+                  <div className="box-job-desc">
+                    <ul>
+                      {exp.jobdesks.map((job, idx) => (
+                        <li key={idx}>{job}</li>
+                      ))}
+                    </ul>
+                  </div>
+
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
 
-          {/* Label "Start" di paling bawah */}
-          <div className="timeline-end">START</div>
+            <div className="timeline-end">START</div>
+          </div>
+
         </div>
-
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 export default SectionExperience;
