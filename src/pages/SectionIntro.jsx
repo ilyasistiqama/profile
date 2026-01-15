@@ -1,5 +1,4 @@
 import React from "react";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
@@ -12,7 +11,7 @@ const SectionIntro = () => {
             <div id="intro-content">
               <div id="text-intro">
                 <div id="name">
-                  Hi, I'm <span style={{ fontWeight: "bold" }}>Ilyas</span>
+                  Hi, I'm <span>Ilyas</span>
                 </div>
 
                 <div id="role">
@@ -33,11 +32,14 @@ const SectionIntro = () => {
                   Always learning, improving, and adapting to new challenges.
                 </div>
               </div>
-              <div>
-                <a href="#about-me" id="redirect" aria-label="Scroll to about me section">
-                  <FontAwesomeIcon icon={faChevronDown} />
-                </a>
-              </div>
+
+              <a
+                href="#about-me"
+                id="redirect"
+                aria-label="Scroll to about me section"
+              >
+                <FontAwesomeIcon icon={faChevronDown} />
+              </a>
             </div>
           </div>
         </div>

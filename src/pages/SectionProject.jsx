@@ -7,16 +7,30 @@ const SectionProject = ({ projects }) => {
 
     const scrollLeft = () => {
         if (!contentRef.current) return;
-        contentRef.current.scrollBy({
-            left: -contentRef.current.clientWidth,
+
+        const container = contentRef.current;
+        const card = container.querySelector(".box");
+        if (!card) return;
+
+        const gap = parseInt(getComputedStyle(container).gap) || 0;
+
+        container.scrollBy({
+            left: -(card.offsetWidth + gap),
             behavior: "smooth",
         });
     };
 
     const scrollRight = () => {
         if (!contentRef.current) return;
-        contentRef.current.scrollBy({
-            left: contentRef.current.clientWidth,
+
+        const container = contentRef.current;
+        const card = container.querySelector(".box");
+        if (!card) return;
+
+        const gap = parseInt(getComputedStyle(container).gap) || 0;
+
+        container.scrollBy({
+            left: card.offsetWidth + gap,
             behavior: "smooth",
         });
     };

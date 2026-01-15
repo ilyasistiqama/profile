@@ -70,7 +70,7 @@
 /* ===== Card ===== */
 #project .box {
     flex-shrink: 0;
-    scroll-snap-align: center;
+    scroll-snap-align: start;
     min-width: calc(50% - 12px);
     max-width: calc(50% - 12px);
 
@@ -86,8 +86,8 @@
 }
 
 #project .box:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.22);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.14);
 }
 
 /* ===== Carousel ===== */

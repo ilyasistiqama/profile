@@ -1,91 +1,84 @@
-/* SECTION UTAMA */
+/* ================= SECTION UTAMA ================= */
 #intro {
-  display: block;
   background-image: url("../images/background.webp");
   background-repeat: no-repeat;
   background-size: cover;
-  background-attachment: fixed;
   background-position: 50% 25%;
   min-height: 100dvh;
-  padding: 15px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
 }
 
-/* KONTAINER UTAMA */
-#intro .container #content {
+/* ================= CONTAINER ================= */
+#intro .container {
+  width: 100%;
+}
+
+#intro #content {
   display: flex;
-  position: relative;
   justify-content: center;
   align-items: center;
-  min-height: 100dvh;
 }
 
-/* KOTAK UTAMA */
+/* ================= BOX ================= */
 #box {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 50%;
-  padding: 40px 20px;
-  border-radius: 15px;
-  box-shadow: 7px 7px 10px black;
-  background-color: rgba(0, 0, 0, 0.6);
-  color: #ffffff;
-  transition: transform 0.3s ease;
+  width: 100%;
+  max-width: 920px;
+  padding: 20px 40px;
+  border-radius: 16px;
+  background: rgba(0, 0, 0, 0.65);
+  color: #fff;
+
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.45);
+  animation: fadeIn 0.8s ease-in;
 }
 
-#box:hover {
-  transform: scale(1.1);
-}
-
-/* KONTEN INTRO */
+/* ================= CONTENT ================= */
 #intro-content {
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
 }
 
-#intro-desc {
-  margin-top: 12px;
-  font-size: 14.5px;
-  line-height: 1.6;
-  opacity: 0.9;
-}
-
-#intro-desc:nth-child(3) {
-  opacity: 0.85;
-}
-
-#intro-desc:nth-child(4) {
-  opacity: 0.8;
-}
-
-#intro-desc strong {
-  color: #00d9ff;
-  font-weight: 600;
+/* ================= TEXT ================= */
+#text-intro {
+  max-width: 720px;
 }
 
 #name {
-  font-weight: bolder;
-  font-size: 40px;
-  display: inline-block;
+  font-size: 42px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
 }
 
 #role {
-  margin-top: 8px;
+  margin-top: 10px;
   font-size: 18px;
   font-style: italic;
   letter-spacing: 0.08em;
   color: #cfd8dc;
 }
 
+/* ================= DESCRIPTION ================= */
+#intro-desc {
+  margin-top: 14px;
+  font-size: 15px;
+  line-height: 1.7;
+  opacity: 0.9;
+}
+
+/* ================= SCROLL ICON ================= */
 #redirect {
-  font-size: 45px;
+  margin-top: 28px;
+  font-size: 42px;
   color: #ffffff;
   display: inline-block;
-  margin-top: 15px;
-  transition: transform 0.3s ease, color 0.3s ease;
   animation: bounce 2s infinite;
 }
 
+/* ================= ANIMATIONS ================= */
 @keyframes bounce {
 
   0%,
@@ -101,7 +94,7 @@
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(14px);
   }
 
   to {
@@ -110,45 +103,35 @@
   }
 }
 
-#box {
-  animation: fadeIn 0.8s ease-in;
-}
-
-
-/* RESPONSIVE STYLING */
-@media screen and (max-width: 1100px) {
+/* ================= RESPONSIVE ================= */
+@media (max-width: 1024px) {
   #box {
-    width: 80%;
-    transform: none !important;
-  }
-
-  #box:hover {
-    transform: none;
+    padding: 40px 28px;
   }
 
   #name {
-    font-size: 32px;
-    transition: none;
+    font-size: 34px;
+  }
+}
+
+@media (max-width: 768px) {
+  #box {
+    padding: 32px 20px;
   }
 
-  #name:hover {
-    transform: none;
+  #name {
+    font-size: 28px;
   }
 
   #role {
-    font-size: 18px;
+    font-size: 16px;
+  }
+
+  #intro-desc {
+    font-size: 14px;
   }
 
   #redirect {
-    font-size: 30px;
-  }
-
-  #navbar {
-    padding: 10px 20px;
-    gap: 20px;
-  }
-
-  #navbar ul {
-    gap: 20px;
+    font-size: 32px;
   }
 }
