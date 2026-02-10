@@ -7,7 +7,7 @@ const SectionSkill = ({ skills }) => {
   const [isOverflowing, setIsOverflowing] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState("All");
 
-  // ================= FILTER =================
+  /* ================= FILTER ================= */
   const categories = ["All", ...new Set(skills.map((s) => s.category))];
 
   const filteredSkills =
@@ -15,7 +15,7 @@ const SectionSkill = ({ skills }) => {
       ? skills
       : skills.filter((s) => s.category === selectedCategory);
 
-  // ================= CHECK OVERFLOW =================
+  /* ================= CHECK OVERFLOW ================= */
   useEffect(() => {
     const el = scrollRef.current;
     if (!el) return;
@@ -30,7 +30,7 @@ const SectionSkill = ({ skills }) => {
     return () => window.removeEventListener("resize", checkOverflow);
   }, [filteredSkills]);
 
-  // ================= AUTO SCROLL =================
+  /* ================= AUTO SCROLL ================= */
   useEffect(() => {
     if (!isOverflowing) return;
 
@@ -47,12 +47,12 @@ const SectionSkill = ({ skills }) => {
       } else {
         el.scrollBy({ left: cardWidth, behavior: "smooth" });
       }
-    }, 3000);
+    }, 3200);
 
     return () => clearInterval(intervalRef.current);
   }, [isOverflowing, selectedCategory, filteredSkills]);
 
-  // ================= MANUAL SCROLL =================
+  /* ================= MANUAL SCROLL ================= */
   const scrollLeft = () => {
     scrollRef.current.scrollBy({ left: -220, behavior: "smooth" });
   };
@@ -64,13 +64,14 @@ const SectionSkill = ({ skills }) => {
   return (
     <section id="skill">
       <div className="container">
-        <h2>MY SKILLS</h2>
-        <p className="text-center" style={{ margin: "25px 0" }}>
+        <h2 className="reveal-title">MY SKILLS</h2>
+
+        <p className="skill-desc reveal-sub">
           These are the core skills that form the foundation of my web development journey.
         </p>
 
-        {/* FILTER BUTTONS */}
-        <div className="category-filter">
+        {/* FILTER */}
+        <div className="category-filter reveal-sub">
           {categories.map((cat) => (
             <button
               key={cat}
@@ -95,7 +96,11 @@ const SectionSkill = ({ skills }) => {
             className={!isOverflowing ? "center-content" : ""}
           >
             {filteredSkills.map((skill, i) => (
-              <div key={i} className="list-skill">
+              <div
+                key={i}
+                className="list-skill reveal-card"
+                style={{ animationDelay: `${i * 0.1}s` }}
+              >
                 <div className="list-skill-body">
                   {skill.isImg ? (
                     <img
@@ -120,6 +125,7 @@ const SectionSkill = ({ skills }) => {
             </button>
           )}
         </div>
+
       </div>
     </section>
   );

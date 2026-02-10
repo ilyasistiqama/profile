@@ -115,46 +115,141 @@ section {
 .pre-section {
   display: flex;
   align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+
   background: url("../images/background-2.webp") no-repeat center fixed;
   background-size: cover;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ambient overlay */
+.pre-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center,
+      rgba(255, 255, 255, 0.06),
+      rgba(0, 0, 0, 0.65));
+  animation: pulseOverlay 8s ease-in-out infinite;
 }
 
 #box-pre-section {
+  position: relative;
+  z-index: 2;
+
   margin: 7% 3%;
-  padding: 15px;
-  border-radius: 15px;
-  box-shadow: 7px 7px 10px black;
-  background-color: rgba(10, 10, 10, 0.6);
+  padding: 28px 32px;
+  max-width: 720px;
+
+  border-radius: 18px;
+  background-color: rgba(10, 10, 10, 0.65);
   color: #ffffff;
+
   text-align: center;
   font-style: italic;
   font-family: Georgia, "Times New Roman", Times, serif;
+
+  box-shadow:
+    0 18px 45px rgba(0, 0, 0, 0.45),
+    inset 0 0 0 rgba(255, 255, 255, 0);
+
+  animation: fadeFloat 1.1s ease forwards;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+#box-pre-section:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow:
+    0 25px 55px rgba(0, 0, 0, 0.6),
+    inset 0 0 20px rgba(255, 255, 255, 0.06);
 }
 
 #box-pre-section p {
   font-size: 1.5rem;
-  /* ~24px */
-  line-height: 1.6;
+  line-height: 1.65;
   margin-bottom: 1rem;
-}
-
-#box-pre-section p::before,
-#box-pre-section p::after {
-  font-size: 30px;
-}
-
-#box-pre-section p::before {
-  content: "“";
-}
-
-#box-pre-section p::after {
-  content: "”";
+  opacity: 0;
+  animation: revealText 0.8s ease forwards;
+  animation-delay: 0.4s;
 }
 
 #box-pre-section cite {
   font-size: 1rem;
   display: block;
   margin-top: 0.5rem;
+  opacity: 0.75;
+
+  opacity: 0;
+  animation: revealText 0.8s ease forwards;
+  animation-delay: 0.7s;
+}
+
+#box-pre-section p::before,
+#box-pre-section p::after {
+  font-size: 36px;
+  opacity: 0.7;
+}
+
+#box-pre-section p::before {
+  content: "“";
+  margin-right: 4px;
+}
+
+#box-pre-section p::after {
+  content: "”";
+  margin-left: 4px;
+}
+
+@keyframes fadeFloat {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes revealText {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseOverlay {
+
+  0%,
+  100% {
+    opacity: 0.6;
+  }
+
+  50% {
+    opacity: 0.85;
+  }
+}
+
+@media (max-width: 768px) {
+  #box-pre-section {
+    padding: 22px;
+  }
+
+  #box-pre-section p {
+    font-size: 1.2rem;
+  }
+
+  #box-pre-section cite {
+    font-size: 0.9rem;
+  }
 }
 
 /* =====================
@@ -314,4 +409,11 @@ small {
   }
 
   /* ~15px */
+}
+
+/* AUTO HIDE NAVBAR WHEN OVERLAY OPEN */
+body.overlay-open .main-navbar {
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
 }

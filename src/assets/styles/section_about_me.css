@@ -1,44 +1,55 @@
+/* ================= SECTION ================= */
 #about-me {
-  max-height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  position: relative;
+  padding: 80px 0;
+  overflow: hidden;
 }
 
-#about-me .container #content {
-  margin-top: 60px;
-  margin-bottom: 100px;
+/* ambient background */
+#about-me::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 30%,
+      rgba(79, 195, 247, 0.08),
+      transparent 70%);
+  animation: pulseBg 8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* ================= LAYOUT ================= */
+#about-me #content {
   display: flex;
+  gap: 50px;
   align-items: flex-start;
 }
 
+/* ================= IMAGE ================= */
+.about-image-wrapper {
+  flex: 0 0 34%;
+}
+
 #image-me {
-  max-width: 34%;
   width: 100%;
-  border: solid;
   border-radius: 16px;
-  box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.6);
-  transition: transform 0.3s ease;
+  background: #000;
   cursor: pointer;
-  margin-right: 40px;
-  cursor: pointer;
-  background-color: black;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+  animation: floatImage 6s ease-in-out infinite;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 #image-me:hover {
-  /* zoom in */
-  transform: scale(1.05);
+  transform: scale(1.06);
+  box-shadow: 0 28px 60px rgba(0, 0, 0, 0.8);
 }
 
-#about-me #text p {
-  margin-top: 25px;
-  text-align: left;
-  line-height: 1.7;
+/* ================= TEXT ================= */
+#about-me #text {
   max-width: 650px;
 }
 
-#about-me #text h2 {
-  text-align: left;
+#about-me h2 {
   font-size: var(--fs-h2);
   line-height: var(--lh-heading);
 }
@@ -47,67 +58,139 @@
   display: block;
   font-size: 14px;
   opacity: 0.7;
-  margin-top: 5px;
-  text-align: left;
+  margin-top: 6px;
 }
 
-#about-me #text h2:hover {
-  font-weight: bolder;
+#about-me p {
+  margin-top: 22px;
+  line-height: 1.7;
+  opacity: 0;
+  transform: translateY(14px);
+  animation: revealUp 0.8s ease forwards;
+}
+
+.delay-1 {
+  animation-delay: 0.3s;
+}
+
+.delay-2 {
+  animation-delay: 0.5s;
+}
+
+.delay-3 {
+  animation-delay: 0.7s;
+}
+
+.delay-4 {
+  animation-delay: 0.9s;
+}
+
+/* ================= BUTTONS ================= */
+.about-actions {
+  display: flex;
+  gap: 14px;
+  margin-top: 26px;
+  opacity: 0;
+  animation: revealUp 0.8s ease forwards;
 }
 
 .btn-custom {
   padding: 10px 18px;
   font-weight: 600;
-  border: 2px solid #000;
-  background-color: #212529;
-  text-decoration: none;
-  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6);
+  border-radius: 8px;
+  border: 2px solid #212529;
+  background: #212529;
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-custom.outline {
+  background: transparent;
+  color: #212529;
 }
 
 .btn-custom:hover {
-  transform: scale(1.06);
-  background-color: #212529;
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
-@media screen and (max-width: 1000px) {
-  #about-me {
-    display: block;
+/* ================= REVEAL ================= */
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  animation: revealLeft 0.9s ease forwards;
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(40px);
+  animation: revealRight 0.9s ease forwards;
+}
+
+/* ================= ANIMATIONS ================= */
+@keyframes revealUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes revealLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes revealRight {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes floatImage {
+
+  0%,
+  100% {
+    transform: translateY(0);
   }
 
-  #about-me .container #content {
-    display: block;
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulseBg {
+
+  0%,
+  100% {
+    opacity: 0.4;
   }
 
-  #image-me {
-    max-height: 50%;
-    max-width: 50%;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-
-    transition: none;
+  50% {
+    opacity: 0.7;
   }
+}
 
-  #image-me:hover {
-    /* zoom in */
-    transform: none;
-  }
-
-  #about-me #text h2 {
-    margin-top: 25px;
+/* ================= RESPONSIVE ================= */
+@media (max-width: 1000px) {
+  #about-me #content {
+    flex-direction: column;
+    align-items: center;
     text-align: center;
   }
 
-  .about-subtitle {
-    text-align: center;
+  .about-image-wrapper {
+    max-width: 60%;
   }
 
-  .btn-custom {
-
-    transition: none;
+  #about-me p {
+    text-align: left;
   }
 
-  .btn-custom:hover {
-    transform: none;
+  .about-actions {
+    justify-content: center;
   }
 }

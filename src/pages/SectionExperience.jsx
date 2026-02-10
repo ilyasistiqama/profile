@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 
 const SectionExperience = ({ experiences }) => {
-
   useEffect(() => {
     const boxes = document.querySelectorAll("#experience .box");
 
@@ -14,8 +13,7 @@ const SectionExperience = ({ experiences }) => {
         });
       },
       {
-        root: null,
-        threshold: 0.6,
+        threshold: 0.4,
       }
     );
 
@@ -33,14 +31,15 @@ const SectionExperience = ({ experiences }) => {
           <div id="content-left">
             <h2>MY EXPERIENCES</h2>
             <p>
-              I started my journey in <b>Informatics Engineering</b> in 2017 and gained my first hands-on experience as an{" "}
-              <b>Internship Web Developer</b> at <b>CV. Mitra Informatika</b>.<br /><br />
-
-              After graduating, I worked at <b>CV. Mamorasoft</b> as an <b>Application Programming Staff</b>, focusing on web
-              development, database design, and system maintenance.<br /><br />
-
-              In 2025, I joined <b>PT. Terik Indonesia Inside</b> as a <b>Web Programmer</b>, where I develop features, manage
-              databases, and maintain web-based systems.
+              I started my journey in <b>Informatics Engineering</b> in 2017 and gained
+              my first hands-on experience as an <b>Internship Web Developer</b> at{" "}
+              <b>CV. Mitra Informatika</b>.
+              <br /><br />
+              After graduating, I worked at <b>CV. Mamorasoft</b> as an{" "}
+              <b>Application Programming Staff</b>.
+              <br /><br />
+              In 2025, I joined <b>PT. Terik Indonesia Inside</b> as a{" "}
+              <b>Web Programmer</b>.
             </p>
           </div>
 
@@ -51,53 +50,37 @@ const SectionExperience = ({ experiences }) => {
                 <div className="box-body">
 
                   <div className="box-title">
+                    {exp.logo && (
+                      <img
+                        src={exp.logo}
+                        alt={exp.company}
+                        className="box-logo"
+                      />
+                    )}
                     {exp.url ? (
                       <a
                         href={exp.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="company-link"
                       >
-                        {exp.logo && (
-                          <img
-                            src={exp.logo}
-                            alt={exp.company}
-                            className="box-logo"
-                          />
-                        )}
                         <h5>{exp.company}</h5>
                       </a>
                     ) : (
-                      <>
-                        {exp.logo && (
-                          <img
-                            src={exp.logo}
-                            alt={exp.company}
-                            className="box-logo"
-                          />
-                        )}
-                        <h5>{exp.company}</h5>
-                      </>
+                      <h5>{exp.company}</h5>
                     )}
                   </div>
 
-                  <p className="text-muted" style={{ fontSize: 14, marginTop: 10 }}>
-                    {exp.since}
-                  </p>
+                  <p className="box-date">{exp.since}</p>
 
                   <hr />
 
-                  <div className="box-department">
-                    <h5>{exp.position}</h5>
-                  </div>
+                  <h6 className="box-position">{exp.position}</h6>
 
-                  <div className="box-job-desc">
-                    <ul>
-                      {exp.jobdesks.map((job, idx) => (
-                        <li key={idx}>{job}</li>
-                      ))}
-                    </ul>
-                  </div>
+                  <ul className="box-job">
+                    {exp.jobdesks.map((job, idx) => (
+                      <li key={idx}>{job}</li>
+                    ))}
+                  </ul>
 
                 </div>
               </div>

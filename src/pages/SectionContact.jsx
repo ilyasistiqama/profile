@@ -3,17 +3,19 @@ const SectionContact = () => {
 
   return (
     <section id="contact">
-      <footer className="bg-dark text-center text-white">
+      <footer className="contact-footer text-center text-white">
         <div className="container py-5">
-          <h4 className="mb-3 fw-bold letter-spacing">CONTACT ME</h4>
+          <h4 className="mb-3 fw-bold letter-spacing fade-up">
+            CONTACT ME
+          </h4>
 
-          <p className="mb-4 text-white">
+          <p className="mb-4 contact-desc fade-up delay-1">
             Feel free to reach out for collaboration or opportunities.
           </p>
 
-          <div className="d-flex justify-content-center flex-wrap gap-3">
+          <div className="social-wrapper fade-up delay-2">
             <a
-              className="btn btn-outline-light btn-floating shadow-sm facebook"
+              className="btn btn-outline-light btn-floating facebook"
               href="https://www.facebook.com/I.Istiqama.Makmur"
               target="_blank"
               rel="noopener noreferrer"
@@ -23,7 +25,7 @@ const SectionContact = () => {
             </a>
 
             <a
-              className="btn btn-outline-light btn-floating shadow-sm instagram"
+              className="btn btn-outline-light btn-floating instagram"
               href="https://www.instagram.com/lifeofaays"
               target="_blank"
               rel="noopener noreferrer"
@@ -33,7 +35,7 @@ const SectionContact = () => {
             </a>
 
             <a
-              className="btn btn-outline-light btn-floating shadow-sm threads"
+              className="btn btn-outline-light btn-floating threads"
               href="https://www.threads.net/@lifeofaays"
               target="_blank"
               rel="noopener noreferrer"
@@ -43,7 +45,7 @@ const SectionContact = () => {
             </a>
 
             <a
-              className="btn btn-outline-light btn-floating shadow-sm email"
+              className="btn btn-outline-light btn-floating email"
               href="mailto:ilyasistiqama@gmail.com"
               aria-label="Email"
             >
@@ -51,7 +53,7 @@ const SectionContact = () => {
             </a>
 
             <a
-              className="btn btn-outline-light btn-floating shadow-sm linkedin"
+              className="btn btn-outline-light btn-floating linkedin"
               href="https://www.linkedin.com/in/muh-ilyas-istiqama"
               target="_blank"
               rel="noopener noreferrer"
@@ -61,7 +63,7 @@ const SectionContact = () => {
             </a>
 
             <a
-              className="btn btn-outline-light btn-floating shadow-sm github"
+              className="btn btn-outline-light btn-floating github"
               href="https://github.com/ilyasistiqama"
               target="_blank"
               rel="noopener noreferrer"
@@ -72,8 +74,12 @@ const SectionContact = () => {
           </div>
         </div>
 
+        <div className="footer-divider" />
+
         <div className="footer-bottom py-3">
-          <p className="m-0">© {thisYear} All rights reserved.</p>
+          <p className="m-0">
+            © {thisYear} • Built with passion
+          </p>
         </div>
       </footer>
     </section>

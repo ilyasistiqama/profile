@@ -1,5 +1,5 @@
-import FotoIlyas from "../assets/images/ilyas2.webp";
 import React from "react";
+import FotoIlyas from "../assets/images/ilyas2.webp";
 import { useImageOverlay } from "../components/ImageOverlay";
 
 const handleClickCV = (e) => {
@@ -17,12 +17,11 @@ const SectionAboutMe = () => {
     const birthDate = new Date("1999-06-19");
     const today = new Date();
     let age = today.getFullYear() - birthDate.getFullYear();
-    const isBeforeBirthday =
+    const beforeBirthday =
       today.getMonth() < birthDate.getMonth() ||
       (today.getMonth() === birthDate.getMonth() &&
         today.getDate() < birthDate.getDate());
-
-    if (isBeforeBirthday) age--;
+    if (beforeBirthday) age--;
     return age;
   };
 
@@ -30,20 +29,22 @@ const SectionAboutMe = () => {
     <section id="about-me">
       <div className="container">
         <div id="content">
-          <img
-            src={FotoIlyas}
-            alt="Ilyas profile"
-            id="image-me"
-            onClick={() => openOverlay(FotoIlyas)}
-          />
+          <div className="about-image-wrapper reveal-left">
+            <img
+              src={FotoIlyas}
+              alt="Ilyas profile"
+              id="image-me"
+              onClick={() => openOverlay(FotoIlyas)}
+            />
+          </div>
 
-          <div id="text">
+          <div id="text" className="reveal-right">
             <h2>ABOUT ME</h2>
             <span className="about-subtitle">
               A brief overview of who I am
             </span>
 
-            <p>
+            <p className="delay-1">
               Hello, my name is <b>Muh. Ilyas Istiqama. M</b>, but you can call me{" "}
               <b>Ilyas</b>. I am {myAge()} years old, originally from Luwuk, and
               currently based in Surabaya. I hold a{" "}
@@ -52,33 +53,30 @@ const SectionAboutMe = () => {
               of <b>3.62/4.00</b>.
             </p>
 
-            <p>
+            <p className="delay-2">
               I enjoy building and improving digital products while continuously
               learning new technologies. I am known for my{" "}
               <b>critical thinking</b>, <b>creativity</b>, and ability to{" "}
-              <b>work effectively both independently and in a team</b>. I also
-              value clear communication and good time management in every
-              project.
+              <b>work effectively both independently and in a team</b>.
             </p>
 
-            <p>
+            <p className="delay-3">
               Currently, I work at <b>PT. Terik Indonesia Inside</b> and also take
               on several <b>freelance projects</b>. I am open to new challenges,
               collaborations, and opportunities where I can grow and contribute
               meaningfully.
             </p>
 
-            <div style={{ display: "flex", gap: "12px", marginTop: "15px" }}>
+            <div className="about-actions delay-4">
               <button
                 type="button"
-                className="btn btn-primary btn-custom"
-                id="cv-btn"
+                className="btn-custom"
                 onClick={handleClickCV}
               >
-                <b>View CV</b>
+                View CV
               </button>
 
-              <a href="#contact" className="btn btn-primary btn-custom">
+              <a href="#contact" className="btn-custom outline">
                 Contact Me
               </a>
             </div>

@@ -98,17 +98,6 @@ const SectionProject = ({ projects }) => {
                                     <h3>{project.project_name}</h3>
                                     <p className="text-muted">{project.project_origin}</p>
                                     <p>{project.description}</p>
-
-                                    {project.url && (
-                                        <a
-                                            href={project.url}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className="btn-visit"
-                                        >
-                                            Visit Project
-                                        </a>
-                                    )}
                                 </div>
 
                                 <div className="box-develop-by">
@@ -118,6 +107,18 @@ const SectionProject = ({ projects }) => {
                                         </span>
                                     ))}
                                 </div>
+                                {project.url && (
+                                    <div style={{ textAlign: "center" }}>
+                                        <a
+                                            href={project.url}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="btn-visit"
+                                        >
+                                            Visit
+                                        </a>
+                                    </div>
+                                )}
                             </div>
                         ))}
                     </div>

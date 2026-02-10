@@ -1,18 +1,70 @@
+/* ================= SECTION ================= */
 #skill {
-  background-color: #eaeaea;
-  padding: 20px 0 60px;
+  position: relative;
+  background: #eaeaea;
+  padding: 60px 0 80px;
+  overflow: hidden;
 }
 
-#skill .container h2 {
-  margin: 15px 0 45px;
+/* ambient background */
+#skill::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center,
+      rgba(0, 0, 0, 0.06),
+      transparent 70%);
+  animation: pulseBg 8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* ================= HEAD ================= */
+#skill h2 {
   text-align: center;
   font-size: var(--fs-h2);
   line-height: var(--lh-heading);
   letter-spacing: 0.5px;
 }
 
-#skill .container h2:hover {
-  font-weight: bolder;
+.skill-desc {
+  text-align: center;
+  margin: 22px auto 30px;
+  max-width: 600px;
+  opacity: 0.75;
+}
+
+/* ================= FILTER ================= */
+.category-filter {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 35px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 8px 18px;
+  border: 2px solid #000;
+  background: #fff;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+  background: #000;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.filter-btn.active {
+  background: #000;
+  color: #fff;
+}
+
+/* ================= SCROLL AREA ================= */
+.scroll-box-wrapper {
+  position: relative;
 }
 
 #skill #content {
@@ -21,9 +73,7 @@
   overflow-x: auto;
   padding: 25px;
   scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
   scroll-behavior: smooth;
-  scroll-padding: 25px;
 }
 
 #skill #content.center-content {
@@ -31,39 +81,52 @@
   overflow-x: hidden;
 }
 
-#skill .list-skill {
+/* ================= CARD ================= */
+.list-skill {
   flex: 0 0 auto;
-  scroll-snap-align: start;
   width: 200px;
-  padding: 20px;
-  border: 3px solid black;
-  border-radius: 15px;
-  /* box-shadow: 4px 4px 6px black; */
-  background-color: #ffffff;
-  transition: transform 0.3s ease;
   min-height: 200px;
+  padding: 20px;
+  border-radius: 16px;
   background: #fff;
+  scroll-snap-align: start;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   box-shadow:
     4px 4px 0 #000,
-    8px 8px 15px rgba(0, 0, 0, 0.15);
+    10px 10px 18px rgba(0, 0, 0, 0.15);
+
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
-#skill .list-skill:hover {
-  /* transform: scale(1.05); */
-  transform: translateY(-6px) scale(1.03);
+.list-skill:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow:
+    6px 6px 0 #000,
+    14px 14px 30px rgba(0, 0, 0, 0.25);
 }
 
-#skill .list-skill-body {
+.list-skill-body {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100%;
+  width: 100%;
+  text-align: center;
 }
 
+/* ================= ICON ================= */
 .icon-skill i {
   font-size: 40px;
-  line-height: 40px;
+}
+
+.icon-skill-img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
 }
 
 .icon-skill i,
@@ -71,49 +134,39 @@
   transition: transform 0.3s ease;
 }
 
-#skill .list-skill:hover .icon-skill i,
-#skill .list-skill:hover .icon-skill-img {
-  transform: scale(1.15);
+.list-skill:hover .icon-skill i,
+.list-skill:hover .icon-skill-img {
+  transform: scale(1.2) rotate(-4deg);
 }
 
-.icon-skill,
-.icon-skill-img {
-  display: block;
-  width: 40px;
-  height: 40px;
-  margin-bottom: 10px;
-  object-fit: contain;
-  text-align: center;
-}
-
-#skill .list-skill-body h4 {
-  margin: 0;
-  text-align: center;
+/* ================= TITLE ================= */
+.list-skill-body h4 {
+  margin-top: 12px;
   font-size: 16px;
+  text-align: center;
 }
 
-.scroll-box-wrapper {
-  position: relative;
-}
-
+/* ================= SCROLL BUTTON ================= */
 .scroll-btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   z-index: 10;
-  background-color: #000;
-  color: white;
+  background: #000;
+  color: #fff;
   border: none;
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  width: 42px;
+  height: 42px;
   font-size: 1.5rem;
   cursor: pointer;
-  opacity: 0.1;
+  opacity: 0.15;
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .scroll-btn:hover {
-  opacity: 0.3;
+  opacity: 0.4;
+  transform: translateY(-50%) scale(1.1);
 }
 
 .scroll-btn.left {
@@ -124,58 +177,69 @@
   right: 10px;
 }
 
-.category-filter {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-bottom: 25px;
-  flex-wrap: wrap;
+/* ================= REVEAL ================= */
+.reveal-title {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: revealUp 0.8s ease forwards;
 }
 
-.filter-btn {
-  padding: 8px 16px;
-  border: 2px solid #000;
-  background: #fff;
-  cursor: pointer;
-  border-radius: 20px;
-  transition: all 0.3s ease;
+.reveal-sub {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: revealUp 0.8s ease forwards;
+  animation-delay: 0.2s;
 }
 
-.filter-btn:hover {
-  background: #000;
-  color: #fff;
+.reveal-card {
+  opacity: 0;
+  transform: translateY(30px) scale(0.95);
+  animation: revealCard 0.6s ease forwards;
 }
 
-.filter-btn.active {
-  background: #000;
-  color: #fff;
+/* ================= ANIMATIONS ================= */
+@keyframes revealUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
+@keyframes revealCard {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
 
-@media screen and (max-width: 1100px) {
-  #skill #content {
-    padding: 15px;
+@keyframes pulseBg {
+
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 1100px) {
+  .list-skill {
+    min-width: 200px;
   }
 
   .icon-skill i {
-    font-size: 35px;
-    line-height: 35px;
+    font-size: 34px;
   }
 
-  .icon-skill,
   .icon-skill-img {
-    width: 35px;
-    height: 35px;
+    width: 34px;
+    height: 34px;
   }
 
-  #skill .list-skill {
-    width: fit-content;
-    min-width: 200px;
-    min-height: 200px;
-    padding: 15px 20px;
-  }
-
-  #skill .list-skill-body h4 {
+  .list-skill-body h4 {
     font-size: 14px;
   }
 }

@@ -26,7 +26,46 @@ import sispak5 from '../../assets/images/project/sistem-pakar/sispak-5.png';
 import sispak6 from '../../assets/images/project/sistem-pakar/sispak-6.png';
 import sispak7 from '../../assets/images/project/sistem-pakar/sispak-7.png';
 
+import simpe1 from '../../assets/images/project/simpe/simpe-1.webp';
+import simpe2 from '../../assets/images/project/simpe/simpe-2.webp';
+import simpe3 from '../../assets/images/project/simpe/simpe-3.webp';
+import simpe4 from '../../assets/images/project/simpe/simpe-4.webp';
+import simpe5 from '../../assets/images/project/simpe/simpe-5.webp';
+
+import terik1 from '../../assets/images/project/terik/terik-1.webp';
+import terik2 from '../../assets/images/project/terik/terik-2.webp';
+import terik3 from '../../assets/images/project/terik/terik-3.webp';
+import terik4 from '../../assets/images/project/terik/terik-4.webp';
+import terik5 from '../../assets/images/project/terik/terik-5.webp';
+
 const projects = [
+    {
+        id: 'carouselTerikIndicators',
+        images: [terik1, terik2, terik3, terik4, terik5],
+        project_name: 'TERIK PETERNAKAN DIGITAL',
+        project_origin: 'PT. Terik Indonesia Inside',
+        description:
+            "This project involves the development of a company landing page.",
+        stacks: [
+            'HTML', 'CSS', 'Javascript', 'PHP',
+            'Boostrap', 'Jquery', 'Laravel'
+        ],
+        url: 'https://terik.id'
+    },
+    {
+        id: 'carouselSimpeIndicators',
+        images: [simpe1, simpe2, simpe3, simpe4, simpe5],
+        project_name: 'SIMPe (Sistem Manajemen Peternakan)',
+        project_origin: 'PT. Terik Indonesia Inside',
+        description:
+            "SIMPe is a digital system designed to help manage livestock farms more efficiently by recording and monitoring animal data, daily activities, and livestock growth to support better decision-making. The system operates on a subscription-based model with various packages and includes an admin panel for management and monitoring, as well as a staff panel to support daily farm operations.",
+        stacks: [
+            'HTML', 'CSS', 'Javascript', 'PHP', 'MySQL',
+            'Boostrap', 'Jquery', 'AJAX', 'Laravel',
+            'Jquery Datatables', 'SaaS'
+        ],
+        url: 'https://simpe.id'
+    },
     {
         id: 'carouselSynnIndicators',
         images: [synn1, synn2, synn3, synn4],

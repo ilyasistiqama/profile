@@ -1,59 +1,63 @@
+/* ================= SECTION ================= */
 #experience {
-  padding: 60px 0;
+  padding: 80px 0;
+  background: #fff;
 }
 
+/* ================= LAYOUT ================= */
 #experience .container #content {
   display: grid;
   grid-template-columns: 35% 60%;
   gap: 5%;
 }
 
-/* LEFT */
+/* ================= LEFT ================= */
 #experience #content-left {
   position: sticky;
   top: 100px;
   align-self: flex-start;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: revealLeft 0.9s ease forwards;
 }
 
 #experience #content-left h2 {
-  text-align: left;
   font-size: var(--fs-h2);
-  line-height: var(--lh-heading);
-}
-
-#experience #content-left h2:hover {
-  font-weight: bolder;
 }
 
 #experience #content-left p {
   margin-top: 20px;
-  text-align: left;
+  line-height: 1.7;
 }
 
-/* RIGHT */
+/* ================= RIGHT ================= */
 #experience #content-right {
   position: relative;
-  padding: 90px 45px 110px;
-  min-height: 85vh;
-  border: 3px solid black;
-  border-radius: 3px;
+  padding: 100px 45px 120px;
+  min-height: 90vh;
+  border: 3px solid #000;
+  background: #eaeaea;
   box-shadow: 4px 4px 6px black;
-  background-color: #eaeaea;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-/* Timeline line */
+/* TIMELINE LINE */
 #experience #content-right::before {
   content: "";
   position: absolute;
-  top: 25px;
-  bottom: 44px;
+  top: 30px;
+  bottom: 60px;
   left: 50%;
+  width: 3px;
   transform: translateX(-50%);
-  border-left: 3px dashed #555;
-  z-index: 0;
+  background: repeating-linear-gradient(to bottom,
+      #555 0,
+      #555 6px,
+      transparent 6px,
+      transparent 14px);
+  animation: timelineMove 3s linear infinite;
 }
 
 /* PRESENT */
@@ -64,70 +68,57 @@
   left: 50%;
   transform: translateX(-50%);
   background: #fff;
-  padding: 6px 12px;
-  border: 2px solid black;
+  padding: 6px 14px;
+  border: 2px solid #000;
   border-radius: 20px;
-  font-weight: bold;
   font-size: 13px;
-  z-index: 2;
+  font-weight: bold;
 }
 
 /* START */
 .timeline-end {
   position: absolute;
-  bottom: 28px;
+  bottom: 30px;
   left: 50%;
   transform: translateX(-50%);
   background: #fff;
-  padding: 6px 12px;
-  border: 2px solid black;
+  padding: 6px 14px;
+  border: 2px solid #000;
   border-radius: 20px;
-  font-weight: bold;
   font-size: 13px;
-  z-index: 2;
+  font-weight: bold;
 }
 
-/* BOX */
+/* ================= BOX ================= */
 #experience .box {
   width: 95%;
-  margin: 25px 0;
-  padding: 20px;
-  border: 3px solid black;
-  border-radius: 15px;
+  margin: 28px 0;
+  padding: 22px;
+  border-radius: 16px;
+  background: #fff;
+  border: 3px solid #000;
   box-shadow: 4px 4px 6px black;
-  background-color: #fff;
+  opacity: 0;
+  transform: translateY(40px) scale(0.95);
+  transition: all 0.6s ease;
   z-index: 1;
-  opacity: 0.85;
-  transform: scale(0.98);
-  transition: all 0.3s ease;
 }
 
 #experience .box.is-active {
   opacity: 1;
-  transform: scale(1.02);
+  transform: translateY(0) scale(1.03);
+  box-shadow: 8px 8px 18px rgba(0, 0, 0, 0.3);
 }
 
 #experience .box:hover {
-  transform: scale(1.05);
+  transform: scale(1.06);
 }
 
-/* TITLE */
+/* ================= CONTENT ================= */
 .box-title {
   display: flex;
   align-items: center;
-  gap: 8px;
-}
-
-.box-title a {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  text-decoration: none;
-  color: black;
-}
-
-.box-title a:hover {
-  color: #00adb5;
+  gap: 10px;
 }
 
 .box-title h5 {
@@ -135,54 +126,103 @@
   font-weight: bold;
 }
 
-/* LOGO */
+.box-title a {
+  text-decoration: none;
+  color: #000;
+}
+
+.box-title a:hover {
+  color: #00adb5;
+}
+
 .box-logo {
   max-width: 52px;
   max-height: 52px;
-  padding: 5px;
   border-radius: 8px;
   background: #fff;
-  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  padding: 6px;
 }
 
-/* POSITION */
-.box-department h5 {
-  font-style: italic;
-  font-weight: 600;
+.box-date {
+  font-size: 14px;
   margin-top: 10px;
+  opacity: 0.7;
 }
 
-/* MOBILE */
+.box-position {
+  font-style: italic;
+  margin: 10px 0;
+}
+
+.box-job {
+  padding-left: 18px;
+}
+
+/* ================= ANIMATION ================= */
+@keyframes revealLeft {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes timelineMove {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: 0 20px;
+  }
+}
+
+/* ================= MOBILE ================= */
 @media (max-width: 1100px) {
+
+  /* ================= LAYOUT ================= */
   #experience .container #content {
     display: flex;
     flex-direction: column;
   }
 
-  #experience #content-left {
-    position: static;
-  }
-
-  #experience #content-right {
-    padding: 70px 15px 48px;
-    min-height: auto;
-  }
-
-  .timeline-end {
-    position: static;
-    margin: 0 auto;
-    transform: translateY(50%);
-  }
-
+  /* ================= BOX ================= */
   #experience .box {
-    padding: 12px;
+    border-left: 6px solid #000;
+    position: relative;
+  }
+
+  #experience .box::before {
+    content: "";
+    position: absolute;
+    left: -14px;
+    top: 24px;
+    width: 12px;
+    height: 12px;
+    background: #000;
+    border-radius: 50%;
   }
 
   #experience .box:hover {
     transform: none;
   }
 
-  .box-title h5 {
-    font-size: 18px;
+  /* ================= LEFT ================= */
+  #experience #content-left {
+    position: static;
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  /* ================= RIGHT ================= */
+  #experience #content-right {
+    padding: 70px 20px;
+  }
+
+  /* ================= MATIKAN TIMELINE ================= */
+  #experience #content-right::before,
+  #experience #content-right::after,
+  .timeline-end {
+    display: none !important;
   }
 }

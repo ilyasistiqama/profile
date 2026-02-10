@@ -102,6 +102,14 @@
     object-fit: cover;
 }
 
+.box-carousel img {
+    transition: transform 0.3s ease;
+}
+
+.box-carousel:hover img {
+    transform: scale(1.04);
+}
+
 /* ===== Content ===== */
 .box-explanation {
     flex-grow: 1;
@@ -133,20 +141,82 @@
     color: #fff;
 }
 
+/* === FIX CAROUSEL CONTROL POSITION === */
+.box-carousel .carousel {
+    position: relative;
+}
+
+.box-carousel .carousel-inner {
+    position: relative;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    bottom: auto;
+    height: auto;
+    width: auto;
+}
+
+/* === BUTTON STYLE === */
+.btn-carousel {
+    margin: 0 8px 0 8px;
+    width: 42px;
+    height: 42px;
+    background: #fff;
+    border: 2px solid #212529;
+    border-radius: 50%;
+    opacity: 1;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: all 0.25s ease;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    filter: invert(1);
+    width: 1.2rem;
+    height: 1.2rem;
+}
+
+.btn-carousel:hover {
+    background: #212529;
+}
+
+.btn-carousel:hover .carousel-control-prev-icon,
+.btn-carousel:hover .carousel-control-next-icon {
+    filter: invert(0);
+}
+
+
+
 /* ===== Visit Button ===== */
 .btn-visit {
-    display: inline-block;
+    display: inline-flex;
+    /* ⬅️ PENTING */
+    justify-content: center;
+    align-items: center;
+
     margin-top: 14px;
-    padding: 10px 16px;
+    padding: 10px 18px;
+
     background: #212529;
     color: #fff;
     border-radius: 6px;
     text-decoration: none;
+
     transition: transform 0.25s ease;
 }
 
 .btn-visit:hover {
     transform: translateY(-2px);
+    background: #000;
 }
 
 /* ===== Overlay ===== */
@@ -164,6 +234,15 @@
     max-width: 90%;
     max-height: 80%;
     animation: zoomIn 0.25s ease;
+}
+
+/* ===== Scroll Button Improve (AMAN) ===== */
+.scroll-wrapper:hover .scroll-nav-button {
+    opacity: 0.5;
+}
+
+.scroll-nav-button:hover {
+    opacity: 1;
 }
 
 @keyframes zoomIn {

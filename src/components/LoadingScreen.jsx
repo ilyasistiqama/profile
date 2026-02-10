@@ -2,63 +2,67 @@ import React, { useEffect, useState } from "react";
 import "../assets/styles/newloader.css";
 
 const LoadingScreen = () => {
-  const [fadeOut, setFadeOut] = useState(false);
-  const [showName, setShowName] = useState(false);
-  const [showWelcome, setShowWelcome] = useState(false);
-  const [visible, setVisible] = useState(true);
+  const [stage, setStage] = useState("loading");
+  // loading | name | welcome | exit
 
   useEffect(() => {
-    const handleLoad = () => {
-      setShowName(true);
+    const waitForImages = () => {
+      const images = document.images;
+      let loaded = 0;
 
-      setTimeout(() => {
-        document.querySelectorAll(".letter").forEach((el) => {
-          el.classList.add("animate");
-        });
-      }, 400);
+      const onImageDone = () => {
+        loaded++;
+        if (loaded === images.length) startAnimation();
+      };
 
-      setTimeout(() => setShowName(false), 2200);
-      setTimeout(() => setShowWelcome(true), 2600);
-      setTimeout(() => setShowWelcome(false), 4200);
+      if (images.length === 0) {
+        startAnimation();
+        return;
+      }
 
-      setTimeout(() => {
-        setFadeOut(true);
-        setTimeout(() => {
-          setVisible(false);
-          document.body.classList.add("loaded");
-        }, 800);
-      }, 4700);
+      for (let img of images) {
+        if (img.complete) {
+          onImageDone();
+        } else {
+          img.onload = img.onerror = onImageDone;
+        }
+      }
     };
 
-    if (document.readyState === "complete") {
-      handleLoad();
-    } else {
-      window.addEventListener("load", handleLoad);
-    }
+    const startAnimation = () => {
+      setStage("name");
 
-    return () => window.removeEventListener("load", handleLoad);
+      setTimeout(() => setStage("welcome"), 2300);
+      setTimeout(() => setStage("exit"), 4300);
+    };
+
+    waitForImages();
   }, []);
 
-  if (!visible) return null;
+  if (stage === "done") return null;
 
   return (
-    <div id="preloader" className={fadeOut ? "fade-out" : ""}>
+    <div id="preloader" className={stage === "exit" ? "shatter" : ""}>
+      <div className="scanline" />
+
       <div className="loader-text">
-        {showName && (
-          <div className="name">
-            {"PLEASE WAIT".split("").map((char, i) => (
-              <span key={i} className="letter">
+        {stage === "name" && (
+          <div className="name neon-text">
+            {"HELLO GUYS".split("").map((char, i) => (
+              <span
+                key={i}
+                className="letter animate"
+                style={{ "--i": i }}
+              >
                 {char === " " ? "\u00A0" : char}
               </span>
             ))}
           </div>
         )}
 
-        {showWelcome && (
-          <div className="welcome">
-            <span className="welcome-text">
-              GOOD LUCK! 😊
-            </span>
+        {stage === "welcome" && (
+          <div className="welcome glitch" data-text="GOOD LUCK!">
+            GOOD&nbsp;LUCK<span className="smile">!</span>😊
           </div>
         )}
       </div>

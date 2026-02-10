@@ -3,22 +3,58 @@
   display: block;
 }
 
-/* ===== Social Button ===== */
+/* ===== FOOTER BASE ===== */
+.contact-footer {
+  background: linear-gradient(180deg, #111 0%, #212529 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* subtle glow background */
+.contact-footer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top, rgba(255, 255, 255, 0.05), transparent 60%);
+  pointer-events: none;
+}
+
+/* ===== TEXT ===== */
+.contact-desc {
+  max-width: 520px;
+  margin: 0 auto;
+  opacity: 0.85;
+}
+
+/* ===== SOCIAL WRAPPER ===== */
+.social-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+/* ===== SOCIAL BUTTON ===== */
 #contact .btn-floating {
-  width: 46px;
-  height: 46px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   font-size: 18px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
+  transition:
+    transform 0.25s ease,
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
-/* default hover */
+/* hover general */
 #contact .btn-floating:hover {
-  transform: translateY(-4px);
+  transform: translateY(-6px) scale(1.05);
   color: #fff;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.45);
 }
 
 /* brand hover colors */
@@ -52,9 +88,51 @@
   border-color: #333;
 }
 
-/* ===== Footer Bottom ===== */
-#contact .footer-bottom {
-  background-color: rgba(255, 255, 255, 0.05);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+/* ===== DIVIDER ===== */
+.footer-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(to right,
+      transparent,
+      rgba(255, 255, 255, 0.25),
+      transparent);
+}
+
+/* ===== FOOTER BOTTOM ===== */
+.footer-bottom {
+  background-color: rgba(255, 255, 255, 0.04);
   font-size: 14px;
+  opacity: 0.8;
+}
+
+/* ===== FADE ANIMATION ===== */
+.fade-up {
+  animation: fadeUp 0.7s ease forwards;
+}
+
+.delay-1 {
+  animation-delay: 0.15s;
+}
+
+.delay-2 {
+  animation-delay: 0.3s;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 576px) {
+  .contact-desc {
+    font-size: 0.95rem;
+  }
 }

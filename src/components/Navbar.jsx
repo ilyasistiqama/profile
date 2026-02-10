@@ -4,70 +4,34 @@ import "bootstrap/dist/css/bootstrap.min.css";
 const Navbar = () => {
   const [showNavbar, setShowNavbar] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
-  const [timeoutId, setTimeoutId] = useState(null);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > lastScrollY) {
-        // Scroll ke bawah → langsung hide
+      if (window.scrollY > lastScrollY && window.scrollY > 80) {
+        // scroll ke bawah
         setShowNavbar(false);
       } else {
-        // Scroll ke atas → show dulu
+        // scroll ke atas
         setShowNavbar(true);
-
-        // Kalau ada timeout sebelumnya, clear dulu
-        if (timeoutId) clearTimeout(timeoutId);
-
-        // Setelah 3 detik otomatis hide lagi
-        const id = setTimeout(() => {
-          setShowNavbar(false);
-        }, 3000);
-        setTimeoutId(id);
       }
+
       setLastScrollY(window.scrollY);
     };
 
     window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      if (timeoutId) clearTimeout(timeoutId);
-    };
-  }, [lastScrollY, timeoutId]);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
 
   return (
     <nav
-      className={`navbar navbar-expand-lg fixed-top ${showNavbar ? "navbar-show" : "navbar-hide"
-        }`}
-      style={{
-        backgroundColor: "#212529",
-        boxShadow: "0 2px 8px rgba(0,0,0,0.7)",
-        padding: "0.8rem 1.5rem",
-        transition: "transform 0.4s ease, opacity 0.4s ease",
-      }}
+      className={`navbar navbar-expand-lg fixed-top main-navbar ${
+        showNavbar ? "navbar-show" : "navbar-hide"
+      }`}
     >
       <div className="container-fluid">
         {/* LOGO */}
-        <a
-          className="navbar-brand"
-          href="#intro"
-          style={{
-            color: "#00adb5",
-            fontWeight: "900",
-            fontSize: "1.8rem",
-            letterSpacing: "2px",
-            fontFamily: "'Poppins', sans-serif",
-            textShadow: "0px 0px 1px #eeeeee",
-            transition: "all 0.3s ease-in-out",
-          }}
-          onMouseEnter={(e) =>
-          (e.target.style.textShadow =
-            "0px 0px 6px #00adb5, 0px 0px 12px #00adb5")
-          }
-          onMouseLeave={(e) =>
-            (e.target.style.textShadow = "0px 0px 1px #eeeeee")
-          }
-        >
-          ILYAS-DEV
+        <a className="navbar-brand brand-logo" href="#intro">
+          ILYAS<span>-DEV</span>
         </a>
 
         <button
@@ -75,22 +39,12 @@ const Navbar = () => {
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-          style={{ borderColor: "#00adb5" }}
         >
-          <span
-            className="navbar-toggler-icon"
-            style={{ filter: "invert(1)" }}
-          />
+          <span className="navbar-toggler-icon" />
         </button>
 
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul
-            className="navbar-nav ms-auto mb-2 mb-lg-0"
-            style={{ gap: "2rem" }}
-          >
+          <ul className="navbar-nav ms-auto">
             {[
               { href: "#about-me", label: "ABOUT" },
               { href: "#skill", label: "SKILL" },
@@ -99,18 +53,7 @@ const Navbar = () => {
               { href: "#contact", label: "CONTACT" },
             ].map(({ href, label }) => (
               <li className="nav-item" key={href}>
-                <a
-                  href={href}
-                  className="nav-link"
-                  style={{
-                    color: "#eeeeee",
-                    fontWeight: "600",
-                    letterSpacing: "1px",
-                    transition: "color 0.3s ease",
-                  }}
-                  onMouseEnter={(e) => (e.target.style.color = "#00adb5")}
-                  onMouseLeave={(e) => (e.target.style.color = "#eeeeee")}
-                >
+                <a href={href} className="nav-link nav-animated">
                   {label}
                 </a>
               </li>
@@ -119,19 +62,85 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* CSS tambahan */}
+      {/* CSS */}
       <style>
         {`
-          .navbar-hide {
-            transform: translateY(-100%);
-            opacity: 0;
-            pointer-events: none;
+        .main-navbar {
+          background: rgba(33, 37, 41, 0.85);
+          backdrop-filter: blur(10px);
+          padding: 0.75rem 1.8rem;
+          box-shadow: 0 8px 24px rgba(0,0,0,0.45);
+          transition: transform 0.35s ease, opacity 0.35s ease;
+        }
+
+        .navbar-hide {
+          transform: translateY(-100%);
+          opacity: 0;
+          pointer-events: none;
+        }
+
+        .navbar-show {
+          transform: translateY(0);
+          opacity: 1;
+        }
+
+        .brand-logo {
+          font-weight: 900;
+          font-size: 1.7rem;
+          letter-spacing: 2px;
+          color: #00adb5;
+          text-shadow: 0 0 4px rgba(0,173,181,0.5);
+          transition: text-shadow 0.3s ease;
+        }
+
+        .brand-logo span {
+          color: #eeeeee;
+        }
+
+        .brand-logo:hover {
+          text-shadow:
+            0 0 6px #00adb5,
+            0 0 14px #00adb5;
+        }
+
+        .navbar-nav {
+          gap: 1.8rem;
+        }
+
+        .nav-animated {
+          position: relative;
+          color: #eeeeee;
+          font-weight: 600;
+          letter-spacing: 1px;
+          padding: 6px 0;
+          transition: color 0.3s ease;
+        }
+
+        .nav-animated::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          bottom: -4px;
+          width: 0;
+          height: 2px;
+          background: linear-gradient(90deg, #00adb5, #5ffbf1);
+          transition: width 0.3s ease;
+        }
+
+        .nav-animated:hover {
+          color: #00adb5;
+        }
+
+        .nav-animated:hover::after {
+          width: 100%;
+        }
+
+        @media (max-width: 991px) {
+          .navbar-nav {
+            gap: 1rem;
+            margin-top: 12px;
           }
-          .navbar-show {
-            transform: translateY(0);
-            opacity: 1;
-            pointer-events: auto;
-          }
+        }
         `}
       </style>
     </nav>

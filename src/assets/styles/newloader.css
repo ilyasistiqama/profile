@@ -1,68 +1,178 @@
+/* === BASE === */
 #preloader {
   position: fixed;
   inset: 0;
-  background-color: #0f0f0f;
+  background: radial-gradient(circle at top, #0a0f1e, #02030a);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 9999;
-  transition: opacity 0.8s ease;
   min-height: 100dvh;
+  overflow: hidden;
 }
 
-#preloader.fade-out {
-  opacity: 0;
+/* === SCANLINE === */
+.scanline {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(to bottom,
+      rgba(255, 255, 255, 0.03),
+      rgba(255, 255, 255, 0.03) 1px,
+      transparent 2px,
+      transparent 4px);
+  animation: scanMove 6s linear infinite;
   pointer-events: none;
 }
 
-.loader-text {
-  display: flex;
-  align-items: center;
-  font-family: 'Courier New', monospace;
-  font-size: 2rem;
-  color: #00d9ff;
-  font-weight: bold;
-  letter-spacing: 0.2rem;
+@keyframes scanMove {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: 0 100%;
+  }
 }
 
+/* === TEXT WRAPPER === */
+.loader-text {
+  z-index: 2;
+  text-align: center;
+  font-family: "Courier New", monospace;
+}
+
+/* === NEON NAME === */
+.neon-text {
+  font-size: 2.2rem;
+  letter-spacing: 0.3rem;
+  font-weight: 700;
+  color: #00eaff;
+  text-shadow:
+    0 0 6px #00eaff,
+    0 0 14px rgba(0, 234, 255, 0.8),
+    0 0 30px rgba(0, 234, 255, 0.4);
+}
+
+/* === LETTER ANIMATION === */
 .letter {
   opacity: 0;
-  transform: translateY(35px);
+  transform: translateY(30px);
 }
 
 .letter.animate {
-  animation: fadeIn 0.6s ease forwards;
-  animation-delay: calc(var(--i) * 0.15s);
+  animation: cyberFade 0.5s ease forwards;
+  animation-delay: calc(var(--i) * 0.12s);
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(35px);
-  }
-
+@keyframes cyberFade {
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-.welcome-text {
-  font-size: 2.2rem;
+/* === WELCOME === */
+.welcome {
+  font-size: 2.4rem;
   letter-spacing: 0.35rem;
+  color: #ff3cac;
+  text-shadow:
+    0 0 6px #ff3cac,
+    0 0 16px rgba(255, 60, 172, 0.8);
+  animation: glitchPop 0.8s ease;
 }
 
-.welcome-text span {
-  display: inline-block;
-  animation: smilePop 0.6s ease forwards;
+/* === GLITCH EFFECT === */
+.glitch {
+  position: relative;
 }
 
-@keyframes smilePop {
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0.7;
+}
+
+.glitch::before {
+  color: #00eaff;
+  transform: translateX(-2px);
+}
+
+.glitch::after {
+  color: #ff3cac;
+  transform: translateX(2px);
+}
+
+@keyframes glitchPop {
   from {
-    transform: scale(0.8);
+    opacity: 0;
+    transform: scale(0.9);
   }
 
   to {
+    opacity: 1;
     transform: scale(1);
+  }
+}
+
+/* ===================== */
+/* 💥 SHATTER EXIT 💥 */
+/* ===================== */
+#preloader.shatter {
+  animation: screenCrack 1s ease forwards;
+}
+
+#preloader.shatter .loader-text {
+  animation: textShatter 0.9s ease forwards;
+}
+
+#preloader.shatter .letter {
+  animation: letterExplode 0.8s ease forwards;
+}
+
+/* === SCREEN FADE === */
+@keyframes screenCrack {
+  0% {
+    opacity: 1;
+    filter: blur(0);
+  }
+
+  40% {
+    filter: blur(2px);
+  }
+
+  100% {
+    opacity: 0;
+    filter: blur(12px);
+  }
+}
+
+/* === TEXT SHATTER === */
+@keyframes textShatter {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  40% {
+    transform: scale(1.05);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(0.85) rotate(-4deg);
+  }
+}
+
+/* === LETTER EXPLODE === */
+@keyframes letterExplode {
+  to {
+    opacity: 0;
+    transform:
+      translate(calc(-60px + var(--i) * 4px),
+        calc(-40px + var(--i) * 3px)) rotate(20deg) scale(0.6);
   }
 }

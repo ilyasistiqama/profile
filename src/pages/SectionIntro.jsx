@@ -10,25 +10,25 @@ const SectionIntro = () => {
           <div id="box">
             <div id="intro-content">
               <div id="text-intro">
-                <div id="name">
+                <div className="reveal-item delay-1" id="name">
                   Hi, I'm <span>Ilyas</span>
                 </div>
 
-                <div id="role">
+                <div className="reveal-item delay-2" id="role">
                   Web Developer &amp; Fullstack Enthusiast
                 </div>
 
-                <div id="intro-desc">
+                <div className="reveal-item delay-3 intro-desc">
                   I create modern web applications with attention to detail,
                   usability, and long-term reliability.
                 </div>
 
-                <div id="intro-desc">
+                <div className="reveal-item delay-4 intro-desc">
                   I enjoy solving problems, refining ideas, and turning concepts
                   into meaningful digital experiences.
                 </div>
 
-                <div id="intro-desc">
+                <div className="reveal-item delay-5 intro-desc">
                   Always learning, improving, and adapting to new challenges.
                 </div>
               </div>
