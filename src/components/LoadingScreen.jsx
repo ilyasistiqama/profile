@@ -24,7 +24,8 @@ const LoadingScreen = () => {
         if (img.complete) {
           onImageDone();
         } else {
-          img.onload = img.onerror = onImageDone;
+          img.onload = onImageDone;
+          img.onerror = onImageDone;
         }
       }
     };
@@ -33,7 +34,15 @@ const LoadingScreen = () => {
       setStage("name");
 
       setTimeout(() => setStage("welcome"), 2300);
-      setTimeout(() => setStage("exit"), 4300);
+
+      setTimeout(() => {
+        setStage("exit");
+
+        // ⬇️ INI YANG SEBELUMNYA KURANG
+        setTimeout(() => {
+          setStage("done");
+        }, 800); // durasi animasi shatter
+      }, 4300);
     };
 
     waitForImages();

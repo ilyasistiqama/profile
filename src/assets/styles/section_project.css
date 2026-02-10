@@ -163,10 +163,10 @@
 /* === BUTTON STYLE === */
 .btn-carousel {
     margin: 0 8px 0 8px;
-    width: 42px;
-    height: 42px;
+    width: 22px;
+    padding: 5px;
+    height: 22px;
     background: #fff;
-    border: 2px solid #212529;
     border-radius: 50%;
     opacity: 1;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
@@ -219,23 +219,6 @@
     background: #000;
 }
 
-/* ===== Overlay ===== */
-.overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.85);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 999;
-}
-
-.overlay img {
-    max-width: 90%;
-    max-height: 80%;
-    animation: zoomIn 0.25s ease;
-}
-
 /* ===== Scroll Button Improve (AMAN) ===== */
 .scroll-wrapper:hover .scroll-nav-button {
     opacity: 0.5;
@@ -266,8 +249,13 @@
     cursor: pointer;
 }
 
-/* ===== Responsive ===== */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
+    .scrollable-content {
+        padding-left: 0;
+        padding-right: 0;
+        gap: 16px;
+    }
+
     #project .box {
         min-width: 100%;
         max-width: 100%;
