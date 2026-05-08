@@ -1,0 +1,138 @@
+/* === BASE === */
+#preloader {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at center, #0d1117, #02030a);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  min-height: 100dvh;
+  overflow: hidden;
+  color: #fff;
+}
+
+/* === SCANLINE === */
+.scanline {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(to bottom,
+      rgba(0, 173, 181, 0.05),
+      rgba(0, 173, 181, 0.05) 1px,
+      transparent 2px,
+      transparent 4px);
+  animation: scanMove 8s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes scanMove {
+  from { background-position: 0 0; }
+  to { background-position: 0 100%; }
+}
+
+/* === CONTENT === */
+.loader-content {
+  z-index: 2;
+  text-align: center;
+}
+
+.name-wrapper, .welcome-wrapper {
+  animation: fadeIn 0.6s ease forwards;
+}
+
+.neon-text {
+  font-size: 2.8rem;
+  font-weight: 900;
+  letter-spacing: 0.4rem;
+  color: #00adb5;
+  text-shadow: 0 0 15px rgba(0, 173, 181, 0.6);
+  font-family: 'Inter', sans-serif;
+}
+
+.name-sub, .welcome-tag {
+  font-size: 0.9rem;
+  letter-spacing: 0.5rem;
+  margin-top: 15px;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+}
+
+.welcome-main {
+  font-size: 2.5rem;
+  font-weight: 900;
+  letter-spacing: 0.4rem;
+  color: #fff;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+}
+
+/* === LETTER ANIMATION === */
+.letter {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.letter.animate {
+  animation: letterIn 0.4s ease forwards;
+  animation-delay: calc(var(--i) * 0.06s);
+}
+
+@keyframes letterIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === FOOTER & PROGRESS === */
+.loader-footer {
+  position: absolute;
+  bottom: 10%;
+  width: 250px;
+}
+
+.loading-bar {
+  height: 2px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.loading-progress {
+  height: 100%;
+  width: 0;
+  background: #00adb5;
+  animation: progressLoad 3.5s ease-in-out forwards;
+}
+
+@keyframes progressLoad {
+  0% { width: 0; }
+  50% { width: 70%; }
+  100% { width: 100%; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* === SHATTER EXIT === */
+#preloader.shatter {
+  animation: exitBlur 0.8s ease forwards;
+}
+
+@keyframes exitBlur {
+  to {
+    opacity: 0;
+    filter: blur(20px);
+    transform: scale(1.1);
+  }
+}
+
+@media (max-width: 768px) {
+  .neon-text { font-size: 1.8rem; letter-spacing: 0.2rem; }
+  .welcome-main { font-size: 2.5rem; letter-spacing: 0.4rem; }
+  .name-sub, .welcome-tag { font-size: 0.7rem; letter-spacing: 0.3rem; }
+}

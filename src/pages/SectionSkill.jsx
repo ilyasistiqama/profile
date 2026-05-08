@@ -1,6 +1,8 @@
 import React, { useRef, useEffect, useState } from "react";
+import { useLanguage } from "../context/LanguageContext";
 
 const SectionSkill = ({ skills }) => {
+  const { t } = useLanguage();
   const scrollRef = useRef(null);
   const intervalRef = useRef(null);
 
@@ -9,6 +11,11 @@ const SectionSkill = ({ skills }) => {
 
   /* ================= FILTER ================= */
   const categories = ["All", ...new Set(skills.map((s) => s.category))];
+
+  const translateCategory = (cat) => {
+    if (cat === "All") return t.project.filter_all;
+    return cat; // Skill categories are technical names (Frontend, Backend), usually kept in EN but I can translate if needed.
+  };
 
   const filteredSkills =
     selectedCategory === "All"
@@ -37,37 +44,36 @@ const SectionSkill = ({ skills }) => {
     const el = scrollRef.current;
     if (!el) return;
 
-    const cardWidth = 220;
-
     intervalRef.current = setInterval(() => {
       const maxScrollLeft = el.scrollWidth - el.clientWidth;
 
       if (el.scrollLeft >= maxScrollLeft - 5) {
         el.scrollTo({ left: 0, behavior: "smooth" });
       } else {
-        el.scrollBy({ left: cardWidth, behavior: "smooth" });
+        el.scrollBy({ left: el.clientWidth, behavior: "smooth" });
       }
     }, 3200);
 
     return () => clearInterval(intervalRef.current);
   }, [isOverflowing, selectedCategory, filteredSkills]);
 
-  /* ================= MANUAL SCROLL ================= */
   const scrollLeft = () => {
-    scrollRef.current.scrollBy({ left: -220, behavior: "smooth" });
+    const el = scrollRef.current;
+    if (el) el.scrollBy({ left: -el.clientWidth, behavior: "smooth" });
   };
 
   const scrollRight = () => {
-    scrollRef.current.scrollBy({ left: 220, behavior: "smooth" });
+    const el = scrollRef.current;
+    if (el) el.scrollBy({ left: el.clientWidth, behavior: "smooth" });
   };
 
   return (
     <section id="skill">
       <div className="container">
-        <h2 className="reveal-title">MY SKILLS</h2>
+        <h2 className="reveal-title">{t.skill.title}</h2>
 
         <p className="skill-desc reveal-sub">
-          These are the core skills that form the foundation of my web development journey.
+          {t.skill.subtitle}
         </p>
 
         {/* FILTER */}
@@ -78,14 +84,14 @@ const SectionSkill = ({ skills }) => {
               className={`filter-btn ${selectedCategory === cat ? "active" : ""}`}
               onClick={() => setSelectedCategory(cat)}
             >
-              {cat}
+              {translateCategory(cat)}
             </button>
           ))}
         </div>
 
         <div className="scroll-box-wrapper">
           {isOverflowing && (
-            <button className="scroll-btn left" onClick={scrollLeft}>
+            <button className="scroll-btn left" onClick={scrollLeft} aria-label="Scroll left">
               ‹
             </button>
           )}
@@ -120,7 +126,7 @@ const SectionSkill = ({ skills }) => {
           </div>
 
           {isOverflowing && (
-            <button className="scroll-btn right" onClick={scrollRight}>
+            <button className="scroll-btn right" onClick={scrollRight} aria-label="Scroll right">
               ›
             </button>
           )}

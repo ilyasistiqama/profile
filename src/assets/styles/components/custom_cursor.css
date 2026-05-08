@@ -1,0 +1,46 @@
+.custom-cursor-dot,
+.custom-cursor-outline {
+  position: fixed;
+  pointer-events: none;
+  z-index: 10000;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease, opacity 0.3s ease;
+}
+
+.custom-cursor-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #00adb5;
+  border-radius: 50%;
+}
+
+.custom-cursor-outline {
+  width: 40px;
+  height: 40px;
+  border: 2px solid rgba(0, 173, 181, 0.4);
+  border-radius: 50%;
+  transition: all 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.custom-cursor-dot.hidden,
+.custom-cursor-outline.hidden {
+  opacity: 0;
+}
+
+.custom-cursor-outline.pointer-active {
+  width: 60px;
+  height: 60px;
+  background-color: rgba(0, 173, 181, 0.1);
+  border-color: #00adb5;
+}
+
+/* Sembunyikan kursor asli pada elemen interaktif di Desktop */
+@media (min-width: 769px) {
+  a, button, [role="button"], .scroll-btn, .project-filter-btn {
+    cursor: none !important;
+  }
+  
+  body {
+    cursor: none;
+  }
+}

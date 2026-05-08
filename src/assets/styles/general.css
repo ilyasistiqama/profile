@@ -1,4 +1,12 @@
 :root {
+  scroll-behavior: smooth;
+}
+
+section {
+  scroll-margin-top: 80px;
+}
+
+:root {
   /* Section Headings */
   --fs-h1: clamp(36px, 5vw, 56px);
   --fs-h2: clamp(26px, 3vw, 36px);
@@ -11,6 +19,32 @@
   /* Line Heights */
   --lh-heading: 1.2;
   --lh-body: 1.7;
+
+  /* ===== COLORS — Light Mode ===== */
+  --color-bg: #ffffff;
+  --color-bg-alt: #eaeaea;
+  --color-surface: #ffffff;
+  --color-border: #000000;
+  --color-border-light: rgba(0, 0, 0, 0.15);
+  --color-text: #333333;
+  --color-text-muted: #666666;
+  --color-accent: #00adb5;
+  --color-accent-light: rgba(0, 173, 181, 0.1);
+  --color-shadow: rgba(0, 0, 0, 0.15);
+}
+
+/* ===== COLORS — Dark Mode ===== */
+[data-theme="dark"] {
+  --color-bg: #0d1117;
+  --color-bg-alt: #161b22;
+  --color-surface: #1c2433;
+  --color-border: #30363d;
+  --color-border-light: rgba(255, 255, 255, 0.1);
+  --color-text: #e6edf3;
+  --color-text-muted: #8b949e;
+  --color-accent: #00adb5;
+  --color-accent-light: rgba(0, 173, 181, 0.15);
+  --color-shadow: rgba(0, 0, 0, 0.5);
 }
 
 body {
@@ -55,12 +89,11 @@ html {
 }
 
 body {
-  background-color: #ffffff;
-  font-family: Arial, sans-serif;
+  background-color: var(--color-bg);
+  font-family: 'Inter', 'Plus Jakarta Sans', Arial, sans-serif;
   font-size: 16px;
-  /* default desktop */
   line-height: 1.6;
-  color: #333;
+  color: var(--color-text);
 }
 
 /* General section */
@@ -257,28 +290,33 @@ section {
 ===================== */
 #backToTop {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 40px;
-  height: 40px;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
   display: none;
   justify-content: center;
   align-items: center;
   cursor: pointer;
 
-  background-color: #212529;
+  background: linear-gradient(135deg, #00adb5 0%, #007a80 100%);
   color: #fff;
-  border: 2px solid black;
-  border-radius: 30%;
-  box-shadow: 2px 2px 5px black;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 8px 25px rgba(0, 173, 181, 0.4);
 
-  z-index: 2;
-  transition: transform 0.3s ease, color 0.3s ease;
+  z-index: 1000;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 #backToTop:hover {
-  background-color: #1a1e21;
-  transform: scale(1.2);
+  transform: translateY(-8px) scale(1.1);
+  box-shadow: 0 12px 35px rgba(0, 173, 181, 0.6);
+  background: linear-gradient(135deg, #00c2cb 0%, #00adb5 100%);
+}
+
+#backToTop i {
+  font-size: 1.2rem;
 }
 
 /* =====================

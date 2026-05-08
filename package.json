@@ -14,10 +14,9 @@
     "@testing-library/user-event": "^13.5.0",
     "bootstrap": "^5.3.3",
     "inspirational-quotes": "^2.0.1",
-    "jquery": "^3.7.1",
     "react": "^18.3.1",
-    "react-bootstrap": "^2.10.6",
     "react-dom": "^18.3.1",
+    "react-router-dom": "^7.15.0",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },
@@ -48,7 +47,7 @@
     ]
   },
   "devDependencies": {
-    "@types/jquery": "^3.5.32",
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "gh-pages": "^6.3.0"
   }
 }

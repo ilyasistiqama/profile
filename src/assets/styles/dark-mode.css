@@ -1,0 +1,309 @@
+/* ============================================================
+   DARK MODE OVERRIDES
+   Applied when [data-theme="dark"] is set on <html>
+   ============================================================ */
+
+/* ===== GLOBAL ===== */
+[data-theme="dark"] body {
+  --color-navbar-bg: rgba(13, 17, 23, 0.9);
+  --color-navbar-shadow: rgba(0, 0, 0, 0.5);
+  --color-text-alt: #eeeeee;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+/* ===== ABOUT ME ===== */
+[data-theme="dark"] #about-me {
+  background-color: var(--color-bg);
+}
+
+[data-theme="dark"] .about-subtitle {
+  color: var(--color-text-muted);
+}
+
+[data-theme="dark"] #about-me p {
+  color: var(--color-text);
+}
+
+[data-theme="dark"] .btn-custom {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: #fff;
+}
+
+[data-theme="dark"] .btn-custom.outline {
+  background: transparent;
+  color: var(--color-text);
+  border-color: var(--color-border);
+}
+
+[data-theme="dark"] .btn-custom:hover {
+  box-shadow: 0 10px 20px rgba(0, 173, 181, 0.3);
+}
+
+/* ===== SKILLS ===== */
+[data-theme="dark"] #skill {
+  background: var(--color-bg-alt);
+}
+
+[data-theme="dark"] #skill h2,
+[data-theme="dark"] .skill-desc {
+  color: var(--color-text);
+}
+
+[data-theme="dark"] .list-skill {
+  background: var(--color-surface);
+  box-shadow:
+    4px 4px 0 var(--color-accent),
+    10px 10px 18px var(--color-shadow);
+  color: var(--color-text);
+}
+
+[data-theme="dark"] .list-skill:hover {
+  box-shadow:
+    6px 6px 0 var(--color-accent),
+    14px 14px 30px var(--color-shadow);
+}
+
+[data-theme="dark"] .filter-btn {
+  background: var(--color-bg);
+  border-color: var(--color-border);
+  color: var(--color-text);
+}
+
+[data-theme="dark"] .filter-btn:hover,
+[data-theme="dark"] .filter-btn.active {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: #fff;
+}
+
+[data-theme="dark"] .scroll-btn {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+/* ===== EXPERIENCE ===== */
+[data-theme="dark"] #experience {
+  background: var(--color-bg);
+}
+
+[data-theme="dark"] #experience #content-left h2,
+[data-theme="dark"] #experience #content-left p {
+  color: var(--color-text);
+}
+
+[data-theme="dark"] #experience #content-right {
+  background: var(--color-bg-alt);
+  border-color: var(--color-border);
+  box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="dark"] #experience #content-right::before {
+  background: repeating-linear-gradient(
+    to bottom,
+    var(--color-accent) 0,
+    var(--color-accent) 6px,
+    transparent 6px,
+    transparent 14px
+  );
+}
+
+[data-theme="dark"] #experience #content-right::after,
+[data-theme="dark"] .timeline-end {
+  background: var(--color-surface);
+  border-color: var(--color-border);
+  color: var(--color-text);
+}
+
+[data-theme="dark"] #experience .box {
+  background: var(--color-surface);
+  border-color: var(--color-border);
+  color: var(--color-text);
+  box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="dark"] #experience .box.is-active {
+  box-shadow: 8px 8px 18px rgba(0, 173, 181, 0.2);
+}
+
+[data-theme="dark"] .box-title a {
+  color: var(--color-text);
+}
+
+[data-theme="dark"] .box-title a:hover {
+  color: var(--color-accent);
+}
+
+[data-theme="dark"] .box-date {
+  color: var(--color-text-muted);
+}
+
+[data-theme="dark"] #experience .box::before {
+  background: var(--color-accent);
+}
+
+/* ===== PROJECT ===== */
+[data-theme="dark"] #project {
+  background: var(--color-bg-alt);
+}
+
+[data-theme="dark"] #project h2,
+[data-theme="dark"] .project-desc {
+  color: var(--color-text);
+}
+
+[data-theme="dark"] #project .box {
+  background: var(--color-surface);
+  border-color: var(--color-border-light);
+  color: var(--color-text);
+}
+
+[data-theme="dark"] #project .box:hover {
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] .box-explanation p,
+[data-theme="dark"] .box-explanation h3 {
+  color: var(--color-text);
+}
+
+[data-theme="dark"] .text-muted {
+  color: var(--color-text-muted) !important;
+}
+
+[data-theme="dark"] .child-box {
+  background: linear-gradient(135deg, var(--color-bg), var(--color-bg-alt));
+  border-color: var(--color-border-light);
+  color: var(--color-text);
+}
+
+[data-theme="dark"] .child-box:hover {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: #fff;
+}
+
+[data-theme="dark"] .btn-visit {
+  background: var(--color-accent);
+}
+
+[data-theme="dark"] .btn-visit:hover {
+  background: #009ba3;
+  color: #fff;
+}
+
+[data-theme="dark"] .scroll-nav-button {
+  background: var(--color-accent);
+}
+
+/* ===== PRE-SECTION (QUOTE) ===== */
+[data-theme="dark"] .pre-section {
+  /* Already dark overlay — no extra change needed */
+}
+
+/* ===== SCROLLBAR ===== */
+[data-theme="dark"] * {
+  scrollbar-color: var(--color-accent) var(--color-bg-alt);
+}
+
+[data-theme="dark"] *::-webkit-scrollbar-thumb {
+  background-color: var(--color-accent);
+}
+
+[data-theme="dark"] *::-webkit-scrollbar-track {
+  background: var(--color-bg-alt);
+}
+
+/* ===== BACK TO TOP ===== */
+[data-theme="dark"] #backToTop {
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+  color: #fff;
+}
+
+[data-theme="dark"] #backToTop:hover {
+  background-color: #009ba3;
+}
+
+/* ===== SMOOTH TRANSITION ===== */
+body,
+#about-me, #skill, #experience, #project,
+.list-skill, .filter-btn, .btn-custom, .child-box,
+#experience .box, #project .box, #experience #content-right,
+#backToTop, .scroll-btn, .scroll-nav-button,
+.contact-upper, .contact-form, .form-group input,
+.form-group textarea, .project-filter-btn {
+  transition:
+    background-color 0.35s ease,
+    color 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease !important;
+}
+
+/* ===== CONTACT FORM — DARK MODE ===== */
+[data-theme="dark"] .contact-upper {
+  background: linear-gradient(160deg, #0d1117 0%, #111827 100%);
+}
+
+[data-theme="dark"] .contact-heading,
+[data-theme="dark"] .contact-sub,
+[data-theme="dark"] .contact-detail-item span,
+[data-theme="dark"] .contact-detail-item a {
+  color: var(--color-text);
+}
+
+[data-theme="dark"] .contact-sub {
+  color: var(--color-text-muted);
+}
+
+[data-theme="dark"] .contact-form {
+  background: var(--color-surface);
+  border-color: var(--color-border-light);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .form-group label {
+  color: var(--color-text);
+}
+
+[data-theme="dark"] .form-group input,
+[data-theme="dark"] .form-group textarea {
+  background: var(--color-bg);
+  border-color: var(--color-border);
+  color: var(--color-text);
+}
+
+[data-theme="dark"] .form-group input:focus,
+[data-theme="dark"] .form-group textarea:focus {
+  background: var(--color-bg-alt);
+  border-color: var(--color-accent);
+}
+
+[data-theme="dark"] .form-group input::placeholder,
+[data-theme="dark"] .form-group textarea::placeholder {
+  color: var(--color-text-muted);
+}
+
+[data-theme="dark"] .btn-floating {
+  border-color: var(--color-border);
+  color: var(--color-text);
+}
+
+/* ===== PROJECT FILTER — DARK MODE ===== */
+[data-theme="dark"] .project-filter-btn {
+  background: var(--color-bg);
+  border-color: var(--color-border);
+  color: var(--color-text);
+}
+
+[data-theme="dark"] .project-filter-btn:hover,
+[data-theme="dark"] .project-filter-btn.active {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: #fff;
+}
+
+[data-theme="dark"] .no-projects {
+  color: var(--color-text-muted);
+}

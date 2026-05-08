@@ -1,6 +1,7 @@
 import React from "react";
 import FotoIlyas from "../assets/images/ilyas2.webp";
 import { useImageOverlay } from "../components/ImageOverlay";
+import { useLanguage } from "../context/LanguageContext";
 
 const handleClickCV = (e) => {
   e.preventDefault();
@@ -11,19 +12,10 @@ const handleClickCV = (e) => {
 };
 
 const SectionAboutMe = () => {
+  const { t } = useLanguage();
   const { selectedImage, openOverlay, closeOverlay } = useImageOverlay();
 
-  const myAge = () => {
-    const birthDate = new Date("1999-06-19");
-    const today = new Date();
-    let age = today.getFullYear() - birthDate.getFullYear();
-    const beforeBirthday =
-      today.getMonth() < birthDate.getMonth() ||
-      (today.getMonth() === birthDate.getMonth() &&
-        today.getDate() < birthDate.getDate());
-    if (beforeBirthday) age--;
-    return age;
-  };
+
 
   return (
     <section id="about-me">
@@ -39,33 +31,16 @@ const SectionAboutMe = () => {
           </div>
 
           <div id="text" className="reveal-right">
-            <h2>ABOUT ME</h2>
+            <h2>{t.about.title}</h2>
             <span className="about-subtitle">
-              A brief overview of who I am
+              {t.about.subtitle}
             </span>
 
-            <p className="delay-1">
-              Hello, my name is <b>Muh. Ilyas Istiqama. M</b>, but you can call me{" "}
-              <b>Ilyas</b>. I am {myAge()} years old, originally from Luwuk, and
-              currently based in Surabaya. I hold a{" "}
-              <b>Bachelor’s degree in Information Engineering (S.Kom)</b> from the{" "}
-              <b>University of 17 August 1945 Surabaya</b>, graduating with a GPA
-              of <b>3.62/4.00</b>.
-            </p>
-
-            <p className="delay-2">
-              I enjoy building and improving digital products while continuously
-              learning new technologies. I am known for my{" "}
-              <b>critical thinking</b>, <b>creativity</b>, and ability to{" "}
-              <b>work effectively both independently and in a team</b>.
-            </p>
-
-            <p className="delay-3">
-              Currently, I work at <b>PT. Terik Indonesia Inside</b> and also take
-              on several <b>freelance projects</b>. I am open to new challenges,
-              collaborations, and opportunities where I can grow and contribute
-              meaningfully.
-            </p>
+            {t.about.description.map((para, i) => (
+              <p key={i} className={`delay-${i + 1}`}>
+                {para}
+              </p>
+            ))}
 
             <div className="about-actions delay-4">
               <button
@@ -73,11 +48,11 @@ const SectionAboutMe = () => {
                 className="btn-custom"
                 onClick={handleClickCV}
               >
-                View CV
+                {t.about.download_cv}
               </button>
 
               <a href="#contact" className="btn-custom outline">
-                Contact Me
+                {t.about.hire_me}
               </a>
             </div>
           </div>

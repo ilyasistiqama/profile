@@ -1,19 +1,24 @@
 import React, { useEffect } from "react";
+import { useLanguage } from "../context/LanguageContext";
 
 const SectionExperience = ({ experiences }) => {
+  const { t, lang } = useLanguage();
   useEffect(() => {
     const boxes = document.querySelectorAll("#experience .box");
 
     if (!boxes.length) return;
 
     const observer = new IntersectionObserver(
-      (entries) => {
+      (entries, obs) => {
         entries.forEach((entry) => {
-          entry.target.classList.toggle("is-active", entry.isIntersecting);
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-active");
+            obs.unobserve(entry.target); // Hanya animate sekali, hindari infinite loop flicker
+          }
         });
       },
       {
-        threshold: 0.4,
+        threshold: 0.15, // Turunkan threshold agar lebih cepat trigger dan menghindari flicker
       }
     );
 
@@ -26,25 +31,16 @@ const SectionExperience = ({ experiences }) => {
     <section id="experience">
       <div className="container">
         <div id="content">
-
-          {/* LEFT */}
+          {/* LEFT: Intro */}
           <div id="content-left">
-            <h2>MY EXPERIENCES</h2>
-            <p>
-              I started my journey in <b>Informatics Engineering</b> in 2017 and gained
-              my first hands-on experience as an <b>Internship Web Developer</b> at{" "}
-              <b>CV. Mitra Informatika</b>.
-              <br /><br />
-              After graduating, I worked at <b>CV. Mamorasoft</b> as an{" "}
-              <b>Application Programming Staff</b>.
-              <br /><br />
-              In 2025, I joined <b>PT. Terik Indonesia Inside</b> as a{" "}
-              <b>Web Programmer</b>.
+            <h2 className="reveal-title">{t.experience.title}</h2>
+            <p className="experience-desc reveal-sub">
+              {t.experience.subtitle}
             </p>
           </div>
 
-          {/* RIGHT */}
-          <div id="content-right">
+          {/* RIGHT: Timeline */}
+          <div id="content-right" style={{ "--present-text": `"${t.experience.present || 'PRESENT'}"` }}>
             {experiences.map((exp, i) => (
               <div key={i} className="box">
                 <div className="box-body">
@@ -57,27 +53,27 @@ const SectionExperience = ({ experiences }) => {
                         className="box-logo"
                       />
                     )}
-                    {exp.url ? (
-                      <a
-                        href={exp.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
+                    <div className="exp-info">
+                      {exp.url ? (
+                        <a
+                          href={exp.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <h5>{exp.company}</h5>
+                        </a>
+                      ) : (
                         <h5>{exp.company}</h5>
-                      </a>
-                    ) : (
-                      <h5>{exp.company}</h5>
-                    )}
+                      )}
+                    </div>
                   </div>
 
-                  <p className="box-date">{exp.since}</p>
-
+                  <p className="box-date">{exp.since[lang]}</p>
                   <hr />
-
-                  <h6 className="box-position">{exp.position}</h6>
+                  <h6 className="box-position">{exp.position[lang]}</h6>
 
                   <ul className="box-job">
-                    {exp.jobdesks.map((job, idx) => (
+                    {exp.jobdesks[lang].map((job, idx) => (
                       <li key={idx}>{job}</li>
                     ))}
                   </ul>
@@ -86,7 +82,7 @@ const SectionExperience = ({ experiences }) => {
               </div>
             ))}
 
-            <div className="timeline-end">START</div>
+            <div className="timeline-end">{t.experience.start}</div>
           </div>
 
         </div>

@@ -1,30 +1,30 @@
-import synn1 from '../../assets/images/project/synn-store/1.png';
-import synn2 from '../../assets/images/project/synn-store/2.png';
-import synn3 from '../../assets/images/project/synn-store/3.png';
-import synn4 from '../../assets/images/project/synn-store/4.png';
+import synn1 from '../../assets/images/project/synn-store/1.webp';
+import synn2 from '../../assets/images/project/synn-store/2.webp';
+import synn3 from '../../assets/images/project/synn-store/3.webp';
+import synn4 from '../../assets/images/project/synn-store/4.webp';
 
-import rmp1 from '../../assets/images/project/rmp/rmp-1.png';
-import rmp2 from '../../assets/images/project/rmp/rmp-2.png';
+import rmp1 from '../../assets/images/project/rmp/rmp-1.webp';
+import rmp2 from '../../assets/images/project/rmp/rmp-2.webp';
 
-import sergio1 from '../../assets/images/project/sergio/sergio-1.png';
-import sergio2 from '../../assets/images/project/sergio/sergio-2.png';
-import sergio3 from '../../assets/images/project/sergio/sergio-3.png';
+import sergio1 from '../../assets/images/project/sergio/sergio-1.webp';
+import sergio2 from '../../assets/images/project/sergio/sergio-2.webp';
+import sergio3 from '../../assets/images/project/sergio/sergio-3.webp';
 
-import spk1 from '../../assets/images/project/spk/spk-1.png';
-import spk2 from '../../assets/images/project/spk/spk-2.png';
-import spk3 from '../../assets/images/project/spk/spk-3.png';
-import spk4 from '../../assets/images/project/spk/spk-4.png';
-import spk5 from '../../assets/images/project/spk/spk-5.png';
-import spk6 from '../../assets/images/project/spk/spk-6.png';
-import spk7 from '../../assets/images/project/spk/spk-7.png';
+import spk1 from '../../assets/images/project/spk/spk-1.webp';
+import spk2 from '../../assets/images/project/spk/spk-2.webp';
+import spk3 from '../../assets/images/project/spk/spk-3.webp';
+import spk4 from '../../assets/images/project/spk/spk-4.webp';
+import spk5 from '../../assets/images/project/spk/spk-5.webp';
+import spk6 from '../../assets/images/project/spk/spk-6.webp';
+import spk7 from '../../assets/images/project/spk/spk-7.webp';
 
-import sispak1 from '../../assets/images/project/sistem-pakar/sispak-1.png';
-import sispak2 from '../../assets/images/project/sistem-pakar/sispak-2.png';
-import sispak3 from '../../assets/images/project/sistem-pakar/sispak-3.png';
-import sispak4 from '../../assets/images/project/sistem-pakar/sispak-4.png';
-import sispak5 from '../../assets/images/project/sistem-pakar/sispak-5.png';
-import sispak6 from '../../assets/images/project/sistem-pakar/sispak-6.png';
-import sispak7 from '../../assets/images/project/sistem-pakar/sispak-7.png';
+import sispak1 from '../../assets/images/project/sistem-pakar/sispak-1.webp';
+import sispak2 from '../../assets/images/project/sistem-pakar/sispak-2.webp';
+import sispak3 from '../../assets/images/project/sistem-pakar/sispak-3.webp';
+import sispak4 from '../../assets/images/project/sistem-pakar/sispak-4.webp';
+import sispak5 from '../../assets/images/project/sistem-pakar/sispak-5.webp';
+import sispak6 from '../../assets/images/project/sistem-pakar/sispak-6.webp';
+import sispak7 from '../../assets/images/project/sistem-pakar/sispak-7.webp';
 
 import simpe1 from '../../assets/images/project/simpe/simpe-1.webp';
 import simpe2 from '../../assets/images/project/simpe/simpe-2.webp';
@@ -41,93 +41,91 @@ import terik5 from '../../assets/images/project/terik/terik-5.webp';
 const projects = [
     {
         id: 'carouselTerikIndicators',
+        category: 'Company',
         images: [terik1, terik2, terik3, terik4, terik5],
-        project_name: 'TERIK PETERNAKAN DIGITAL',
+        project_name: 'Terik Peternakan Digital',
         project_origin: 'PT. Terik Indonesia Inside',
-        description:
-            "This project involves the development of a company landing page.",
-        stacks: [
-            'HTML', 'CSS', 'Javascript', 'PHP',
-            'Boostrap', 'Jquery', 'Laravel'
-        ],
+        description: {
+            en: "I built this landing page to introduce the company and showcase the digital tools they offer.",
+            id: "Saya bikin landing page ini buat ngenalin perusahaan dan pamerin solusi digital yang mereka tawarin."
+        },
+        stacks: ['HTML', 'CSS', 'Javascript', 'PHP', 'Boostrap', 'Jquery', 'Laravel'],
         url: 'https://terik.id'
     },
     {
         id: 'carouselSimpeIndicators',
+        category: 'Company',
         images: [simpe1, simpe2, simpe3, simpe4, simpe5],
-        project_name: 'SIMPe (Sistem Manajemen Peternakan)',
+        project_name: 'SIMPe (Sistem Informasi Manajemen Peternakan)',
         project_origin: 'PT. Terik Indonesia Inside',
-        description:
-            "SIMPe is a digital system designed to help manage livestock farms more efficiently by recording and monitoring animal data, daily activities, and livestock growth to support better decision-making. The system operates on a subscription-based model with various packages and includes an admin panel for management and monitoring, as well as a staff panel to support daily farm operations.",
-        stacks: [
-            'HTML', 'CSS', 'Javascript', 'PHP', 'MySQL',
-            'Boostrap', 'Jquery', 'AJAX', 'Laravel',
-            'Jquery Datatables', 'SaaS'
-        ],
+        description: {
+            en: "A handy digital tool for farm owners to keep track of their livestock and daily farm work easily.",
+            id: "Alat digital buat pemilik peternakan supaya gampang mantau ternak dan kerjaan harian mereka."
+        },
+        stacks: ['HTML', 'CSS', 'Javascript', 'PHP', 'MySQL', 'Boostrap', 'Jquery', 'AJAX', 'Laravel', 'Jquery Datatables', 'SaaS'],
         url: 'https://simpe.id'
     },
     {
         id: 'carouselSynnIndicators',
+        category: 'Freelance',
         images: [synn1, synn2, synn3, synn4],
-        project_name: 'SYNN STORE',
+        project_name: 'Synn Store',
         project_origin: 'Freelancer',
-        description:
-            'Is a project to purchase items from various games. There is a syncash feature for making payments (you must top-up first). There are also special reseller features that provide various APIs.',
-        stacks: [
-            'HTML', 'CSS', 'Javascript', 'PHP', 'MySQL',
-            'Boostrap', 'Jquery', 'AJAX', 'Laravel',
-            'Jquery Datatables', 'Restful API'
-        ],
-
+        description: {
+            en: "An online store for gamers with a built-in wallet system and special features for resellers.",
+            id: "Toko online buat para gamer dengan sistem pembayaran otomatis dan fitur khusus buat reseller."
+        },
+        stacks: ['HTML', 'CSS', 'Javascript', 'PHP', 'MySQL', 'Boostrap', 'Jquery', 'AJAX', 'Laravel', 'Jquery Datatables', 'Restful API'],
         url: 'https://synnmlbb.com'
     },
     {
         id: 'carouselRMPIndicators',
+        category: 'Company',
         images: [rmp1, rmp2],
-        project_name: 'RMP',
+        project_name: 'RMP (Rotasi, Mutasi, Promosi)',
         project_origin: 'CV. Mamorasoft',
-        description:
-            'This project is a system for proposing changes to the grade echelon/position of the proposed employee, which requires approval from each work unit superior and admin approval to check whether the employee is eligible for a change in grade echelon/position.',
-        stacks: [
-            'HTML', 'CSS', 'Javascript', 'PHP', 'PostgreSQL',
-            'Boostrap', 'Jquery', 'AJAX', 'Laravel',
-            'Jquery Datatables'
-        ],
+        description: {
+            en: "A system I helped build to manage employee position changes through a clear approval process.",
+            id: "Sistem yang saya bantu bangun buat ngatur perpindahan posisi karyawan lewat proses persetujuan yang jelas."
+        },
+        stacks: ['HTML', 'CSS', 'Javascript', 'PHP', 'PostgreSQL', 'Boostrap', 'Jquery', 'AJAX', 'Laravel', 'Jquery Datatables'],
         url: 'https://rmp.petrokimia-gresik.com/rmp/login'
     },
     {
         id: 'carouselSergioIndicators',
+        category: 'Company',
         images: [sergio1, sergio2, sergio3],
-        project_name: 'SERGIO',
+        project_name: 'SERGIO (Sistem Registrasi Inovasi Online)',
         project_origin: 'CV. Mamorasoft',
-        description:
-            'This project is a system for accommodating employee ideas and innovations which will later be implemented in the company if the idea is approved by all relevant approvals. For approval, it consists of KID, Facilitator, Verifier, and SVP. After approval is carried out, it will then be assessed at the compartment and then company level by each jury. This idea will also be competed at the company, national and international levels.',
-        stacks: [
-            'HTML', 'CSS', 'Javascript', 'PHP', 'PostgreSQL',
-            'Boostrap', 'Jquery', 'AJAX', 'Laravel',
-            'Jquery Datatables'
-        ],
+        description: {
+            en: "A place for employees to drop their best ideas and help the company innovate and grow.",
+            id: "Tempat buat karyawan nyalurin ide-ide terbaik mereka buat bantu inovasi dan kemajuan perusahaan."
+        },
+        stacks: ['HTML', 'CSS', 'Javascript', 'PHP', 'PostgreSQL', 'Boostrap', 'Jquery', 'AJAX', 'Laravel', 'Jquery Datatables'],
         url: 'https://sergio.petrokimia-gresik.com'
     },
     {
         id: 'carouselSispakIndicators',
+        category: 'Personal',
         images: [spk1, spk2, spk3, spk4, spk5, spk6, spk7],
-        project_name: 'SPK PEMILIHAN PROYEK DIKERJAKAN',
+        project_name: 'Sistem Pengambil Keputusan - Pemilihan Proyek Dikerjakan',
         project_origin: 'Personal Project',
-        description:
-            'This project is my final undergraduate project, where this application is a decision making application in choosing which project to work on first (priority). Using a combination of Analytical Hierarchy Process (AHP) and Simple Additive Weighting (SAW) methods to determine the weight of each criterion. The criteria themselves consist of Cost, Time Limit, Installment Amount, Number of Installments.',
-        stacks: [
-            'HTML', 'CSS', 'Javascript', 'PHP', 'MySQL',
-            'Boostrap', 'Jquery', 'AJAX', 'Laravel'
-        ]
+        description: {
+            en: "A tool that helps decide which projects to focus on first based on cost and time limits.",
+            id: "Alat bantu buat nentuin proyek mana yang harus difokusin duluan berdasarkan biaya dan batas waktu."
+        },
+        stacks: ['HTML', 'CSS', 'Javascript', 'PHP', 'MySQL', 'Boostrap', 'Jquery', 'AJAX', 'Laravel']
     },
     {
         id: 'carouselSPKIndicators',
+        category: 'Personal',
         images: [sispak1, sispak2, sispak3, sispak4, sispak5, sispak6, sispak7],
-        project_name: 'SISTEM PAKAR GANGGUAN KECEMASAN',
+        project_name: 'Sistem Pakar Gangguan Kecemasan',
         project_origin: 'Personal Project',
-        description:
-            'This project is a psychological health expert system project for excessive anxiety disorder. This project uses 2 methods of drawing conclusions, namely Forward Chaining and Backward Chaining.',
+        description: {
+            en: "An expert system I made to help identify anxiety issues through an automated check.",
+            id: "Sistem pakar yang saya bikin buat bantu ngenalin masalah kecemasan lewat pengecekan otomatis."
+        },
         stacks: ['HTML', 'CSS', 'PHP', 'MySQL']
     }
 ];

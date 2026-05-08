@@ -1,0 +1,67 @@
+.not-found-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle at center, #0d1117, #02030a);
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}
+
+.glitch-404 {
+  font-size: 10rem;
+  font-weight: 900;
+  color: #00adb5;
+  position: relative;
+  letter-spacing: 10px;
+  margin: 0;
+}
+
+.glitch-404::before,
+.glitch-404::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+}
+
+.glitch-404::before {
+  color: #ff3cac;
+  animation: glitch-404 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+  z-index: -1;
+}
+
+.glitch-404::after {
+  color: #00adb5;
+  animation: glitch-404 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both infinite;
+  z-index: -2;
+}
+
+@keyframes glitch-404 {
+  0% { transform: translate(0); }
+  20% { transform: translate(-3px, 3px); }
+  40% { transform: translate(-3px, -3px); }
+  60% { transform: translate(3px, 3px); }
+  80% { transform: translate(3px, -3px); }
+  100% { transform: translate(0); }
+}
+
+.not-found-content h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  letter-spacing: 5px;
+}
+
+.not-found-content p {
+  color: #8b949e;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+  .glitch-404 { font-size: 6rem; }
+  .not-found-content h2 { font-size: 1.5rem; }
+}

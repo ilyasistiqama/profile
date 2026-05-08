@@ -1,0 +1,281 @@
+/* ================= SECTION ================= */
+#skill {
+  position: relative;
+  background: #eaeaea;
+  padding: 60px 0 80px;
+  overflow: hidden;
+}
+
+/* ambient background */
+#skill::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center,
+      rgba(0, 0, 0, 0.06),
+      transparent 70%);
+  animation: pulseBg 8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* ================= HEAD ================= */
+#skill h2 {
+  text-align: center;
+  font-size: var(--fs-h2);
+  line-height: var(--lh-heading);
+  letter-spacing: 0.5px;
+}
+
+.skill-desc {
+  text-align: center;
+  margin: 22px auto 30px;
+  max-width: 600px;
+  opacity: 0.75;
+}
+
+/* ================= FILTER ================= */
+.category-filter {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 35px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 8px 18px;
+  border: 2px solid #000;
+  background: #fff;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+  background: #000;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.filter-btn.active {
+  background: #000;
+  color: #fff;
+}
+
+/* ================= SCROLL AREA ================= */
+.scroll-box-wrapper {
+  position: relative;
+}
+
+#skill #content {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding: 25px;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+}
+
+#skill #content.center-content {
+  justify-content: center;
+  overflow-x: hidden;
+}
+
+/* ================= CARD ================= */
+.list-skill {
+  flex: 0 0 auto;
+  width: 200px;
+  min-height: 200px;
+  padding: 20px;
+  border-radius: 16px;
+  background: #fff;
+  scroll-snap-align: start;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow:
+    4px 4px 0 #000,
+    10px 10px 18px rgba(0, 0, 0, 0.15);
+
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.list-skill:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow:
+    6px 6px 0 #000,
+    14px 14px 30px rgba(0, 0, 0, 0.25);
+}
+
+.list-skill-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+}
+
+/* ================= ICON ================= */
+.icon-skill i {
+  font-size: 40px;
+}
+
+.icon-skill-img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.icon-skill i,
+.icon-skill-img {
+  transition: transform 0.3s ease;
+}
+
+.list-skill:hover .icon-skill i,
+.list-skill:hover .icon-skill-img {
+  transform: scale(1.2) rotate(-4deg);
+}
+
+/* ================= TITLE ================= */
+.list-skill-body h4 {
+  margin-top: 12px;
+  font-size: 16px;
+  text-align: center;
+}
+
+/* ================= SCROLL BUTTON ================= */
+.scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  opacity: 0.15;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.scroll-btn:hover {
+  opacity: 0.4;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.scroll-btn.left {
+  left: 10px;
+}
+
+.scroll-btn.right {
+  right: 10px;
+}
+
+@media (max-width: 768px) {
+  .scroll-btn {
+    opacity: 0.5;
+    width: 36px;
+    height: 36px;
+    font-size: 1.2rem;
+  }
+}
+
+/* ================= REVEAL ================= */
+.reveal-title {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: revealUp 0.8s ease forwards;
+}
+
+.reveal-sub {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: revealUp 0.8s ease forwards;
+  animation-delay: 0.2s;
+}
+
+.reveal-card {
+  opacity: 0;
+  transform: translateY(30px) scale(0.95);
+  animation: revealCard 0.6s ease forwards;
+}
+
+/* ================= ANIMATIONS ================= */
+@keyframes revealUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes revealCard {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes pulseBg {
+
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 1100px) {
+  .list-skill {
+    width: 180px;
+    min-height: 180px;
+  }
+}
+
+@media (max-width: 600px) {
+  #skill {
+    padding: 40px 0 50px;
+  }
+
+  #skill #content {
+    gap: 15px;
+    padding: 10px 40px; /* Memberi ruang agar kartu tetangga kelihatan sedikit */
+    scroll-snap-type: x mandatory;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .list-skill {
+    flex: 0 0 85%; /* Kurangi lebar agar tidak terlalu penuh */
+    width: 85%;
+    min-height: 200px;
+    padding: 24px;
+    border-radius: 16px; /* Kembalikan border radius agar lebih cakep */
+    border: 3px solid #000;
+    box-shadow: 4px 4px 0 #000;
+    scroll-snap-align: center;
+  }
+
+  .icon-skill i {
+    font-size: 40px;
+  }
+
+  .icon-skill-img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .list-skill-body h4 {
+    font-size: 16px;
+    margin-top: 12px;
+  }
+}

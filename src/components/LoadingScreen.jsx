@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "../assets/styles/newloader.css";
+import "../assets/styles/components/loading_screen.css";
 
 const LoadingScreen = () => {
   const [stage, setStage] = useState("loading");
@@ -33,16 +33,14 @@ const LoadingScreen = () => {
     const startAnimation = () => {
       setStage("name");
 
-      setTimeout(() => setStage("welcome"), 2300);
+      setTimeout(() => setStage("welcome"), 2000);
 
       setTimeout(() => {
         setStage("exit");
-
-        // ⬇️ INI YANG SEBELUMNYA KURANG
         setTimeout(() => {
           setStage("done");
-        }, 800); // durasi animasi shatter
-      }, 4300);
+        }, 800);
+      }, 3800);
     };
 
     waitForImages();
@@ -53,27 +51,39 @@ const LoadingScreen = () => {
   return (
     <div id="preloader" className={stage === "exit" ? "shatter" : ""}>
       <div className="scanline" />
-
-      <div className="loader-text">
+      
+      <div className="loader-content">
         {stage === "name" && (
-          <div className="name neon-text">
-            {"HELLO GUYS".split("").map((char, i) => (
-              <span
-                key={i}
-                className="letter animate"
-                style={{ "--i": i }}
-              >
-                {char === " " ? "\u00A0" : char}
-              </span>
-            ))}
+          <div className="name-wrapper">
+            <div className="name-main neon-text">
+              {"MUH. ILYAS ISTIQAMA".split("").map((char, i) => (
+                <span
+                  key={i}
+                  className="letter animate"
+                  style={{ "--i": i }}
+                >
+                  {char === " " ? "\u00A0" : char}
+                </span>
+              ))}
+            </div>
+            <div className="name-sub">FULLSTACK DEVELOPER</div>
           </div>
         )}
 
         {stage === "welcome" && (
-          <div className="welcome glitch" data-text="GOOD LUCK!">
-            GOOD&nbsp;LUCK<span className="smile">!</span>😊
+          <div className="welcome-wrapper">
+            <div className="welcome-main glitch" data-text="CRAFTING SOLUTIONS">
+              CRAFTING SOLUTIONS
+            </div>
+            <div className="welcome-tag">PORTFOLIO &copy; {new Date().getFullYear()}</div>
           </div>
         )}
+      </div>
+
+      <div className="loader-footer">
+        <div className="loading-bar">
+          <div className="loading-progress" />
+        </div>
       </div>
     </div>
   );
