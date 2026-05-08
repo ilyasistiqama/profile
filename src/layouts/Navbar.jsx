@@ -13,6 +13,7 @@ const Navbar = () => {
   });
 
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
 
   /* ===== SCROLL BEHAVIOR ===== */
   useEffect(() => {
@@ -56,7 +57,9 @@ const Navbar = () => {
     <nav
       className={`navbar navbar-expand-lg fixed-top main-navbar ${
         showNavbar ? "navbar-show" : "navbar-hide"
-      } ${isScrolled ? "navbar-scrolled" : "navbar-top"}`}
+      } ${isScrolled ? "navbar-scrolled" : "navbar-top"} ${
+        isExpanded ? "navbar-expanded" : ""
+      }`}
     >
       <div className="container">
         {/* LOGO */}
@@ -70,7 +73,8 @@ const Navbar = () => {
           data-bs-toggle="collapse"
           data-bs-target="#navbarSupportedContent"
           aria-label="Toggle navigation"
-          aria-expanded="false"
+          aria-expanded={isExpanded}
+          onClick={() => setIsExpanded(!isExpanded)}
         >
           <span className="navbar-toggler-icon" />
         </button>
