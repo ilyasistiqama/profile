@@ -1,46 +1,62 @@
-.custom-cursor-dot,
-.custom-cursor-outline {
+.custom-cursor-follower,
+.custom-cursor-tail {
   position: fixed;
   pointer-events: none;
   z-index: 10000;
   transform: translate(-50%, -50%);
-  transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease, opacity 0.3s ease;
+  transition: opacity 0.25s ease, transform 0.15s ease, width 0.2s ease, height 0.2s ease;
 }
 
-.custom-cursor-dot {
-  width: 8px;
-  height: 8px;
-  background-color: #00adb5;
+.custom-cursor-follower {
+  width: 24px;
+  height: 24px;
+  background: rgba(0, 173, 181, 0.95);
+  border: 2px solid rgba(0, 173, 181, 0.95);
   border-radius: 50%;
+  box-shadow: 0 0 15px rgba(0, 173, 181, 0.25), inset 0 0 8px rgba(255, 255, 255, 0.35);
 }
 
-.custom-cursor-outline {
-  width: 40px;
-  height: 40px;
-  border: 2px solid rgba(0, 173, 181, 0.4);
+.custom-cursor-tail {
+  width: 16px;
+  height: 16px;
+  background: rgba(0, 173, 181, 0.18);
   border-radius: 50%;
-  transition: all 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+  box-shadow: 0 0 18px rgba(0, 173, 181, 0.16);
 }
 
-.custom-cursor-dot.hidden,
-.custom-cursor-outline.hidden {
+.custom-cursor-tail::before {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: rgba(0, 173, 181, 0.32);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.custom-cursor-follower.hidden,
+.custom-cursor-tail.hidden {
   opacity: 0;
 }
 
-.custom-cursor-outline.pointer-active {
-  width: 60px;
-  height: 60px;
-  background-color: rgba(0, 173, 181, 0.1);
-  border-color: #00adb5;
+.custom-cursor-follower.pointer-active {
+  width: 30px;
+  height: 30px;
+  background: rgba(0, 173, 181, 1);
+  border-color: rgba(0, 173, 181, 1);
+  box-shadow: 0 0 18px rgba(0, 173, 181, 0.3), inset 0 0 10px rgba(255, 255, 255, 0.3);
 }
 
-/* Sembunyikan kursor asli pada elemen interaktif di Desktop */
+.custom-cursor-tail.pointer-active {
+  width: 26px;
+  height: 26px;
+  background: rgba(0, 173, 181, 0.32);
+}
+
 @media (min-width: 769px) {
   a, button, [role="button"], .scroll-btn, .project-filter-btn {
-    cursor: none !important;
-  }
-  
-  body {
-    cursor: none;
+    cursor: default !important;
   }
 }
