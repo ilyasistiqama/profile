@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../assets/styles/layouts/navbar.css";
 import { useLanguage } from "../context/LanguageContext";
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   const { lang, toggleLang, t } = useLanguage();
@@ -55,7 +56,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`navbar navbar-expand-lg fixed-top main-navbar ${
+      className={`navbar navbar-expand-lg main-navbar ${
         showNavbar ? "navbar-show" : "navbar-hide"
       } ${isScrolled ? "navbar-scrolled" : "navbar-top"} ${
         isExpanded ? "navbar-expanded" : ""
@@ -63,9 +64,11 @@ const Navbar = () => {
     >
       <div className="container">
         {/* LOGO */}
-        <a className="navbar-brand brand-logo" href="#intro">
+        <NavLink className="navbar-brand brand-logo" to="/">
           muis<span>.life</span>
-        </a>
+        </NavLink>
+
+        {/* mobile hint removed */}
 
         <button
           className="navbar-toggler"
@@ -81,19 +84,26 @@ const Navbar = () => {
 
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav ms-auto">
-            {[
-              { href: "#about-me", label: t.nav.about },
-              { href: "#skill", label: t.nav.skill },
-              { href: "#experience", label: t.nav.experience },
-              { href: "#project", label: t.nav.project },
-              { href: "#contact", label: t.nav.contact },
-            ].map(({ href, label }) => (
-              <li className="nav-item" key={href}>
-                <a href={href} className="nav-link nav-animated">
-                  {label}
-                </a>
-              </li>
-            ))}
+            <li className="nav-item">
+              <NavLink to="/" className={({ isActive }) => `nav-link nav-animated${isActive ? ' active' : ''}`}>
+                {t.nav.home || 'Home'}
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink to="/experience" className={({ isActive }) => `nav-link nav-animated${isActive ? ' active' : ''}`}>
+                {t.nav.experience}
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink to="/portfolio" className={({ isActive }) => `nav-link nav-animated${isActive ? ' active' : ''}`}>
+                {t.nav.project}
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink to="/contact" className={({ isActive }) => `nav-link nav-animated${isActive ? ' active' : ''}`}>
+                {t.nav.contact}
+              </NavLink>
+            </li>
           </ul>
 
           <div className="nav-actions d-flex align-items-center">

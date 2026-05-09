@@ -5,6 +5,8 @@
   padding: 20px;
   display: flex;
   align-items: center;
+  /* vertical offset for the intro box (can be tuned) */
+  --intro-box-offset: 6vh;
   background: url("../../images/background.webp") no-repeat 50% 25% / cover;
   overflow: hidden;
 }
@@ -37,6 +39,7 @@
   width: 100%;
   max-width: 920px;
   padding: 24px 40px;
+  margin-top: var(--intro-box-offset);
   border-radius: 16px;
   background: rgba(0, 0, 0, 0.65);
   color: #fff;

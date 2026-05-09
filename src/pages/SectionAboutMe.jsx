@@ -2,6 +2,7 @@ import React from "react";
 import FotoIlyas from "../assets/images/ilyas2.webp";
 import { useImageOverlay } from "../components/ImageOverlay";
 import { useLanguage } from "../context/LanguageContext";
+import { Link } from "react-router-dom";
 
 const handleClickCV = (e) => {
   e.preventDefault();
@@ -51,9 +52,9 @@ const SectionAboutMe = () => {
                 {t.about.download_cv}
               </button>
 
-              <a href="#contact" className="btn-custom outline">
+              <Link to="/contact" className="btn-custom outline" aria-label="Hire me - Contact">
                 {t.about.hire_me}
-              </a>
+              </Link>
             </div>
           </div>
         </div>

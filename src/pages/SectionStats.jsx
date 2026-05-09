@@ -1,21 +1,55 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useLanguage } from "../context/LanguageContext";
 
-const getStats = (t) => [
+const MONTHS = {
+  Jan: 0,
+  Feb: 1,
+  Mar: 2,
+  Apr: 3,
+  May: 4,
+  Jun: 5,
+  Jul: 6,
+  Aug: 7,
+  Sep: 8,
+  Oct: 9,
+  Nov: 10,
+  Dec: 11,
+};
+
+const parseStartDate = (since) => {
+  const [start] = since.split(" - ");
+  const [monthLabel, yearLabel] = start.split(" ");
+  const month = MONTHS[monthLabel] ?? 0;
+  const year = Number(yearLabel) || new Date().getFullYear();
+  return new Date(year, month, 1);
+};
+
+const getYearsExperience = (experiences) => {
+  if (!experiences || experiences.length === 0) return 0;
+  const earliestDate = experiences.reduce((earliest, item) => {
+    const startDate = parseStartDate(item.since.en);
+    return !earliest || startDate < earliest ? startDate : earliest;
+  }, null);
+  const now = new Date();
+  const years = (now - earliestDate) / (1000 * 60 * 60 * 24 * 365.25);
+  return Math.max(0, Math.floor(years));
+};
+
+const getStats = (t, experiences, projects) => [
   {
-    end: 4,
+    end: getYearsExperience(experiences),
     suffix: "+",
     label: t.stats.years,
     icon: "fa-solid fa-calendar-alt",
   },
   {
-    end: 12, // Saya sesuaikan sedikit datanya agar lebih 'pop'
+    end: projects?.length ?? 0,
     suffix: "+",
     label: t.stats.projects,
     icon: "fa-solid fa-laptop-code",
   },
   {
-    end: 3,
+    end: new Set(experiences?.map((item) => item.company)).size,
     suffix: "",
     label: t.stats.companies,
     icon: "fa-solid fa-building",
@@ -60,9 +94,9 @@ const CountUp = ({ end, suffix, isFloat, active }) => {
   );
 };
 
-const SectionStats = () => {
+const SectionStats = ({ experiences, projects }) => {
   const { t } = useLanguage();
-  const STATS = getStats(t);
+  const STATS = getStats(t, experiences, projects);
   const sectionRef = useRef(null);
   const [isActive, setIsActive] = useState(false);
 

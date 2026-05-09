@@ -132,7 +132,7 @@ const SectionIntro = () => {
       <ParticleBackground />
       <div className="container" style={{ position: "relative", zIndex: 1 }}>
         <div id="content">
-          <div id="box">
+          <div id="box" className="px-4">
             <div id="intro-content">
               <div id="text-intro">
                 <div className="reveal-item delay-1" id="name">

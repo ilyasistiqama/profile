@@ -31,6 +31,13 @@ section {
   --color-accent: #00adb5;
   --color-accent-light: rgba(0, 173, 181, 0.1);
   --color-shadow: rgba(0, 0, 0, 0.15);
+  /* Navbar defaults - Light Mode */
+  --color-navbar-bg: rgba(255, 255, 255, 1);
+  --color-navbar-text: #111827;
+  --color-navbar-shadow: rgba(2, 6, 23, 0.18);
+  --color-navbar-border: rgba(2,6,23,0.12);
+  --color-navbar-bg-top: rgba(255,255,255,0.85);
+  --color-navbar-border-top: rgba(2,6,23,0.06);
 }
 
 /* ===== COLORS — Dark Mode ===== */

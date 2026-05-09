@@ -1,7 +1,9 @@
 /* ================= SECTION ================= */
 #experience {
   padding: 80px 0;
-  background: #fff;
+  /* vertical offset to nudge content down (tweak as needed) */
+  --experience-offset: 56px;
+  background: var(--color-bg);
 }
 
 /* ================= LAYOUT ================= */
@@ -14,7 +16,7 @@
 /* ================= LEFT ================= */
 #experience #content-left {
   position: sticky;
-  top: 100px;
+  top: calc(100px + var(--experience-offset));
   align-self: flex-start;
   opacity: 0;
   transform: translateY(30px);
@@ -33,11 +35,12 @@
 /* ================= RIGHT ================= */
 #experience #content-right {
   position: relative;
+  margin-top: var(--experience-offset);
   padding: 100px 45px 120px;
   min-height: 90vh;
-  border: 3px solid #000;
-  background: #eaeaea;
-  box-shadow: 4px 4px 6px black;
+  border: 1.5px solid var(--color-border-light);
+  background: var(--color-surface);
+  box-shadow: 4px 4px 10px var(--color-shadow);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -67,9 +70,9 @@
   top: 12px;
   left: 50%;
   transform: translateX(-50%);
-  background: #fff;
+  background: var(--color-surface);
   padding: 6px 14px;
-  border: 2px solid #000;
+  border: 1px solid var(--color-border-light);
   border-radius: 20px;
   font-size: 13px;
   font-weight: bold;
@@ -81,9 +84,9 @@
   bottom: 30px;
   left: 50%;
   transform: translateX(-50%);
-  background: #fff;
+  background: var(--color-surface);
   padding: 6px 14px;
-  border: 2px solid #000;
+  border: 1px solid var(--color-border-light);
   border-radius: 20px;
   font-size: 13px;
   font-weight: bold;
@@ -95,9 +98,9 @@
   margin: 28px 0;
   padding: 22px;
   border-radius: 16px;
-  background: #fff;
-  border: 3px solid #000;
-  box-shadow: 4px 4px 6px black;
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-border-light);
+  box-shadow: 4px 6px 12px rgba(0,0,0,0.08);
   opacity: 0;
   transform: translateY(40px) scale(0.95);
   transition: all 0.6s ease;
@@ -107,7 +110,7 @@
 #experience .box.is-active {
   opacity: 1;
   transform: translateY(0) scale(1.03);
-  box-shadow: 8px 8px 18px rgba(0, 0, 0, 0.3);
+  box-shadow: 8px 8px 18px rgba(0, 0, 0, 0.12);
 }
 
 #experience .box:hover {
