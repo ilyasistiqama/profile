@@ -4,10 +4,9 @@ import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { useLanguage } from "../context/LanguageContext";
 
 const ROLES = [
-  "Web Developer",
-  "Fullstack Enthusiast",
-  "Laravel Developer",
-  "React Developer",
+  "Web Application Developer",
+  "Business System Builder",
+  "Laravel & React Developer",
 ];
 
 const ParticleBackground = () => {

@@ -34,8 +34,8 @@ const SectionContact = () => {
 
   const SOCIALS = [
     { href: "https://www.facebook.com/I.Istiqama.Makmur", icon: "fab fa-facebook-f", cls: "facebook", label: "Facebook" },
-    { href: "https://www.instagram.com/lifeofaays", icon: "fab fa-instagram", cls: "instagram", label: "Instagram" },
-    { href: "https://www.threads.net/@lifeofaays", icon: "fa-brands fa-threads", cls: "threads", label: "Threads" },
+    { href: "https://www.instagram.com/life0fays", icon: "fab fa-instagram", cls: "instagram", label: "Instagram" },
+    { href: "https://www.threads.net/@life0fays", icon: "fa-brands fa-threads", cls: "threads", label: "Threads" },
     { href: "mailto:ilyasistiqama@gmail.com", icon: "fab fa-google", cls: "email", label: "Email" },
     { href: "https://www.linkedin.com/in/muh-ilyas-istiqama", icon: "fab fa-linkedin-in", cls: "linkedin", label: "LinkedIn" },
     { href: "https://github.com/ilyasistiqama", icon: "fab fa-github", cls: "github", label: "GitHub" },

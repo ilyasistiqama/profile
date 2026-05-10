@@ -72,8 +72,8 @@ const LoadingScreen = () => {
 
         {stage === "welcome" && (
           <div className="welcome-wrapper">
-            <div className="welcome-main glitch" data-text="CRAFTING SOLUTIONS">
-              CRAFTING SOLUTIONS
+            <div className="welcome-main glitch" data-text="BUILDING MODERN SYSTEMS">
+              BUILDING MODERN SYSTEMS
             </div>
             <div className="welcome-tag">PORTFOLIO &copy; {new Date().getFullYear()}</div>
           </div>

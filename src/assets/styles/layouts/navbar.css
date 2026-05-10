@@ -70,7 +70,7 @@
 }
 
 .brand-logo span {
-  color: var(--color-accent-contrast, #0f172a);
+  color: var(--color-accent-contrast, #fff);
 }
 
 .brand-logo:hover {

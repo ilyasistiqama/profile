@@ -127,7 +127,7 @@ const SectionProject = ({ projects }) => {
                                     )}
 
                                     <div className="box-explanation">
-                                        <div className="box-category-badge">{translateCategory(project.category)}</div>
+                                        <div className="box-category-badge p-2">{translateCategory(project.category)}</div>
                                         <h3>{project.project_name}</h3>
                                         <p className="text-muted">{project.project_origin}</p>
                                         <p>{project.description[lang]}</p>
