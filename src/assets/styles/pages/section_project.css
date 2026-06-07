@@ -140,19 +140,33 @@
 }
 
 /* ===== CATEGORY BADGE ===== */
+/* --- BADGE CATEGORY STYLES --- */
 .box-category-badge {
     display: inline-flex;
     align-items: center;
-    color: var(--color-text-muted);
-    background: var(--color-surface);
     border-radius: 20px;
-    border: 1px solid var(--color-border-light);
     font-weight: 700;
     letter-spacing: 0.4px;
     margin-bottom: 14px;
-    background: rgba(0, 173, 181, 0.16);
+    /* Transisi biar pas pencet tombol tema berubahnya smooth */
+    transition: all 0.22s ease;
+
+    /* TEMA TERANG (Default) */
+    background: rgba(0, 173, 181, 0.12);
     color: #0f172a;
-    border: 1px solid rgba(0, 173, 181, 0.24);
+    /* Teks gelap */
+    border: 1px solid rgba(0, 173, 181, 0.3);
+}
+
+/* TEMA GELAP (Dark Mode Overrides) */
+.dark-mode .box-category-badge,
+[data-theme="dark"] .box-category-badge,
+body.dark .box-category-badge {
+    background: rgba(0, 173, 181, 0.16);
+    color: #e2e8f0;
+    /* Teks berubah jadi terang (abu-abu keputihan) */
+    border: 1px solid rgba(0, 173, 181, 0.5);
+    /* Border agak ditebelin dikit biar pop-up */
 }
 
 /* ===== EMPTY STATE ===== */

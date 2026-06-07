@@ -1,7 +1,36 @@
+/* --- VARIABEL EFEK 3D LOGO --- */
+:root {
+  /* Tema Terang (Light Mode) */
+  --logo-shadow-1: #008b92;
+  --logo-shadow-2: #006f75;
+  --logo-shadow-3: #005459;
+  --logo-shadow-drop: rgba(0, 0, 0, 0.2);
+
+  /* Bayangan 3D untuk tulisan ".life" di Light Mode */
+  --logo-text-shadow-1: #cbd5e1;
+  --logo-text-shadow-2: #94a3b8;
+}
+
+/* Tema Gelap (Dark Mode) - Mencakup berbagai jenis selector dark mode umum */
+.dark-mode,
+[data-theme="dark"],
+body.dark {
+  /* Tema Gelap (Dark Mode) yang lebih glowing */
+  --logo-shadow-1: #00c6d1;
+  --logo-shadow-2: #00adb5;
+  --logo-shadow-3: #007c82;
+  --logo-shadow-drop: rgba(0, 173, 181, 0.4);
+
+  /* Bayangan 3D untuk tulisan ".life" di Dark Mode */
+  --logo-text-shadow-1: #475569;
+  --logo-text-shadow-2: #334155;
+}
+
+/* --- NAVBAR STYLES --- */
 .main-navbar {
-  background: var(--color-navbar-bg, rgba(255,255,255,0.98));
+  background: var(--color-navbar-bg, rgba(255, 255, 255, 0.98));
   padding: 0.9rem 1rem;
-  transition: 
+  transition:
     transform 0.28s cubic-bezier(0.4, 0, 0.2, 1),
     padding 0.28s ease,
     background-color 0.28s ease,
@@ -10,13 +39,14 @@
   top: 16px;
   left: 16px;
   right: 16px;
-  position: fixed; /* override fixed-top */
+  position: fixed;
+  /* override fixed-top */
   border-radius: 12px;
   z-index: 1100;
   color: var(--color-navbar-text, #0f172a);
-  border: 1px solid var(--color-navbar-border, rgba(15,23,42,0.12));
+  border: 1px solid var(--color-navbar-border, rgba(15, 23, 42, 0.12));
   backdrop-filter: blur(10px);
-  box-shadow: 0 18px 50px var(--color-navbar-shadow, rgba(2,6,23,0.18));
+  box-shadow: 0 18px 50px var(--color-navbar-shadow, rgba(2, 6, 23, 0.18));
 }
 
 .navbar-scrolled {
@@ -28,8 +58,8 @@
 
 .navbar-top {
   /* when near the top, use a slightly more transparent navbar so hero shows through */
-  background: var(--color-navbar-bg-top, rgba(255,255,255,0.85));
-  border: 1px solid var(--color-navbar-border-top, rgba(15,23,42,0.06));
+  background: var(--color-navbar-bg-top, rgba(255, 255, 255, 0.85));
+  border: 1px solid var(--color-navbar-border-top, rgba(15, 23, 42, 0.06));
   box-shadow: none;
 }
 
@@ -46,8 +76,8 @@
   background: var(--color-navbar-bg, var(--color-bg, #fff)) !important;
   backdrop-filter: blur(12px);
   padding: 0.6rem 1rem;
-  box-shadow: 0 18px 50px var(--color-navbar-shadow, rgba(2,6,23,0.18));
-  border: 1px solid var(--color-navbar-border, rgba(15,23,42,0.12));
+  box-shadow: 0 18px 50px var(--color-navbar-shadow, rgba(2, 6, 23, 0.18));
+  border: 1px solid var(--color-navbar-border, rgba(15, 23, 42, 0.12));
 }
 
 .navbar-expanded .nav-animated,
@@ -60,37 +90,42 @@
   color: var(--color-navbar-text, #0f172a) !important;
 }
 
+/* --- LOGO STYLES (UPDATED) --- */
 .brand-logo {
-  font-weight: 800;
-  font-size: 1.6rem;
-  letter-spacing: 0.6px;
+  font-weight: 900;
+  font-size: 1.8rem;
+  letter-spacing: 1px;
   color: var(--color-accent, #00adb5);
   text-decoration: none;
-  transition: transform 0.22s ease, color 0.22s ease;
-}
-
-.brand-logo span {
-  color: var(--color-accent-contrast, #fff);
+  display: inline-block;
+  transition:
+    transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+    color 0.22s ease;
 }
 
 .brand-logo:hover {
-  transform: translateY(-2px);
-  color: #5ffbf1;
-  text-shadow: 
-    1px 1px 0px #000,
-    2px 2px 10px rgba(0, 173, 181, 0.4);
+  transform: translateY(-2px) scale(1.03);
 }
 
-.brand-logo:hover span {
-  color: #fff;
+.brand-logo span {
+  color: var(--color-navbar-text, #0f172a);
+  text-shadow:
+    1px 1px 0px var(--logo-text-shadow-1),
+    2px 2px 0px var(--logo-text-shadow-2);
+  transition: color 0.22s ease;
 }
 
-.navbar-scrolled .brand-logo span {
-  color: var(--color-text-alt, #333);
+/* Efek timbul 3D Adaptive (Mengikuti Tema) */
+.text-timbul-3d {
+  color: var(--color-accent, #00adb5);
+  text-shadow:
+    1px 1px 0px var(--logo-shadow-1),
+    2px 2px 0px var(--logo-shadow-2),
+    3px 3px 0px var(--logo-shadow-3),
+    4px 4px 8px var(--logo-shadow-drop);
 }
 
-
-
+/* --- NAVIGATION MENU --- */
 .navbar-nav {
   gap: 1.8rem;
 }
@@ -123,11 +158,11 @@
   width: 100%;
 }
 
-/* DARK MODE TOGGLE BUTTON */
+/* --- DARK MODE TOGGLE BUTTON --- */
 #theme-toggle {
   margin-left: 1.2rem;
   background: transparent;
-  border: 2px solid var(--color-border, rgba(15,23,42,0.06));
+  border: 2px solid var(--color-border, rgba(15, 23, 42, 0.06));
   border-radius: 50%;
   width: 38px;
   height: 38px;
@@ -159,11 +194,12 @@
 #theme-toggle:hover .fa-sun {
   color: #f9c846;
 }
-/* LANGUAGE TOGGLE BUTTON */
+
+/* --- LANGUAGE TOGGLE BUTTON --- */
 .lang-toggle-btn {
   margin-left: 1rem;
   background: transparent;
-  border: 2px solid var(--color-border, rgba(15,23,42,0.06));
+  border: 2px solid var(--color-border, rgba(15, 23, 42, 0.06));
   border-radius: 8px;
   padding: 4px 8px;
   cursor: pointer;
@@ -182,7 +218,7 @@
 
 .navbar-scrolled .lang-toggle-btn {
   color: var(--color-text, #333);
-  border-color: rgba(0,0,0,0.1);
+  border-color: rgba(0, 0, 0, 0.1);
 }
 
 .navbar-scrolled .lang-toggle-btn:hover {
@@ -190,6 +226,38 @@
   color: #00adb5;
 }
 
+/* --- MOBILE NAVBAR TOGGLER (TOMBOL HAMBURGER) --- */
+.navbar-toggler {
+  border-color: var(--color-navbar-border, rgba(15, 23, 42, 0.12));
+  color: var(--color-navbar-text, #0f172a);
+  padding: 0.4rem 0.6rem;
+  border-radius: 8px;
+  transition: all 0.22s ease;
+}
+
+.navbar-toggler:focus,
+.navbar-toggler:active {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 173, 181, 0.3);
+  /* Efek ring warna cyan saat diklik */
+}
+
+/* Jika tombol menu menggunakan icon font (seperti FontAwesome) */
+.navbar-toggler i,
+.navbar-toggler svg {
+  color: var(--color-navbar-text, #0f172a);
+  font-size: 1.2rem;
+}
+
+/* KHUSUS DARK MODE: Jika lo pakai Bootstrap bawaan (icon berupa gambar SVG) */
+.dark-mode .navbar-toggler-icon,
+[data-theme="dark"] .navbar-toggler-icon,
+body.dark .navbar-toggler-icon {
+  /* Trik jitu mengubah icon SVG hitam bawaan Bootstrap menjadi putih terang */
+  filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+/* --- MEDIA QUERIES --- */
 @media (max-width: 991px) {
   .navbar-collapse {
     background: var(--color-bg, #fff);
@@ -229,4 +297,6 @@
 }
 
 /* Mobile hint button */
-.nav-hint { display: none; }
+.nav-hint {
+  display: none;
+}

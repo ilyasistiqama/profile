@@ -64,7 +64,7 @@ const Navbar = () => {
     >
       <div className="container">
         {/* LOGO */}
-        <NavLink className="navbar-brand brand-logo" to="/">
+        <NavLink className="navbar-brand brand-logo text-timbul-3d" to="/">
           muis<span>.life</span>
         </NavLink>
 

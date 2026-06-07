@@ -170,7 +170,15 @@ const SectionContact = () => {
       <footer className="contact-footer text-center text-white">
         <div className="footer-divider" />
         <div className="footer-bottom py-3">
-          <p className="m-0">© {thisYear} muis.life • {t.contact.footer}</p>
+          <p
+            className="m-0"
+            style={{
+              whiteSpace: "normal",
+              overflowWrap: "break-word",
+            }}
+          >
+            © {thisYear} muis.life • {t.contact.footer}
+          </p>
         </div>
       </footer>
     </section>
