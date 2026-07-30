@@ -1,6 +1,6 @@
 import React from "react";
 import NavbarComponent from "../layouts/Navbar";
-import SectionProject from "./SectionProject";
+import SectionProject from "../sections/SectionProject";
 
 const PortfolioPage = ({ projects }) => (
   <>

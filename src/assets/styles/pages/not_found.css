@@ -1,21 +1,40 @@
+/* ================= 404 NOT FOUND PAGE ================= */
 .not-found-container {
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: radial-gradient(circle at center, #0d1117, #02030a);
-  color: #fff;
+  background: radial-gradient(circle at center, #0b0f1e, #030712);
+  color: #f8fafc;
   text-align: center;
   padding: 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+.not-found-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 30%, rgba(45, 212, 191, 0.05), transparent 60%);
+  pointer-events: none;
+}
+
+.not-found-content {
+  position: relative;
+  z-index: 2;
+  max-width: 550px;
 }
 
 .glitch-404 {
-  font-size: 10rem;
+  font-size: 9rem;
   font-weight: 900;
-  color: #00adb5;
+  color: #2dd4bf;
   position: relative;
-  letter-spacing: 10px;
+  letter-spacing: 8px;
   margin: 0;
+  line-height: 1;
+  text-shadow: 0 0 30px rgba(45, 212, 191, 0.3);
 }
 
 .glitch-404::before,
@@ -30,38 +49,95 @@
 }
 
 .glitch-404::before {
-  color: #ff3cac;
+  color: #f43f5e;
   animation: glitch-404 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
   z-index: -1;
 }
 
 .glitch-404::after {
-  color: #00adb5;
+  color: #2dd4bf;
   animation: glitch-404 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both infinite;
   z-index: -2;
 }
 
 @keyframes glitch-404 {
-  0% { transform: translate(0); }
-  20% { transform: translate(-3px, 3px); }
-  40% { transform: translate(-3px, -3px); }
-  60% { transform: translate(3px, 3px); }
-  80% { transform: translate(3px, -3px); }
-  100% { transform: translate(0); }
+  0% {
+    transform: translate(0);
+  }
+
+  20% {
+    transform: translate(-3px, 3px);
+  }
+
+  40% {
+    transform: translate(-3px, -3px);
+  }
+
+  60% {
+    transform: translate(3px, 3px);
+  }
+
+  80% {
+    transform: translate(3px, -3px);
+  }
+
+  100% {
+    transform: translate(0);
+  }
 }
 
 .not-found-content h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  letter-spacing: 5px;
+  font-size: 1.8rem;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  letter-spacing: 4px;
+  color: #f8fafc;
+  font-weight: 700;
 }
 
 .not-found-content p {
-  color: #8b949e;
-  margin-bottom: 2rem;
+  color: #94a3b8;
+  margin-bottom: 30px;
+  font-size: 1rem;
+  line-height: 1.6;
 }
 
+/* Tombol Back to Reality */
+.not-found-content .btn-custom {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 26px;
+  background: #2dd4bf;
+  border: 1px solid #2dd4bf;
+  color: #030712;
+  font-weight: 700;
+  border-radius: 12px;
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(45, 212, 191, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.not-found-content .btn-custom:hover {
+  transform: translateY(-3px);
+  background: #5eead4;
+  border-color: #5eead4;
+  box-shadow: 0 6px 25px rgba(45, 212, 191, 0.5);
+}
+
+/* ================= RESPONSIVE ================= */
 @media (max-width: 768px) {
-  .glitch-404 { font-size: 6rem; }
-  .not-found-content h2 { font-size: 1.5rem; }
+  .glitch-404 {
+    font-size: 6rem;
+    letter-spacing: 4px;
+  }
+
+  .not-found-content h2 {
+    font-size: 1.4rem;
+    letter-spacing: 2px;
+  }
+
+  .not-found-content p {
+    font-size: 0.95rem;
+  }
 }

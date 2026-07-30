@@ -51,11 +51,11 @@ const LoadingScreen = () => {
   return (
     <div id="preloader" className={stage === "exit" ? "shatter" : ""}>
       <div className="scanline" />
-      
+
       <div className="loader-content">
         {stage === "name" && (
           <div className="name-wrapper">
-            <div className="name-main neon-text">
+            <div className="name-main neon-text" data-text="MUH. ILYAS ISTIQAMA">
               {"MUH. ILYAS ISTIQAMA".split("").map((char, i) => (
                 <span
                   key={i}
@@ -66,14 +66,14 @@ const LoadingScreen = () => {
                 </span>
               ))}
             </div>
-            <div className="name-sub">FULLSTACK DEVELOPER</div>
+            <div className="name-sub">SOFTWARE ENGINEER</div>
           </div>
         )}
 
         {stage === "welcome" && (
           <div className="welcome-wrapper">
-            <div className="welcome-main glitch" data-text="BUILDING MODERN SYSTEMS">
-              BUILDING MODERN SYSTEMS
+            <div className="welcome-main glitch" data-text="WELCOME TO MY PORTFOLIO">
+              WELCOME TO MY PORTFOLIO
             </div>
             <div className="welcome-tag">PORTFOLIO &copy; {new Date().getFullYear()}</div>
           </div>

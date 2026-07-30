@@ -3,7 +3,6 @@ import { useLanguage } from "../context/LanguageContext";
 
 const SectionContact = () => {
   const { t } = useLanguage();
-  const thisYear = new Date().getFullYear();
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const [formStatus, setFormStatus] = useState("idle"); // idle | loading | success | error
 
@@ -165,22 +164,6 @@ const SectionContact = () => {
           </div>
         </div>
       </div>
-
-      {/* ===== LOWER: FOOTER ===== */}
-      <footer className="contact-footer text-center text-white">
-        <div className="footer-divider" />
-        <div className="footer-bottom py-3">
-          <p
-            className="m-0"
-            style={{
-              whiteSpace: "normal",
-              overflowWrap: "break-word",
-            }}
-          >
-            © {thisYear} muis.life • {t.contact.footer}
-          </p>
-        </div>
-      </footer>
     </section>
   );
 };

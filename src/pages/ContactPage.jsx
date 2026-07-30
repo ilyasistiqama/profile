@@ -1,6 +1,6 @@
 import React from "react";
 import NavbarComponent from "../layouts/Navbar";
-import SectionContact from "./SectionContact";
+import SectionContact from "../sections/SectionContact";
 
 const ContactPage = () => (
   <>

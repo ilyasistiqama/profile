@@ -46,8 +46,8 @@ const projects = [
         project_name: 'Terik Peternakan Digital',
         project_origin: 'PT. Terik Indonesia Inside',
         description: {
-            en: "I built this landing page to introduce the company and showcase the digital tools they offer.",
-            id: "Saya bikin landing page ini buat ngenalin perusahaan dan pamerin solusi digital yang mereka tawarin."
+            en: "Developed a corporate landing page to establish brand presence and showcase the company's digital solutions.",
+            id: "Mengembangkan halaman landas (landing page) korporat untuk membangun identitas merek dan menampilkan solusi digital perusahaan."
         },
         stacks: ['HTML', 'CSS', 'Javascript', 'PHP', 'Boostrap', 'Jquery', 'Laravel'],
         url: 'https://terik.id'
@@ -59,8 +59,8 @@ const projects = [
         project_name: 'SIMPe (Sistem Informasi Manajemen Peternakan)',
         project_origin: 'PT. Terik Indonesia Inside',
         description: {
-            en: "A handy digital tool for farm owners to keep track of their livestock and daily farm work easily.",
-            id: "Alat digital buat pemilik peternakan supaya gampang mantau ternak dan kerjaan harian mereka."
+            en: "A comprehensive farm management system designed to streamline livestock tracking and daily operational workflows.",
+            id: "Sistem manajemen peternakan komprehensif yang dirancang untuk menyederhanakan pemantauan ternak dan alur kerja operasional harian."
         },
         stacks: ['HTML', 'CSS', 'Javascript', 'PHP', 'MySQL', 'Boostrap', 'Jquery', 'AJAX', 'Laravel', 'Jquery Datatables', 'SaaS'],
         url: 'https://simpe.id'
@@ -72,8 +72,8 @@ const projects = [
         project_name: 'Synn Store',
         project_origin: 'Freelancer',
         description: {
-            en: "An online store for gamers with a built-in wallet system and special features for resellers.",
-            id: "Toko online buat para gamer dengan sistem pembayaran otomatis dan fitur khusus buat reseller."
+            en: "An e-commerce platform tailored for gamers, featuring an integrated digital wallet and a specialized reseller management system.",
+            id: "Platform e-commerce khusus untuk gamer, dilengkapi dengan integrasi dompet digital dan sistem manajemen reseller."
         },
         stacks: ['HTML', 'CSS', 'Javascript', 'PHP', 'MySQL', 'Boostrap', 'Jquery', 'AJAX', 'Laravel', 'Jquery Datatables', 'Restful API'],
         url: 'https://synnmlbb.com'
@@ -85,8 +85,8 @@ const projects = [
         project_name: 'RMP (Rotasi, Mutasi, Promosi)',
         project_origin: 'CV. Mamorasoft',
         description: {
-            en: "A system I helped build to manage employee position changes through a clear approval process.",
-            id: "Sistem yang saya bantu bangun buat ngatur perpindahan posisi karyawan lewat proses persetujuan yang jelas."
+            en: "An HR management system developed to facilitate and track employee rotations, mutations, and promotions via a structured approval workflow.",
+            id: "Sistem manajemen SDM untuk memfasilitasi dan melacak proses rotasi, mutasi, serta promosi karyawan melalui alur persetujuan yang terstruktur."
         },
         stacks: ['HTML', 'CSS', 'Javascript', 'PHP', 'PostgreSQL', 'Boostrap', 'Jquery', 'AJAX', 'Laravel', 'Jquery Datatables'],
         url: 'https://rmp.petrokimia-gresik.com/rmp/login'
@@ -98,8 +98,8 @@ const projects = [
         project_name: 'SERGIO (Sistem Registrasi Inovasi Online)',
         project_origin: 'CV. Mamorasoft',
         description: {
-            en: "A place for employees to drop their best ideas and help the company innovate and grow.",
-            id: "Tempat buat karyawan nyalurin ide-ide terbaik mereka buat bantu inovasi dan kemajuan perusahaan."
+            en: "A centralized platform for employees to submit, manage, and track innovative ideas to drive corporate growth.",
+            id: "Platform terpusat bagi karyawan untuk mengirimkan, mengelola, dan melacak ide-ide inovatif guna mendorong kemajuan perusahaan."
         },
         stacks: ['HTML', 'CSS', 'Javascript', 'PHP', 'PostgreSQL', 'Boostrap', 'Jquery', 'AJAX', 'Laravel', 'Jquery Datatables'],
         url: 'https://sergio.petrokimia-gresik.com'
@@ -111,8 +111,8 @@ const projects = [
         project_name: 'Sistem Pengambil Keputusan - Pemilihan Proyek Dikerjakan',
         project_origin: 'Personal Project',
         description: {
-            en: "A tool that helps decide which projects to focus on first based on cost and time limits.",
-            id: "Alat bantu buat nentuin proyek mana yang harus difokusin duluan berdasarkan biaya dan batas waktu."
+            en: "A Decision Support System (DSS) engineered to prioritize project execution based on cost and time constraints.",
+            id: "Sistem Pendukung Keputusan (SPK) yang dirancang untuk memprioritaskan pengerjaan proyek berdasarkan parameter batasan biaya dan waktu."
         },
         stacks: ['HTML', 'CSS', 'Javascript', 'PHP', 'MySQL', 'Boostrap', 'Jquery', 'AJAX', 'Laravel']
     },
@@ -123,8 +123,8 @@ const projects = [
         project_name: 'Sistem Pakar Gangguan Kecemasan',
         project_origin: 'Personal Project',
         description: {
-            en: "An expert system I made to help identify anxiety issues through an automated check.",
-            id: "Sistem pakar yang saya bikin buat bantu ngenalin masalah kecemasan lewat pengecekan otomatis."
+            en: "An expert system developed to assist in the early detection and assessment of anxiety disorders through automated diagnostic logic.",
+            id: "Sistem pakar yang dikembangkan untuk membantu deteksi dini dan penilaian gangguan kecemasan melalui logika diagnosis otomatis."
         },
         stacks: ['HTML', 'CSS', 'PHP', 'MySQL']
     }

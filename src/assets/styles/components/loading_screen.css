@@ -1,8 +1,8 @@
-/* === BASE === */
+/* ================= PRELOADER / LOADING SCREEN ================= */
 #preloader {
   position: fixed;
   inset: 0;
-  background: radial-gradient(circle at center, #0d1117, #02030a);
+  background: radial-gradient(circle at center, #0b0f1e, #030712);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -10,7 +10,7 @@
   z-index: 9999;
   min-height: 100dvh;
   overflow: hidden;
-  color: #fff;
+  color: #f8fafc;
 }
 
 /* === SCANLINE === */
@@ -18,8 +18,8 @@
   position: absolute;
   inset: 0;
   background: repeating-linear-gradient(to bottom,
-      rgba(0, 173, 181, 0.05),
-      rgba(0, 173, 181, 0.05) 1px,
+      rgba(45, 212, 191, 0.03),
+      rgba(45, 212, 191, 0.03) 1px,
       transparent 2px,
       transparent 4px);
   animation: scanMove 8s linear infinite;
@@ -27,43 +27,113 @@
 }
 
 @keyframes scanMove {
-  from { background-position: 0 0; }
-  to { background-position: 0 100%; }
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: 0 100%;
+  }
 }
 
 /* === CONTENT === */
 .loader-content {
   z-index: 2;
   text-align: center;
+  padding: 0 20px;
 }
 
-.name-wrapper, .welcome-wrapper {
+.name-wrapper,
+.welcome-wrapper {
   animation: fadeIn 0.6s ease forwards;
 }
 
+/* === GLITCH TEXT STYLES (ALA 404) === */
 .neon-text {
-  font-size: 2.8rem;
+  font-size: 2.6rem;
   font-weight: 900;
-  letter-spacing: 0.4rem;
-  color: #00adb5;
-  text-shadow: 0 0 15px rgba(0, 173, 181, 0.6);
-  font-family: 'Inter', sans-serif;
-}
-
-.name-sub, .welcome-tag {
-  font-size: 0.9rem;
-  letter-spacing: 0.5rem;
-  margin-top: 15px;
-  color: rgba(255, 255, 255, 0.5);
-  text-transform: uppercase;
+  letter-spacing: 0.3rem;
+  color: #2dd4bf;
+  text-shadow: 0 0 25px rgba(45, 212, 191, 0.4);
+  font-family: inherit;
+  position: relative;
 }
 
 .welcome-main {
-  font-size: 2.5rem;
+  font-size: 2.4rem;
   font-weight: 900;
+  letter-spacing: 0.3rem;
+  color: #f8fafc;
+  text-shadow: 0 0 25px rgba(255, 255, 255, 0.2);
+  position: relative;
+}
+
+/* Glitch Pseudo-elements */
+.neon-text::before,
+.neon-text::after,
+.welcome-main::before,
+.welcome-main::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+}
+
+.neon-text::before,
+.welcome-main::before {
+  color: #f43f5e;
+  animation: glitch-preloader 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+  z-index: -1;
+}
+
+.neon-text::after {
+  color: #2dd4bf;
+  animation: glitch-preloader 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both infinite;
+  z-index: -2;
+}
+
+.welcome-main::after {
+  color: #f8fafc;
+  animation: glitch-preloader 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both infinite;
+  z-index: -2;
+}
+
+@keyframes glitch-preloader {
+  0% {
+    transform: translate(0);
+  }
+
+  20% {
+    transform: translate(-3px, 3px);
+  }
+
+  40% {
+    transform: translate(-3px, -3px);
+  }
+
+  60% {
+    transform: translate(3px, 3px);
+  }
+
+  80% {
+    transform: translate(3px, -3px);
+  }
+
+  100% {
+    transform: translate(0);
+  }
+}
+
+.name-sub,
+.welcome-tag {
+  font-size: 0.85rem;
   letter-spacing: 0.4rem;
-  color: #fff;
-  text-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+  margin-top: 15px;
+  color: #94a3b8;
+  text-transform: uppercase;
 }
 
 /* === LETTER ANIMATION === */
@@ -75,7 +145,7 @@
 
 .letter.animate {
   animation: letterIn 0.4s ease forwards;
-  animation-delay: calc(var(--i) * 0.06s);
+  animation-delay: calc(var(--i) * 0.05s);
 }
 
 @keyframes letterIn {
@@ -88,14 +158,14 @@
 /* === FOOTER & PROGRESS === */
 .loader-footer {
   position: absolute;
-  bottom: 10%;
-  width: 250px;
+  bottom: 12%;
+  width: 220px;
 }
 
 .loading-bar {
-  height: 2px;
+  height: 3px;
   width: 100%;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.08);
   border-radius: 4px;
   overflow: hidden;
 }
@@ -103,36 +173,65 @@
 .loading-progress {
   height: 100%;
   width: 0;
-  background: #00adb5;
+  background: #2dd4bf;
+  box-shadow: 0 0 12px rgba(45, 212, 191, 0.6);
   animation: progressLoad 3.5s ease-in-out forwards;
 }
 
 @keyframes progressLoad {
-  0% { width: 0; }
-  50% { width: 70%; }
-  100% { width: 100%; }
+  0% {
+    width: 0;
+  }
+
+  50% {
+    width: 75%;
+  }
+
+  100% {
+    width: 100%;
+  }
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.95); }
-  to { opacity: 1; transform: scale(1); }
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 /* === SHATTER EXIT === */
 #preloader.shatter {
-  animation: exitBlur 0.8s ease forwards;
+  animation: exitBlur 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 @keyframes exitBlur {
   to {
     opacity: 0;
-    filter: blur(20px);
-    transform: scale(1.1);
+    filter: blur(25px);
+    transform: scale(1.08);
   }
 }
 
+/* ================= RESPONSIVE ================= */
 @media (max-width: 768px) {
-  .neon-text { font-size: 1.8rem; letter-spacing: 0.2rem; }
-  .welcome-main { font-size: 2.5rem; letter-spacing: 0.4rem; }
-  .name-sub, .welcome-tag { font-size: 0.7rem; letter-spacing: 0.3rem; }
+  .neon-text {
+    font-size: 1.5rem;
+    letter-spacing: 0.15rem;
+  }
+
+  .welcome-main {
+    font-size: 1.6rem;
+    letter-spacing: 0.15rem;
+  }
+
+  .name-sub,
+  .welcome-tag {
+    font-size: 0.65rem;
+    letter-spacing: 0.25rem;
+  }
 }

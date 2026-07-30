@@ -8,19 +8,24 @@
   --color-bg: #0d1117;
   --color-bg-alt: #161b22;
   --color-surface: #16181f;
+
   --color-border: #30363d;
   --color-border-light: rgba(255, 255, 255, 0.06);
+
   --color-text: #e6edf3;
   --color-text-muted: #9aa4b2;
+
   --color-accent: #00adb5;
   --color-accent-light: rgba(0, 173, 181, 0.15);
+
   --color-shadow: rgba(0, 0, 0, 0.6);
-  /* darker solid navbar (not white) */
-  --color-navbar-bg: rgba(18, 22, 29, 0.96);
-  --color-navbar-bg-top: rgba(18, 22, 29, 0.72);
+
+  /* Navbar */
+  --color-navbar-bg: rgba(22, 27, 34, 0.94);
+  --color-navbar-bg-top: rgba(22, 27, 34, 0.60);
   --color-navbar-text: #e6edf3;
-  --color-navbar-border: rgba(255, 255, 255, 0.10);
-  --color-navbar-border-top: rgba(255, 255, 255, 0.045);
+  --color-navbar-border: rgba(48, 54, 61, 0.85);
+  --color-navbar-border-top: rgba(48, 54, 61, 0.35);
 }
 
 /* ===== ABOUT ME ===== */
@@ -108,13 +113,11 @@
 }
 
 [data-theme="dark"] #experience #content-right::before {
-  background: repeating-linear-gradient(
-    to bottom,
-    var(--color-accent) 0,
-    var(--color-accent) 6px,
-    transparent 6px,
-    transparent 14px
-  );
+  background: repeating-linear-gradient(to bottom,
+      var(--color-accent) 0,
+      var(--color-accent) 6px,
+      transparent 6px,
+      transparent 14px);
 }
 
 [data-theme="dark"] #experience #content-right::after,
@@ -164,7 +167,7 @@
 [data-theme="dark"] .contact-form {
   background: var(--color-surface);
   border-color: var(--color-border);
-  box-shadow: 0 12px 38px rgba(0,0,0,0.6);
+  box-shadow: 0 12px 38px rgba(0, 0, 0, 0.6);
 }
 
 [data-theme="dark"] .contact-detail-item a,
@@ -255,12 +258,25 @@
 
 /* ===== SMOOTH TRANSITION ===== */
 body,
-#about-me, #skill, #experience, #project,
-.list-skill, .filter-btn, .btn-custom, .child-box,
-#experience .box, #project .box, #experience #content-right,
-#backToTop, .scroll-btn, .scroll-nav-button,
-.contact-upper, .contact-form, .form-group input,
-.form-group textarea, .project-filter-btn {
+#about-me,
+#skill,
+#experience,
+#project,
+.list-skill,
+.filter-btn,
+.btn-custom,
+.child-box,
+#experience .box,
+#project .box,
+#experience #content-right,
+#backToTop,
+.scroll-btn,
+.scroll-nav-button,
+.contact-upper,
+.contact-form,
+.form-group input,
+.form-group textarea,
+.project-filter-btn {
   transition:
     background-color 0.35s ease,
     color 0.35s ease,

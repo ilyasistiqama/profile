@@ -1,12 +1,13 @@
 import React, { useEffect, useState, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import { faChevronDown, faTerminal } from "@fortawesome/free-solid-svg-icons";
 import { useLanguage } from "../context/LanguageContext";
 
 const ROLES = [
-  "Web Application Developer",
-  "Business System Builder",
-  "Laravel & React Developer",
+  "Fullstack Web Engineer",
+  "Business Process Analyst & Developer",
+  "Laravel & React Specialist",
+  "VPS & Deployment Integrator"
 ];
 
 const ParticleBackground = () => {
@@ -27,10 +28,10 @@ const ParticleBackground = () => {
       constructor() {
         this.x = Math.random() * canvas.width;
         this.y = Math.random() * canvas.height;
-        this.size = Math.random() * 2 + 0.5;
-        this.speedX = Math.random() * 0.5 - 0.25;
-        this.speedY = Math.random() * 0.5 - 0.25;
-        this.opacity = Math.random() * 0.5 + 0.2;
+        this.size = Math.random() * 1.5 + 0.5;
+        this.speedX = Math.random() * 0.3 - 0.15;
+        this.speedY = Math.random() * 0.3 - 0.15;
+        this.opacity = Math.random() * 0.5 + 0.1;
       }
       update() {
         this.x += this.speedX;
@@ -41,7 +42,7 @@ const ParticleBackground = () => {
         if (this.y < 0) this.y = canvas.height;
       }
       draw() {
-        ctx.fillStyle = `rgba(0, 173, 181, ${this.opacity})`;
+        ctx.fillStyle = `rgba(45, 212, 191, ${this.opacity})`;
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
         ctx.fill();
@@ -50,8 +51,8 @@ const ParticleBackground = () => {
 
     const init = () => {
       particles = [];
-      const count = Math.floor((window.innerWidth * window.innerHeight) / 15000);
-      for (let i = 0; i < Math.min(count, 100); i++) {
+      const count = Math.floor((window.innerWidth * window.innerHeight) / 20000);
+      for (let i = 0; i < Math.min(count, 60); i++) {
         particles.push(new Particle());
       }
     };
@@ -112,14 +113,14 @@ const SectionIntro = () => {
           }
           return next;
         });
-      }, 45);
+      }, 35);
     } else {
       if (displayText.length < current.length) {
         timeout = setTimeout(() => {
           setDisplayText(current.slice(0, displayText.length + 1));
-        }, 85);
+        }, 70);
       } else {
-        timeout = setTimeout(() => setIsDeleting(true), 2200);
+        timeout = setTimeout(() => setIsDeleting(true), 2500);
       }
     }
 
@@ -129,36 +130,39 @@ const SectionIntro = () => {
   return (
     <section id="intro">
       <ParticleBackground />
+      <div className="hero-glow"></div>
+
       <div className="container" style={{ position: "relative", zIndex: 1 }}>
-        <div id="content">
-          <div id="box" className="px-4">
-            <div id="intro-content">
-              <div id="text-intro">
-                <div className="reveal-item delay-1" id="name">
-                  {t.intro.hi} <span>Ilyas</span>
-                </div>
+        <div id="intro-content">
 
-                <div className="reveal-item delay-2" id="role">
-                  <span className="typing-text">{displayText}</span>
-                  <span className="typing-cursor">|</span>
-                </div>
-
-                {t.intro.description.map((desc, index) => (
-                  <div key={index} className={`reveal-item delay-${index + 3} intro-desc`}>
-                    {desc}
-                  </div>
-                ))}
-              </div>
-
-              <a
-                href="#about-me"
-                id="redirect"
-                aria-label={t.intro.scroll}
-              >
-                <FontAwesomeIcon icon={faChevronDown} />
-              </a>
-            </div>
+          {/* Badge System & Web Architect */}
+          <div className="hero-badge reveal-item delay-1">
+            <FontAwesomeIcon icon={faTerminal} className="badge-icon" />
+            <span className="typing-text">{displayText}</span>
+            <span className="typing-cursor">_</span>
           </div>
+
+          <div className="reveal-item delay-2" id="name">
+            {t.intro.hi} <span className="name-highlight">Ilyas</span>
+          </div>
+
+          <div className="reveal-item delay-4 desc-wrapper">
+            {t.intro.description.map((desc, index) => (
+              <p key={index} className="intro-desc">
+                {desc}
+              </p>
+            ))}
+          </div>
+
+          <div className="reveal-item delay-5 action-group">
+            <a href="#projects" className="btn-primary">Explore Work</a>
+            <a href="#contact" className="btn-secondary">Let's Talk</a>
+          </div>
+
+          <a href="#about-me" id="redirect" aria-label={t.intro.scroll}>
+            <FontAwesomeIcon icon={faChevronDown} />
+          </a>
+
         </div>
       </div>
     </section>

@@ -1,6 +1,6 @@
 import React from "react";
 import NavbarComponent from "../layouts/Navbar";
-import SectionExperience from "./SectionExperience";
+import SectionExperience from "../sections/SectionExperience";
 
 const ExperiencePage = ({ experiences }) => (
   <>

@@ -20,7 +20,7 @@ import dataExperiences from './utils/data/experiences';
 import dataProjects from './utils/data/projects';
 
 import LoadingScreen from "./components/LoadingScreen";
-import CustomCursor from "./components/CustomCursor";
+// import CustomCursor from "./components/CustomCursor";
 import NotFound from './pages/NotFound';
 import HomePage from './pages/HomePage';
 import PortfolioPage from './pages/PortfolioPage';
@@ -32,6 +32,7 @@ function AppContent() {
   const [skills] = useState(dataSkills);
   const [experiences] = useState(dataExperiences);
   const [projects] = useState(dataProjects);
+  const thisYear = new Date().getFullYear();
 
   const [isVisible, setIsVisible] = useState(false);
 
@@ -60,7 +61,7 @@ function AppContent() {
 
   return (
     <>
-      <CustomCursor />
+      {/* <CustomCursor /> */}
       <LoadingScreen />
 
       <Routes>
@@ -70,6 +71,22 @@ function AppContent() {
         <Route path="/contact" element={<ContactPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
+
+      {/* ===== LOWER: FOOTER ===== */}
+      <footer className="contact-footer text-center text-white">
+        <div className="footer-divider" />
+        <div className="footer-bottom py-3">
+          <p
+            className="m-0"
+            style={{
+              whiteSpace: "normal",
+              overflowWrap: "break-word",
+            }}
+          >
+            © {thisYear} muis.life • {t.contact.footer}
+          </p>
+        </div>
+      </footer>
 
       <button
         id="backToTop"

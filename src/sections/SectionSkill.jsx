@@ -4,7 +4,6 @@ import { useLanguage } from "../context/LanguageContext";
 const SectionSkill = ({ skills }) => {
   const { t } = useLanguage();
   const scrollRef = useRef(null);
-  const intervalRef = useRef(null);
 
   const [isOverflowing, setIsOverflowing] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -14,7 +13,7 @@ const SectionSkill = ({ skills }) => {
 
   const translateCategory = (cat) => {
     if (cat === "All") return t.project.filter_all;
-    return cat; // Skill categories are technical names (Frontend, Backend), usually kept in EN but I can translate if needed.
+    return cat;
   };
 
   const filteredSkills =
@@ -37,26 +36,7 @@ const SectionSkill = ({ skills }) => {
     return () => window.removeEventListener("resize", checkOverflow);
   }, [filteredSkills]);
 
-  /* ================= AUTO SCROLL ================= */
-  useEffect(() => {
-    if (!isOverflowing) return;
-
-    const el = scrollRef.current;
-    if (!el) return;
-
-    intervalRef.current = setInterval(() => {
-      const maxScrollLeft = el.scrollWidth - el.clientWidth;
-
-      if (el.scrollLeft >= maxScrollLeft - 5) {
-        el.scrollTo({ left: 0, behavior: "smooth" });
-      } else {
-        el.scrollBy({ left: el.clientWidth, behavior: "smooth" });
-      }
-    }, 3200);
-
-    return () => clearInterval(intervalRef.current);
-  }, [isOverflowing, selectedCategory, filteredSkills]);
-
+  /* ================= MANUAL SCROLL ================= */
   const scrollLeft = () => {
     const el = scrollRef.current;
     if (el) el.scrollBy({ left: -el.clientWidth, behavior: "smooth" });
@@ -105,7 +85,7 @@ const SectionSkill = ({ skills }) => {
               <div
                 key={i}
                 className="list-skill reveal-card"
-                style={{ animationDelay: `${i * 0.1}s` }}
+                style={{ animationDelay: `${i * 0.05}s` }}
               >
                 <div className="list-skill-body">
                   {skill.isImg ? (

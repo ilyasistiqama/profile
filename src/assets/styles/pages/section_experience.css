@@ -1,16 +1,26 @@
-/* ================= SECTION ================= */
+/* ================= SECTION EXPERIENCE (FIXED STICKY) ================= */
 #experience {
   padding: 80px 0;
-  /* vertical offset to nudge content down (tweak as needed) */
   --experience-offset: 56px;
-  background: var(--color-bg);
+  background: var(--color-bg, #f4f4f4);
+  transition: background 0.3s ease, color 0.3s ease;
+  /* overflow: hidden; <-- DIHAPUS BIAR STICKY AMAN TIDAK MACET */
+  position: relative;
 }
 
 /* ================= LAYOUT ================= */
+#experience .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
 #experience .container #content {
   display: grid;
   grid-template-columns: 35% 60%;
   gap: 5%;
+  align-items: start;
+  /* Pastikan grid items mulai dari atas agar sticky bekerja optimal */
 }
 
 /* ================= LEFT ================= */
@@ -24,12 +34,16 @@
 }
 
 #experience #content-left h2 {
-  font-size: var(--fs-h2);
+  margin-top: 25px;
+  font-size: var(--fs-h2, clamp(28px, 4vw, 38px));
+  color: #111;
 }
 
 #experience #content-left p {
   margin-top: 20px;
   line-height: 1.7;
+  color: #555;
+  font-size: 15px;
 }
 
 /* ================= RIGHT ================= */
@@ -38,12 +52,13 @@
   margin-top: var(--experience-offset);
   padding: 100px 45px 120px;
   min-height: 90vh;
-  border: 1.5px solid var(--color-border-light);
-  background: var(--color-surface);
-  box-shadow: 4px 4px 10px var(--color-shadow);
+  border: 1.5px solid var(--color-border-light, #ddd);
+  background: var(--color-surface, #fff);
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.05);
   display: flex;
   flex-direction: column;
   align-items: center;
+  border-radius: 20px;
 }
 
 /* TIMELINE LINE */
@@ -56,8 +71,8 @@
   width: 3px;
   transform: translateX(-50%);
   background: repeating-linear-gradient(to bottom,
-      #555 0,
-      #555 6px,
+      #888 0,
+      #888 6px,
       transparent 6px,
       transparent 14px);
   animation: timelineMove 3s linear infinite;
@@ -70,9 +85,10 @@
   top: 12px;
   left: 50%;
   transform: translateX(-50%);
-  background: var(--color-surface);
+  background: var(--color-surface, #fff);
+  color: #111;
   padding: 6px 14px;
-  border: 1px solid var(--color-border-light);
+  border: 1px solid var(--color-border-light, #ddd);
   border-radius: 20px;
   font-size: 13px;
   font-weight: bold;
@@ -84,9 +100,10 @@
   bottom: 30px;
   left: 50%;
   transform: translateX(-50%);
-  background: var(--color-surface);
+  background: var(--color-surface, #fff);
+  color: #111;
   padding: 6px 14px;
-  border: 1px solid var(--color-border-light);
+  border: 1px solid var(--color-border-light, #ddd);
   border-radius: 20px;
   font-size: 13px;
   font-weight: bold;
@@ -98,9 +115,9 @@
   margin: 28px 0;
   padding: 22px;
   border-radius: 16px;
-  background: var(--color-surface);
-  border: 1.5px solid var(--color-border-light);
-  box-shadow: 4px 6px 12px rgba(0,0,0,0.08);
+  background: var(--color-surface, #fff);
+  border: 1.5px solid var(--color-border-light, #ddd);
+  box-shadow: 4px 6px 12px rgba(0, 0, 0, 0.06);
   opacity: 0;
   transform: translateY(40px) scale(0.95);
   transition: all 0.6s ease;
@@ -109,29 +126,31 @@
 
 #experience .box.is-active {
   opacity: 1;
-  transform: translateY(0) scale(1.03);
-  box-shadow: 8px 8px 18px rgba(0, 0, 0, 0.12);
+  transform: translateY(0) scale(1.02);
+  box-shadow: 8px 8px 18px rgba(0, 0, 0, 0.1);
 }
 
 #experience .box:hover {
-  transform: scale(1.06);
+  transform: scale(1.04);
 }
 
 /* ================= CONTENT ================= */
 .box-title {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
 }
 
 .box-title h5 {
-  font-size: 22px;
+  font-size: 20px;
   font-weight: bold;
+  color: #111;
 }
 
 .box-title a {
   text-decoration: none;
-  color: #000;
+  color: #111;
+  transition: color 0.2s ease;
 }
 
 .box-title a:hover {
@@ -139,27 +158,185 @@
 }
 
 .box-logo {
-  max-width: 52px;
-  max-height: 52px;
+  max-width: 48px;
+  max-height: 48px;
   border-radius: 8px;
-  background: #fff;
-  padding: 6px;
+  background: #f8f9fa;
+  padding: 4px;
+  border: 1px solid #eee;
+  object-fit: contain;
 }
 
 .box-date {
-  font-size: 14px;
+  font-size: 13px;
   margin-top: 10px;
-  opacity: 0.7;
+  color: #666;
+}
+
+#experience hr {
+  border: none;
+  border-top: 1px solid #eee;
+  margin: 12px 0;
 }
 
 .box-position {
   font-style: italic;
-  margin: 10px 0;
+  font-weight: 600;
+  color: #333;
+  margin: 8px 0;
 }
 
 .box-job {
   padding-left: 18px;
+  color: #444;
+  font-size: 14px;
+  line-height: 1.6;
 }
+
+.box-job li {
+  margin-bottom: 6px;
+}
+
+
+/* ================= DARK MODE OVERRIDES ================= */
+body.dark #experience,
+.dark #experience,
+.dark-mode #experience,
+[data-theme="dark"] #experience {
+  background: #030712;
+}
+
+body.dark #experience #content-left h2,
+.dark #experience #content-left h2,
+.dark-mode #experience #content-left h2,
+[data-theme="dark"] #experience #content-left h2 {
+  color: #f8fafc;
+}
+
+body.dark #experience #content-left p,
+.dark #experience #content-left p,
+.dark-mode #experience #content-left p,
+[data-theme="dark"] #experience #content-left p {
+  color: #94a3b8;
+}
+
+/* Timeline Wrapper Dark */
+body.dark #experience #content-right,
+.dark #experience #content-right,
+.dark-mode #experience #content-right,
+[data-theme="dark"] #experience #content-right {
+  background: rgba(10, 15, 30, 0.7);
+  border: 1px solid rgba(45, 212, 191, 0.2);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(12px);
+}
+
+body.dark #experience #content-right::before,
+.dark #experience #content-right::before,
+.dark-mode #experience #content-right::before,
+[data-theme="dark"] #experience #content-right::before {
+  background: repeating-linear-gradient(to bottom,
+      #2dd4bf 0,
+      #2dd4bf 6px,
+      transparent 6px,
+      transparent 14px);
+  opacity: 0.4;
+}
+
+body.dark #experience #content-right::after,
+.dark #experience #content-right::after,
+.dark-mode #experience #content-right::after,
+[data-theme="dark"] #experience #content-right::after {
+  background: #0b0f1e;
+  color: #2dd4bf;
+  border: 1px solid rgba(45, 212, 191, 0.3);
+}
+
+body.dark .timeline-end,
+.dark .timeline-end,
+.dark-mode .timeline-end,
+[data-theme="dark"] .timeline-end {
+  background: #0b0f1e;
+  color: #2dd4bf;
+  border: 1px solid rgba(45, 212, 191, 0.3);
+}
+
+/* Box Experience Dark */
+body.dark #experience .box,
+.dark #experience .box,
+.dark-mode #experience .box,
+[data-theme="dark"] #experience .box {
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(45, 212, 191, 0.15);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+body.dark #experience .box.is-active,
+.dark #experience .box.is-active,
+.dark-mode #experience .box.is-active,
+[data-theme="dark"] #experience .box.is-active {
+  border-color: rgba(45, 212, 191, 0.4);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 15px rgba(45, 212, 191, 0.1);
+}
+
+body.dark #experience .box-title h5,
+.dark #experience .box-title h5,
+.dark-mode #experience .box-title h5,
+[data-theme="dark"] #experience .box-title h5 {
+  color: #f8fafc;
+}
+
+body.dark #experience .box-title a,
+.dark #experience .box-title a,
+.dark-mode #experience .box-title a,
+[data-theme="dark"] #experience .box-title a {
+  color: #f8fafc;
+}
+
+body.dark #experience .box-title a:hover,
+.dark #experience .box-title a:hover,
+.dark-mode #experience .box-title a:hover,
+[data-theme="dark"] #experience .box-title a:hover {
+  color: #2dd4bf;
+}
+
+body.dark #experience .box-logo,
+.dark #experience .box-logo,
+.dark-mode #experience .box-logo,
+[data-theme="dark"] #experience .box-logo {
+  background: #030712;
+  border: 1px solid rgba(45, 212, 191, 0.2);
+}
+
+body.dark #experience .box-date,
+.dark #experience .box-date,
+.dark-mode #experience .box-date,
+[data-theme="dark"] #experience .box-date {
+  color: #2dd4bf;
+  opacity: 0.9;
+}
+
+body.dark #experience hr,
+.dark #experience hr,
+.dark-mode #experience hr,
+[data-theme="dark"] #experience hr {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+body.dark #experience .box-position,
+.dark #experience .box-position,
+.dark-mode #experience .box-position,
+[data-theme="dark"] #experience .box-position {
+  color: #e2e8f0;
+}
+
+body.dark #experience .box-job,
+.dark #experience .box-job,
+.dark-mode #experience .box-job,
+[data-theme="dark"] #experience .box-job {
+  color: #94a3b8;
+}
+
 
 /* ================= ANIMATION ================= */
 @keyframes revealLeft {
@@ -179,51 +356,65 @@
   }
 }
 
+
 /* ================= MOBILE ================= */
 @media (max-width: 1100px) {
-
-  /* ================= LAYOUT ================= */
   #experience .container #content {
     display: flex;
     flex-direction: column;
+    gap: 30px;
   }
 
-  /* ================= BOX ================= */
   #experience .box {
-    border-left: 6px solid #000;
+    border-left: 6px solid #111;
     position: relative;
+    width: 100%;
+  }
+
+  body.dark #experience .box,
+  .dark #experience .box,
+  .dark-mode #experience .box,
+  [data-theme="dark"] #experience .box {
+    border-left: 6px solid #2dd4bf;
   }
 
   #experience .box::before {
     content: "";
     position: absolute;
-    left: -14px;
+    left: -16px;
     top: 24px;
     width: 12px;
     height: 12px;
-    background: #000;
+    background: #111;
     border-radius: 50%;
+  }
+
+  body.dark #experience .box::before,
+  .dark #experience .box::before,
+  .dark-mode #experience .box::before,
+  [data-theme="dark"] #experience .box::before {
+    background: #2dd4bf;
   }
 
   #experience .box:hover {
     transform: none;
   }
 
-  /* ================= LEFT ================= */
   #experience #content-left {
     position: static;
     animation: none;
     opacity: 1;
     transform: none;
-    margin-top: 56px;
+    margin-top: 20px;
+    text-align: center;
   }
 
-  /* ================= RIGHT ================= */
   #experience #content-right {
     padding: 70px 20px;
+    margin-top: 0;
   }
 
-  /* ================= MATIKAN TIMELINE ================= */
+  /* MATIKAN TIMELINE VERTIKAL DI MOBILE */
   #experience #content-right::before,
   #experience #content-right::after,
   .timeline-end {

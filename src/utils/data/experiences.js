@@ -11,16 +11,16 @@ const experiences = [
     url: "https://terik.id",
     jobdesks: {
       en: [
-        "Developing web applications tailored to company business needs.",
-        "Building new features and keeping the systems running smoothly.",
-        "Designing database structures that are easy to manage and scale.",
-        "Finding and fixing bugs to make sure everything works perfectly.",
+        "Developing web applications tailored to meet specific business requirements.",
+        "Implementing new features and ensuring optimal system stability and performance.",
+        "Designing scalable and easily maintainable database architectures.",
+        "Conducting debugging and routine system maintenance to ensure application reliability.",
       ],
       id: [
-        "Ngembangin aplikasi web yang sesuai dengan kebutuhan bisnis perusahaan.",
-        "Bikin fitur baru dan mastiin semua sistem jalan dengan lancar.",
-        "Ngerancang struktur database yang gampang dikelola dan bisa berkembang.",
-        "Nyari dan benerin bug supaya aplikasi selalu bisa diandalkan.",
+        "Mengembangkan aplikasi web yang disesuaikan dengan kebutuhan bisnis perusahaan.",
+        "Merancang dan mengimplementasikan fitur baru serta memastikan stabilitas sistem berjalan optimal.",
+        "Merancang arsitektur basis data yang terukur (scalable) dan mudah dikelola.",
+        "Melakukan proses debugging dan pemeliharaan sistem untuk memastikan keandalan aplikasi.",
       ]
     },
   },
@@ -31,12 +31,12 @@ const experiences = [
     logo: null,
     jobdesks: {
       en: [
-        "Creating custom web solutions for various clients and needs.",
-        "Working closely with clients to understand and build what they need.",
+        "Developing custom web solutions tailored to diverse client requirements.",
+        "Collaborating directly with clients to translate business concepts into functional digital products.",
       ],
       id: [
-        "Bikin solusi web kustom buat berbagai macam klien dan kebutuhan.",
-        "Diskusi bareng klien buat nangkep ide mereka dan ngubahnya jadi website beneran.",
+        "Mengembangkan solusi web kustom yang disesuaikan dengan beragam kebutuhan klien.",
+        "Berkolaborasi langsung dengan klien untuk merumuskan konsep bisnis menjadi produk digital yang fungsional.",
       ]
     },
   },
@@ -48,16 +48,16 @@ const experiences = [
     url: "https://mamorasoft.com",
     jobdesks: {
       en: [
-        "Built responsive websites using Laravel, CodeIgniter, and JavaScript.",
-        "Translated system requirements into working web applications.",
-        "Handled database design and optimization for client projects.",
-        "Maintained and improved existing systems through regular updates.",
+        "Built responsive websites leveraging Laravel, CodeIgniter, and JavaScript.",
+        "Translated detailed system specifications into high-performing web applications.",
+        "Managed database design and optimization across multiple client projects.",
+        "Performed routine system maintenance and updates to ensure sustained application performance.",
       ],
       id: [
-        "Bangun website responsif pakai Laravel, CodeIgniter, dan JavaScript.",
-        "Nerjemahin kebutuhan sistem jadi aplikasi web yang fungsional.",
-        "Nanganin perancangan dan optimasi database buat proyek-proyek klien.",
-        "Ngelakuin pemeliharaan dan update rutin buat jaga performa sistem.",
+        "Membangun situs web responsif menggunakan kerangka kerja Laravel, CodeIgniter, dan JavaScript.",
+        "Menerjemahkan spesifikasi sistem menjadi aplikasi web yang berkinerja tinggi.",
+        "Menangani perancangan serta optimasi basis data untuk berbagai proyek klien.",
+        "Melakukan pemeliharaan sistem dan pembaruan berkala guna menjaga performa aplikasi.",
       ]
     },
   },
@@ -68,10 +68,10 @@ const experiences = [
     logo: mitra_informatika,
     jobdesks: {
       en: [
-        "Developed a fintech-style website integrated with payment gateway and service APIs.",
+        "Developed a fintech-oriented website integrated with payment gateway APIs and third-party services.",
       ],
       id: [
-        "Bikin website ala fintech yang terintegrasi sama API payment gateway dan layanan pihak ketiga.",
+        "Mengembangkan situs web berbasis tekfin (fintech) dengan integrasi API payment gateway dan layanan pihak ketiga.",
       ]
     },
   },

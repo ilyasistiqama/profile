@@ -49,7 +49,7 @@ const getStats = (t, experiences, projects) => [
     icon: "fa-solid fa-laptop-code",
   },
   {
-    end: new Set(experiences?.map((item) => item.company)).size,
+    end: new Set(experiences?.map((item) => item.company)).size - 1,
     suffix: "",
     label: t.stats.companies,
     icon: "fa-solid fa-building",

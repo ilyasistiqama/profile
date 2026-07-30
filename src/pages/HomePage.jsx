@@ -1,9 +1,9 @@
 import React from "react";
 import NavbarComponent from "../layouts/Navbar";
-import SectionIntro from "./SectionIntro";
-import SectionAboutMe from "./SectionAboutMe";
-import SectionStats from "./SectionStats";
-import SectionSkill from "./SectionSkill";
+import SectionIntro from "../sections/SectionIntro";
+import SectionAboutMe from "../sections/SectionAboutMe";
+import SectionStats from "../sections/SectionStats";
+import SectionSkill from "../sections/SectionSkill";
 
 const HomePage = ({ experiences, projects, skills }) => {
 
