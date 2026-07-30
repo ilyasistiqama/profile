@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown, faTerminal } from "@fortawesome/free-solid-svg-icons";
 import { useLanguage } from "../context/LanguageContext";
+import { Link } from 'react-router-dom';
 
 const ROLES = [
   "Fullstack Web Engineer",
@@ -155,8 +156,8 @@ const SectionIntro = () => {
           </div>
 
           <div className="reveal-item delay-5 action-group">
-            <a href="#projects" className="btn-primary">Explore Work</a>
-            <a href="#contact" className="btn-secondary">Let's Talk</a>
+            <Link to="/portfolio" className="btn-primary">Explore Work</Link>
+            <Link to="/contact" className="btn-secondary">Let's Talk</Link>
           </div>
 
           <a href="#about-me" id="redirect" aria-label={t.intro.scroll}>
