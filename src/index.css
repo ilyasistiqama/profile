@@ -57,6 +57,19 @@
   /* Animasi muncul dari bawah, dipakai dengan class "animate-fade-up" */
   --animate-fade-up: fade-up 0.6s ease both;
 
+  /* Garis progres di splash screen */
+  --animate-splash-progress: splash-progress 1.7s ease-in-out both;
+
+  @keyframes splash-progress {
+    from {
+      width: 0;
+    }
+
+    to {
+      width: 100%;
+    }
+  }
+
   @keyframes fade-up {
     from {
       opacity: 0;

@@ -36,7 +36,11 @@ const en = {
   intro: {
     role: "Fullstack Web Developer · Surabaya",
     open_to_work: "Open to work",
-    work_pref: "Onsite / Remote · Surabaya, Malang & nearby",
+    work_mode: "Onsite / Remote",
+    work_areas: [
+      { region: "East Java", cities: "Surabaya, Sidoarjo, Mojokerto, Malang & nearby" },
+      { region: "Central Sulawesi", cities: "Luwuk, Palu & nearby" },
+    ],
     hi: "Hi, I'm",
     description: [
       "Fullstack web developer with professional experience since 2022, specializing in Laravel. I handle projects end to end, from database design and backend logic to deployment on VPS servers.",

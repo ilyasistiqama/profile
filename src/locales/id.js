@@ -36,7 +36,11 @@ const id = {
   intro: {
     role: "Fullstack Web Developer · Surabaya",
     open_to_work: "Terbuka untuk peluang kerja",
-    work_pref: "Onsite / Remote · Surabaya, Malang & sekitarnya",
+    work_mode: "Onsite / Remote",
+    work_areas: [
+      { region: "Jawa Timur", cities: "Surabaya, Sidoarjo, Mojokerto, Malang & sekitarnya" },
+      { region: "Sulawesi Tengah", cities: "Luwuk, Palu & sekitarnya" },
+    ],
     hi: "Halo, saya",
     description: [
       "Fullstack web developer dengan pengalaman profesional sejak 2022 dan spesialisasi di Laravel. Saya terbiasa menangani proyek dari awal sampai akhir, mulai dari perancangan database, logika backend, hingga deployment ke server VPS.",

@@ -2,7 +2,7 @@ import { useLanguage } from "../context/LanguageContext";
 import Button from "../components/ui/Button";
 import heroBackground from "../assets/images/background.webp";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import { faChevronDown, faLocationDot } from "@fortawesome/free-solid-svg-icons";
 
 export default function Hero() {
   const { t } = useLanguage();
@@ -19,11 +19,25 @@ export default function Hero() {
       <div className="mx-auto w-full max-w-5xl">
         <div className="max-w-2xl animate-fade-up">
           {/* Status sedang mencari kerja */}
-          <p className="mb-5 inline-flex flex-wrap items-center gap-x-2 gap-y-1 rounded-full border border-white/20 bg-black/30 px-4 py-1.5 text-sm">
-            <span className="size-2 rounded-full bg-green-400" />
-            <span className="font-semibold">{t.intro.open_to_work}</span>
-            <span className="text-white/70">· {t.intro.work_pref}</span>
-          </p>
+          <div className="mb-6">
+            <p className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-black/30 px-4 py-1.5 text-sm">
+              <span className="size-2 rounded-full bg-green-400" />
+              <span className="font-semibold">{t.intro.open_to_work}</span>
+              <span className="text-white/70">· {t.intro.work_mode}</span>
+            </p>
+
+            {/* Area kerja, dikelompokkan per provinsi */}
+            <ul className="mt-3 space-y-1 text-sm text-white/75">
+              {t.intro.work_areas.map((area) => (
+                <li key={area.region} className="flex gap-2">
+                  <FontAwesomeIcon icon={faLocationDot} className="mt-1 w-3 shrink-0 text-xs text-[#33c4cb]" />
+                  <span>
+                    <span className="font-semibold text-white">{area.region}:</span> {area.cities}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
 
           <p className="mb-3 font-semibold text-[#33c4cb]">{t.intro.role}</p>
 
