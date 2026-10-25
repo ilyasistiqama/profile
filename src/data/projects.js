@@ -139,7 +139,7 @@ const projects = [
             en: "Expert system for early screening of anxiety disorders.",
             id: "Sistem pakar untuk membantu deteksi awal gangguan kecemasan."
         },
-        stacks: ['HTML', 'CSS', 'PHP', 'MySQL'],
+        stacks: ['VueJS', 'Tailwind CSS', 'JavaScript'],
         url: 'https://ilyasistiqama.github.io/sispak-gangguan-kecemasan/'
     }
 ];
