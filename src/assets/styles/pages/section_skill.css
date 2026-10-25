@@ -7,17 +7,6 @@
   transition: background 0.3s ease, color 0.3s ease;
 }
 
-/* ambient background */
-#skill::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at center,
-      rgba(0, 0, 0, 0.06),
-      transparent 70%);
-  animation: pulseBg 8s ease-in-out infinite;
-  pointer-events: none;
-}
 
 /* ================= HEAD ================= */
 #skill h2 {
@@ -114,7 +103,7 @@
 }
 
 .list-skill:hover {
-  transform: translateY(-6px) scale(1.03);
+  transform: translateY(-4px);
   box-shadow: 6px 6px 0 #000, 14px 14px 30px rgba(0, 0, 0, 0.2);
 }
 
@@ -145,10 +134,7 @@
   transition: transform 0.3s ease;
 }
 
-.list-skill:hover .icon-skill i,
-.list-skill:hover .icon-skill-img {
-  transform: scale(1.15) rotate(-4deg);
-}
+
 
 /* ================= TITLE ================= */
 .list-skill-body h4 {
@@ -182,7 +168,7 @@
 
 .scroll-btn:hover {
   opacity: 0.8;
-  transform: translateY(-50%) scale(1.08);
+  transform: translateY(-50%);
 }
 
 .scroll-btn.left {
@@ -228,17 +214,6 @@
   }
 }
 
-@keyframes pulseBg {
-
-  0%,
-  100% {
-    opacity: 0.4;
-  }
-
-  50% {
-    opacity: 0.7;
-  }
-}
 
 
 /* ================= DARK MODE OVERRIDES ================= */
@@ -246,29 +221,22 @@ body.dark #skill,
 .dark #skill,
 .dark-mode #skill,
 [data-theme="dark"] #skill {
-  background: #030712;
-  color: #f8fafc;
-}
-
-body.dark #skill::before,
-.dark #skill::before,
-.dark-mode #skill::before,
-[data-theme="dark"] #skill::before {
-  background: radial-gradient(circle at 80% 20%, rgba(45, 212, 191, 0.05), transparent 60%);
+  background: var(--color-bg);
+  color: var(--color-text);
 }
 
 body.dark #skill h2,
 .dark #skill h2,
 .dark-mode #skill h2,
 [data-theme="dark"] #skill h2 {
-  color: #f8fafc;
+  color: var(--color-text);
 }
 
 body.dark #skill .skill-desc,
 .dark #skill .skill-desc,
 .dark-mode #skill .skill-desc,
 [data-theme="dark"] #skill .skill-desc {
-  color: #94a3b8;
+  color: var(--color-text-muted);
 }
 
 /* Filter Dark */
@@ -278,9 +246,8 @@ body.dark #skill .filter-btn,
 [data-theme="dark"] #skill .filter-btn {
   border: 1px solid rgba(255, 255, 255, 0.1);
   background: rgba(255, 255, 255, 0.03);
-  color: #94a3b8;
+  color: var(--color-text-muted);
   border-radius: 50px;
-  backdrop-filter: blur(8px);
 }
 
 body.dark #skill .filter-btn:hover,
@@ -289,17 +256,16 @@ body.dark #skill .filter-btn:hover,
 [data-theme="dark"] #skill .filter-btn:hover {
   background: rgba(255, 255, 255, 0.08);
   border-color: rgba(255, 255, 255, 0.2);
-  color: #f8fafc;
+  color: var(--color-text);
 }
 
 body.dark #skill .filter-btn.active,
 .dark #skill .filter-btn.active,
 .dark-mode #skill .filter-btn.active,
 [data-theme="dark"] #skill .filter-btn.active {
-  background: #2dd4bf;
-  border-color: #2dd4bf;
-  color: #030712;
-  box-shadow: 0 4px 20px rgba(45, 212, 191, 0.3);
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: #fff;
 }
 
 /* Cards Dark */
@@ -307,10 +273,9 @@ body.dark #skill .list-skill,
 .dark #skill .list-skill,
 .dark-mode #skill .list-skill,
 [data-theme="dark"] #skill .list-skill {
-  background: rgba(10, 15, 30, 0.7);
-  border: 1px solid rgba(45, 212, 191, 0.15);
-  backdrop-filter: blur(12px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  box-shadow: none;
 }
 
 body.dark #skill .list-skill:hover,
@@ -318,22 +283,21 @@ body.dark #skill .list-skill:hover,
 .dark-mode #skill .list-skill:hover,
 [data-theme="dark"] #skill .list-skill:hover {
   transform: translateY(-6px);
-  border-color: rgba(45, 212, 191, 0.5);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(45, 212, 191, 0.15);
+  border-color: var(--color-accent);
 }
 
 body.dark #skill .icon-skill i,
 .dark #skill .icon-skill i,
 .dark-mode #skill .icon-skill i,
 [data-theme="dark"] #skill .icon-skill i {
-  color: #2dd4bf;
+  color: var(--color-accent);
 }
 
 body.dark #skill .list-skill-body h4,
 .dark #skill .list-skill-body h4,
 .dark-mode #skill .list-skill-body h4,
 [data-theme="dark"] #skill .list-skill-body h4 {
-  color: #f8fafc;
+  color: var(--color-text);
 }
 
 /* Scroll Buttons Dark */
@@ -341,10 +305,9 @@ body.dark #skill .scroll-btn,
 .dark #skill .scroll-btn,
 .dark-mode #skill .scroll-btn,
 [data-theme="dark"] #skill .scroll-btn {
-  background: rgba(10, 15, 30, 0.85);
-  color: #2dd4bf;
-  border: 1px solid rgba(45, 212, 191, 0.3);
-  backdrop-filter: blur(8px);
+  background: var(--color-surface);
+  color: var(--color-accent);
+  border: 1px solid var(--color-accent);
   opacity: 1;
 }
 
@@ -352,9 +315,9 @@ body.dark #skill .scroll-btn:hover,
 .dark #skill .scroll-btn:hover,
 .dark-mode #skill .scroll-btn:hover,
 [data-theme="dark"] #skill .scroll-btn:hover {
-  background: #2dd4bf;
-  color: #030712;
-  border-color: #2dd4bf;
+  background: var(--color-accent);
+  color: #fff;
+  border-color: var(--color-accent);
 }
 
 

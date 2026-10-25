@@ -11,16 +11,16 @@ const experiences = [
     url: "https://terik.id",
     jobdesks: {
       en: [
-        "Developing web applications tailored to meet specific business requirements.",
-        "Implementing new features and ensuring optimal system stability and performance.",
-        "Designing scalable and easily maintainable database architectures.",
-        "Conducting debugging and routine system maintenance to ensure application reliability.",
+        "Develop web applications based on business requirements from internal teams.",
+        "Build new features while maintaining the stability and performance of existing systems.",
+        "Design database structures that are scalable and easy to maintain.",
+        "Handle debugging and routine maintenance for production applications.",
       ],
       id: [
-        "Mengembangkan aplikasi web yang disesuaikan dengan kebutuhan bisnis perusahaan.",
-        "Merancang dan mengimplementasikan fitur baru serta memastikan stabilitas sistem berjalan optimal.",
-        "Merancang arsitektur basis data yang terukur (scalable) dan mudah dikelola.",
-        "Melakukan proses debugging dan pemeliharaan sistem untuk memastikan keandalan aplikasi.",
+        "Mengembangkan aplikasi web sesuai kebutuhan bisnis dari tim internal.",
+        "Membangun fitur baru serta menjaga stabilitas dan performa sistem yang sudah berjalan.",
+        "Merancang struktur database yang mudah dikembangkan dan dirawat.",
+        "Menangani debugging dan maintenance rutin untuk aplikasi production.",
       ]
     },
   },
@@ -31,12 +31,12 @@ const experiences = [
     logo: null,
     jobdesks: {
       en: [
-        "Developing custom web solutions tailored to diverse client requirements.",
-        "Collaborating directly with clients to translate business concepts into functional digital products.",
+        "Delivered custom websites and web applications for clients across different industries.",
+        "Worked directly with clients, from requirements gathering and development through to launch.",
       ],
       id: [
-        "Mengembangkan solusi web kustom yang disesuaikan dengan beragam kebutuhan klien.",
-        "Berkolaborasi langsung dengan klien untuk merumuskan konsep bisnis menjadi produk digital yang fungsional.",
+        "Mengerjakan website dan aplikasi web sesuai kebutuhan klien dari berbagai bidang.",
+        "Berkomunikasi langsung dengan klien, mulai dari analisis kebutuhan, pengembangan, hingga aplikasi siap digunakan.",
       ]
     },
   },
@@ -48,16 +48,16 @@ const experiences = [
     url: "https://mamorasoft.com",
     jobdesks: {
       en: [
-        "Built responsive websites leveraging Laravel, CodeIgniter, and JavaScript.",
-        "Translated detailed system specifications into high-performing web applications.",
-        "Managed database design and optimization across multiple client projects.",
-        "Performed routine system maintenance and updates to ensure sustained application performance.",
+        "Built responsive web applications using Laravel, CodeIgniter, and JavaScript.",
+        "Translated system specifications into working features ready for production.",
+        "Designed and optimized databases for several client projects.",
+        "Maintained and updated applications running in production.",
       ],
       id: [
-        "Membangun situs web responsif menggunakan kerangka kerja Laravel, CodeIgniter, dan JavaScript.",
-        "Menerjemahkan spesifikasi sistem menjadi aplikasi web yang berkinerja tinggi.",
-        "Menangani perancangan serta optimasi basis data untuk berbagai proyek klien.",
-        "Melakukan pemeliharaan sistem dan pembaruan berkala guna menjaga performa aplikasi.",
+        "Membangun aplikasi web responsif menggunakan Laravel, CodeIgniter, dan JavaScript.",
+        "Menerjemahkan spesifikasi sistem menjadi fitur yang siap digunakan.",
+        "Merancang dan mengoptimasi database untuk beberapa proyek klien.",
+        "Melakukan maintenance dan pembaruan aplikasi yang sudah berjalan.",
       ]
     },
   },
@@ -68,10 +68,10 @@ const experiences = [
     logo: mitra_informatika,
     jobdesks: {
       en: [
-        "Developed a fintech-oriented website integrated with payment gateway APIs and third-party services.",
+        "Contributed to a fintech website integrated with payment gateway APIs and other third-party services.",
       ],
       id: [
-        "Mengembangkan situs web berbasis tekfin (fintech) dengan integrasi API payment gateway dan layanan pihak ketiga.",
+        "Terlibat dalam pengembangan website fintech yang terintegrasi dengan API payment gateway dan layanan pihak ketiga.",
       ]
     },
   },

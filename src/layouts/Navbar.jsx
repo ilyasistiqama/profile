@@ -86,7 +86,7 @@ const Navbar = () => {
           <ul className="navbar-nav ms-auto">
             <li className="nav-item">
               <NavLink to="/" className={({ isActive }) => `nav-link nav-animated${isActive ? ' active' : ''}`}>
-                {t.nav.home || 'Home'}
+                {t.nav.home}
               </NavLink>
             </li>
             <li className="nav-item">
@@ -112,9 +112,9 @@ const Navbar = () => {
               className="lang-toggle-btn"
               onClick={toggleLang}
               aria-label="Toggle language"
-              title={lang === "en" ? "Ganti ke Bahasa Indonesia" : "Switch to English"}
+              title={t.nav.lang_title}
             >
-              {lang === "en" ? "ID" : "EN"}
+              {lang.toUpperCase()}
             </button>
 
           {/* DARK MODE TOGGLE */}

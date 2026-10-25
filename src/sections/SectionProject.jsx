@@ -82,8 +82,8 @@ const SectionProject = ({ projects }) => {
                                 <p>{t.project.no_project}</p>
                             </div>
                         ) : (
-                            filteredProjects.map((project, index) => (
-                                <div key={index} className="box">
+                            filteredProjects.map((project) => (
+                                <div key={project.id} className="box">
                                     {project.images?.length > 0 && (
                                         <div className="box-carousel">
                                             <div id={project.id} className="carousel slide">

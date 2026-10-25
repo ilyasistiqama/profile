@@ -1,7 +1,6 @@
 /* ================= SECTION PROJECT (DEFAULT / LIGHT MODE) ================= */
 #project {
-    background: radial-gradient(circle at top center, rgba(0, 173, 181, 0.06), transparent 38%),
-        linear-gradient(180deg, var(--color-bg, #f4f4f4) 0%, var(--color-bg-alt, #eaeaea) 100%);
+    background: var(--color-bg-alt, #eaeaea);
     padding: 80px 0 100px;
     transition: background 0.3s ease, color 0.3s ease;
 }
@@ -110,7 +109,7 @@
 }
 
 #project .box:hover {
-    transform: translateY(-8px);
+    transform: translateY(-4px);
     border-color: rgba(0, 173, 181, 0.3);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
 }
@@ -137,9 +136,7 @@
     transition: transform 0.35s ease;
 }
 
-.box-carousel:hover img {
-    transform: scale(1.06);
-}
+
 
 /* ===== CATEGORY BADGE ===== */
 .box-category-badge {
@@ -166,7 +163,7 @@
     justify-content: center;
     padding: 60px 26px;
     gap: 14px;
-    color: #64748b;
+    color: var(--color-text-muted);
     background: rgba(255, 255, 255, 0.92);
     border-radius: 20px;
     border: 1px solid rgba(15, 23, 42, 0.08);
@@ -304,19 +301,18 @@
     margin: 12px 22px 20px 22px;
     padding: 12px 20px;
     width: calc(100% - 44px);
-    background: linear-gradient(135deg, #00adb5, #007b82);
+    background: #00adb5;
     color: #fff;
-    border-radius: 12px;
+    border-radius: 10px;
     text-decoration: none;
     font-weight: 700;
     letter-spacing: 0.4px;
-    box-shadow: 0 8px 20px rgba(0, 173, 181, 0.2);
-    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+    transition: background 0.25s ease;
 }
 
 .btn-visit:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 25px rgba(0, 173, 181, 0.3);
+    background: #008b92;
+    color: #fff;
 }
 
 
@@ -325,22 +321,21 @@ body.dark #project,
 .dark #project,
 .dark-mode #project,
 [data-theme="dark"] #project {
-    background: radial-gradient(circle at top center, rgba(45, 212, 191, 0.05), transparent 40%),
-        #030712;
+    background: var(--color-bg-alt);
 }
 
 body.dark #project h2,
 .dark #project h2,
 .dark-mode #project h2,
 [data-theme="dark"] #project h2 {
-    color: #f8fafc;
+    color: var(--color-text);
 }
 
 body.dark #project .project-desc,
 .dark #project .project-desc,
 .dark-mode #project .project-desc,
 [data-theme="dark"] #project .project-desc {
-    color: #94a3b8;
+    color: var(--color-text-muted);
 }
 
 /* Filter Dark */
@@ -350,8 +345,7 @@ body.dark #project .project-filter-btn,
 [data-theme="dark"] #project .project-filter-btn {
     border: 1px solid rgba(255, 255, 255, 0.1);
     background: rgba(255, 255, 255, 0.03);
-    color: #94a3b8;
-    backdrop-filter: blur(8px);
+    color: var(--color-text-muted);
     box-shadow: none;
 }
 
@@ -361,25 +355,24 @@ body.dark #project .project-filter-btn:hover,
 [data-theme="dark"] #project .project-filter-btn:hover {
     background: rgba(255, 255, 255, 0.08);
     border-color: rgba(255, 255, 255, 0.2);
-    color: #f8fafc;
+    color: var(--color-text);
 }
 
 body.dark #project .project-filter-btn.active,
 .dark #project .project-filter-btn.active,
 .dark-mode #project .project-filter-btn.active,
 [data-theme="dark"] #project .project-filter-btn.active {
-    background: #2dd4bf;
-    border-color: #2dd4bf;
-    color: #030712;
-    box-shadow: 0 4px 20px rgba(45, 212, 191, 0.3);
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+    color: #fff;
 }
 
 body.dark #project .project-filter-btn.active .filter-count,
 .dark #project .project-filter-btn.active .filter-count,
 .dark-mode #project .project-filter-btn.active .filter-count,
 [data-theme="dark"] #project .project-filter-btn.active .filter-count {
-    background: rgba(3, 7, 18, 0.2);
-    color: #030712;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
 }
 
 .project-filter-btn .filter-count {
@@ -392,7 +385,7 @@ body.dark #project .project-filter-btn .filter-count,
 .dark-mode #project .project-filter-btn .filter-count,
 [data-theme="dark"] #project .project-filter-btn .filter-count {
     background: rgba(255, 255, 255, 0.1);
-    color: #94a3b8;
+    color: var(--color-text-muted);
 }
 
 /* Card Dark */
@@ -400,55 +393,53 @@ body.dark #project .box,
 .dark #project .box,
 .dark-mode #project .box,
 [data-theme="dark"] #project .box {
-    background: rgba(10, 15, 30, 0.7);
-    border: 1px solid rgba(45, 212, 191, 0.15);
-    backdrop-filter: blur(12px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    box-shadow: none;
 }
 
 body.dark #project .box:hover,
 .dark #project .box:hover,
 .dark-mode #project .box:hover,
 [data-theme="dark"] #project .box:hover {
-    border-color: rgba(45, 212, 191, 0.4);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(45, 212, 191, 0.1);
+    border-color: var(--color-accent);
 }
 
 body.dark #project .box-carousel,
 .dark #project .box-carousel,
 .dark-mode #project .box-carousel,
 [data-theme="dark"] #project .box-carousel {
-    background: #030712;
+    background: var(--color-bg);
 }
 
 body.dark #project .box-category-badge,
 .dark #project .box-category-badge,
 .dark-mode #project .box-category-badge,
 [data-theme="dark"] #project .box-category-badge {
-    background: rgba(45, 212, 191, 0.1);
-    color: #2dd4bf;
-    border: 1px solid rgba(45, 212, 191, 0.3);
+    background: var(--color-border);
+    color: var(--color-accent);
+    border: 1px solid var(--color-accent);
 }
 
 body.dark #project .box-explanation h3,
 .dark #project .box-explanation h3,
 .dark-mode #project .box-explanation h3,
 [data-theme="dark"] #project .box-explanation h3 {
-    color: #f8fafc;
+    color: var(--color-text);
 }
 
 body.dark #project .box-explanation p,
 .dark #project .box-explanation p,
 .dark-mode #project .box-explanation p,
 [data-theme="dark"] #project .box-explanation p {
-    color: #94a3b8;
+    color: var(--color-text-muted);
 }
 
 body.dark #project .box-explanation .text-muted,
 .dark #project .box-explanation .text-muted,
 .dark-mode #project .box-explanation .text-muted,
 [data-theme="dark"] #project .box-explanation .text-muted {
-    color: #64748b;
+    color: var(--color-text-muted);
 }
 
 /* Tech Stack Dark */
@@ -457,7 +448,7 @@ body.dark #project .child-box,
 .dark-mode #project .child-box,
 [data-theme="dark"] #project .child-box {
     background: rgba(255, 255, 255, 0.03);
-    color: #94a3b8;
+    color: var(--color-text-muted);
     border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
@@ -465,9 +456,9 @@ body.dark #project .child-box:hover,
 .dark #project .child-box:hover,
 .dark-mode #project .child-box:hover,
 [data-theme="dark"] #project .child-box:hover {
-    background: #2dd4bf;
-    color: #030712;
-    border-color: #2dd4bf;
+    background: var(--color-accent);
+    color: #fff;
+    border-color: var(--color-accent);
 }
 
 /* Visit Button Dark */
@@ -475,17 +466,15 @@ body.dark #project .btn-visit,
 .dark #project .btn-visit,
 .dark-mode #project .btn-visit,
 [data-theme="dark"] #project .btn-visit {
-    background: #2dd4bf;
-    color: #030712;
-    box-shadow: 0 4px 20px rgba(45, 212, 191, 0.25);
+    background: var(--color-accent);
+    color: #fff;
 }
 
 body.dark #project .btn-visit:hover,
 .dark #project .btn-visit:hover,
 .dark-mode #project .btn-visit:hover,
 [data-theme="dark"] #project .btn-visit:hover {
-    background: #5eead4;
-    box-shadow: 0 6px 24px rgba(45, 212, 191, 0.4);
+    background: var(--color-accent-hover);
 }
 
 /* Empty State Dark */
@@ -493,23 +482,23 @@ body.dark #project .no-projects,
 .dark #project .no-projects,
 .dark-mode #project .no-projects,
 [data-theme="dark"] #project .no-projects {
-    background: rgba(10, 15, 30, 0.7);
-    border: 1px solid rgba(45, 212, 191, 0.15);
-    color: #94a3b8;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    color: var(--color-text-muted);
 }
 
 body.dark #project .no-projects i,
 .dark #project .no-projects i,
 .dark-mode #project .no-projects i,
 [data-theme="dark"] #project .no-projects i {
-    color: #2dd4bf;
+    color: var(--color-accent);
 }
 
 body.dark #project .no-projects p,
 .dark #project .no-projects p,
 .dark-mode #project .no-projects p,
 [data-theme="dark"] #project .no-projects p {
-    color: #94a3b8;
+    color: var(--color-text-muted);
 }
 
 

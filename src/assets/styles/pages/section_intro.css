@@ -6,188 +6,119 @@
   /* Padding atas ditambah biar nggak nabrak navbar */
   display: flex;
   align-items: center;
-  justify-content: center;
-  background: #030712;
-  /* Dark deep modern background */
-  overflow: hidden;
-}
-
-/* Background image dengan overlay gelap total agar estetik */
-#intro::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: url("../../images/background.webp") no-repeat center center / cover;
-  opacity: 0.15;
-  /* Dibuat samar banget biar fokus ke teks */
-  pointer-events: none;
-}
-
-/* Efek cahaya/glow di tengah background */
-.hero-glow {
-  position: absolute;
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, rgba(45, 212, 191, 0.12) 0%, transparent 70%);
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 0;
-  pointer-events: none;
+  /* Foto latar + overlay gelap supaya teks tetap terbaca di kedua tema */
+  background:
+    linear-gradient(rgba(5, 8, 12, 0.55), rgba(5, 8, 12, 0.7)),
+    url("../../images/background.webp") no-repeat center / cover;
+  color: #f1f5f9;
 }
 
 /* ================= CONTAINER & CONTENT ================= */
 #intro .container {
   width: 100%;
-  max-width: 900px;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
 #intro-content {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
-  position: relative;
-  z-index: 1;
+  align-items: flex-start;
+  max-width: 720px;
 }
 
-/* ================= BADGE / TERMINAL ROLE ================= */
-.hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 8px 20px;
-  margin-bottom: 24px;
-  border-radius: 50px;
-  background: rgba(10, 15, 30, 0.85);
-  border: 1px solid rgba(45, 212, 191, 0.3);
-  box-shadow: 0 0 20px rgba(45, 212, 191, 0.15);
-  backdrop-filter: blur(12px);
-  font-family: 'Fira Code', monospace, sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: 0.03em;
-  color: #2dd4bf;
-  min-height: 40px;
-}
-
-.badge-icon {
-  font-size: 13px;
-  color: #2dd4bf;
-}
-
-.typing-text {
-  color: #f8fafc;
-}
-
-.typing-cursor {
-  font-weight: 300;
-  animation: blink 0.8s infinite;
-  color: #2dd4bf;
-  margin-left: 2px;
-}
-
-@keyframes blink {
-
-  0%,
-  100% {
-    opacity: 1;
-  }
-
-  50% {
-    opacity: 0;
-  }
+/* ================= ROLE ================= */
+.hero-role {
+  margin-bottom: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #33c4cb;
 }
 
 /* ================= TYPOGRAPHY ================= */
 #name {
   font-size: clamp(36px, 7vw, 60px);
   font-weight: 800;
-  letter-spacing: -0.03em;
-  color: #f8fafc;
+  letter-spacing: -0.02em;
+  color: #fff;
   line-height: 1.1;
+  margin: 0;
 }
 
 .name-highlight {
-  background: linear-gradient(135deg, #2dd4bf 0%, #38bdf8 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #33c4cb;
 }
 
 /* ================= DESCRIPTION ================= */
 .desc-wrapper {
-  max-width: 680px;
-  margin-top: 20px;
+  margin-top: 24px;
 }
 
 .intro-desc {
-  font-size: 15px;
+  font-size: 17px;
   line-height: 1.7;
-  color: #94a3b8;
+  color: rgba(255, 255, 255, 0.8);
   margin-bottom: 8px;
 }
 
 /* ================= ACTION BUTTONS ================= */
 .action-group {
   display: flex;
-  gap: 16px;
+  gap: 12px;
   margin-top: 32px;
 }
 
-.btn-primary {
-  padding: 12px 28px;
-  border-radius: 12px;
-  background: #2dd4bf;
-  color: #030712;
+.btn-primary,
+.btn-secondary {
+  padding: 11px 24px;
+  border-radius: 8px;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 15px;
   text-decoration: none;
-  transition: all 0.25s ease;
-  box-shadow: 0 4px 20px rgba(45, 212, 191, 0.3);
+  border: 2px solid var(--color-accent);
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.btn-primary {
+  background: var(--color-accent);
+  color: #fff;
 }
 
 .btn-primary:hover {
-  background: #5eead4;
-  transform: translateY(-2px);
+  background: var(--color-accent-hover);
+  border-color: var(--color-accent-hover);
+  color: #fff;
 }
 
 .btn-secondary {
-  padding: 12px 28px;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: #f8fafc;
-  font-weight: 600;
-  font-size: 14px;
-  text-decoration: none;
-  transition: all 0.25s ease;
+  background: transparent;
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.5);
 }
 
 .btn-secondary:hover {
   background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.2);
-  transform: translateY(-2px);
+  border-color: #fff;
+  color: #fff;
 }
 
 /* ================= SCROLL ICON ================= */
 #redirect {
-  margin-top: 40px;
-  font-size: 24px;
-  color: #64748b;
-  animation: bounce 2s ease-in-out infinite;
-  transition: color 0.3s ease;
+  margin-top: 56px;
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.7);
+  transition: color 0.2s ease;
 }
 
 #redirect:hover {
-  color: #2dd4bf;
+  color: var(--color-accent);
 }
 
 /* ================= ANIMATIONS ================= */
 .reveal-item {
   opacity: 0;
-  transform: translateY(16px);
-  animation: revealUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transform: translateY(12px);
+  animation: revealUp 0.6s ease forwards;
 }
 
 .delay-1 {
@@ -217,32 +148,25 @@
   }
 }
 
-@keyframes bounce {
-
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(8px);
-  }
-}
-
 /* ================= RESPONSIVE ================= */
 @media (max-width: 768px) {
   #intro {
     padding-top: 100px;
+    min-height: 90vh;
   }
 
-  .hero-badge {
-    font-size: 12px;
-    padding: 6px 14px;
+  .intro-desc {
+    font-size: 15px;
   }
 
   .action-group {
     flex-direction: column;
     width: 100%;
     max-width: 280px;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    text-align: center;
   }
 }

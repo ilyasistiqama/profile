@@ -61,8 +61,8 @@ const SectionAboutMe = () => {
       </div>
 
       {selectedImage && (
-        <div className="overlay active">
-          <span className="close-btn" onClick={closeOverlay}>
+        <div className="overlay active" onClick={closeOverlay}>
+          <span className="close-btn">
             ×
           </span>
           <img src={selectedImage} alt="Zoomed profile" id="zoomed-image" />

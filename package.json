@@ -25,6 +25,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "build": "craco build",
+    "postbuild": "cp build/index.html build/404.html",
     "test": "craco test",
     "eject": "craco eject"
   },

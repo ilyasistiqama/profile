@@ -71,6 +71,7 @@ const CountUp = ({ end, suffix, isFloat, active }) => {
 
     const duration = 1800;
     const startTime = performance.now();
+    let frame;
 
     const animate = (currentTime) => {
       const elapsed = currentTime - startTime;
@@ -80,10 +81,11 @@ const CountUp = ({ end, suffix, isFloat, active }) => {
         ? parseFloat((eased * end).toFixed(2))
         : Math.floor(eased * end);
       setCount(current);
-      if (progress < 1) requestAnimationFrame(animate);
+      if (progress < 1) frame = requestAnimationFrame(animate);
     };
 
-    requestAnimationFrame(animate);
+    frame = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(frame);
   }, [active, end, isFloat]);
 
   return (
@@ -123,7 +125,6 @@ const SectionStats = ({ experiences, projects }) => {
             <div
               key={i}
               className="stat-card"
-              style={{ animationDelay: `${i * 0.12}s` }}
             >
               <div className="stat-icon">
                 <i className={stat.icon} />

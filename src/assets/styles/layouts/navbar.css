@@ -6,9 +6,6 @@
   --logo-shadow-3: #005459;
   --logo-shadow-drop: rgba(0, 0, 0, 0.2);
 
-  /* Bayangan 3D untuk tulisan ".life" di Light Mode */
-  --logo-text-shadow-1: #cbd5e1;
-  --logo-text-shadow-2: #94a3b8;
 }
 
 /* Tema Gelap (Dark Mode) - Mencakup berbagai jenis selector dark mode umum */
@@ -21,9 +18,6 @@ body.dark {
   --logo-shadow-3: #007c82;
   --logo-shadow-drop: rgba(0, 173, 181, 0.4);
 
-  /* Bayangan 3D untuk tulisan ".life" di Dark Mode */
-  --logo-text-shadow-1: #475569;
-  --logo-text-shadow-2: #334155;
 }
 
 /* --- NAVBAR STYLES --- */
@@ -92,9 +86,9 @@ body.dark {
 
 /* --- LOGO STYLES (UPDATED) --- */
 .brand-logo {
-  font-weight: 900;
-  font-size: 1.8rem;
-  letter-spacing: 1px;
+  font-weight: 800;
+  font-size: 1.6rem;
+  letter-spacing: 0;
   color: var(--color-accent, #00adb5);
   text-decoration: none;
   display: inline-block;
@@ -103,26 +97,16 @@ body.dark {
     color 0.22s ease;
 }
 
-.brand-logo:hover {
-  transform: translateY(-2px) scale(1.03);
-}
+
 
 .brand-logo span {
   color: var(--color-navbar-text, #0f172a);
-  text-shadow:
-    1px 1px 0px var(--logo-text-shadow-1),
-    2px 2px 0px var(--logo-text-shadow-2);
   transition: color 0.22s ease;
 }
 
 /* Efek timbul 3D Adaptive (Mengikuti Tema) */
 .text-timbul-3d {
   color: var(--color-accent, #00adb5);
-  text-shadow:
-    1px 1px 0px var(--logo-shadow-1),
-    2px 2px 0px var(--logo-shadow-2),
-    3px 3px 0px var(--logo-shadow-3),
-    4px 4px 8px var(--logo-shadow-drop);
 }
 
 /* --- NAVIGATION MENU --- */
@@ -146,7 +130,7 @@ body.dark {
   bottom: -4px;
   width: 0;
   height: 2px;
-  background: linear-gradient(90deg, #00adb5, #5ffbf1);
+  background: #00adb5;
   transition: width 0.3s ease;
 }
 
@@ -184,7 +168,6 @@ body.dark {
   border-color: #00adb5;
   color: #00adb5;
   background: rgba(0, 173, 181, 0.12);
-  transform: rotate(20deg) scale(1.1);
 }
 
 #theme-toggle .fa-sun {

@@ -17,6 +17,7 @@
 
   --color-accent: #00adb5;
   --color-accent-light: rgba(0, 173, 181, 0.15);
+  --color-accent-hover: #00c2cb;
 
   --color-shadow: rgba(0, 0, 0, 0.6);
 
@@ -54,7 +55,6 @@
 }
 
 [data-theme="dark"] .btn-custom:hover {
-  box-shadow: 0 10px 20px rgba(0, 173, 181, 0.3);
 }
 
 /* ===== SKILLS ===== */
@@ -135,7 +135,7 @@
 }
 
 [data-theme="dark"] #experience .box.is-active {
-  box-shadow: 8px 8px 18px rgba(0, 173, 181, 0.2);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
 }
 
 [data-theme="dark"] .box-title a {
@@ -160,10 +160,6 @@
 }
 
 /* Contact section adjustments for dark mode */
-[data-theme="dark"] .contact-upper {
-  background: linear-gradient(160deg, var(--color-bg) 0%, var(--color-bg-alt) 100%);
-}
-
 [data-theme="dark"] .contact-form {
   background: var(--color-surface);
   border-color: var(--color-border);
@@ -203,7 +199,7 @@
 }
 
 [data-theme="dark"] .child-box {
-  background: linear-gradient(135deg, var(--color-bg), var(--color-bg-alt));
+  background: var(--color-bg);
   border-color: var(--color-border-light);
   color: var(--color-text);
 }
@@ -286,7 +282,7 @@ body,
 
 /* ===== CONTACT FORM — DARK MODE ===== */
 [data-theme="dark"] .contact-upper {
-  background: linear-gradient(160deg, #0d1117 0%, #111827 100%);
+  background: var(--color-bg);
 }
 
 [data-theme="dark"] .contact-heading,

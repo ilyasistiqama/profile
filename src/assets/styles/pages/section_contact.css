@@ -7,7 +7,7 @@
 
 /* ===== UPPER AREA ===== */
 .contact-upper {
-  background: linear-gradient(160deg, var(--color-bg, #f4f4f4) 0%, var(--color-bg-alt, #eaeaea) 100%);
+  background: var(--color-bg, #fff);
   padding: 80px 0 60px;
 }
 
@@ -139,7 +139,7 @@
   justify-content: center;
   gap: 10px;
   padding: 14px 28px;
-  background: linear-gradient(135deg, #00adb5, #007b82);
+  background: #00adb5;
   color: #fff;
   font-weight: 700;
   font-size: 0.95rem;
@@ -151,8 +151,7 @@
 }
 
 .btn-send:hover:not(:disabled) {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 28px rgba(0, 173, 181, 0.35);
+  background: #008b92;
 }
 
 .btn-send:disabled {
@@ -235,29 +234,18 @@
 }
 
 #contact .btn-floating:hover {
-  transform: translateY(-5px) scale(1.05);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
 }
 
 /* ===== FOOTER ===== */
 .contact-footer {
-  background: linear-gradient(180deg, #111 0%, #1a1e21 100%);
-  position: relative;
-  overflow: hidden;
-}
-
-.contact-footer::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at top, rgba(255, 255, 255, 0.04), transparent 60%);
-  pointer-events: none;
+  background: #111;
 }
 
 .footer-divider {
   width: 100%;
   height: 1px;
-  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .footer-bottom {
@@ -272,35 +260,35 @@ body.dark #contact,
 .dark #contact,
 .dark-mode #contact,
 [data-theme="dark"] #contact {
-  background: #030712;
+  background: var(--color-bg);
 }
 
 body.dark #contact .contact-upper,
 .dark #contact .contact-upper,
 .dark-mode #contact .contact-upper,
 [data-theme="dark"] #contact .contact-upper {
-  background: #030712;
+  background: var(--color-bg);
 }
 
 body.dark #contact .contact-heading,
 .dark #contact .contact-heading,
 .dark-mode #contact .contact-heading,
 [data-theme="dark"] #contact .contact-heading {
-  color: #f8fafc;
+  color: var(--color-text);
 }
 
 body.dark #contact .contact-sub,
 .dark #contact .contact-sub,
 .dark-mode #contact .contact-sub,
 [data-theme="dark"] #contact .contact-sub {
-  color: #94a3b8;
+  color: var(--color-text-muted);
 }
 
 body.dark #contact .contact-detail-item i,
 .dark #contact .contact-detail-item i,
 .dark-mode #contact .contact-detail-item i,
 [data-theme="dark"] #contact .contact-detail-item i {
-  color: #2dd4bf;
+  color: var(--color-accent);
 }
 
 body.dark #contact .contact-detail-item a,
@@ -311,14 +299,14 @@ body.dark #contact .contact-detail-item span,
 .dark-mode #contact .contact-detail-item span,
 [data-theme="dark"] #contact .contact-detail-item a,
 [data-theme="dark"] #contact .contact-detail-item span {
-  color: #f8fafc;
+  color: var(--color-text);
 }
 
 body.dark #contact .contact-detail-item a:hover,
 .dark #contact .contact-detail-item a:hover,
 .dark-mode #contact .contact-detail-item a:hover,
 [data-theme="dark"] #contact .contact-detail-item a:hover {
-  color: #2dd4bf;
+  color: var(--color-accent);
 }
 
 /* Contact Form Dark */
@@ -326,17 +314,16 @@ body.dark #contact .contact-form,
 .dark #contact .contact-form,
 .dark-mode #contact .contact-form,
 [data-theme="dark"] #contact .contact-form {
-  background: rgba(10, 15, 30, 0.7);
-  border: 1px solid rgba(45, 212, 191, 0.15);
-  backdrop-filter: blur(12px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  box-shadow: none;
 }
 
 body.dark #contact .form-group label,
 .dark #contact .form-group label,
 .dark-mode #contact .form-group label,
 [data-theme="dark"] #contact .form-group label {
-  color: #94a3b8;
+  color: var(--color-text-muted);
 }
 
 body.dark #contact .form-group input,
@@ -347,9 +334,9 @@ body.dark #contact .form-group textarea,
 .dark-mode #contact .form-group textarea,
 [data-theme="dark"] #contact .form-group input,
 [data-theme="dark"] #contact .form-group textarea {
-  background: rgba(3, 7, 18, 0.6);
+  background: var(--color-bg);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  color: #f8fafc;
+  color: var(--color-text);
 }
 
 body.dark #contact .form-group input:focus,
@@ -360,9 +347,9 @@ body.dark #contact .form-group textarea:focus,
 .dark-mode #contact .form-group textarea:focus,
 [data-theme="dark"] #contact .form-group input:focus,
 [data-theme="dark"] #contact .form-group textarea:focus {
-  border-color: #2dd4bf;
-  box-shadow: 0 0 0 3px rgba(45, 212, 191, 0.2);
-  background: rgba(3, 7, 18, 0.9);
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px var(--color-accent-light);
+  background: var(--color-bg-alt);
 }
 
 /* Send Button Dark */
@@ -370,17 +357,15 @@ body.dark #contact .btn-send,
 .dark #contact .btn-send,
 .dark-mode #contact .btn-send,
 [data-theme="dark"] #contact .btn-send {
-  background: #2dd4bf;
-  color: #030712;
-  box-shadow: 0 4px 20px rgba(45, 212, 191, 0.25);
+  background: var(--color-accent);
+  color: #fff;
 }
 
 body.dark #contact .btn-send:hover:not(:disabled),
 .dark #contact .btn-send:hover:not(:disabled),
 .dark-mode #contact .btn-send:hover:not(:disabled),
 [data-theme="dark"] #contact .btn-send:hover:not(:disabled) {
-  background: #5eead4;
-  box-shadow: 0 6px 24px rgba(45, 212, 191, 0.4);
+  background: var(--color-accent-hover);
 }
 
 

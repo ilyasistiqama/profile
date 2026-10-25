@@ -46,10 +46,10 @@ const projects = [
         project_name: 'Terik Peternakan Digital',
         project_origin: 'PT. Terik Indonesia Inside',
         description: {
-            en: "Developed a corporate landing page to establish brand presence and showcase the company's digital solutions.",
-            id: "Mengembangkan halaman landas (landing page) korporat untuk membangun identitas merek dan menampilkan solusi digital perusahaan."
+            en: "Official company website for PT. Terik Indonesia Inside, presenting the company profile and its digital livestock investment products.",
+            id: "Website resmi PT. Terik Indonesia Inside yang menampilkan profil perusahaan dan produk investasi peternakan digitalnya."
         },
-        stacks: ['HTML', 'CSS', 'Javascript', 'PHP', 'Boostrap', 'Jquery', 'Laravel'],
+        stacks: ['HTML', 'CSS', 'JavaScript', 'PHP', 'Bootstrap', 'jQuery', 'Laravel'],
         url: 'https://terik.id'
     },
     {
@@ -59,10 +59,10 @@ const projects = [
         project_name: 'SIMPe (Sistem Informasi Manajemen Peternakan)',
         project_origin: 'PT. Terik Indonesia Inside',
         description: {
-            en: "A comprehensive farm management system designed to streamline livestock tracking and daily operational workflows.",
-            id: "Sistem manajemen peternakan komprehensif yang dirancang untuk menyederhanakan pemantauan ternak dan alur kerja operasional harian."
+            en: "SaaS farm management system for recording livestock data and managing daily farm operations.",
+            id: "Sistem manajemen peternakan berbasis SaaS untuk pencatatan data ternak dan pengelolaan operasional harian."
         },
-        stacks: ['HTML', 'CSS', 'Javascript', 'PHP', 'MySQL', 'Boostrap', 'Jquery', 'AJAX', 'Laravel', 'Jquery Datatables', 'SaaS'],
+        stacks: ['HTML', 'CSS', 'JavaScript', 'PHP', 'MySQL', 'Bootstrap', 'jQuery', 'AJAX', 'Laravel', 'jQuery DataTables', 'SaaS'],
         url: 'https://simpe.id'
     },
     {
@@ -72,10 +72,10 @@ const projects = [
         project_name: 'Synn Store',
         project_origin: 'Freelancer',
         description: {
-            en: "An e-commerce platform tailored for gamers, featuring an integrated digital wallet and a specialized reseller management system.",
-            id: "Platform e-commerce khusus untuk gamer, dilengkapi dengan integrasi dompet digital dan sistem manajemen reseller."
+            en: "E-commerce platform for gamers with a built-in digital wallet and reseller management.",
+            id: "Platform e-commerce untuk gamer dengan fitur dompet digital dan manajemen reseller."
         },
-        stacks: ['HTML', 'CSS', 'Javascript', 'PHP', 'MySQL', 'Boostrap', 'Jquery', 'AJAX', 'Laravel', 'Jquery Datatables', 'Restful API'],
+        stacks: ['HTML', 'CSS', 'JavaScript', 'PHP', 'MySQL', 'Bootstrap', 'jQuery', 'AJAX', 'Laravel', 'jQuery DataTables', 'Restful API'],
         url: 'https://synnmlbb.com'
     },
     {
@@ -85,10 +85,10 @@ const projects = [
         project_name: 'RMP (Rotasi, Mutasi, Promosi)',
         project_origin: 'CV. Mamorasoft',
         description: {
-            en: "An HR management system developed to facilitate and track employee rotations, mutations, and promotions via a structured approval workflow.",
-            id: "Sistem manajemen SDM untuk memfasilitasi dan melacak proses rotasi, mutasi, serta promosi karyawan melalui alur persetujuan yang terstruktur."
+            en: "HR system for Petrokimia Gresik that manages employee rotation, transfer, and promotion requests through an approval workflow.",
+            id: "Sistem SDM untuk Petrokimia Gresik yang mengelola pengajuan rotasi, mutasi, dan promosi karyawan melalui alur persetujuan."
         },
-        stacks: ['HTML', 'CSS', 'Javascript', 'PHP', 'PostgreSQL', 'Boostrap', 'Jquery', 'AJAX', 'Laravel', 'Jquery Datatables'],
+        stacks: ['HTML', 'CSS', 'JavaScript', 'PHP', 'PostgreSQL', 'Bootstrap', 'jQuery', 'AJAX', 'Laravel', 'jQuery DataTables'],
         url: 'https://rmp.petrokimia-gresik.com/rmp/login'
     },
     {
@@ -98,33 +98,33 @@ const projects = [
         project_name: 'SERGIO (Sistem Registrasi Inovasi Online)',
         project_origin: 'CV. Mamorasoft',
         description: {
-            en: "A centralized platform for employees to submit, manage, and track innovative ideas to drive corporate growth.",
-            id: "Platform terpusat bagi karyawan untuk mengirimkan, mengelola, dan melacak ide-ide inovatif guna mendorong kemajuan perusahaan."
+            en: "Innovation registration system for Petrokimia Gresik, where employees submit ideas and track their review status.",
+            id: "Sistem registrasi inovasi untuk Petrokimia Gresik, tempat karyawan mengajukan ide dan memantau status penilaiannya."
         },
-        stacks: ['HTML', 'CSS', 'Javascript', 'PHP', 'PostgreSQL', 'Boostrap', 'Jquery', 'AJAX', 'Laravel', 'Jquery Datatables'],
+        stacks: ['HTML', 'CSS', 'JavaScript', 'PHP', 'PostgreSQL', 'Bootstrap', 'jQuery', 'AJAX', 'Laravel', 'jQuery DataTables'],
         url: 'https://sergio.petrokimia-gresik.com'
     },
     {
-        id: 'carouselSispakIndicators',
+        id: 'carouselSPKIndicators',
         category: 'Personal',
         images: [spk1, spk2, spk3, spk4, spk5, spk6, spk7],
         project_name: 'Sistem Pengambil Keputusan - Pemilihan Proyek Dikerjakan',
         project_origin: 'Personal Project',
         description: {
-            en: "A Decision Support System (DSS) engineered to prioritize project execution based on cost and time constraints.",
-            id: "Sistem Pendukung Keputusan (SPK) yang dirancang untuk memprioritaskan pengerjaan proyek berdasarkan parameter batasan biaya dan waktu."
+            en: "Decision support system that ranks project priorities based on cost and time constraints.",
+            id: "Sistem pendukung keputusan untuk menentukan prioritas proyek berdasarkan batasan biaya dan waktu."
         },
-        stacks: ['HTML', 'CSS', 'Javascript', 'PHP', 'MySQL', 'Boostrap', 'Jquery', 'AJAX', 'Laravel']
+        stacks: ['HTML', 'CSS', 'JavaScript', 'PHP', 'MySQL', 'Bootstrap', 'jQuery', 'AJAX', 'Laravel']
     },
     {
-        id: 'carouselSPKIndicators',
+        id: 'carouselSispakIndicators',
         category: 'Personal',
         images: [sispak1, sispak2, sispak3, sispak4, sispak5, sispak6, sispak7],
         project_name: 'Sistem Pakar Gangguan Kecemasan',
         project_origin: 'Personal Project',
         description: {
-            en: "An expert system developed to assist in the early detection and assessment of anxiety disorders through automated diagnostic logic.",
-            id: "Sistem pakar yang dikembangkan untuk membantu deteksi dini dan penilaian gangguan kecemasan melalui logika diagnosis otomatis."
+            en: "Expert system for early screening of anxiety disorders.",
+            id: "Sistem pakar untuk membantu deteksi awal gangguan kecemasan."
         },
         stacks: ['HTML', 'CSS', 'PHP', 'MySQL']
     }

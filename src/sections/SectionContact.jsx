@@ -100,7 +100,7 @@ const SectionContact = () => {
                   id="contact-name"
                   type="text"
                   name="name"
-                  placeholder="Your name"
+                  placeholder={t.contact.name_placeholder}
                   value={formData.name}
                   onChange={handleChange}
                   required

@@ -9,17 +9,17 @@ import './assets/styles/pages/section_experience.css';
 import './assets/styles/pages/section_project.css';
 import './assets/styles/pages/section_contact.css';
 import './assets/styles/pages/section_stats.css';
+import './assets/styles/pages/section_photo.css';
 import './assets/styles/dark-mode.css';
 
 import { useEffect, useState } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import { useLanguage } from "./context/LanguageContext";
 
 import dataSkills from './utils/data/skills';
 import dataExperiences from './utils/data/experiences';
 import dataProjects from './utils/data/projects';
 
-import LoadingScreen from "./components/LoadingScreen";
 // import CustomCursor from "./components/CustomCursor";
 import NotFound from './pages/NotFound';
 import HomePage from './pages/HomePage';
@@ -35,6 +35,12 @@ function AppContent() {
   const thisYear = new Date().getFullYear();
 
   const [isVisible, setIsVisible] = useState(false);
+  const { pathname, hash } = useLocation();
+
+  // Reset posisi scroll setiap pindah halaman (kecuali link ke #anchor)
+  useEffect(() => {
+    if (!hash) window.scrollTo(0, 0);
+  }, [pathname, hash]);
 
   // Dynamic SEO
   useEffect(() => {
@@ -62,7 +68,6 @@ function AppContent() {
   return (
     <>
       {/* <CustomCursor /> */}
-      <LoadingScreen />
 
       <Routes>
         <Route path="/" element={<HomePage experiences={experiences} projects={projects} skills={skills} />} />
