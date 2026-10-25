@@ -1,12 +1,8 @@
-import React from "react";
-import NavbarComponent from "../layouts/Navbar";
-import SectionContact from "../sections/SectionContact";
+import Contact from "../sections/Contact";
+import usePageMeta from "../hooks/usePageMeta";
 
-const ContactPage = () => (
-  <>
-    <NavbarComponent />
-    <SectionContact />
-  </>
-);
+export default function ContactPage() {
+  usePageMeta("contact", "/contact/");
 
-export default ContactPage;
+  return <Contact />;
+}

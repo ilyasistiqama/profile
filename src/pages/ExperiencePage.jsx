@@ -1,12 +1,8 @@
-import React from "react";
-import NavbarComponent from "../layouts/Navbar";
-import SectionExperience from "../sections/SectionExperience";
+import Experience from "../sections/Experience";
+import usePageMeta from "../hooks/usePageMeta";
 
-const ExperiencePage = ({ experiences }) => (
-  <>
-    <NavbarComponent />
-    <SectionExperience experiences={experiences} />
-  </>
-);
+export default function ExperiencePage() {
+  usePageMeta("experience", "/experience/");
 
-export default ExperiencePage;
+  return <Experience />;
+}

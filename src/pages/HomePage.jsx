@@ -1,23 +1,20 @@
-import React from "react";
-import NavbarComponent from "../layouts/Navbar";
-import SectionIntro from "../sections/SectionIntro";
-import SectionAboutMe from "../sections/SectionAboutMe";
-import SectionStats from "../sections/SectionStats";
-import SectionSkill from "../sections/SectionSkill";
-import SectionPhoto from "../sections/SectionPhoto";
+import Hero from "../sections/Hero";
+import About from "../sections/About";
+import Stats from "../sections/Stats";
+import Skills from "../sections/Skills";
+import PhotoBanner from "../sections/PhotoBanner";
+import usePageMeta from "../hooks/usePageMeta";
 
-const HomePage = ({ experiences, projects, skills }) => {
+export default function HomePage() {
+  usePageMeta("home", "/");
 
-    return (
-        <>
-            <NavbarComponent />
-            <SectionIntro />
-            <SectionAboutMe />
-            <SectionStats experiences={experiences} projects={projects} />
-            <SectionSkill skills={skills} />
-            <SectionPhoto />
-        </>
-    );
-};
-
-export default HomePage;
+  return (
+    <>
+      <Hero />
+      <About />
+      <Stats />
+      <Skills />
+      <PhotoBanner />
+    </>
+  );
+}

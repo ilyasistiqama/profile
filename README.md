@@ -1,70 +1,59 @@
-# Getting Started with Create React App
+# muis.life
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Website portfolio pribadi Muh. Ilyas Istiqama. Dibuat dengan React, Vite, Tailwind CSS v4, dan React Router.
 
-## Available Scripts
+## Menjalankan
 
-In the project directory, you can run:
+```bash
+npm install
+npm run dev       # server lokal di http://localhost:5173
+npm test          # jalankan test (Vitest)
+npm run lint      # cek kode dengan ESLint
+npm run build     # build ke folder build/
+npm run deploy    # build lalu upload ke GitHub Pages
+```
 
-### `npm start`
+## Struktur folder
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```
+index.html              Template HTML (meta SEO, font, script tema, Google Analytics)
+public/                 File statis yang disalin apa adanya (favicon, CNAME, sitemap, og-image)
+src/
+  main.jsx              Titik awal: pasang router, tema, dan bahasa
+  App.jsx               Daftar halaman (route)
+  index.css             Satu-satunya file CSS: import Tailwind + warna tema light/dark
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+scripts/prerender.js    Dijalankan setelah build: buat HTML per halaman untuk SEO
 
-### `npm test`
+  pages/                Satu file per halaman (URL), isinya menyusun section
+  sections/             Blok konten besar: Hero, About, Stats, Skills, Experience, Projects, ...
+  components/
+    layout/             Navbar, Footer, tombol kembali ke atas, Layout pembungkus halaman
+    ui/                 Komponen kecil yang dipakai ulang: Button, FilterTabs, Lightbox, ...
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  data/                 Isi konten: pengalaman, proyek, skill, info pribadi
+  locales/              Semua teks per bahasa (en.js, id.js)
+  context/              State global bahasa & tema: *Context.js (hook) + *Provider.jsx (komponen)
+  hooks/                Logika yang dipakai ulang: useInView, useScrollState
+  assets/images/        Foto dan gambar proyek
+  test/                 Setup test
+```
 
-### `npm run build`
+## Mengubah konten
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+| Mau mengubah... | Buka file |
+| --- | --- |
+| Teks di halaman (EN/ID) | `src/locales/en.js` dan `src/locales/id.js` |
+| Pengalaman kerja | `src/data/experiences.js` |
+| Proyek | `src/data/projects.js` (gambar di `src/assets/images/project/`) |
+| Skill | `src/data/skills.js` (ikon dari [Font Awesome](https://fontawesome.com/search)) |
+| Email, sosmed, link CV, IPK | `src/data/profile.js` |
+| Warna tema | variabel di bagian atas `src/index.css` |
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Catatan
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- **Dark mode** dikontrol lewat atribut `data-theme` di `<html>`. Di Tailwind pakai prefix `dark:`.
+- **Warna tema** dipakai sebagai class Tailwind: `bg-bg`, `bg-bg-alt`, `bg-surface`, `text-fg`, `text-muted`, `border-line`, `bg-accent`.
+- **GitHub Pages & SEO**: setelah `vite build`, `scripts/prerender.js` membuat `build/<halaman>/index.html` untuk tiap halaman (judul, deskripsi, canonical sendiri), jadi `/portfolio/` dll. dilayani dengan status 200 dan bisa diindeks Google. Judul/deskripsi tiap halaman ada di `seo` pada `src/locales/en.js`. Halaman baru: tambahkan juga ke daftar di `scripts/prerender.js` dan `public/sitemap.xml`.
+- **Ikon** memakai Font Awesome versi SVG: import ikon yang dibutuhkan saja, contoh `import { faLaravel } from "@fortawesome/free-brands-svg-icons"`, lalu `<FontAwesomeIcon icon={faLaravel} />`.
+- **Peran di proyek**: isi `role` (opsional) di `src/data/projects.js`.

@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+/*
+ * Dark mode aktif saat <html data-theme="dark">.
+ * Pakai prefix "dark:" di class Tailwind, contoh: "bg-white dark:bg-black".
+ */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+/*
+ * Warna yang berubah mengikuti tema (light/dark).
+ * Cukup ubah nilai di sini untuk mengganti warna seluruh situs.
+ */
+:root {
+  --bg: #ffffff;
+  --bg-alt: #f1f3f5;
+  --surface: #ffffff;
+  --fg: #1f2328;
+  --muted: #5f6b76;
+  --line: #e2e5e9;
+  /* Aksen dibuat lebih gelap di mode light supaya teks kecil tetap terbaca (kontras >= 4.5:1) */
+  --accent: #00787e;
+  --accent-hover: #006a70;
+  --on-accent: #ffffff; /* warna teks di atas latar aksen */
+}
+
+[data-theme="dark"] {
+  --bg: #0d1117;
+  --bg-alt: #161b22;
+  --surface: #1a2029;
+  --fg: #e6edf3;
+  --muted: #9aa4b2;
+  --line: #30363d;
+  --accent: #00adb5;
+  --accent-hover: #22c3cb;
+  --on-accent: #0d1117;
+}
+
+/*
+ * Daftarkan warna di atas ke Tailwind, sehingga bisa dipakai sebagai
+ * bg-bg, bg-bg-alt, bg-surface, text-fg, text-muted, border-line, bg-accent, text-on-accent, dst.
+ */
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-alt: var(--bg-alt);
+  --color-surface: var(--surface);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-on-accent: var(--on-accent);
+}
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  /* Animasi muncul dari bawah, dipakai dengan class "animate-fade-up" */
+  --animate-fade-up: fade-up 0.6s ease both;
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-bg font-sans text-fg antialiased transition-colors duration-300;
+  }
+
+  /* Supaya judul section tidak tertutup navbar saat lompat via #anchor */
+  section {
+    scroll-margin-top: 6rem;
+  }
+}
