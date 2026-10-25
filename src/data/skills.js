@@ -1,4 +1,4 @@
-import { faAngular, faBitbucket, faBootstrap, faCss3Alt, faGitAlt, faGithub, faHtml5, faJs, faLaravel, faLinux, faPhp, faReact, faTrello } from "@fortawesome/free-brands-svg-icons";
+import { faAngular, faBitbucket, faBootstrap, faCss3Alt, faGitAlt, faGithub, faHtml5, faJs, faLaravel, faLinux, faPhp, faReact, faTrello, faVuejs } from "@fortawesome/free-brands-svg-icons";
 import {
   faArrowRightArrowLeft,
   faArrowsRotate,
@@ -31,6 +31,7 @@ const skills = [
   { name: "jQuery", icon: faJs, category: "Frontend", core: true },
   { name: "AJAX", icon: faArrowsRotate, category: "Frontend", core: true },
   { name: "ReactJS", icon: faReact, category: "Frontend" }, // dipakai untuk website ini
+  { name: "VueJS", icon: faVuejs, category: "Frontend" },
   { name: "AngularJS", icon: faAngular, category: "Frontend" },
 
   // ===== BACKEND =====
