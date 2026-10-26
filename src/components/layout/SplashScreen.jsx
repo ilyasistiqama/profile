@@ -17,6 +17,7 @@ function alreadySeen() {
 export default function SplashScreen() {
   // "show" -> "exit" (animasi keluar) -> "done" (dihapus dari halaman)
   const [stage, setStage] = useState(() => (alreadySeen() ? "done" : "show"));
+  const visible = stage !== "done";
 
   useEffect(() => {
     if (stage === "done") return;
@@ -27,17 +28,25 @@ export default function SplashScreen() {
       // abaikan, splash tetap jalan
     }
 
-    document.body.style.overflow = "hidden";
     const exitTimer = setTimeout(() => setStage("exit"), SHOW_MS);
     const doneTimer = setTimeout(() => setStage("done"), SHOW_MS + EXIT_MS);
 
     return () => {
       clearTimeout(exitTimer);
       clearTimeout(doneTimer);
-      document.body.style.overflow = "";
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps -- cukup dijalankan sekali saat mount
   }, []);
+
+  // Kunci scroll selama splash tampil. Komponen tidak di-unmount saat "done"
+  // (hanya return null), jadi kuncinya harus dilepas saat `visible` berubah.
+  useEffect(() => {
+    if (!visible) return;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [visible]);
 
   if (stage === "done") return null;
 
