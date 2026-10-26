@@ -1,66 +1,105 @@
+import { useState } from "react";
 import { useLanguage } from "../context/LanguageContext";
 import Button from "../components/ui/Button";
-import heroBackground from "../assets/images/background.webp";
+import Lightbox from "../components/ui/Lightbox";
+import experiences from "../data/experiences";
+import profile from "../data/profile";
+import photo from "../assets/images/ilyas2.webp";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronDown, faLocationDot } from "@fortawesome/free-solid-svg-icons";
+import { faArrowRight, faLocationDot } from "@fortawesome/free-solid-svg-icons";
 
-export default function Hero() {
+// Pekerjaan paling atas di data = pekerjaan saat ini
+const current = experiences[0];
+
+export default function Intro() {
   const { t } = useLanguage();
+  const [zoomed, setZoomed] = useState(false);
 
   return (
-    <section
-      id="intro"
-      className="flex min-h-[90vh] items-center bg-cover bg-center px-5 pt-28 pb-10 text-white md:min-h-screen"
-      style={{
-        // Overlay gelap supaya teks tetap terbaca di atas foto
-        backgroundImage: `linear-gradient(rgba(5, 8, 12, 0.55), rgba(5, 8, 12, 0.7)), url(${heroBackground})`,
-      }}
-    >
-      <div className="mx-auto w-full max-w-5xl">
-        <div className="max-w-2xl animate-fade-up">
+    <section id="intro" className="relative isolate px-5 pt-32 pb-20 md:pt-40 md:pb-28">
+      <div aria-hidden="true" className="bg-grid absolute inset-0 -z-10" />
+
+      <div className="mx-auto grid max-w-6xl items-center gap-14 md:grid-cols-[1.5fr_1fr]">
+        <div className="animate-fade-up">
           {/* Status sedang mencari kerja */}
-          <div className="mb-6">
-            <p className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-black/30 px-4 py-1.5 text-sm">
-              <span className="size-2 rounded-full bg-green-400" />
-              <span className="font-semibold">{t.intro.open_to_work}</span>
-              <span className="text-white/70">· {t.intro.work_mode}</span>
-            </p>
+          <p className="inline-flex items-center gap-2 rounded-full border border-line bg-surface px-3 py-1 text-sm">
+            <span className="relative flex size-2">
+              <span className="absolute inline-flex size-full animate-ping rounded-full bg-green-500 opacity-60" />
+              <span className="relative inline-flex size-2 rounded-full bg-green-500" />
+            </span>
+            <span className="font-medium">{t.intro.open_to_work}</span>
+            <span className="text-muted">· {t.intro.work_mode}</span>
+          </p>
 
-            {/* Area kerja, dikelompokkan per provinsi */}
-            <ul className="mt-3 space-y-1 text-sm text-white/75">
-              {t.intro.work_areas.map((area) => (
-                <li key={area.region} className="flex gap-2">
-                  <FontAwesomeIcon icon={faLocationDot} className="mt-1 w-3 shrink-0 text-xs text-[#33c4cb]" />
-                  <span>
-                    <span className="font-semibold text-white">{area.region}:</span> {area.cities}
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <p className="mb-3 font-semibold text-[#33c4cb]">{t.intro.role}</p>
-
-          <h1 className="text-4xl leading-tight font-extrabold md:text-6xl">
-            {t.intro.hi} <span className="text-[#33c4cb]">Ilyas</span>
+          <p className="mt-8 font-mono text-sm text-muted">{t.intro.hi}</p>
+          <h1 className="mt-2 text-5xl leading-[1.05] font-semibold md:text-7xl">
+            Ilyas Istiqama<span className="text-accent">.</span>
           </h1>
+          <p className="mt-4 text-xl font-medium text-muted md:text-2xl">{t.intro.role}</p>
 
-          <div className="mt-6 space-y-2 text-white/80 md:text-lg">
+          <div className="mt-6 max-w-xl space-y-3 leading-relaxed text-muted">
             {t.intro.description.map((paragraph) => (
               <p key={paragraph}>{paragraph}</p>
             ))}
           </div>
 
-          <div className="mt-8 flex max-w-xs flex-col gap-3 sm:max-w-none sm:flex-row">
-            <Button to="/portfolio">{t.intro.cta_work}</Button>
-            <Button to="/contact" variant="light">{t.intro.cta_contact}</Button>
+          <div className="mt-8 flex flex-wrap items-center gap-3">
+            <Button to="/portfolio">
+              {t.intro.cta_work} <FontAwesomeIcon icon={faArrowRight} className="text-xs" />
+            </Button>
+            <Button to="/contact" variant="outline">{t.intro.cta_contact}</Button>
+            <div className="ml-1 flex gap-1">
+              {profile.socials.map((social) => (
+                <a
+                  key={social.label}
+                  href={social.href}
+                  target={social.href.startsWith("mailto") ? undefined : "_blank"}
+                  rel="noopener noreferrer"
+                  aria-label={social.label}
+                  className="flex size-10 items-center justify-center rounded-full text-muted transition-colors hover:bg-bg-alt hover:text-fg"
+                >
+                  <FontAwesomeIcon icon={social.icon} />
+                </a>
+              ))}
+            </div>
           </div>
 
-          <a href="#about-me" aria-label={t.intro.scroll} className="mt-14 inline-block text-xl text-white/70 hover:text-[#33c4cb]">
-            <FontAwesomeIcon icon={faChevronDown} />
-          </a>
+          {/* Area kerja, dikelompokkan per provinsi */}
+          <ul className="mt-10 space-y-1.5 text-sm text-muted">
+            {t.intro.work_areas.map((area) => (
+              <li key={area.region} className="flex gap-2">
+                <FontAwesomeIcon icon={faLocationDot} className="mt-1 w-3 shrink-0 text-xs text-accent" />
+                <span>
+                  <span className="font-medium text-fg">{area.region}:</span> {area.cities}
+                </span>
+              </li>
+            ))}
+          </ul>
         </div>
+
+        {/* Foto + tempat kerja saat ini */}
+        <figure className="relative mx-auto w-full max-w-xs animate-fade-up md:max-w-none">
+          <img
+            src={photo}
+            alt="Ilyas Istiqama"
+            onClick={() => setZoomed(true)}
+            fetchPriority="high"
+            decoding="async"
+            className="aspect-[4/5] w-full cursor-zoom-in rounded-3xl border border-line object-cover shadow-2xl shadow-black/10"
+          />
+          <figcaption className="absolute inset-x-4 bottom-4 flex items-center gap-3 rounded-2xl border border-white/15 bg-black/55 p-3 text-white backdrop-blur-md">
+            {current.logo && (
+              <img src={current.logo} alt="" className="size-10 shrink-0 rounded-lg bg-white object-contain p-1" />
+            )}
+            <span className="min-w-0">
+              <span className="block text-xs text-white/70">{t.intro.currently}</span>
+              <span className="block truncate text-sm font-medium">{current.company}</span>
+            </span>
+          </figcaption>
+        </figure>
       </div>
+
+      <Lightbox image={zoomed ? photo : null} alt="Ilyas Istiqama" onClose={() => setZoomed(false)} />
     </section>
   );
 }

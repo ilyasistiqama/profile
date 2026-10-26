@@ -8,12 +8,12 @@ import { faCircleCheck, faCircleExclamation, faEnvelope, faGlobe, faLocationDot,
 const EMPTY_FORM = { name: "", email: "", message: "", _gotcha: "" };
 
 const inputClass =
-  "w-full rounded-lg border border-line bg-bg-alt px-4 py-3 outline-none transition focus:border-accent focus:bg-surface focus:ring-3 focus:ring-accent/20";
+  "w-full rounded-xl border border-line bg-bg px-4 py-3 outline-none transition focus:border-accent focus:ring-3 focus:ring-accent/20";
 
 function Field({ id, label, children }) {
   return (
     <div className="flex flex-col gap-2">
-      <label htmlFor={id} className="text-xs font-semibold tracking-wide uppercase">
+      <label htmlFor={id} className="text-sm font-medium">
         {label}
       </label>
       {children}
@@ -65,7 +65,7 @@ export default function Contact() {
       <div className="mx-auto grid max-w-6xl gap-12 md:grid-cols-[1fr_1.4fr]">
         {/* Kiri: info kontak */}
         <div className="animate-fade-up">
-          <h2 className="text-3xl font-extrabold md:text-4xl">{t.contact.title}</h2>
+          <h2 className="text-3xl font-semibold md:text-4xl">{t.contact.title}</h2>
           <p className="mt-4 mb-8 leading-relaxed text-muted">{t.contact.subtitle}</p>
 
           <ul className="mb-8 space-y-4">
@@ -89,7 +89,7 @@ export default function Contact() {
                 target={social.href.startsWith("mailto") ? undefined : "_blank"}
                 rel="noopener noreferrer"
                 aria-label={social.label}
-                className={`flex size-12 items-center justify-center rounded-full text-lg text-white shadow transition-transform hover:-translate-y-0.5 ${social.color}`}
+                className="flex size-11 items-center justify-center rounded-full border border-line bg-surface text-muted transition-colors hover:border-fg/30 hover:text-fg"
               >
                 <FontAwesomeIcon icon={social.icon} />
               </a>
@@ -100,7 +100,7 @@ export default function Contact() {
         {/* Kanan: form */}
         <form
           onSubmit={handleSubmit}
-          className="relative flex animate-fade-up flex-col gap-5 rounded-2xl border border-line bg-surface p-6 shadow-lg md:p-8"
+          className="relative flex animate-fade-up flex-col gap-5 rounded-2xl border border-line bg-surface p-6 md:p-8"
         >
           {/* Honeypot: disembunyikan dari pengunjung dan pembaca layar */}
           <div className="absolute -left-[9999px]" aria-hidden="true">
@@ -123,7 +123,7 @@ export default function Contact() {
           <button
             type="submit"
             disabled={status === "loading"}
-            className="flex items-center justify-center gap-2 rounded-lg bg-accent px-6 py-3.5 font-bold text-on-accent transition-colors hover:bg-accent-hover disabled:cursor-not-allowed disabled:opacity-70"
+            className="flex items-center justify-center gap-2 rounded-full bg-accent px-6 py-3 font-medium text-on-accent transition-colors hover:bg-accent-hover disabled:cursor-not-allowed disabled:opacity-70"
           >
             <FontAwesomeIcon icon={status === "loading" ? faSpinner : faPaperPlane} spin={status === "loading"} />
             {status === "loading" ? t.contact.sending_btn : t.contact.send_btn}

@@ -1,4 +1,4 @@
-import Hero from "../sections/Hero";
+import Intro from "../sections/Intro";
 import About from "../sections/About";
 import Stats from "../sections/Stats";
 import Skills from "../sections/Skills";
@@ -10,9 +10,9 @@ export default function HomePage() {
 
   return (
     <>
-      <Hero />
-      <About />
+      <Intro />
       <Stats />
+      <About />
       <Skills />
       <PhotoBanner />
     </>

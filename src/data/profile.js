@@ -13,9 +13,9 @@ const profile = {
   formEndpoint: "https://formspree.io/f/xlgzwzdk",
   // Hanya akun yang relevan untuk perekrut
   socials: [
-    { label: "LinkedIn", href: "https://www.linkedin.com/in/muh-ilyas-istiqama", icon: faLinkedinIn, color: "bg-[#0a66c2]" },
-    { label: "GitHub", href: "https://github.com/ilyasistiqama", icon: faGithub, color: "bg-[#24292f]" },
-    { label: "Email", href: "mailto:ilyasistiqama@gmail.com", icon: faEnvelope, color: "bg-[#c5221f]" },
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/muh-ilyas-istiqama", icon: faLinkedinIn },
+    { label: "GitHub", href: "https://github.com/ilyasistiqama", icon: faGithub },
+    { label: "Email", href: "mailto:ilyasistiqama@gmail.com", icon: faEnvelope },
   ],
 };
 

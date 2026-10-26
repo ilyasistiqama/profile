@@ -3,29 +3,39 @@ import { useLanguage } from "../context/LanguageContext";
 import Button from "../components/ui/Button";
 import Lightbox from "../components/ui/Lightbox";
 import profile from "../data/profile";
-import photo from "../assets/images/ilyas2.webp";
+import ranuKumbolo from "../assets/images/background.webp";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCamera } from "@fortawesome/free-solid-svg-icons";
 
+// Foto profil ada di Intro, di sini foto jepretan sendiri
 export default function About() {
   const { t } = useLanguage();
   const [zoomed, setZoomed] = useState(false);
 
   return (
-    <section id="about-me" className="px-5 py-20">
-      <div className="mx-auto flex max-w-5xl flex-col items-center gap-12 md:flex-row md:items-start">
-        <img
-          src={photo}
-          alt="Ilyas"
-          onClick={() => setZoomed(true)}
-          loading="lazy"
-          decoding="async"
-          className="w-2/3 max-w-xs animate-fade-up cursor-zoom-in rounded-2xl shadow-xl md:w-1/3"
-        />
+    <section id="about-me" className="px-5 pt-20 pb-6 md:pt-24 md:pb-8">
+      <div className="mx-auto grid max-w-6xl gap-10 md:grid-cols-[1fr_2fr]">
+        <div className="animate-fade-up">
+          <h2 className="text-3xl font-semibold md:text-4xl">{t.about.title}</h2>
+          <p className="mt-3 text-muted">{t.about.subtitle}</p>
+
+          <figure className="mt-8">
+            <img
+              src={ranuKumbolo}
+              alt={t.about.photo_caption}
+              onClick={() => setZoomed(true)}
+              loading="lazy"
+              decoding="async"
+              className="aspect-[4/3] w-full cursor-zoom-in rounded-2xl border border-line object-cover"
+            />
+            <figcaption className="mt-2 text-xs text-muted">
+              <FontAwesomeIcon icon={faCamera} className="mr-1" /> {t.about.photo_caption}
+            </figcaption>
+          </figure>
+        </div>
 
         <div className="animate-fade-up">
-          <h2 className="text-3xl font-bold md:text-4xl">{t.about.title}</h2>
-          <p className="mt-2 text-sm text-accent">{t.about.subtitle}</p>
-
-          <div className="mt-6 space-y-5 leading-relaxed text-muted">
+          <div className="space-y-5 text-lg leading-relaxed text-muted">
             {t.about.description.map((paragraph) => (
               <p key={paragraph}>{paragraph}</p>
             ))}
@@ -38,7 +48,7 @@ export default function About() {
         </div>
       </div>
 
-      <Lightbox image={zoomed ? photo : null} alt="Ilyas" onClose={() => setZoomed(false)} />
+      <Lightbox image={zoomed ? ranuKumbolo : null} alt={t.about.photo_caption} onClose={() => setZoomed(false)} />
     </section>
   );
 }

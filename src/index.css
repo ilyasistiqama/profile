@@ -10,13 +10,14 @@
  * Warna yang berubah mengikuti tema (light/dark).
  * Cukup ubah nilai di sini untuk mengganti warna seluruh situs.
  */
+/* Netral abu-abu (zinc) + satu warna aksen teal */
 :root {
-  --bg: #ffffff;
-  --bg-alt: #f1f3f5;
+  --bg: #fafafa;
+  --bg-alt: #f4f4f5;
   --surface: #ffffff;
-  --fg: #1f2328;
-  --muted: #5f6b76;
-  --line: #e2e5e9;
+  --fg: #18181b;
+  --muted: #52525b;
+  --line: #e4e4e7;
   /* Aksen dibuat lebih gelap di mode light supaya teks kecil tetap terbaca (kontras >= 4.5:1) */
   --accent: #00787e;
   --accent-hover: #006a70;
@@ -24,15 +25,15 @@
 }
 
 [data-theme="dark"] {
-  --bg: #0d1117;
-  --bg-alt: #161b22;
-  --surface: #1a2029;
-  --fg: #e6edf3;
-  --muted: #9aa4b2;
-  --line: #30363d;
-  --accent: #00adb5;
-  --accent-hover: #22c3cb;
-  --on-accent: #0d1117;
+  --bg: #09090b;
+  --bg-alt: #111113;
+  --surface: #18181b;
+  --fg: #fafafa;
+  --muted: #a1a1aa;
+  --line: #27272a;
+  --accent: #22c3cb;
+  --accent-hover: #4fd3da;
+  --on-accent: #09090b;
 }
 
 /*
@@ -52,7 +53,8 @@
 }
 
 @theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, SFMono-Regular, monospace;
 
   /* Animasi muncul dari bawah, dipakai dengan class "animate-fade-up" */
   --animate-fade-up: fade-up 0.6s ease both;
@@ -92,8 +94,23 @@
     @apply bg-bg font-sans text-fg antialiased transition-colors duration-300;
   }
 
+  h1,
+  h2,
+  h3 {
+    @apply tracking-tight;
+  }
+
   /* Supaya judul section tidak tertutup navbar saat lompat via #anchor */
   section {
     scroll-margin-top: 6rem;
   }
+}
+
+/* Pola grid tipis di belakang hero, memudar ke arah bawah */
+@utility bg-grid {
+  background-image:
+    linear-gradient(to right, var(--line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--line) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 0%, black 30%, transparent 100%);
 }

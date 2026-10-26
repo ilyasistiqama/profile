@@ -50,7 +50,7 @@ const projects = [
             en: "Official company website for PT. Terik Indonesia Inside, presenting the company profile and its digital livestock investment products.",
             id: "Website resmi PT. Terik Indonesia Inside yang menampilkan profil perusahaan dan produk investasi peternakan digitalnya."
         },
-        stacks: ['HTML', 'CSS', 'JavaScript', 'PHP', 'Bootstrap', 'jQuery', 'Laravel'],
+        stacks: ['Laravel', 'JavaScript', 'PHP', 'Bootstrap', 'jQuery'],
         url: 'https://terik.id'
     },
     {
@@ -67,7 +67,7 @@ const projects = [
             en: "SaaS farm management system for recording livestock data and managing daily farm operations.",
             id: "Sistem manajemen peternakan berbasis SaaS untuk pencatatan data ternak dan pengelolaan operasional harian."
         },
-        stacks: ['HTML', 'CSS', 'JavaScript', 'PHP', 'MySQL', 'Bootstrap', 'jQuery', 'AJAX', 'Laravel', 'jQuery DataTables', 'SaaS'],
+        stacks: ['Laravel', 'JavaScript', 'PHP', 'MySQL', 'Bootstrap', 'jQuery', 'AJAX', 'jQuery DataTables'],
         url: 'https://simpe.id'
     },
     {
@@ -80,7 +80,7 @@ const projects = [
             en: "E-commerce platform for gamers with a built-in digital wallet and reseller management.",
             id: "Platform e-commerce untuk gamer dengan fitur dompet digital dan manajemen reseller."
         },
-        stacks: ['HTML', 'CSS', 'JavaScript', 'PHP', 'MySQL', 'Bootstrap', 'jQuery', 'AJAX', 'Laravel', 'jQuery DataTables', 'Restful API'],
+        stacks: ['Laravel', 'JavaScript', 'PHP', 'MySQL', 'Bootstrap', 'jQuery', 'AJAX', 'jQuery DataTables', 'Restful API'],
         url: 'https://synnmlbb.com'
     },
     {
@@ -97,7 +97,7 @@ const projects = [
             en: "HR system for Petrokimia Gresik that manages employee rotation, transfer, and promotion requests through an approval workflow.",
             id: "Sistem SDM untuk Petrokimia Gresik yang mengelola pengajuan rotasi, mutasi, dan promosi karyawan melalui alur persetujuan."
         },
-        stacks: ['HTML', 'CSS', 'JavaScript', 'PHP', 'PostgreSQL', 'Bootstrap', 'jQuery', 'AJAX', 'Laravel', 'jQuery DataTables'],
+        stacks: ['Laravel', 'JavaScript', 'PHP', 'PostgreSQL', 'Bootstrap', 'jQuery', 'AJAX', 'jQuery DataTables'],
         url: 'https://rmp.petrokimia-gresik.com/rmp/login'
     },
     {
@@ -114,7 +114,7 @@ const projects = [
             en: "Innovation registration system for Petrokimia Gresik, where employees submit ideas and track their review status.",
             id: "Sistem registrasi inovasi untuk Petrokimia Gresik, tempat karyawan mengajukan ide dan memantau status penilaiannya."
         },
-        stacks: ['HTML', 'CSS', 'JavaScript', 'PHP', 'PostgreSQL', 'Bootstrap', 'jQuery', 'AJAX', 'Laravel', 'jQuery DataTables'],
+        stacks: ['Laravel', 'JavaScript', 'PHP', 'PostgreSQL', 'Bootstrap', 'jQuery', 'AJAX', 'jQuery DataTables'],
         url: 'https://sergio.petrokimia-gresik.com'
     },
     {
@@ -127,7 +127,7 @@ const projects = [
             en: "Decision support system that ranks project priorities based on cost and time constraints.",
             id: "Sistem pendukung keputusan untuk menentukan prioritas proyek berdasarkan batasan biaya dan waktu."
         },
-        stacks: ['HTML', 'CSS', 'JavaScript', 'PHP', 'MySQL', 'Bootstrap', 'jQuery', 'AJAX', 'Laravel']
+        stacks: ['Laravel', 'JavaScript', 'PHP', 'MySQL', 'Bootstrap', 'jQuery', 'AJAX']
     },
     {
         id: 'carouselSispakIndicators',
@@ -139,7 +139,7 @@ const projects = [
             en: "Expert system for early screening of anxiety disorders.",
             id: "Sistem pakar untuk membantu deteksi awal gangguan kecemasan."
         },
-        stacks: ['VueJS', 'Tailwind CSS', 'JavaScript'],
+        stacks: ['Vue.js', 'Tailwind CSS', 'JavaScript'],
         url: 'https://ilyasistiqama.github.io/sispak-gangguan-kecemasan/'
     }
 ];

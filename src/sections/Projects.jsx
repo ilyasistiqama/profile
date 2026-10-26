@@ -17,15 +17,15 @@ function ProjectCard({ project, lang, t, categoryLabel, onImageClick }) {
   const hiddenStacks = project.stacks.length - stacks.length;
 
   return (
-    <article className="flex animate-fade-up flex-col overflow-hidden rounded-2xl border border-line bg-surface transition-shadow hover:shadow-lg">
+    <article className="flex animate-fade-up flex-col overflow-hidden rounded-2xl border border-line bg-surface transition-all hover:-translate-y-0.5 hover:border-fg/20 hover:shadow-xl hover:shadow-black/5">
       {project.images?.length > 0 && (
         <ImageCarousel images={project.images} alt={project.project_name} onImageClick={onImageClick} />
       )}
 
       <div className="flex grow flex-col p-5">
-        <p className="mb-2 flex flex-wrap items-center gap-x-2 text-xs">
-          <span className="font-bold text-accent uppercase">{categoryLabel}</span>
-          <span className="text-muted">· {project.project_origin}</span>
+        <p className="mb-2 flex flex-wrap items-center gap-x-2 font-mono text-xs text-muted">
+          <span className="text-accent">{categoryLabel}</span>
+          <span>/ {project.project_origin}</span>
         </p>
 
         <h3 className="text-lg leading-snug font-semibold">{project.project_name}</h3>
@@ -33,17 +33,17 @@ function ProjectCard({ project, lang, t, categoryLabel, onImageClick }) {
 
         {/* Peran saya di proyek (hanya jika diisi di data) */}
         {project.role && (
-          <p className="mt-3 rounded-lg border-l-2 border-accent bg-bg-alt px-3 py-2 text-sm">{project.role[lang]}</p>
+          <p className="mt-3 border-l-2 border-accent pl-3 text-sm">{project.role[lang]}</p>
         )}
 
         <ul className="mt-4 flex flex-wrap gap-1.5">
           {stacks.map((stack) => (
-            <li key={stack} className="rounded-md bg-bg-alt px-2 py-0.5 text-xs">
+            <li key={stack} className="rounded-md border border-line px-2 py-0.5 font-mono text-xs text-muted">
               {stack}
             </li>
           ))}
           {hiddenStacks > 0 && (
-            <li className="rounded-md px-2 py-0.5 text-xs text-muted" title={project.stacks.slice(MAX_STACKS).join(", ")}>
+            <li className="rounded-md px-2 py-0.5 font-mono text-xs text-muted" title={project.stacks.slice(MAX_STACKS).join(", ")}>
               +{hiddenStacks}
             </li>
           )}
@@ -55,9 +55,9 @@ function ProjectCard({ project, lang, t, categoryLabel, onImageClick }) {
             href={project.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-auto inline-flex items-center gap-2 self-start pt-5 text-sm font-semibold text-accent hover:text-accent-hover"
+            className="group/link mt-auto inline-flex items-center gap-2 self-start pt-5 text-sm font-medium text-fg hover:text-accent"
           >
-            {t.project.visit} <FontAwesomeIcon icon={faArrowRight} className="text-xs" />
+            {t.project.visit} <FontAwesomeIcon icon={faArrowRight} className="text-xs transition-transform group-hover/link:translate-x-0.5" />
           </a>
         )}
       </div>
@@ -86,9 +86,9 @@ export default function Projects() {
   }));
 
   return (
-    <section id="project" className="bg-bg-alt px-5 pt-32 pb-24">
+    <section id="project" className="px-5 pt-32 pb-24">
       <div className="mx-auto max-w-6xl">
-        <SectionHeader title={t.project.title} subtitle={t.project.subtitle} center />
+        <SectionHeader title={t.project.title} subtitle={t.project.subtitle} />
         <FilterTabs options={options} value={category} onChange={setCategory} />
 
         {visibleProjects.length === 0 ? (

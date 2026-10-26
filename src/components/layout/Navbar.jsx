@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faMoon, faSun, faXmark } from "@fortawesome/free-solid-svg-icons";
 
 const iconButton =
-  "flex size-9 items-center justify-center rounded-lg border border-line text-sm font-bold transition-colors hover:border-accent hover:text-accent";
+  "flex size-9 items-center justify-center rounded-full border border-line font-mono text-xs font-medium transition-colors hover:border-fg/30";
 
 export default function Navbar() {
   const { t, lang, toggleLang } = useLanguage();
@@ -23,17 +23,17 @@ export default function Navbar() {
   ];
 
   const linkClass = ({ isActive }) =>
-    `font-semibold transition-colors hover:text-accent ${isActive ? "text-accent" : ""}`;
+    `text-sm font-medium transition-colors hover:text-fg ${isActive ? "text-fg" : "text-muted"}`;
 
   return (
     <nav
-      className={`fixed inset-x-4 top-4 z-50 rounded-xl border border-line backdrop-blur-md transition-all duration-300
-        ${scrolled || menuOpen ? "bg-surface/95 shadow-lg" : "bg-surface/85"}
-        ${hidden && !menuOpen ? "-translate-y-[calc(100%+1rem)]" : ""}`}
+      className={`fixed inset-x-0 top-0 z-50 border-b transition-all duration-300
+        ${scrolled || menuOpen ? "border-line bg-bg/80 backdrop-blur-md" : "border-transparent"}
+        ${hidden && !menuOpen ? "-translate-y-full" : ""}`}
     >
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3">
-        <NavLink to="/" className="text-2xl font-extrabold text-accent">
-          muis<span className="text-fg">.life</span>
+      <div className="relative mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
+        <NavLink to="/" className="font-mono text-lg font-medium">
+          muis<span className="text-accent">.life</span>
         </NavLink>
 
         {/* Tombol menu (HP) */}
@@ -49,8 +49,8 @@ export default function Navbar() {
 
         {/* Menu: selalu tampil di desktop, buka-tutup di HP */}
         <div
-          className={`${menuOpen ? "flex" : "hidden"} absolute inset-x-0 top-full mt-2 flex-col items-center gap-4 rounded-xl border border-line bg-surface p-6 shadow-lg
-            lg:static lg:mt-0 lg:flex lg:flex-row lg:gap-8 lg:border-0 lg:bg-transparent lg:p-0 lg:shadow-none`}
+          className={`${menuOpen ? "flex" : "hidden"} absolute inset-x-5 top-full flex-col items-center gap-4 rounded-2xl border border-line bg-surface p-6 shadow-lg
+            lg:static lg:flex lg:flex-row lg:gap-7 lg:border-0 lg:bg-transparent lg:p-0 lg:shadow-none`}
         >
           {links.map((link) => (
             <NavLink

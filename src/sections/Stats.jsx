@@ -4,8 +4,6 @@ import useInView from "../hooks/useInView";
 import experiences from "../data/experiences";
 import projects from "../data/projects";
 import profile from "../data/profile";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBuilding, faCalendarDays, faGraduationCap, faLaptopCode } from "@fortawesome/free-solid-svg-icons";
 
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
@@ -54,21 +52,21 @@ export default function Stats() {
   const companies = new Set(experiences.filter((exp) => exp.company !== "Freelancer").map((exp) => exp.company));
 
   const stats = [
-    { icon: faCalendarDays, value: yearsSinceFirstJob(), suffix: "+", label: t.stats.years },
-    { icon: faLaptopCode, value: projects.length, suffix: "+", label: t.stats.projects },
-    { icon: faBuilding, value: companies.size, label: t.stats.companies },
-    { icon: faGraduationCap, value: profile.gpa, decimals: 2, label: t.stats.gpa },
+    { value: yearsSinceFirstJob(), suffix: "+", label: t.stats.years },
+    { value: projects.length, suffix: "+", label: t.stats.projects },
+    { value: companies.size, label: t.stats.companies },
+    { value: profile.gpa, decimals: 2, label: t.stats.gpa },
   ];
 
   return (
-    <section ref={ref} id="stats" className="border-y border-line px-5 py-14">
-      <div className="mx-auto grid max-w-5xl grid-cols-2 gap-y-10 md:grid-cols-4">
-        {stats.map((stat, i) => (
-          <div key={stat.label} className={`text-center ${i % 2 === 1 ? "border-l border-line" : ""} md:border-l md:first:border-l-0`}>
-            <FontAwesomeIcon icon={stat.icon} className="mb-3 text-xl text-accent" />
-            <p className="text-4xl font-extrabold tabular-nums">
+    <section ref={ref} id="stats" className="px-5">
+      {/* gap-px + bg-line = garis pemisah 1px antar kotak */}
+      <div className="mx-auto grid max-w-6xl grid-cols-2 gap-px overflow-hidden rounded-2xl border border-line bg-line md:grid-cols-4">
+        {stats.map((stat) => (
+          <div key={stat.label} className="bg-surface p-6 md:p-8">
+            <p className="font-mono text-3xl font-medium tabular-nums md:text-4xl">
               <CountUp end={stat.value} decimals={stat.decimals} start={inView} />
-              {stat.suffix}
+              <span className="text-accent">{stat.suffix}</span>
             </p>
             <p className="mt-2 text-sm text-muted">{stat.label}</p>
           </div>

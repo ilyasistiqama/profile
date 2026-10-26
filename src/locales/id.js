@@ -13,7 +13,7 @@ const id = {
   // Judul & deskripsi per halaman (tab browser dan hasil Google)
   seo: {
     home: {
-      title: "Ilyas Istiqama | Fullstack Web Developer (Laravel)",
+      title: "Ilyas Istiqama | Fullstack Web Developer",
       description: "Portofolio Ilyas Istiqama, fullstack web developer di Surabaya dengan spesialisasi Laravel, perancangan database, dan deployment server. Terbuka untuk kerja onsite maupun remote.",
     },
     experience: {
@@ -43,9 +43,10 @@ const id = {
     ],
     hi: "Halo, saya",
     description: [
-      "Fullstack web developer dengan pengalaman profesional sejak 2022 dan spesialisasi di Laravel. Saya terbiasa menangani proyek dari awal sampai akhir, mulai dari perancangan database, logika backend, hingga deployment ke server VPS.",
-      "Saat ini mengembangkan sistem perusahaan dan produk SaaS di PT. Terik Indonesia Inside.",
+      "Saya membangun aplikasi web sejak 2022, mulai dari sistem internal perusahaan sampai produk SaaS. Biasanya saya pegang dari awal: database, backend, frontend, sampai deploy ke server.",
+      "Sekarang di PT. Terik Indonesia Inside, mengembangkan SIMPe (aplikasi manajemen peternakan) dan website perusahaan.",
     ],
+    currently: "Sekarang di",
     cta_work: "Lihat proyek",
     cta_contact: "Hubungi saya",
     scroll: "Gulir ke bawah",
@@ -58,6 +59,7 @@ const id = {
       "Karier saya dimulai pada 2022 di CV. Mamorasoft, membangun aplikasi web untuk klien dengan Laravel dan CodeIgniter, termasuk sistem SDM dan sistem manajemen inovasi untuk Petrokimia Gresik. Sejak itu saya telah menyelesaikan sistem perusahaan, platform e-commerce, dan beberapa proyek freelance.",
       "Saat ini saya bekerja sebagai Web Programmer di PT. Terik Indonesia Inside, mengembangkan SaaS manajemen peternakan dan website perusahaan. Saya terbuka untuk peluang kerja baru maupun proyek freelance.",
     ],
+    photo_caption: "Ranu Kumbolo, foto oleh saya",
     download_cv: "Lihat CV",
     hire_me: "Hubungi saya",
   },
@@ -69,20 +71,20 @@ const id = {
   },
   photo: {
     title: "Mari bekerja sama",
-    text: "Sedang mencari Laravel developer untuk tim atau proyek Anda? Saya senang mendengarnya.",
+    text: "Punya posisi atau proyek yang cocok? Saya senang mendengarnya.",
     cta: "Hubungi saya",
     caption: "Milky Way, foto oleh saya",
   },
   skill: {
     title: "Keahlian",
-    subtitle: "Teknologi dan tools yang saya kuasai. Yang ditandai adalah yang paling sering saya pakai di proyek production.",
-    core_label: "Stack utama, paling sering dipakai di production",
+    subtitle: "Teknologi yang saya pakai sehari-hari. Yang berwarna adalah yang paling sering dipakai di production.",
+    core_label: "Paling sering dipakai di production",
+    also_label: "Juga terbiasa dengan",
+    also: ["Agile / Scrum", "Analisis sistem (UML, BPMN, ERD)", "Code review", "Postman", "GitHub & Bitbucket"],
   },
   experience: {
     title: "Pengalaman",
     subtitle: "Riwayat pekerjaan saya, dimulai dari yang terbaru.",
-    start: "Awal",
-    present: "Sekarang",
   },
   project: {
     title: "Proyek",

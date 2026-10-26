@@ -13,7 +13,7 @@ const en = {
   // Judul & deskripsi per halaman (tab browser dan hasil Google)
   seo: {
     home: {
-      title: "Ilyas Istiqama | Fullstack Web Developer (Laravel)",
+      title: "Ilyas Istiqama | Fullstack Web Developer",
       description: "Portfolio of Ilyas Istiqama, a fullstack web developer based in Surabaya specializing in Laravel, database design, and server deployment. Open to onsite or remote work.",
     },
     experience: {
@@ -43,9 +43,10 @@ const en = {
     ],
     hi: "Hi, I'm",
     description: [
-      "Fullstack web developer with professional experience since 2022, specializing in Laravel. I handle projects end to end, from database design and backend logic to deployment on VPS servers.",
-      "Currently building company systems and SaaS products at PT. Terik Indonesia Inside.",
+      "I've been building web applications since 2022, from internal company systems to SaaS products. I usually own the whole thing: database, backend, frontend, and deployment.",
+      "Currently at PT. Terik Indonesia Inside, working on SIMPe (a livestock management app) and the company website.",
     ],
+    currently: "Currently at",
     cta_work: "View projects",
     cta_contact: "Get in touch",
     scroll: "Scroll down",
@@ -58,6 +59,7 @@ const en = {
       "I began my career in 2022 at CV. Mamorasoft, building web applications for clients with Laravel and CodeIgniter, including HR and innovation management systems for Petrokimia Gresik. Since then I've delivered company systems, an e-commerce platform, and several freelance projects.",
       "I'm currently a Web Programmer at PT. Terik Indonesia Inside, working on the company's livestock management SaaS and website. I'm open to new job opportunities and freelance projects.",
     ],
+    photo_caption: "Ranu Kumbolo, photographed by me",
     download_cv: "View CV",
     hire_me: "Get in touch",
   },
@@ -69,20 +71,20 @@ const en = {
   },
   photo: {
     title: "Let's build something together",
-    text: "Looking for a Laravel developer for your team or project? I'd be glad to hear about it.",
+    text: "Have a role or project in mind? I'd be glad to hear about it.",
     cta: "Get in touch",
     caption: "Milky Way, photographed by me",
   },
   skill: {
     title: "Skills",
-    subtitle: "Technologies and tools I work with. Highlighted ones are what I use most in production.",
-    core_label: "Main stack, used most in production",
+    subtitle: "What I work with day to day. Highlighted ones are what I use most in production.",
+    core_label: "Used most in production",
+    also_label: "Also comfortable with",
+    also: ["Agile / Scrum", "System analysis (UML, BPMN, ERD)", "Code review", "Postman", "GitHub & Bitbucket"],
   },
   experience: {
     title: "Experience",
     subtitle: "My professional roles, starting with the most recent.",
-    start: "Start",
-    present: "Present",
   },
   project: {
     title: "Projects",
