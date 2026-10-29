@@ -42,8 +42,17 @@ export default function SplashScreen() {
   // (hanya return null), jadi kuncinya harus dilepas saat `visible` berubah.
   useEffect(() => {
     if (!visible) return;
+
     document.body.style.overflow = "hidden";
+
+    // Jaring pengaman: lepas kunci lagi walau karena satu dan lain hal
+    // state splash tidak pernah sampai "done" (mis. timer di-throttle browser).
+    const unlockTimer = setTimeout(() => {
+      document.body.style.overflow = "";
+    }, SHOW_MS + EXIT_MS + 1000);
+
     return () => {
+      clearTimeout(unlockTimer);
       document.body.style.overflow = "";
     };
   }, [visible]);

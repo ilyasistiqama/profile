@@ -2,6 +2,8 @@
 
 Website portfolio pribadi Muh. Ilyas Istiqama. Dibuat dengan React, Vite, Tailwind CSS v4, dan React Router.
 
+Dokumentasi lengkap ada di [docs/](./docs/README.md) — arsitektur, referensi komponen, panduan konten, build & deployment, serta pengembangan.
+
 ## Menjalankan
 
 ```bash
