@@ -1,6 +1,6 @@
 # muis.life
 
-Website portfolio pribadi Muh. Ilyas Istiqama. Dibuat dengan React, Vite, Tailwind CSS v4, dan React Router.
+Website portfolio pribadi Ilyas Istiqama. Dibuat dengan React, Vite, Tailwind CSS v4, dan React Router.
 
 Dokumentasi lengkap ada di [docs/](./docs/README.md) — arsitektur, referensi komponen, panduan konten, build & deployment, serta pengembangan.
 
@@ -12,8 +12,16 @@ npm run dev       # server lokal di http://localhost:5173
 npm test          # jalankan test (Vitest)
 npm run lint      # cek kode dengan ESLint
 npm run build     # build ke folder build/
-npm run deploy    # build lalu upload ke GitHub Pages
+npm run deploy    # deploy manual untuk source Pages berbasis branch (cara lama)
 ```
+
+## Deploy otomatis
+
+Workflow [pages.yml](./.github/workflows/pages.yml) menjalankan lint, tes, dan build untuk pull request ke `main`. Push ke `main` juga otomatis men-deploy hasil `build/` ke GitHub Pages setelah semua pemeriksaan lulus.
+
+Aktifkan sekali di repository GitHub: **Settings → Pages → Build and deployment → Source → GitHub Actions**. Pastikan **Custom domain** tetap `muis.life`. Setelah file workflow di-commit dan di-push, pantau hasilnya di tab **Actions**. Tidak perlu menambahkan token atau secret deploy sendiri.
+
+Detail aktivasi dan troubleshooting ada di [panduan deployment](./docs/deployment.md).
 
 ## Struktur folder
 

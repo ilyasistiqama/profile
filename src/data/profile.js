@@ -3,7 +3,8 @@ import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 // Info pribadi yang dipakai di beberapa tempat. Ubah di sini saja.
 const profile = {
-  name: "Muh. Ilyas Istiqama",
+  name: "Ilyas Istiqama",
+  githubUsername: "ilyasistiqama",
   email: "ilyasistiqama@gmail.com",
   location: "Surabaya, Indonesia",
   website: "https://muis.life",

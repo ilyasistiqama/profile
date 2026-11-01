@@ -10,7 +10,17 @@ npm run preview   # menyajikan hasil build secara lokal
 npm run deploy    # predeploy (build) lalu gh-pages -d build
 ```
 
-`predeploy` otomatis menjalankan `build`, jadi cukup `npm run deploy`.
+Deploy utama menggunakan GitHub Actions. `npm run deploy` adalah cara manual lama untuk source Pages berbasis branch; jangan digunakan saat source sudah diubah ke GitHub Actions.
+
+## GitHub Actions
+
+Workflow berada di [`.github/workflows/pages.yml`](../.github/workflows/pages.yml).
+
+- Pull request ke `main`: instalasi bersih dengan `npm ci`, lint, tes sekali jalan, dan build beserta prerender; tidak melakukan deploy.
+- Push ke `main`: pemeriksaan yang sama, lalu upload folder `build/` dan deploy menggunakan GitHub Pages Actions.
+- Jalankan ulang manual dari tab **Actions → Check and deploy GitHub Pages → Run workflow**, dengan branch `main`.
+- Workflow memakai Node.js 22 dan cache npm. Deploy memakai `GITHUB_TOKEN` bawaan dengan izin `pages: write` dan `id-token: write`; tidak memerlukan personal access token.
+- Deploy hanya berjalan setelah job build lulus. Run baru pada branch yang sama membatalkan run lama.
 
 ## Output build
 
@@ -59,12 +69,15 @@ Judul dan deskripsi diambil dari locale **Inggris** karena crawler umumnya melih
 
 ## GitHub Pages
 
-1. Pastikan repo memiliki branch yang dikonfigurasi sebagai source GitHub Pages (biasanya branch `gh-pages` yang dibuat oleh `gh-pages`).
-2. `public/CNAME` berisi `muis.life` — file ini ikut tersalin ke `build/` sehingga custom domain tetap aktif setiap deploy.
-3. Di pengaturan DNS domain, arahkan `A`/`CNAME` sesuai dokumentasi GitHub Pages.
-4. Jalankan `npm run deploy`.
+1. Buka repository GitHub → **Settings → Pages → Build and deployment**. Ubah **Source** menjadi **GitHub Actions**.
+2. Pastikan **Custom domain** di Settings → Pages berisi `muis.life`. Untuk deploy berbasis Actions, domain dikonfigurasi melalui pengaturan Pages; `public/CNAME` tetap disimpan untuk kompatibilitas dengan deploy manual lama.
+3. Pastikan Actions diizinkan di **Settings → Actions → General**, termasuk actions resmi yang dipakai workflow. Jika environment `github-pages` memiliki aturan branch atau approval, pastikan `main` diizinkan dan penuhi aturan tersebut.
+4. Di pengaturan DNS domain, arahkan `A`/`CNAME` sesuai dokumentasi GitHub Pages; bila domain sudah aktif, konfigurasi DNS yang sama tetap digunakan.
+5. Commit dan push file workflow ke `main`. Pantau job build dan deploy di tab **Actions**. Untuk perubahan berikutnya, cukup push ke `main`.
 
-Catatan: `public/_redirects` (`/* /index.html 200`) hanya berguna bila situs di-host di platform yang mendukung file `_redirects` (misalnya Netlify). GitHub Pages mengabaikannya; fallback SPA di sana ditangani oleh `404.html`.
+Panduan resmi: [custom workflows untuk GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages).
+
+Fallback SPA di GitHub Pages ditangani oleh `404.html` yang dibuat saat build.
 
 ## SEO dan berkas statis
 
@@ -75,7 +88,7 @@ Catatan: `public/_redirects` (`/* /index.html 200`) hanya berguna bila situs di-
 | `public/sitemap.xml` | Daftar URL; tanggal `lastmod` diperbarui manual |
 | `public/manifest.json` | Metadata PWA sederhana (nama, ikon, warna) |
 | `public/CNAME` | Custom domain |
-| `public/og-image.png`, `og-banner.png` | Gambar preview saat tautan dibagikan |
+| `public/og-image.png` | Gambar preview saat tautan dibagikan |
 | `scripts/prerender.js` | HTML per halaman untuk status 200 |
 
 ### Checklist rilis
@@ -94,7 +107,9 @@ Catatan: `public/_redirects` (`/* /index.html 200`) hanya berguna bila situs di-
 | Gejala | Penyebab umum |
 | --- | --- |
 | URL halaman dalam 404 saat dibuka langsung | Halaman belum terdaftar di `pages` pada `scripts/prerender.js`, atau deploy tidak menjalankan build |
-| Custom domain hilang setelah deploy | `public/CNAME` terhapus atau tidak ikut ter-build |
+| Workflow tidak muncul | File `.github/workflows/pages.yml` belum di-push, atau Actions dinonaktifkan |
+| Deploy Pages gagal meskipun build lulus | Source Pages belum GitHub Actions, atau environment `github-pages` membatasi branch/menunggu approval |
+| Custom domain tidak aktif | Periksa Custom domain di Settings → Pages serta konfigurasi DNS |
 | Judul tab sama di semua halaman | Key `seo` tidak ada di locale, atau `usePageMeta` tidak dipanggil |
 | Halaman baru tidak muncul di Google | Belum masuk `sitemap.xml` / belum prerender |
 | Form kontak selalu error | Endpoint Formspree tidak valid atau kuota habis |

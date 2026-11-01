@@ -26,7 +26,7 @@ Route didefinisikan di `src/App.jsx`:
 
 | Path | Komponen | Section yang dirender |
 | --- | --- | --- |
-| `/` | `HomePage` | `Intro`, `Stats`, `About`, `Skills`, `PhotoBanner` |
+| `/` | `HomePage` | `Intro`, `Stats`, `About`, `Skills`, `GitHubActivity` (kalender kontribusi), `PhotoBanner` |
 | `/experience` | `ExperiencePage` | `Experience` |
 | `/portfolio` | `ProjectsPage` | `Projects` |
 | `/contact` | `ContactPage` | `Contact` |

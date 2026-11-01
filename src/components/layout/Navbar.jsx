@@ -32,8 +32,21 @@ export default function Navbar() {
         ${hidden && !menuOpen ? "-translate-y-full" : ""}`}
     >
       <div className="relative mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
-        <NavLink to="/" className="font-mono text-lg font-medium">
-          muis<span className="text-accent">.life</span>
+        <NavLink
+          to="/"
+          onClick={() => setMenuOpen(false)}
+          className="group inline-flex items-center gap-3 rounded-xl focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+        >
+          <span
+            aria-hidden="true"
+            className="relative flex size-9 -rotate-6 items-center justify-center overflow-hidden rounded-xl bg-accent text-on-accent shadow-sm transition-transform duration-300 group-hover:rotate-0 motion-reduce:transform-none motion-reduce:transition-none"
+          >
+            <span className="absolute inset-0 bg-linear-to-br from-white/20 to-transparent" />
+            <span className="relative font-serif text-2xl font-bold italic leading-none">I</span>
+          </span>
+          <span className="text-xl font-semibold tracking-tight text-fg transition-colors group-hover:text-accent">
+            Ilyas
+          </span>
         </NavLink>
 
         {/* Tombol menu (HP) */}

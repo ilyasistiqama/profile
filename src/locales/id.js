@@ -18,7 +18,7 @@ const id = {
     },
     experience: {
       title: "Pengalaman | Ilyas Istiqama",
-      description: "Riwayat kerja Ilyas Istiqama: web programmer di PT. Terik Indonesia Inside, staf programming aplikasi di CV. Mamorasoft, dan freelance web developer.",
+      description: "Riwayat kerja Ilyas Istiqama: Staff IT di PT. Terik Indonesia Inside, sebelumnya Full Stack Developer, Web Programmer, Staf Programmer Aplikasi di CV. Mamorasoft, dan freelance web developer.",
     },
     portfolio: {
       title: "Proyek | Ilyas Istiqama",
@@ -55,9 +55,9 @@ const id = {
     title: "Tentang Saya",
     subtitle: "Latar belakang, pendidikan, dan pekerjaan saya saat ini.",
     description: [
-      "Saya Muhammad Ilyas Istiqama Makmur, web developer yang berdomisili di Surabaya. Saya lulusan S1 Teknik Informatika (S.Kom) Universitas 17 Agustus 1945 Surabaya dengan IPK 3.62.",
+      "Saya Ilyas Istiqama, web developer yang berdomisili di Surabaya. Saya lulusan S1 Teknik Informatika (S.Kom) Universitas 17 Agustus 1945 Surabaya dengan IPK 3.62.",
       "Karier saya dimulai pada 2022 di CV. Mamorasoft, membangun aplikasi web untuk klien dengan Laravel dan CodeIgniter, termasuk sistem SDM dan sistem manajemen inovasi untuk Petrokimia Gresik. Sejak itu saya telah menyelesaikan sistem perusahaan, platform e-commerce, dan beberapa proyek freelance.",
-      "Saat ini saya bekerja sebagai Web Programmer di PT. Terik Indonesia Inside, mengembangkan SaaS manajemen peternakan dan website perusahaan. Saya terbuka untuk peluang kerja baru maupun proyek freelance.",
+      "Saat ini saya bekerja sebagai Staff IT di PT. Terik Indonesia Inside, dengan fokus pada pengembangan aplikasi web dan operasional server produksi. Sebagai Project PIC SIMPe, saya menangani SaaS manajemen peternakan multi-tenant, modul POS, serta website perusahaan. Saya terbuka untuk peluang kerja baru maupun proyek freelance.",
     ],
     photo_caption: "Ranu Kumbolo, foto oleh saya",
     download_cv: "Lihat CV",
@@ -67,7 +67,7 @@ const id = {
     years: "Tahun pengalaman",
     projects: "Proyek",
     companies: "Perusahaan",
-    gpa: "IPK / 4.00",
+    pic: "Proyek sebagai PIC",
   },
   photo: {
     title: "Mari bekerja sama",
@@ -95,6 +95,22 @@ const id = {
     cat_personal: "Pribadi",
     visit: "Kunjungi situs",
     no_project: "Belum ada proyek di kategori ini.",
+  },
+  github: {
+    title: "Kontribusi GitHub",
+    subtitle: "Setahun membangun, belajar, dan berkontribusi di GitHub.",
+    profile: "Lihat profil GitHub",
+    loading: "Memuat kalender kontribusi…",
+    empty: "Data kontribusi belum tersedia. Jelajahi profil saya di GitHub.",
+    unavailable: "Kalender sementara tidak tersedia. Lihat kontribusi saya langsung di GitHub.",
+    total: "kontribusi dalam setahun terakhir",
+    contributions: "kontribusi",
+    calendar: "Kalender kontribusi setahun terakhir",
+    legend: "Intensitas kontribusi dari sedikit hingga banyak",
+    less: "Sedikit",
+    more: "Banyak",
+    scroll: "Arahkan kursor ke kotak untuk detail. Geser mendatar di layar kecil.",
+    note: "Kontribusi sesuai yang tampil pada profil GitHub saya. Pembaruan mungkin memerlukan waktu untuk muncul.",
   },
   contact: {
     title: "Kontak",

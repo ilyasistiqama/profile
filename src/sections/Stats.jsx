@@ -3,7 +3,6 @@ import { useLanguage } from "../context/LanguageContext";
 import useInView from "../hooks/useInView";
 import experiences from "../data/experiences";
 import projects from "../data/projects";
-import profile from "../data/profile";
 
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
@@ -55,7 +54,7 @@ export default function Stats() {
     { value: yearsSinceFirstJob(), suffix: "+", label: t.stats.years },
     { value: projects.length, suffix: "+", label: t.stats.projects },
     { value: companies.size, label: t.stats.companies },
-    { value: profile.gpa, decimals: 2, label: t.stats.gpa },
+    { value: projects.filter((project) => project.projectPic).length, label: t.stats.pic },
   ];
 
   return (

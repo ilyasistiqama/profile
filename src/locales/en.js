@@ -18,7 +18,7 @@ const en = {
     },
     experience: {
       title: "Experience | Ilyas Istiqama",
-      description: "Work history of Ilyas Istiqama: web programmer at PT. Terik Indonesia Inside, application programming staff at CV. Mamorasoft, and freelance web developer.",
+      description: "Work history of Ilyas Istiqama: Staff IT at PT. Terik Indonesia Inside, previously Full Stack Developer, Web Programmer, Application Programmer at CV. Mamorasoft, and freelance web developer.",
     },
     portfolio: {
       title: "Projects | Ilyas Istiqama",
@@ -55,9 +55,9 @@ const en = {
     title: "About Me",
     subtitle: "Background, education, and what I'm working on now.",
     description: [
-      "I'm Muhammad Ilyas Istiqama Makmur, a web developer based in Surabaya. I hold a Bachelor's degree in Informatics Engineering (S.Kom) from Universitas 17 Agustus 1945 Surabaya, graduating with a GPA of 3.62.",
+      "I'm Ilyas Istiqama, a web developer based in Surabaya. I hold a Bachelor's degree in Informatics Engineering (S.Kom) from Universitas 17 Agustus 1945 Surabaya, graduating with a GPA of 3.62.",
       "I began my career in 2022 at CV. Mamorasoft, building web applications for clients with Laravel and CodeIgniter, including HR and innovation management systems for Petrokimia Gresik. Since then I've delivered company systems, an e-commerce platform, and several freelance projects.",
-      "I'm currently a Web Programmer at PT. Terik Indonesia Inside, working on the company's livestock management SaaS and website. I'm open to new job opportunities and freelance projects.",
+      "I'm currently Staff IT at PT. Terik Indonesia Inside, focusing on web application development and production server operations. As Project PIC for SIMPe, I work on the multi-tenant livestock management SaaS, its POS module, and the company's website. I'm open to new job opportunities and freelance projects.",
     ],
     photo_caption: "Ranu Kumbolo, photographed by me",
     download_cv: "View CV",
@@ -67,7 +67,7 @@ const en = {
     years: "Years of experience",
     projects: "Projects",
     companies: "Companies",
-    gpa: "GPA / 4.00",
+    pic: "Projects as PIC",
   },
   photo: {
     title: "Let's build something together",
@@ -95,6 +95,22 @@ const en = {
     cat_personal: "Personal",
     visit: "Visit site",
     no_project: "Nothing in this category yet.",
+  },
+  github: {
+    title: "GitHub contributions",
+    subtitle: "A year of building, learning, and contributing on GitHub.",
+    profile: "View GitHub profile",
+    loading: "Loading contribution calendar…",
+    empty: "Contribution data is not available yet. Explore my profile on GitHub.",
+    unavailable: "The calendar is temporarily unavailable. View my contributions directly on GitHub.",
+    total: "contributions in the last year",
+    contributions: "contributions",
+    calendar: "Contribution calendar for the last year",
+    legend: "Contribution intensity from fewer to more",
+    less: "Less",
+    more: "More",
+    scroll: "Hover over a day for details. Scroll horizontally on smaller screens.",
+    note: "Contributions as shown on my GitHub profile. Updates may take a little time to appear.",
   },
   contact: {
     title: "Contact",

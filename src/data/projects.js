@@ -55,6 +55,7 @@ const projects = [
     },
     {
         id: 'carouselSimpeIndicators',
+        projectPic: true,
         category: 'Company',
         images: [simpe1, simpe2, simpe3, simpe4, simpe5],
         project_name: 'SIMPe (Sistem Informasi Manajemen Peternakan)',
@@ -85,6 +86,7 @@ const projects = [
     },
     {
         id: 'carouselRMPIndicators',
+        projectPic: true,
         category: 'Company',
         images: [rmp1, rmp2],
         project_name: 'RMP (Rotasi, Mutasi, Promosi)',
@@ -102,6 +104,7 @@ const projects = [
     },
     {
         id: 'carouselSergioIndicators',
+        projectPic: true,
         category: 'Company',
         images: [sergio1, sergio2, sergio3],
         project_name: 'SERGIO (Sistem Registrasi Inovasi Online)',
@@ -140,7 +143,7 @@ const projects = [
             id: "Sistem pakar untuk membantu deteksi awal gangguan kecemasan."
         },
         stacks: ['Vue.js', 'Tailwind CSS', 'JavaScript'],
-        url: 'https://ilyasistiqama.github.io/sispak-gangguan-kecemasan/'
+        url: 'https://ilyasistiqama.github.io/mental-health-expert-system/'
     }
 ];
 

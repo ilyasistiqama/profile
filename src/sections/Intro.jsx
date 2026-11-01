@@ -33,7 +33,7 @@ export default function Intro() {
 
           <p className="mt-8 font-mono text-sm text-muted">{t.intro.hi}</p>
           <h1 className="mt-2 text-5xl leading-[1.05] font-semibold md:text-7xl">
-            Ilyas Istiqama<span className="text-accent">.</span>
+            {profile.name}<span className="text-accent">.</span>
           </h1>
           <p className="mt-4 text-xl font-medium text-muted md:text-2xl">{t.intro.role}</p>
 

@@ -1,6 +1,6 @@
 # Dokumentasi muis.life
 
-Dokumentasi teknis website portofolio **muis.life** — situs statis milik Muh. Ilyas Istiqama yang dibangun dengan React + Vite + Tailwind CSS v4.
+Dokumentasi teknis website portofolio **muis.life** — situs statis milik Ilyas Istiqama yang dibangun dengan React + Vite + Tailwind CSS v4.
 
 ## Daftar isi
 

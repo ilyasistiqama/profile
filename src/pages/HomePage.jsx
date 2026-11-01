@@ -3,6 +3,7 @@ import About from "../sections/About";
 import Stats from "../sections/Stats";
 import Skills from "../sections/Skills";
 import PhotoBanner from "../sections/PhotoBanner";
+import GitHubActivity from "../sections/GitHubActivity";
 import usePageMeta from "../hooks/usePageMeta";
 
 export default function HomePage() {
@@ -14,6 +15,7 @@ export default function HomePage() {
       <Stats />
       <About />
       <Skills />
+      <GitHubActivity />
       <PhotoBanner />
     </>
   );

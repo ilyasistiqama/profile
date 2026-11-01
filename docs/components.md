@@ -8,7 +8,7 @@ Halaman hanya bertugas memanggil `usePageMeta` lalu menyusun section. Tidak ada 
 
 | Komponen | Route | Isi |
 | --- | --- | --- |
-| `HomePage.jsx` | `/` | `Intro`, `Stats`, `About`, `Skills`, `PhotoBanner` |
+| `HomePage.jsx` | `/` | `Intro`, `Stats`, `About`, `Skills`, `GitHubActivity` (kalender kontribusi), `PhotoBanner` |
 | `ExperiencePage.jsx` | `/experience` | `Experience` |
 | `ProjectsPage.jsx` | `/portfolio` | `Projects` |
 | `ContactPage.jsx` | `/contact` | `Contact` |
@@ -21,12 +21,13 @@ Blok konten besar. Semua memakai `useLanguage()` untuk teks.
 | Section | ID anchor | Fungsi |
 | --- | --- | --- |
 | `Intro.jsx` | `intro` | Hero: status "open to work", nama, deskripsi, CTA, area kerja, foto profil, kartu perusahaan saat ini |
-| `Stats.jsx` | `stats` | Empat statistik dengan animasi hitung: tahun pengalaman, jumlah proyek, jumlah perusahaan, IPK |
+| `Stats.jsx` | `stats` | Empat statistik dengan animasi hitung: tahun pengalaman, jumlah proyek, jumlah perusahaan, proyek sebagai PIC |
 | `About.jsx` | `about-me` | Narasi tentang saya + foto Ranu Kumbolo (bisa di-zoom) + tombol CV & kontak |
 | `Skills.jsx` | `skill` | Skill dikelompokkan per kategori; skill `core` disorot warna aksen |
 | `PhotoBanner.jsx` | `photo` | Banner foto Milky Way dengan lazy load via `useInView` dan CTA kontak |
 | `Experience.jsx` | `experience` | Daftar pengalaman kerja; judul sticky di desktop, item muncul saat di-scroll |
-| `Projects.jsx` | `project` | Grid proyek + filter kategori + carousel gambar + lightbox |
+| `Projects.jsx` | `project` | Grid proyek + filter kategori + carousel + lightbox |
+| `GitHubActivity.jsx` | `github-contributions` | Kalender kontribusi setahun terakhir, total, legenda intensitas, detail tanggal, dan tautan profil; dapat digeser di mobile |
 | `Contact.jsx` | `contact` | Info kontak, tautan sosial, dan form yang dikirim ke Formspree |
 
 ### Logika penting di section
@@ -35,6 +36,7 @@ Blok konten besar. Semua memakai `useLanguage()` untuk teks.
 - **`Projects.jsx`** menyaring berdasarkan `category` (`Company`, `Freelance`, `Personal`). Setiap kartu menampilkan maksimal 6 stack, sisanya diringkas menjadi `+N`. Tombol "Visit site" memakai `mt-auto` agar sejajar antar kartu.
 - **`Skills.jsx`** mengelompokkan data dengan `reduce`; urutan kategori mengikuti kemunculan pertama di `skills.js`.
 - **`Intro.jsx`** menganggap `experiences[0]` sebagai pekerjaan saat ini.
+- **`GitHubActivity.jsx`** mengambil kalender profil publik akun `profile.githubUsername` lewat `getContributions` di `src/data/githubActivity.js`. Memakai [GitHub Contributions API](https://github.com/grubersjoe/github-contributions-api) dengan `?y=last`, tanpa token. Layanan dan cache sesi masing-masing menyimpan data hingga satu jam; request dibatalkan setelah 10 detik atau saat komponen dilepas. SVG memakai posisi minggu dan hari dalam UTC, dengan tooltip per tanggal. Total dihitung dari hari yang ditampilkan; data kosong/gagal menampilkan pesan dan tautan profil, bukan angka kontribusi palsu.
 - **`Contact.jsx`** memiliki honeypot `_gotcha` dan status `idle | loading | success | error`.
 
 ## Komponen layout (`src/components/layout`)

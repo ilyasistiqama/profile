@@ -50,6 +50,8 @@ Langkah gambar:
 
 Jumlah proyek otomatis memengaruhi statistik "Projects" di beranda dan jumlah pada filter kategori.
 
+Tambahkan `projectPic: true` hanya jika memang menjadi PIC; field ini menghitung statistik "Proyek sebagai PIC" secara otomatis.
+
 ## Menambah pengalaman kerja
 
 Tambahkan objek di `src/data/experiences.js` (urutan terbaru di atas):
@@ -95,7 +97,8 @@ Efek samping yang perlu diketahui:
 | Field | Dipakai di |
 | --- | --- |
 | `name`, `email`, `location`, `website` | `Contact`, `Footer`, JSON-LD (nama di `index.html`) |
-| `gpa` | Statistik IPK |
+| `gpa` | Data pendidikan; IPK ditampilkan dalam teks About di kedua locale, bukan statistik beranda |
+| `githubUsername` | Akun untuk kalender kontribusi setahun terakhir di beranda |
 | `cvUrl` | Tombol "Lihat CV" di `About` |
 | `formEndpoint` | Endpoint Formspree pada form kontak |
 | `socials` | `Intro`, `Contact`, `Footer` |
