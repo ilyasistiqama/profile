@@ -49,7 +49,8 @@ describe("routing", () => {
   test("each page renders inside the layout with the navbar", () => {
     for (const path of ["/experience", "/portfolio", "/contact"]) {
       const { unmount } = renderAt(path);
-      expect(screen.getByRole("navigation")).toBeInTheDocument();
+      // Indeks karier memiliki landmark navigasi sendiri dengan label.
+      expect(screen.getByRole("navigation", { name: "" })).toBeInTheDocument();
       unmount();
     }
   });

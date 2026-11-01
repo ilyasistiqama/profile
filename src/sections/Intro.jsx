@@ -16,7 +16,7 @@ export default function Intro() {
   const [zoomed, setZoomed] = useState(false);
 
   return (
-    <section id="intro" className="relative isolate px-5 pt-32 pb-20 md:pt-40 md:pb-28">
+    <section id="intro" className="relative isolate px-5 pt-28 pb-20 md:pt-32 md:pb-28 lg:pt-28">
       <div aria-hidden="true" className="bg-grid absolute inset-0 -z-10" />
 
       <div className="mx-auto grid max-w-6xl items-center gap-14 md:grid-cols-[1.5fr_1fr]">
@@ -32,8 +32,8 @@ export default function Intro() {
           </p>
 
           <p className="mt-8 font-mono text-sm text-muted">{t.intro.hi}</p>
-          <h1 className="mt-2 text-5xl leading-[1.05] font-semibold md:text-7xl">
-            {profile.name}<span className="text-accent">.</span>
+          <h1 className="mt-2 text-balance text-5xl leading-[1.05] font-semibold md:text-7xl">
+            {profile.displayName}<span className="text-accent">.</span>
           </h1>
           <p className="mt-4 text-xl font-medium text-muted md:text-2xl">{t.intro.role}</p>
 
@@ -81,9 +81,9 @@ export default function Intro() {
         <figure className="relative mx-auto w-full max-w-xs animate-fade-up md:max-w-none">
           <img
             src={photo}
-            alt="Ilyas Istiqama"
+            alt={profile.name}
             onClick={() => setZoomed(true)}
-            fetchPriority="high"
+            fetchpriority="high"
             decoding="async"
             className="aspect-[4/5] w-full cursor-zoom-in rounded-3xl border border-line object-cover shadow-2xl shadow-black/10"
           />
@@ -99,7 +99,7 @@ export default function Intro() {
         </figure>
       </div>
 
-      <Lightbox image={zoomed ? photo : null} alt="Ilyas Istiqama" onClose={() => setZoomed(false)} />
+      <Lightbox image={zoomed ? photo : null} alt={profile.name} onClose={() => setZoomed(false)} />
     </section>
   );
 }

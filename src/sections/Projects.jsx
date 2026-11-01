@@ -17,7 +17,7 @@ function ProjectCard({ project, lang, t, categoryLabel, onImageClick }) {
   const hiddenStacks = project.stacks.length - stacks.length;
 
   return (
-    <article className="flex animate-fade-up flex-col overflow-hidden rounded-2xl border border-line bg-surface transition-all hover:-translate-y-0.5 hover:border-fg/20 hover:shadow-xl hover:shadow-black/5">
+    <article id={`project-${project.id}`} className="flex animate-fade-up flex-col overflow-hidden rounded-2xl border border-line bg-surface transition-all hover:-translate-y-0.5 hover:border-fg/20 hover:shadow-xl hover:shadow-black/5">
       {project.images?.length > 0 && (
         <ImageCarousel images={project.images} alt={project.project_name} onImageClick={onImageClick} />
       )}
@@ -28,7 +28,7 @@ function ProjectCard({ project, lang, t, categoryLabel, onImageClick }) {
           <span>/ {project.project_origin}</span>
         </p>
 
-        <h3 className="text-lg leading-snug font-semibold">{project.project_name}</h3>
+        <h2 className="text-lg leading-snug font-semibold">{project.project_name}</h2>
         <p className="mt-2 text-sm leading-relaxed text-muted">{project.description[lang]}</p>
 
         {/* Peran saya di proyek (hanya jika diisi di data) */}
@@ -88,7 +88,7 @@ export default function Projects() {
   return (
     <section id="project" className="px-5 pt-32 pb-24">
       <div className="mx-auto max-w-6xl">
-        <SectionHeader title={t.project.title} subtitle={t.project.subtitle} />
+        <SectionHeader as="h1" title={t.project.title} subtitle={t.project.subtitle} />
         <FilterTabs options={options} value={category} onChange={setCategory} />
 
         {visibleProjects.length === 0 ? (

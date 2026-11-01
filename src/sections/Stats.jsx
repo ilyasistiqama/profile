@@ -21,7 +21,7 @@ function yearsSinceFirstJob() {
 
 // Angka yang naik dari 0 ke "end" saat "start" bernilai true
 function CountUp({ end, decimals = 0, start }) {
-  const [value, setValue] = useState(0);
+  const [value, setValue] = useState(() => typeof window === "undefined" ? end : 0);
 
   useEffect(() => {
     if (!start) return;

@@ -12,7 +12,7 @@ import { useEffect, useRef, useState } from "react";
  */
 export default function useInView(threshold = 0.2, rootMargin = "0px") {
   const ref = useRef(null);
-  const [inView, setInView] = useState(false);
+  const [inView, setInView] = useState(() => typeof window === "undefined");
 
   useEffect(() => {
     const el = ref.current;

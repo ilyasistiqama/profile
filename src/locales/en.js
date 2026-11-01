@@ -13,23 +13,23 @@ const en = {
   // Judul & deskripsi per halaman (tab browser dan hasil Google)
   seo: {
     home: {
-      title: "Ilyas Istiqama | Fullstack Web Developer",
-      description: "Portfolio of Ilyas Istiqama, a fullstack web developer based in Surabaya specializing in Laravel, database design, and server deployment. Open to onsite or remote work.",
+      title: "Ilyas Istiqama | Fullstack Web Developer in Surabaya",
+      description: "Ilyas Istiqama, fullstack web developer in Surabaya. Building Laravel apps, SaaS, databases, and production deployments. Open to work and freelance projects.",
     },
     experience: {
-      title: "Experience | Ilyas Istiqama",
-      description: "Work history of Ilyas Istiqama: Staff IT at PT. Terik Indonesia Inside, previously Full Stack Developer, Web Programmer, Application Programmer at CV. Mamorasoft, and freelance web developer.",
+      title: "Web Development Experience | Ilyas Istiqama",
+      description: "Ilyas Istiqama's work at Terik Indonesia Inside, Mamorasoft, and as a freelancer: Laravel applications, multi-tenant SaaS, databases, and production servers.",
     },
     portfolio: {
-      title: "Projects | Ilyas Istiqama",
-      description: "Selected Laravel projects by Ilyas Istiqama, including SaaS farm management, HR and innovation systems for Petrokimia Gresik, and e-commerce.",
+      title: "Laravel & Fullstack Projects | Ilyas Istiqama",
+      description: "Explore projects by Ilyas Istiqama: SIMPe livestock SaaS, Synn Store e-commerce, and RMP and SERGIO enterprise applications for Petrokimia Gresik.",
     },
     contact: {
-      title: "Contact | Ilyas Istiqama",
-      description: "Contact Ilyas Istiqama for job opportunities or freelance web development projects. Based in Surabaya, open to onsite or remote work.",
+      title: "Contact Ilyas Istiqama | Web Development & Careers",
+      description: "Contact Ilyas Istiqama for fullstack web developer roles or freelance Laravel projects. Based in Surabaya, available for onsite and remote opportunities.",
     },
     not_found: {
-      title: "Page not found | Ilyas Istiqama",
+      title: "Page not found | Muh. Ilyas Istiqama M.",
       description: "The page you're looking for doesn't exist.",
     },
   },
@@ -38,7 +38,7 @@ const en = {
     open_to_work: "Open to work",
     work_mode: "Onsite / Remote",
     work_areas: [
-      { region: "East Java", cities: "Surabaya, Sidoarjo, Mojokerto, Malang & nearby" },
+      { region: "East Java", cities: "Surabaya, Sidoarjo, Malang & nearby" },
       { region: "Central Sulawesi", cities: "Luwuk, Palu & nearby" },
     ],
     hi: "Hi, I'm",
@@ -55,11 +55,12 @@ const en = {
     title: "About Me",
     subtitle: "Background, education, and what I'm working on now.",
     description: [
-      "I'm Ilyas Istiqama, a web developer based in Surabaya. I hold a Bachelor's degree in Informatics Engineering (S.Kom) from Universitas 17 Agustus 1945 Surabaya, graduating with a GPA of 3.62.",
+      "I'm Muhammad Ilyas Istiqama Makmur. I'm a Fullstack Web Developer based in Surabaya. My work covers frontend and backend development, database design, deployment, and application maintenance on production servers. I hold a Bachelor's degree in Informatics Engineering (S.Kom) from Universitas 17 Agustus 1945 Surabaya, graduating with a GPA of 3.62.",
       "I began my career in 2022 at CV. Mamorasoft, building web applications for clients with Laravel and CodeIgniter, including HR and innovation management systems for Petrokimia Gresik. Since then I've delivered company systems, an e-commerce platform, and several freelance projects.",
       "I'm currently Staff IT at PT. Terik Indonesia Inside, focusing on web application development and production server operations. As Project PIC for SIMPe, I work on the multi-tenant livestock management SaaS, its POS module, and the company's website. I'm open to new job opportunities and freelance projects.",
     ],
     photo_caption: "Ranu Kumbolo, photographed by me",
+    view_portrait: "Enlarge Ilyas's portrait",
     download_cv: "View CV",
     hire_me: "Get in touch",
   },
@@ -70,10 +71,12 @@ const en = {
     pic: "Projects as PIC",
   },
   photo: {
+    view_photo: "Enlarge photo",
     title: "Let's build something together",
     text: "Have a role or project in mind? I'd be glad to hear about it.",
     cta: "Get in touch",
     caption: "Milky Way, photographed by me",
+    cloud_caption: "Sea of clouds at Lembah Lengkehan, photographed by me",
   },
   skill: {
     title: "Skills",
@@ -83,6 +86,8 @@ const en = {
     also: ["Agile / Scrum", "System analysis (UML, BPMN, ERD)", "Code review", "Postman", "GitHub & Bitbucket"],
   },
   experience: {
+    career_index: "Experience overview",
+    total_tenure: "Total professional experience",
     title: "Experience",
     subtitle: "My professional roles, starting with the most recent.",
   },

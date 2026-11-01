@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import { useLanguage } from "../../context/LanguageContext";
 import { useTheme } from "../../context/ThemeContext";
 import useScrollState from "../../hooks/useScrollState";
+import profile from "../../data/profile";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faMoon, faSun, faXmark } from "@fortawesome/free-solid-svg-icons";
 
@@ -45,7 +46,7 @@ export default function Navbar() {
             <span className="relative font-serif text-2xl font-bold italic leading-none">I</span>
           </span>
           <span className="text-xl font-semibold tracking-tight text-fg transition-colors group-hover:text-accent">
-            Ilyas
+            {profile.nickname}
           </span>
         </NavLink>
 

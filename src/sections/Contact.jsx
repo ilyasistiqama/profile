@@ -57,7 +57,7 @@ export default function Contact() {
   const details = [
     { icon: faEnvelope, text: profile.email, href: `mailto:${profile.email}` },
     { icon: faLocationDot, text: profile.location },
-    { icon: faGlobe, text: "muis.life", href: profile.website },
+    { icon: faGlobe, text: new URL(profile.website).host, href: profile.website },
   ];
 
   return (
@@ -65,7 +65,7 @@ export default function Contact() {
       <div className="mx-auto grid max-w-6xl gap-12 md:grid-cols-[1fr_1.4fr]">
         {/* Kiri: info kontak */}
         <div className="animate-fade-up">
-          <h2 className="text-3xl font-semibold md:text-4xl">{t.contact.title}</h2>
+          <h1 className="text-3xl font-semibold md:text-4xl">{t.contact.title}</h1>
           <p className="mt-4 mb-8 leading-relaxed text-muted">{t.contact.subtitle}</p>
 
           <ul className="mb-8 space-y-4">

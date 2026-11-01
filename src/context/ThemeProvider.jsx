@@ -3,6 +3,7 @@ import { ThemeContext } from "./ThemeContext";
 
 // Tema awal sudah dipasang oleh script kecil di index.html, tinggal dibaca
 function getInitialTheme() {
+  if (typeof document === "undefined") return "light";
   return document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light";
 }
 

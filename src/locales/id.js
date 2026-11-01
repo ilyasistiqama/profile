@@ -13,23 +13,23 @@ const id = {
   // Judul & deskripsi per halaman (tab browser dan hasil Google)
   seo: {
     home: {
-      title: "Ilyas Istiqama | Fullstack Web Developer",
-      description: "Portofolio Ilyas Istiqama, fullstack web developer di Surabaya dengan spesialisasi Laravel, perancangan database, dan deployment server. Terbuka untuk kerja onsite maupun remote.",
+      title: "Ilyas Istiqama | Fullstack Web Developer Surabaya",
+      description: "Ilyas Istiqama, fullstack web developer di Surabaya. Mengembangkan aplikasi Laravel, SaaS, database, dan server produksi. Terbuka untuk kerja dan freelance.",
     },
     experience: {
-      title: "Pengalaman | Ilyas Istiqama",
-      description: "Riwayat kerja Ilyas Istiqama: Staff IT di PT. Terik Indonesia Inside, sebelumnya Full Stack Developer, Web Programmer, Staf Programmer Aplikasi di CV. Mamorasoft, dan freelance web developer.",
+      title: "Pengalaman Web Developer | Ilyas Istiqama",
+      description: "Pengalaman Ilyas Istiqama di Terik Indonesia Inside, Mamorasoft, dan freelance: aplikasi Laravel, SaaS multi-tenant, database, serta server produksi.",
     },
     portfolio: {
-      title: "Proyek | Ilyas Istiqama",
-      description: "Pilihan proyek Laravel Ilyas Istiqama, termasuk SaaS manajemen peternakan, sistem SDM dan inovasi untuk Petrokimia Gresik, dan e-commerce.",
+      title: "Proyek Laravel & Fullstack | Ilyas Istiqama",
+      description: "Portofolio Ilyas Istiqama: SaaS peternakan SIMPe, e-commerce Synn Store, serta aplikasi enterprise RMP dan SERGIO untuk Petrokimia Gresik.",
     },
     contact: {
-      title: "Kontak | Ilyas Istiqama",
-      description: "Hubungi Ilyas Istiqama untuk peluang kerja atau proyek pengembangan web. Berdomisili di Surabaya, terbuka untuk kerja onsite maupun remote.",
+      title: "Kontak Ilyas Istiqama | Peluang Kerja & Proyek Web",
+      description: "Hubungi Ilyas Istiqama untuk peluang kerja fullstack web developer atau proyek Laravel. Berdomisili di Surabaya, terbuka untuk kerja onsite dan remote.",
     },
     not_found: {
-      title: "Halaman tidak ditemukan | Ilyas Istiqama",
+      title: "Halaman tidak ditemukan | Muh. Ilyas Istiqama M.",
       description: "Halaman yang Anda cari tidak ada.",
     },
   },
@@ -38,7 +38,7 @@ const id = {
     open_to_work: "Terbuka untuk peluang kerja",
     work_mode: "Onsite / Remote",
     work_areas: [
-      { region: "Jawa Timur", cities: "Surabaya, Sidoarjo, Mojokerto, Malang & sekitarnya" },
+      { region: "Jawa Timur", cities: "Surabaya, Sidoarjo, Malang & sekitarnya" },
       { region: "Sulawesi Tengah", cities: "Luwuk, Palu & sekitarnya" },
     ],
     hi: "Halo, saya",
@@ -55,11 +55,12 @@ const id = {
     title: "Tentang Saya",
     subtitle: "Latar belakang, pendidikan, dan pekerjaan saya saat ini.",
     description: [
-      "Saya Ilyas Istiqama, web developer yang berdomisili di Surabaya. Saya lulusan S1 Teknik Informatika (S.Kom) Universitas 17 Agustus 1945 Surabaya dengan IPK 3.62.",
+      "Saya Muhammad Ilyas Istiqama Makmur, Fullstack Web Developer yang berdomisili di Surabaya. Saya menangani pengembangan frontend, backend, perancangan database, hingga deployment dan pemeliharaan aplikasi di server produksi. Saya lulusan S1 Teknik Informatika (S.Kom) Universitas 17 Agustus 1945 Surabaya dengan IPK 3.62.",
       "Karier saya dimulai pada 2022 di CV. Mamorasoft, membangun aplikasi web untuk klien dengan Laravel dan CodeIgniter, termasuk sistem SDM dan sistem manajemen inovasi untuk Petrokimia Gresik. Sejak itu saya telah menyelesaikan sistem perusahaan, platform e-commerce, dan beberapa proyek freelance.",
       "Saat ini saya bekerja sebagai Staff IT di PT. Terik Indonesia Inside, dengan fokus pada pengembangan aplikasi web dan operasional server produksi. Sebagai Project PIC SIMPe, saya menangani SaaS manajemen peternakan multi-tenant, modul POS, serta website perusahaan. Saya terbuka untuk peluang kerja baru maupun proyek freelance.",
     ],
     photo_caption: "Ranu Kumbolo, foto oleh saya",
+    view_portrait: "Perbesar foto Ilyas",
     download_cv: "Lihat CV",
     hire_me: "Hubungi saya",
   },
@@ -70,10 +71,12 @@ const id = {
     pic: "Proyek sebagai PIC",
   },
   photo: {
+    view_photo: "Perbesar foto",
     title: "Mari bekerja sama",
     text: "Punya posisi atau proyek yang cocok? Saya senang mendengarnya.",
     cta: "Hubungi saya",
     caption: "Milky Way, foto oleh saya",
+    cloud_caption: "Lautan awan Lembah Lengkehan, foto oleh saya",
   },
   skill: {
     title: "Keahlian",
@@ -83,6 +86,8 @@ const id = {
     also: ["Agile / Scrum", "Analisis sistem (UML, BPMN, ERD)", "Code review", "Postman", "GitHub & Bitbucket"],
   },
   experience: {
+    career_index: "Ringkasan pengalaman",
+    total_tenure: "Total masa kerja profesional",
     title: "Pengalaman",
     subtitle: "Riwayat pekerjaan saya, dimulai dari yang terbaru.",
   },

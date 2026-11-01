@@ -15,4 +15,9 @@ export default defineConfig([
       parserOptions: { ecmaFeatures: { jsx: true } },
     },
   },
+  {
+    // This entry is executed only at build time and exports a server renderer, not HMR components.
+    files: ["src/entry-server.jsx"],
+    rules: { "react-refresh/only-export-components": "off" },
+  },
 ]);

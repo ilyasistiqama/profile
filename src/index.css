@@ -53,14 +53,14 @@
 }
 
 @theme {
-  --font-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "Geist Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
 
   /* Animasi muncul dari bawah, dipakai dengan class "animate-fade-up" */
   --animate-fade-up: fade-up 0.6s ease both;
 
   /* Garis progres di splash screen */
-  --animate-splash-progress: splash-progress 1.7s ease-in-out both;
+  --animate-splash-progress: splash-progress 3s ease-in-out both;
 
   @keyframes splash-progress {
     from {
@@ -88,6 +88,7 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    scrollbar-gutter: stable;
   }
 
   body {

@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "start": "vite",
-    "build": "vite build && node scripts/prerender.js",
+    "build": "vite build && node scripts/prerender.js && node scripts/check-seo.js",
     "preview": "vite preview",
     "lint": "eslint .",
     "test": "vitest",
