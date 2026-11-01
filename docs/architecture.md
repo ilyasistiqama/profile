@@ -18,7 +18,7 @@ StrictMode
 
 - `BrowserRouter` dipakai karena situs berjalan di domain sendiri (custom domain GitHub Pages), bukan di sub-path.
 - `ThemeProvider` berada di luar `LanguageProvider` agar tema tidak bergantung pada bahasa.
-- Semua halaman berada di dalam `Layout`, jadi navbar, footer, splash screen, dan tombol *back to top* selalu tersedia.
+- Semua halaman berada di dalam `Layout`, jadi navbar, footer, dan tombol *back to top* selalu tersedia.
 
 ## 2. Routing
 
@@ -101,10 +101,10 @@ Satu file CSS: `src/index.css`.
    - `--accent`, `--accent-hover`, `--on-accent`
 4. `@theme inline` mendaftarkan variabel tersebut ke Tailwind, sehingga bisa dipakai sebagai utility:
    `bg-bg`, `bg-bg-alt`, `bg-surface`, `text-fg`, `text-muted`, `border-line`, `bg-accent`, `text-on-accent`.
-5. `@theme` mendefinisikan font (`Geist`, `Geist Mono`) dan animasi (`animate-fade-up`, `animate-splash-progress`).
+5. `@theme` mendefinisikan font (`Geist`, `Geist Mono`) dan animasi (`animate-fade-up`).
 6. Utility kustom `bg-grid` menghasilkan pola grid hero dengan mask radial.
 
-Konsekuensi penting: **jangan hardcode warna** seperti `bg-zinc-100` untuk permukaan. Gunakan token tema agar dark mode otomatis bekerja. Pengecualian yang disengaja: warna status (hijau/merah) pada form kontak dan latar splash screen.
+Konsekuensi penting: **jangan hardcode warna** seperti `bg-zinc-100` untuk permukaan. Gunakan token tema agar dark mode otomatis bekerja. Pengecualian yang disengaja: warna status (hijau/merah) pada form kontak.
 
 ## 6. Animasi dan interaksi
 
@@ -113,7 +113,6 @@ Konsekuensi penting: **jangan hardcode warna** seperti `bg-zinc-100` untuk permu
 | Muncul saat di-scroll | `useInView` (IntersectionObserver, sekali jalan) + transisi opacity/translate |
 | Hitung angka naik | `CountUp` di `Stats.jsx` memakai `requestAnimationFrame` + easing |
 | Navbar menyembunyi saat scroll ke bawah | `useScrollState` (ambang 10px untuk mencegah kedip, sembunyi setelah `y > 100`) |
-| Splash screen | `SplashScreen.jsx`, tampil sekali per sesi (`sessionStorage["splash-seen"]`), 1800 ms tampil + 500 ms animasi keluar |
 | Efek parallax foto | `bg-fixed` hanya di `md:` karena bermasalah di iOS |
 | Lightbox | `Lightbox.jsx`, tutup dengan klik atau `Esc`, mengunci scroll body |
 
@@ -144,6 +143,5 @@ Detail langkah build ada di [deployment.md](./deployment.md).
 ## 9. Batasan yang diketahui
 
 - Prerender hanya menghasilkan HTML "kerangka" — isi React tetap dirender di klien, jadi crawler yang tidak menjalankan JavaScript hanya melihat meta, bukan konten lengkap.
-- Splash screen dikunci per sesi tab; membuka tab baru akan menampilkannya lagi.
 - Tidak ada backend sendiri; kontak bergantung pada Formspree.
 - `sitemap.xml` diperbarui manual (tidak digenerate saat build).

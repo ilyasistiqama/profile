@@ -47,7 +47,6 @@ Blok konten besar. Semua memakai `useLanguage()` untuk teks.
 | `Navbar.jsx` | Navigasi fixed, menu mobile, toggle bahasa (`EN`/`ID`), toggle tema; menyembunyi saat scroll ke bawah |
 | `Footer.jsx` | Hak cipta, tagline, tautan sosial dari `profile.socials` |
 | `BackToTop.jsx` | Tombol muncul setelah `scrollY > 120` |
-| `SplashScreen.jsx` | Layar pembuka animasi nama; sekali per sesi tab, mengunci scroll selama tampil |
 
 ## Komponen UI (`src/components/ui`)
 

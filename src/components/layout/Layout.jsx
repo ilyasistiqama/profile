@@ -3,7 +3,6 @@ import { Outlet, useLocation } from "react-router-dom";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import BackToTop from "./BackToTop";
-import SplashScreen from "./SplashScreen";
 
 // Kerangka yang sama untuk semua halaman. Isi halaman dirender di <Outlet />.
 export default function Layout() {
@@ -16,7 +15,6 @@ export default function Layout() {
 
   return (
     <div className="flex min-h-screen flex-col">
-      <SplashScreen />
       <Navbar />
       <main>
         <Outlet />

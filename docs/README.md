@@ -48,7 +48,7 @@ src/
   index.css             Tailwind + token warna tema + animasi
   pages/                Satu komponen per URL
   sections/             Blok konten besar (Intro, About, Projects, ...)
-  components/layout/    Navbar, Footer, Layout, SplashScreen, BackToTop
+  components/layout/    Navbar, Footer, Layout, BackToTop
   components/ui/        Button, FilterTabs, ImageCarousel, Lightbox, SectionHeader
   context/              State tema & bahasa (Context + Provider)
   hooks/                useInView, useScrollState, usePageMeta

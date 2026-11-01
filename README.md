@@ -31,7 +31,7 @@ public/                 File statis (favicon, CNAME, og-image)
 src/
   main.jsx              Titik awal: pasang router, tema, dan bahasa
   App.jsx               Daftar halaman (route)
-  index.css             Tailwind + warna tema light/dark; splash memiliki stylesheet sendiri
+  index.css             Tailwind + warna tema light/dark
 
 scripts/prerender.js    Render konten HTML, metadata, schema, sitemap, dan robots setelah build
 scripts/check-seo.js    Verifikasi hasil HTML dan aset SEO sebelum deploy
@@ -72,7 +72,7 @@ scripts/check-seo.js    Verifikasi hasil HTML dan aset SEO sebelum deploy
 
 ## SEO dan pergantian domain
 
-`npm run build` menghasilkan HTML berisi konten untuk `/`, `/experience/`, `/portfolio/`, dan `/contact/`. Build tidak memerlukan layanan backend atau browser otomatis. Splash hanya dijalankan di browser, sehingga tidak menutupi konten HTML untuk crawler.
+`npm run build` menghasilkan HTML berisi konten untuk `/`, `/experience/`, `/portfolio/`, dan `/contact/`. Build tidak memerlukan layanan backend atau browser otomatis.
 
 Judul dan deskripsi ada di `src/locales/en.js` serta `src/locales/id.js`. `src/utils/seo.js` menyusun metadata dan JSON-LD dari profil, pekerjaan terkini, keahlian, dan proyek aplikasi. Metadata Open Graph, Twitter, canonical, serta schema diperbarui saat navigasi atau ganti bahasa. Bahasa HTML awal mengikuti default aplikasi, yaitu Inggris; pilihan bahasa pada URL yang sama tidak diperlakukan sebagai URL terjemahan terpisah.
 
