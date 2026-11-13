@@ -16,8 +16,7 @@ export default function Intro() {
   const [zoomed, setZoomed] = useState(false);
 
   return (
-    <section id="intro" className="relative isolate px-5 pt-28 pb-20 md:pt-32 md:pb-28 lg:pt-28">
-      <div aria-hidden="true" className="bg-grid absolute inset-0 -z-10" />
+    <section id="intro" className="relative isolate px-5 pt-12 pb-20 md:pt-20 md:pb-28">
 
       <div className="mx-auto grid max-w-6xl items-center gap-14 md:grid-cols-[1.5fr_1fr]">
         <div className="animate-fade-up">

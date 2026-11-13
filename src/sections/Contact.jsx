@@ -2,10 +2,12 @@ import { useState } from "react";
 import { useLanguage } from "../context/LanguageContext";
 import profile from "../data/profile";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleCheck, faCircleExclamation, faEnvelope, faGlobe, faLocationDot, faPaperPlane, faSpinner } from "@fortawesome/free-solid-svg-icons";
+import { faCheck, faCircleCheck, faCircleExclamation, faCopy, faEnvelope, faPaperPlane, faSpinner } from "@fortawesome/free-solid-svg-icons";
 
 // "_gotcha" = honeypot anti-spam: field tersembunyi yang hanya diisi oleh bot
-const EMPTY_FORM = { name: "", email: "", message: "", _gotcha: "" };
+// "topic" = jenis pesan (lowongan / freelance / lainnya), ikut terkirim ke email
+const EMPTY_FORM = { topic: "job", name: "", email: "", message: "", _gotcha: "" };
+const TOPICS = ["job", "freelance", "other"];
 
 const inputClass =
   "w-full rounded-xl border border-line bg-bg px-4 py-3 outline-none transition focus:border-accent focus:ring-3 focus:ring-accent/20";
@@ -25,6 +27,18 @@ export default function Contact() {
   const { t } = useLanguage();
   const [form, setForm] = useState(EMPTY_FORM);
   const [status, setStatus] = useState("idle"); // idle | loading | success | error
+  const [copied, setCopied] = useState(false);
+
+  // Salin alamat email (mailto sering tidak membuka apa-apa di desktop tanpa aplikasi email)
+  const copyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(profile.email);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      window.location.href = `mailto:${profile.email}`;
+    }
+  };
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
@@ -44,56 +58,78 @@ export default function Contact() {
       const res = await fetch(profile.formEndpoint, {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify(form),
+        // _subject = judul email dari Formspree, diberi label topik supaya mudah dipilah
+        body: JSON.stringify({
+          ...form,
+          topic: t.contact.topics[form.topic].label,
+          _subject: `[${t.contact.topics[form.topic].label}] ${t.contact.subject_prefix}`,
+        }),
       });
       if (!res.ok) throw new Error("Request failed");
       setStatus("success");
-      setForm(EMPTY_FORM);
+      setForm({ ...EMPTY_FORM, topic: form.topic });
     } catch {
       setStatus("error");
     }
   };
 
-  const details = [
-    { icon: faEnvelope, text: profile.email, href: `mailto:${profile.email}` },
-    { icon: faLocationDot, text: profile.location },
-    { icon: faGlobe, text: new URL(profile.website).host, href: profile.website },
+  const availability = [
+    { label: t.contact.open_for_label, value: t.contact.open_for_value, highlight: true },
+    { label: t.contact.mode_label, value: t.intro.work_mode },
+    ...t.intro.work_areas.map((area, i) => ({
+      label: i === 0 ? t.contact.area_label : "",
+      value: `${area.region}: ${area.cities}`,
+    })),
+    { label: t.contact.reply_label, value: t.contact.reply_value },
   ];
 
   return (
-    <section id="contact" className="px-5 pt-32 pb-20">
+    <section id="contact" className="px-5 pt-12 pb-20 md:pt-20">
       <div className="mx-auto grid max-w-6xl gap-12 md:grid-cols-[1fr_1.4fr]">
-        {/* Kiri: info kontak */}
+        {/* Kiri: email + ketersediaan */}
         <div className="animate-fade-up">
           <h1 className="text-3xl font-semibold md:text-4xl">{t.contact.title}</h1>
           <p className="mt-4 mb-8 leading-relaxed text-muted">{t.contact.subtitle}</p>
 
-          <ul className="mb-8 space-y-4">
-            {details.map((item) => (
-              <li key={item.text} className="flex items-center gap-3">
-                <FontAwesomeIcon icon={item.icon} className="w-5 text-accent" />
-                {item.href ? (
-                  <a href={item.href} className="hover:text-accent">{item.text}</a>
-                ) : (
-                  <span>{item.text}</span>
-                )}
-              </li>
-            ))}
-          </ul>
-
-          <div className="flex flex-wrap gap-3">
-            {profile.socials.map((social) => (
-              <a
-                key={social.label}
-                href={social.href}
-                target={social.href.startsWith("mailto") ? undefined : "_blank"}
-                rel="noopener noreferrer"
-                aria-label={social.label}
-                className="flex size-11 items-center justify-center rounded-full border border-line bg-surface text-muted transition-colors hover:border-fg/30 hover:text-fg"
-              >
-                <FontAwesomeIcon icon={social.icon} />
+          {/* Kartu email dengan tombol salin */}
+          <div className="rounded-2xl border border-line bg-surface p-5">
+            <p className="flex items-center gap-2 text-xs text-muted">
+              <FontAwesomeIcon icon={faEnvelope} className="text-accent" /> {t.contact.email_card}
+            </p>
+            <div className="mt-2 flex flex-wrap items-center justify-between gap-3">
+              <a href={`mailto:${profile.email}`} className="min-w-0 break-all text-lg font-semibold hover:text-accent">
+                {profile.email}
               </a>
-            ))}
+              <button
+                type="button"
+                onClick={copyEmail}
+                className={`inline-flex shrink-0 items-center gap-2 rounded-full border px-3 py-1.5 font-mono text-xs transition-colors ${
+                  copied ? "border-accent/30 bg-accent/10 text-accent" : "border-line text-muted hover:border-fg/30 hover:text-fg"
+                }`}
+              >
+                <FontAwesomeIcon icon={copied ? faCheck : faCopy} />
+                <span aria-live="polite">{copied ? t.contact.copied : t.contact.copy}</span>
+              </button>
+            </div>
+          </div>
+
+          {/* Ketersediaan, gaya tabel mono seperti "Selected work" */}
+          <div className="mt-6">
+            <h2 className="mb-3 flex items-center gap-2 text-sm font-medium">
+              <span className="relative flex size-2">
+                <span className="absolute inline-flex size-full animate-ping rounded-full bg-green-500 opacity-60 motion-reduce:animate-none" />
+                <span className="relative inline-flex size-2 rounded-full bg-green-500" />
+              </span>
+              {t.contact.availability_title}
+            </h2>
+            <dl className="divide-y divide-line border-y border-line font-mono text-xs leading-6 sm:text-sm">
+              {availability.map((row) => (
+                <div key={row.value} className="grid grid-cols-[110px_1fr] gap-3 py-2 sm:grid-cols-[130px_1fr]">
+                  <dt className="text-muted">{row.label}</dt>
+                  <dd className={row.highlight ? "font-medium text-accent" : "text-fg"}>{row.value}</dd>
+                </div>
+              ))}
+            </dl>
           </div>
         </div>
 
@@ -108,6 +144,26 @@ export default function Contact() {
             <input id="contact-gotcha" name="_gotcha" type="text" tabIndex={-1} autoComplete="off" value={form._gotcha} onChange={handleChange} />
           </div>
 
+          {/* Pilihan topik: menentukan placeholder pesan dan judul email */}
+          <fieldset>
+            <legend className="mb-2 text-sm font-medium">{t.contact.topic_label}</legend>
+            <div className="flex flex-wrap gap-2">
+              {TOPICS.map((topic) => (
+                <label
+                  key={topic}
+                  className={`cursor-pointer rounded-full border px-4 py-1.5 text-sm transition-colors has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-accent ${
+                    form.topic === topic
+                      ? "border-accent bg-accent/10 font-medium text-accent"
+                      : "border-line text-muted hover:border-fg/30 hover:text-fg"
+                  }`}
+                >
+                  <input type="radio" name="topic" value={topic} checked={form.topic === topic} onChange={handleChange} className="sr-only" />
+                  {t.contact.topics[topic].label}
+                </label>
+              ))}
+            </div>
+          </fieldset>
+
           <Field id="contact-name" label={t.contact.name_label}>
             <input id="contact-name" name="name" type="text" required value={form.name} onChange={handleChange} placeholder={t.contact.name_placeholder} className={inputClass} />
           </Field>
@@ -117,7 +173,7 @@ export default function Contact() {
           </Field>
 
           <Field id="contact-message" label={t.contact.message_label}>
-            <textarea id="contact-message" name="message" rows={5} required value={form.message} onChange={handleChange} placeholder={t.contact.message_placeholder} className={`${inputClass} resize-y`} />
+            <textarea id="contact-message" name="message" rows={5} required value={form.message} onChange={handleChange} placeholder={t.contact.topics[form.topic].placeholder} className={`${inputClass} resize-y`} />
           </Field>
 
           <button

@@ -10,6 +10,7 @@ const skills = [
 
   // ===== FRONTEND =====
   { name: "JavaScript", category: "Frontend", core: true },
+  { name: "TypeScript", category: "Frontend" }, // dipakai di Kalkulator HPP
   { name: "Bootstrap", category: "Frontend", core: true },
   { name: "jQuery", category: "Frontend" },
   { name: "Vue.js", category: "Frontend" },
@@ -18,13 +19,13 @@ const skills = [
 
   // ===== DATABASE =====
   { name: "MySQL", category: "Database", core: true },
-  { name: "PostgreSQL", category: "Database", core: true },
+  { name: "PostgreSQL", category: "Database" },
 
   // ===== SERVER & TOOLS =====
   { name: "Linux (Ubuntu)", category: "Server & Tools", core: true },
-  { name: "Nginx", category: "Server & Tools" },
+  { name: "Nginx", category: "Server & Tools", core: true },
   { name: "VPS Deployment", category: "Server & Tools", core: true },
-  { name: "Server Hardening", category: "Server & Tools" },
+  { name: "Server Hardening", category: "Server & Tools", core: true },
   { name: "Git", category: "Server & Tools", core: true },
 ];
 

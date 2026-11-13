@@ -12,7 +12,7 @@ StrictMode
     └── ThemeProvider
         └── LanguageProvider
             └── App (Routes)
-                └── Layout (Navbar + Outlet + Footer)
+                └── Layout (Dock + Outlet + Footer)
                     └── Page → Sections
 ```
 
@@ -112,7 +112,7 @@ Konsekuensi penting: **jangan hardcode warna** seperti `bg-zinc-100` untuk permu
 | --- | --- |
 | Muncul saat di-scroll | `useInView` (IntersectionObserver, sekali jalan) + transisi opacity/translate |
 | Hitung angka naik | `CountUp` di `Stats.jsx` memakai `requestAnimationFrame` + easing |
-| Navbar menyembunyi saat scroll ke bawah | `useScrollState` (ambang 10px untuk mencegah kedip, sembunyi setelah `y > 100`) |
+| Tombol "kembali ke atas" muncul setelah scroll | `useScrollState` (`scrollY > 120`) |
 | Efek parallax foto | `bg-fixed` hanya di `md:` karena bermasalah di iOS |
 | Lightbox | `Lightbox.jsx`, tutup dengan klik atau `Esc`, mengunci scroll body |
 
@@ -128,7 +128,7 @@ Konsekuensi penting: **jangan hardcode warna** seperti `bg-zinc-100` untuk permu
 
 Situs statis di GitHub Pages tidak punya server yang bisa merender per-URL, sehingga SEO ditangani di tiga lapis:
 
-1. **`index.html`** — meta dasar, Open Graph, Twitter Card, JSON-LD `Person` (nama, pekerjaan, pendidikan, alamat, `sameAs`), canonical, manifest, Google Analytics.
+1. **`index.html`** — meta dasar, Open Graph, Twitter Card, JSON-LD `Person` (nama, pekerjaan, pendidikan, alamat, `sameAs`), canonical, Google Analytics.
 2. **Runtime** — `usePageMeta` memperbarui title/description/canonical saat navigasi klien.
 3. **Build-time prerender** — `scripts/prerender.js` menyalin `build/index.html` menjadi `build/<route>/index.html` dengan title, description, canonical, `og:*`, dan `twitter:*` masing-masing. Hasilnya setiap URL dilayani dengan status 200 dan bisa diindeks Google.
 

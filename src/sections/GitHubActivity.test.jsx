@@ -70,3 +70,26 @@ test("an all-zero year remains a valid contribution calendar", async () => {
   renderActivity();
   expect(await screen.findByRole("img", { name: "0 contributions in the last year" })).toBeInTheDocument();
 });
+
+test("accepts GitHub's full 53-week range, which can exceed 366 days", async () => {
+  const start = Date.UTC(2025, 10, 9);
+  const yearDays = Array.from({ length: 370 }, (_, i) => ({
+    date: new Date(start + i * 86400000).toISOString().slice(0, 10),
+    count: i === 369 ? 5 : 0,
+    level: i === 369 ? 4 : 0,
+  }));
+  fetch.mockResolvedValue({ ok: true, json: async () => ({ contributions: yearDays }) });
+  renderActivity();
+  expect(await screen.findByRole("img", { name: "5 contributions in the last year" })).toBeInTheDocument();
+});
+
+test("shows only the latest 53 weeks when the API returns a longer range", async () => {
+  fetch.mockResolvedValue({ ok: true, json: async () => ({ contributions: [
+    { date: "2025-01-01", count: 7, level: 4 },
+    { date: "2025-11-09", count: 2, level: 1 },
+    { date: "2026-11-13", count: 1, level: 1 },
+  ] }) });
+  renderActivity();
+  const chart = await screen.findByRole("img", { name: "3 contributions in the last year" });
+  expect(chart.querySelectorAll("rect")).toHaveLength(2);
+});

@@ -14,7 +14,7 @@ export default function BackToTop() {
       type="button"
       onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
       aria-label={t.nav.back_to_top}
-      className="fixed right-6 bottom-6 z-40 flex size-12 items-center justify-center rounded-full bg-accent text-on-accent shadow-lg transition-colors hover:bg-accent-hover"
+      className="fixed right-4 bottom-24 z-40 flex size-11 md:right-6 md:bottom-6 md:size-12 items-center justify-center rounded-full bg-accent text-on-accent shadow-lg transition-colors hover:bg-accent-hover"
     >
       <FontAwesomeIcon icon={faArrowUp} />
     </button>

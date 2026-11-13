@@ -44,7 +44,7 @@ Blok konten besar. Semua memakai `useLanguage()` untuk teks.
 | Komponen | Tanggung jawab |
 | --- | --- |
 | `Layout.jsx` | Kerangka semua halaman; scroll ke atas saat pindah route tanpa hash |
-| `Navbar.jsx` | Navigasi fixed, menu mobile, toggle bahasa (`EN`/`ID`), toggle tema; menyembunyi saat scroll ke bawah |
+| `Dock.jsx` | Navigasi utama bergaya dock: pil vertikal di kiri (desktop, ikon membesar saat hover + tooltip), pil horizontal di bawah (HP); berisi toggle bahasa (`EN`/`ID`) dan tema |
 | `Footer.jsx` | Hak cipta, tagline, tautan sosial dari `profile.socials` |
 | `BackToTop.jsx` | Tombol muncul setelah `scrollY > 120` |
 

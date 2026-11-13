@@ -40,7 +40,7 @@ Dokumentasi teknis website portofolio **muis.life** — situs statis milik Ilyas
 
 ```
 index.html              Template HTML: meta SEO, font, script tema, Google Analytics
-public/                 Aset statis (favicon, CNAME, sitemap, robots, manifest)
+public/                 Aset statis (favicon, CNAME, sitemap, robots)
 scripts/prerender.js    Generator HTML per halaman setelah build (SEO)
 src/
   main.jsx              Entry point: router + provider tema & bahasa
@@ -48,7 +48,7 @@ src/
   index.css             Tailwind + token warna tema + animasi
   pages/                Satu komponen per URL
   sections/             Blok konten besar (Intro, About, Projects, ...)
-  components/layout/    Navbar, Footer, Layout, BackToTop
+  components/layout/    Dock, Footer, Layout, BackToTop
   components/ui/        Button, FilterTabs, ImageCarousel, Lightbox, SectionHeader
   context/              State tema & bahasa (Context + Provider)
   hooks/                useInView, useScrollState, usePageMeta

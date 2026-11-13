@@ -55,8 +55,9 @@ export default function About() {
           </div>
 
           <div className="mt-8 flex flex-wrap gap-3 border-t border-line pt-6">
-            <Button href={profile.cvUrl}>{t.about.download_cv}</Button>
-            <Button to="/contact" variant="outline">{t.about.hire_me}</Button>
+            {/* Tombol CV hanya tampil kalau profile.cvUrl diisi */}
+            {profile.cvUrl && <Button href={profile.cvUrl}>{t.about.download_cv}</Button>}
+            <Button to="/contact" variant={profile.cvUrl ? "outline" : undefined}>{t.about.hire_me}</Button>
           </div>
         </div>
       </div>

@@ -13,7 +13,9 @@ const profile = {
   location: "Surabaya, Indonesia",
   get website() { return typeof window !== "undefined" ? window.location.origin : import.meta.env.VITE_SITE_URL; },
   gpa: 3.62,
-  cvUrl: "https://drive.google.com/drive/folders/1ToUoWToqsUVoGj7CRcbUsMxIT5RhuYUC?usp=sharing",
+  // Tombol "Lihat CV" disembunyikan selama null. Isi dengan URL CV (mis. "/cv.pdf") untuk menampilkannya lagi.
+  // CV lama: https://drive.google.com/drive/folders/1ToUoWToqsUVoGj7CRcbUsMxIT5RhuYUC?usp=sharing
+  cvUrl: null,
   // Form kontak dikirim lewat Formspree
   formEndpoint: "https://formspree.io/f/xlgzwzdk",
   // Tautan sosial dan kontak yang ditampilkan di situs.

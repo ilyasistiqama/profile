@@ -22,6 +22,8 @@
   --accent: #00787e;
   --accent-hover: #006a70;
   --on-accent: #ffffff; /* warna teks di atas latar aksen */
+  /* Latar belakang dekoratif (lihat .site-bg) */
+  --dot: #d4d4d8;
 }
 
 [data-theme="dark"] {
@@ -34,6 +36,7 @@
   --accent: #22c3cb;
   --accent-hover: #4fd3da;
   --on-accent: #09090b;
+  --dot: #26262b;
 }
 
 /*
@@ -88,17 +91,64 @@
     @apply tracking-tight;
   }
 
-  /* Supaya judul section tidak tertutup navbar saat lompat via #anchor */
+  /* Sedikit jarak di atas section saat lompat via #anchor */
   section {
-    scroll-margin-top: 6rem;
+    scroll-margin-top: 1.5rem;
   }
 }
 
-/* Pola grid tipis di belakang hero, memudar ke arah bawah */
-@utility bg-grid {
-  background-image:
-    linear-gradient(to right, var(--line) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--line) 1px, transparent 1px);
-  background-size: 48px 48px;
-  mask-image: radial-gradient(ellipse 80% 70% at 50% 0%, black 30%, transparent 100%);
+/*
+ * Latar belakang seluruh halaman (dipasang sekali di Layout):
+ * pola titik halus yang memudar ke pinggir.
+ * Posisinya fixed, jadi tetap mengisi layar saat di-scroll.
+ */
+.site-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -10;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.site-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(var(--dot) 1px, transparent 1.2px);
+  background-size: 22px 22px;
+  mask-image: radial-gradient(ellipse 75% 65% at 50% 35%, black 25%, transparent 100%);
+}
+
+/*
+ * Dock navigasi (lihat components/layout/Dock.jsx).
+ * Efek magnify ala dock macOS, khusus perangkat dengan mouse:
+ * ikon yang di-hover membesar, tetangganya ikut membesar sedikit.
+ */
+.dock-item {
+  transition:
+    transform 160ms ease,
+    background-color 150ms ease,
+    color 150ms ease;
+}
+
+@media (hover: hover) and (min-width: 48rem) {
+  .dock-item:hover {
+    transform: scale(1.3);
+    z-index: 1;
+  }
+
+  .dock-item:has(+ .dock-item:hover),
+  .dock-item:hover + .dock-item {
+    transform: scale(1.12);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dock-item,
+  .dock-item:hover,
+  .dock-item:has(+ .dock-item:hover),
+  .dock-item:hover + .dock-item {
+    transform: none;
+    transition: none;
+  }
 }

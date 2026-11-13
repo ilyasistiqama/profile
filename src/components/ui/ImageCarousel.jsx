@@ -19,7 +19,7 @@ export default function ImageCarousel({ images, alt, onImageClick }) {
       <img
         src={images[index]}
         alt={`${alt} ${index + 1}`}
-        onClick={() => onImageClick(images[index])}
+        onClick={() => onImageClick(index)}
         loading="lazy"
         decoding="async"
         className="size-full cursor-zoom-in object-cover object-top"

@@ -1,6 +1,7 @@
 import Intro from "../sections/Intro";
 import About from "../sections/About";
 import Stats from "../sections/Stats";
+import SelectedWork from "../sections/SelectedWork";
 import Skills from "../sections/Skills";
 import PhotoBanner from "../sections/PhotoBanner";
 import GitHubActivity from "../sections/GitHubActivity";
@@ -13,6 +14,7 @@ export default function HomePage() {
     <>
       <Intro />
       <Stats />
+      <SelectedWork />
       <About />
       <Skills />
       <GitHubActivity />

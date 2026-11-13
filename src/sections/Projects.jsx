@@ -17,9 +17,13 @@ function ProjectCard({ project, lang, t, categoryLabel, onImageClick }) {
   const hiddenStacks = project.stacks.length - stacks.length;
 
   return (
-    <article id={`project-${project.id}`} className="flex animate-fade-up flex-col overflow-hidden rounded-2xl border border-line bg-surface transition-all hover:-translate-y-0.5 hover:border-fg/20 hover:shadow-xl hover:shadow-black/5">
+    <article id={`project-${project.id}`} className="flex scroll-mt-6 animate-fade-up flex-col overflow-hidden rounded-2xl border border-line bg-surface transition-all hover:-translate-y-0.5 hover:border-fg/20 hover:shadow-xl hover:shadow-black/5">
       {project.images?.length > 0 && (
-        <ImageCarousel images={project.images} alt={project.project_name} onImageClick={onImageClick} />
+        <ImageCarousel
+          images={project.images}
+          alt={project.project_name}
+          onImageClick={(index) => onImageClick({ images: project.images, index, alt: project.project_name })}
+        />
       )}
 
       <div className="flex grow flex-col p-5">
@@ -68,7 +72,8 @@ function ProjectCard({ project, lang, t, categoryLabel, onImageClick }) {
 export default function Projects() {
   const { t, lang } = useLanguage();
   const [category, setCategory] = useState("All");
-  const [zoomedImage, setZoomedImage] = useState(null);
+  // { images, index, alt } milik proyek yang sedang dibuka di lightbox
+  const [gallery, setGallery] = useState(null);
 
   const categoryLabels = {
     All: t.project.filter_all,
@@ -86,7 +91,7 @@ export default function Projects() {
   }));
 
   return (
-    <section id="project" className="px-5 pt-32 pb-24">
+    <section id="project" className="px-5 pt-12 pb-24 md:pt-20">
       <div className="mx-auto max-w-6xl">
         <SectionHeader as="h1" title={t.project.title} subtitle={t.project.subtitle} />
         <FilterTabs options={options} value={category} onChange={setCategory} />
@@ -105,14 +110,20 @@ export default function Projects() {
                 lang={lang}
                 t={t}
                 categoryLabel={categoryLabels[project.category]}
-                onImageClick={setZoomedImage}
+                onImageClick={setGallery}
               />
             ))}
           </div>
         )}
       </div>
 
-      <Lightbox image={zoomedImage} onClose={() => setZoomedImage(null)} />
+      <Lightbox
+        images={gallery?.images}
+        index={gallery?.index}
+        alt={gallery?.alt}
+        onNavigate={(index) => setGallery((g) => ({ ...g, index }))}
+        onClose={() => setGallery(null)}
+      />
     </section>
   );
 }

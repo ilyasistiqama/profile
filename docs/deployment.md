@@ -86,7 +86,6 @@ Fallback SPA di GitHub Pages ditangani oleh `404.html` yang dibuat saat build.
 | `index.html` | Meta global, Open Graph, Twitter Card, JSON-LD `Person`, canonical, Google Analytics `G-4552V28RH` |
 | `public/robots.txt` | `Allow: /` + deklarasi sitemap |
 | `public/sitemap.xml` | Daftar URL; tanggal `lastmod` diperbarui manual |
-| `public/manifest.json` | Metadata PWA sederhana (nama, ikon, warna) |
 | `public/CNAME` | Custom domain |
 | `public/og-image.png` | Gambar preview saat tautan dibagikan |
 | `scripts/prerender.js` | HTML per halaman untuk status 200 |

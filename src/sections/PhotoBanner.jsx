@@ -7,6 +7,10 @@ import ranuKumbolo from "../assets/images/background.webp";
 import lembahLengkehan from "../assets/images/lembah-lengkehan.webp";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCamera } from "@fortawesome/free-solid-svg-icons";
+import { faInstagram } from "@fortawesome/free-brands-svg-icons";
+import profile from "../data/profile";
+
+const instagram = profile.socials.find((social) => social.label === "Instagram")?.href;
 
 // Tiga foto menempel dalam satu banner, dengan ajakan kontak di atasnya.
 export default function PhotoBanner() {
@@ -45,7 +49,14 @@ export default function PhotoBanner() {
           <div className="max-w-xl">
             <h2 id="photo-title" className="text-3xl font-semibold leading-tight sm:text-4xl md:text-5xl">{t.photo.title}</h2>
             <p className="mt-4 text-sm leading-7 text-white/90 sm:text-base">{t.photo.text}</p>
-            <Button to="/contact" variant="light" className="pointer-events-auto mt-7">{t.photo.cta}</Button>
+            <div className="pointer-events-auto mt-7 flex flex-wrap items-center justify-center gap-3">
+              <Button to="/contact" variant="white">{t.photo.cta}</Button>
+              {instagram && (
+                <Button href={instagram} variant="light">
+                  <FontAwesomeIcon icon={faInstagram} /> {t.photo.more_photos}
+                </Button>
+              )}
+            </div>
           </div>
         </div>
       </div>

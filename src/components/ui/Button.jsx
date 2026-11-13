@@ -8,6 +8,8 @@ const variants = {
   outline: "border-line bg-surface text-fg hover:border-fg/30",
   // Untuk di atas foto/latar gelap
   light: "border-white/40 bg-white/10 text-white backdrop-blur-sm hover:bg-white/20",
+  // Tombol utama di atas foto/latar gelap
+  white: "border-white bg-white text-neutral-900 hover:bg-white/90",
 };
 
 /**

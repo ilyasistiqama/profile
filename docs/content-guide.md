@@ -99,7 +99,7 @@ Efek samping yang perlu diketahui:
 | `name`, `email`, `location`, `website` | `Contact`, `Footer`, JSON-LD (nama di `index.html`) |
 | `gpa` | Data pendidikan; IPK ditampilkan dalam teks About di kedua locale, bukan statistik beranda |
 | `githubUsername` | Akun untuk kalender kontribusi setahun terakhir di beranda |
-| `cvUrl` | Tombol "Lihat CV" di `About` |
+| `cvUrl` | Tombol "Lihat CV" di `About` (isi `null` untuk menyembunyikan) |
 | `formEndpoint` | Endpoint Formspree pada form kontak |
 | `socials` | `Intro`, `Contact`, `Footer` |
 
@@ -140,7 +140,7 @@ Contoh menambah halaman `/blog/`:
    ```
 2. **Daftarkan route** di `src/App.jsx` di dalam `<Route element={<Layout />}>`.
 3. **Tambahkan SEO** `seo.blog = { title, description }` di `en.js` **dan** `id.js`.
-4. **Tambahkan label navigasi** di `nav` kedua locale, lalu masukkan ke array `links` pada `Navbar.jsx`.
+4. **Tambahkan label navigasi** di `nav` kedua locale, lalu masukkan ke array `links` (beserta ikonnya) pada `Dock.jsx`.
 5. **Daftarkan untuk prerender** di `scripts/prerender.js`:
    ```js
    { path: "/blog/", seo: en.seo.blog },
