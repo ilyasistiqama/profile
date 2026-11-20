@@ -25,8 +25,8 @@ export default function Layout() {
       {/* Latar dekoratif: pola titik halus (gaya ada di index.css) */}
       <div aria-hidden="true" className="site-bg" />
       <Dock />
-      {/* Ruang untuk dock: di kiri pada desktop (tidak perlu lagi di layar sangat lebar), di bawah pada HP */}
-      <div className="flex grow flex-col pb-20 md:pb-0 md:pl-20 2xl:pl-0">
+      {/* Ruang untuk dock: di kiri pada laptop/PC/TV (tidak perlu lagi di layar sangat lebar), di bawah pada HP & tablet */}
+      <div className="flex grow flex-col pb-20 desk:pb-0 desk:pl-20 2xl:pl-0">
         <main>
           <Outlet />
         </main>

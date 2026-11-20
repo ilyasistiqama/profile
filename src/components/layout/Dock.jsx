@@ -5,8 +5,8 @@ import { useLanguage } from "../../context/LanguageContext";
 import { useTheme } from "../../context/ThemeContext";
 
 // Navigasi utama bergaya dock:
-// - desktop (md ke atas): pil vertikal melayang di sisi kiri, ikon membesar saat di-hover + tooltip
-// - HP: pil horizontal melayang di tengah bawah layar
+// - laptop/PC/TV (variant desk:, lihat index.css): pil vertikal melayang di sisi kiri, ikon membesar saat di-hover + tooltip
+// - HP & tablet: pil horizontal melayang di tengah bawah layar
 // Efek "membesar" (magnify) diatur lewat class .dock-item di index.css.
 export default function Dock() {
   const { t, lang, toggleLang } = useLanguage();
@@ -19,14 +19,14 @@ export default function Dock() {
   ];
 
   const item =
-    "dock-item group relative flex size-10 items-center justify-center rounded-full focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent md:size-11";
+    "dock-item group relative flex size-10 items-center justify-center rounded-full focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent desk:size-11";
   const idle = "text-muted hover:bg-bg-alt hover:text-fg";
   // Halaman aktif: ikon teal dengan latar teal tipis
   const active = "bg-accent/10 text-accent";
 
-  // Tooltip nama di sebelah kanan ikon (hanya desktop)
+  // Tooltip nama di sebelah kanan ikon (hanya laptop/PC/TV)
   const tooltip = (label) => (
-    <span className="pointer-events-none absolute top-1/2 left-full ml-4 hidden -translate-y-1/2 translate-x-1 whitespace-nowrap rounded-lg border border-line bg-surface px-2.5 py-1 text-xs font-medium text-fg opacity-0 shadow-md transition-all group-hover:translate-x-0 group-hover:opacity-100 group-focus-visible:translate-x-0 group-focus-visible:opacity-100 md:block">
+    <span className="pointer-events-none absolute top-1/2 left-full ml-4 hidden -translate-y-1/2 translate-x-1 whitespace-nowrap rounded-lg border border-line bg-surface px-2.5 py-1 text-xs font-medium text-fg opacity-0 shadow-md transition-all group-hover:translate-x-0 group-hover:opacity-100 group-focus-visible:translate-x-0 group-focus-visible:opacity-100 desk:block">
       {label}
     </span>
   );
@@ -34,14 +34,14 @@ export default function Dock() {
   return (
     <nav
       aria-label={t.nav.main}
-      className="fixed inset-x-0 bottom-4 z-50 flex justify-center px-4 md:inset-x-auto md:top-1/2 md:bottom-auto md:left-5 md:-translate-y-1/2 md:px-0"
+      className="fixed inset-x-0 bottom-4 z-50 flex justify-center px-4 desk:inset-x-auto desk:top-1/2 desk:bottom-auto desk:left-5 desk:-translate-y-1/2 desk:px-0"
     >
-      <div className="dock flex items-center gap-1 rounded-full border border-line bg-surface/80 p-1.5 shadow-lg shadow-black/5 backdrop-blur-md md:flex-col md:gap-1.5 md:p-2">
-        {/* Logo: hanya di desktop, di HP fungsinya sudah diwakili ikon Beranda */}
+      <div className="dock flex items-center gap-1 rounded-full border border-line bg-surface/80 p-1.5 shadow-lg shadow-black/5 backdrop-blur-md desk:flex-col desk:gap-1.5 desk:p-2">
+        {/* Logo: hanya di laptop/PC/TV, di HP & tablet fungsinya sudah diwakili ikon Beranda */}
         <NavLink
           to="/"
           aria-label={t.nav.home}
-          className="dock-item group relative mb-1 hidden size-10 items-center justify-center md:flex md:size-11"
+          className="dock-item group relative mb-1 hidden size-10 items-center justify-center desk:flex desk:size-11"
         >
           <span
             aria-hidden="true"
@@ -65,7 +65,7 @@ export default function Dock() {
           </NavLink>
         ))}
 
-        <span aria-hidden="true" className="mx-1 h-6 w-px bg-line md:mx-0 md:my-1 md:h-px md:w-6" />
+        <span aria-hidden="true" className="mx-1 h-6 w-px bg-line desk:mx-0 desk:my-1 desk:h-px desk:w-6" />
 
         <button type="button" onClick={toggleLang} className={`${item} ${idle} font-mono text-xs font-medium`} aria-label="Toggle language">
           {lang.toUpperCase()}

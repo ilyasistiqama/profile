@@ -24,8 +24,8 @@ const id = {
       description: "Pengalaman Ilyas Istiqama di Terik Indonesia Inside, Mamorasoft, dan freelance: aplikasi Laravel, SaaS multi-tenant, database, serta server produksi.",
     },
     portfolio: {
-      title: "Proyek Laravel & Fullstack | Ilyas Istiqama",
-      description: "Portofolio Ilyas Istiqama: SaaS peternakan SIMPe, website Terik, e-commerce Synn Store, sistem RMP & SERGIO Petrokimia Gresik, Kalkulator HPP, dan sistem pakar.",
+      title: "Proyek Fullstack | Ilyas Istiqama",
+      description: "Portofolio Ilyas Istiqama: SaaS peternakan SIMPe, website Terik, e-commerce Synn Store, sistem RMP & SERGIO Petrokimia Gresik, Tanda Tangan PDF, Kalkulator HPP, dan sistem pakar.",
     },
     contact: {
       title: "Kontak Ilyas Istiqama | Peluang Kerja & Proyek Web",

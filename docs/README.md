@@ -11,6 +11,7 @@ Dokumentasi teknis website portofolio **muis.life** — situs statis milik Ilyas
 | [content-guide.md](./content-guide.md) | Cara mengubah teks, proyek, pengalaman, skill, dan menambah halaman baru |
 | [deployment.md](./deployment.md) | Build, prerender, GitHub Pages, dan checklist SEO |
 | [development.md](./development.md) | Setup lokal, perintah npm, testing, dan linting |
+| [panduan-pasca-deploy.md](./panduan-pasca-deploy.md) | Langkah setelah upload: cek deploy, uji dock di perangkat nyata, Search Console |
 
 ## Ringkasan proyek
 

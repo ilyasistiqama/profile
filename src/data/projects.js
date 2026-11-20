@@ -1,3 +1,8 @@
+import ttd1 from '../assets/images/project/ttd-pdf/ttd-1.webp';
+import ttd2 from '../assets/images/project/ttd-pdf/ttd-2.webp';
+import ttd3 from '../assets/images/project/ttd-pdf/ttd-3.webp';
+import ttd4 from '../assets/images/project/ttd-pdf/ttd-4.webp';
+
 import hpp1 from '../assets/images/project/kalkulator-hpp/hpp-1.webp';
 import hpp2 from '../assets/images/project/kalkulator-hpp/hpp-2.webp';
 import hpp3 from '../assets/images/project/kalkulator-hpp/hpp-3.webp';
@@ -36,6 +41,21 @@ import terik3 from '../assets/images/project/terik/terik-3.webp';
 // "end_client" (opsional) = klien akhir kalau proyeknya dikerjakan lewat perusahaan lain (mis. Mamorasoft -> Petrokimia).
 //   Tanpa "client", proyek dikelompokkan per kategori (Freelance / Personal).
 const projects = [
+    {
+        id: 'carouselTtdPdfIndicators',
+        short_name: 'Tanda Tangan PDF',
+        tagline: { en: 'browser-only PDF signing & tools', id: 'tanda tangan & alat PDF di browser' },
+        category: 'Personal',
+        images: [ttd1, ttd2, ttd3, ttd4],
+        project_name: 'Tanda Tangan PDF',
+        project_origin: 'Personal Project',
+        description: {
+            en: "Sign PDFs in the browser: draw or upload a signature, place it on any page, and download the signed file. Includes 9 PDF tools such as merge, split, compress and watermark. Files never leave the device, and it works offline as a PWA.",
+            id: "Tanda tangan PDF langsung di browser: gambar atau unggah tanda tangan, tempel di halaman mana pun, lalu unduh. Dilengkapi 9 alat PDF seperti gabung, pisah, kompres dan watermark. File tidak diunggah ke server dan bisa dipakai offline sebagai PWA."
+        },
+        stacks: ['React', 'TypeScript', 'Tailwind CSS', 'Vite', 'pdf.js', 'pdf-lib', 'PWA'],
+        url: 'https://ilyasistiqama.github.io/pdfkit-id/'
+    },
     {
         id: 'carouselHppIndicators',
         short_name: 'Kalkulator HPP',

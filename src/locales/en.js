@@ -24,8 +24,8 @@ const en = {
       description: "Ilyas Istiqama's work at Terik Indonesia Inside, Mamorasoft, and as a freelancer: Laravel applications, multi-tenant SaaS, databases, and production servers.",
     },
     portfolio: {
-      title: "Laravel & Fullstack Projects | Ilyas Istiqama",
-      description: "Projects by Ilyas Istiqama: SIMPe livestock SaaS, Terik website, Synn Store e-commerce, RMP & SERGIO for Petrokimia Gresik, a COGS calculator, and an expert system.",
+      title: "Fullstack Projects | Ilyas Istiqama",
+      description: "Projects by Ilyas Istiqama: SIMPe livestock SaaS, Terik website, Synn Store e-commerce, RMP & SERGIO for Petrokimia Gresik, a PDF signing app, a COGS calculator, and an expert system.",
     },
     contact: {
       title: "Contact Ilyas Istiqama | Web Development & Careers",
